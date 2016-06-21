@@ -11,6 +11,14 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   mount_uploader :avatar, AvatarUploader
 
+  has_many :photos
+  has_one :portfolio
+
+  after_create :create_portfolio
+
+
+
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
@@ -23,5 +31,9 @@ class User < ActiveRecord::Base
 
   def create_remember_token
     self.remember_token = User.encrypt(User.new_remember_token)
+  end
+
+  def create_portfolio
+    Portfolio.create(user_id: self.id, description: "Portfolio of member #{self.name}")
   end
 end

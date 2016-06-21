@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'photos/destroy'
+
+  get 'portfolios/index'
+
+  get 'portfolios/show'
+
   get 'static_pages/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -18,6 +24,8 @@ Rails.application.routes.draw do
   #   resources :products
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :portfolios
+  resources :photos, only: [:destroy, :new, :create]
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

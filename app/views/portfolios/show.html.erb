@@ -1,0 +1,12 @@
+<h1>Portfolio#show</h1>
+<p>Find me in app/views/portfolio/show.html.erb</p>
+<div> <%= @portfolio.description %></div>
+<ul>
+  <% @photos.each do |photo| %>
+      <li>
+        <%= photo.title %>
+        <br>
+        <%= image_tag photo.path %>
+      </li>
+  <% end %>
+</ul>

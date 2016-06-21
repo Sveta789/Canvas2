@@ -6,7 +6,7 @@
     <a href = "#">Контакты</a>
     <div class = "personal-cabinet">
       <% if signed_in? %>
-          <%= link_to  "Личный Кабинет", current_user %>
+          <%= link_to  current_user.name, current_user %>
           <%= link_to  "Выйти", signout_path, method: "delete" %>
       <% else %>
           <%= link_to  "Войти", signin_path %>

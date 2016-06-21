@@ -27,5 +27,9 @@ module SessionsHelper
     self.current_user = nil
   end
 
+  def current_user?(id)
+    current_user.id == id
+  end
+
 
 end

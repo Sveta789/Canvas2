@@ -29,13 +29,13 @@ section
   min-height: 400px;
 }
 
-section:first-of-type
+#photohome
 {
   background:url(mainback.jpg) no-repeat;
   background-size: cover;
 }
 
-section:nth-of-type(2)
+#videohome
 {
   background:url(number_tu_fon.png) no-repeat;
   background-size: cover;
@@ -284,7 +284,7 @@ display: block;
   margin-left:2%;
 }
 
-#btn-showfilters, #btn-hidefilters
+#btn-showfilters, #btn-hidefilters, #btn2-showfilters, #btn2-hidefilters
 {
   position:absolute;
   border:none;
@@ -297,7 +297,7 @@ display: block;
   transition:all 0.5s ease;
 }
 
-#btn-showfilters:hover,#btn-hidefilters:hover
+#btn-showfilters:hover,#btn-hidefilters:hover,#btn2-showfilters:hover,#btn2-hidefilters:hover
 {
   -webkit-filter:drop-shadow(0px 0px 1px lightgray);
   text-decoration:underline;
