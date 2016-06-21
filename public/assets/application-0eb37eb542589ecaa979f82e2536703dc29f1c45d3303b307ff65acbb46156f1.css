@@ -1,0 +1,502 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Code Pro Light';
+  src: url("/assets/fonts/CodeProLight-ecb741829a98164b1fcae0bedccac09affa31528e1fa9e79eb52643bc056362b.woff");
+  font-weight: 400;
+  font-style: normal;
+}
+/* line 9, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* line 16, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  font-family: "Code Pro Light";
+}
+
+/* line 24, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+section {
+  float: left;
+  width: 1600px;
+  margin: 0;
+  height: 100%;
+  min-height: 400px;
+}
+
+/* line 32, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+#photohome {
+  background: url(mainback.jpg) no-repeat;
+  background-size: cover;
+}
+
+/* line 38, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+#videohome {
+  background: url(number_tu_fon.png) no-repeat;
+  background-size: cover;
+}
+
+/* line 45, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+header {
+  position: fixed;
+  font-family: "Code Pro Light";
+  font-size: 1.8em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  top: 0px;
+  min-height: 80px;
+  max-height: 80px;
+  background: white;
+  text-transform: uppercase;
+  border-bottom: 2px solid gray;
+}
+
+/* line 64, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.zaglushka {
+  width: 100%;
+  top: 0px;
+  min-height: 80px;
+  max-height: 80px;
+  z-index: 0;
+}
+
+/* line 73, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+/* line 78, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+header a:hover {
+  -webkit-filter: drop-shadow(2px 2px 2px black);
+}
+
+/* line 83, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+header #navmenu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-basis: 500px;
+  flex-grow: 8;
+}
+
+/* line 91, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.personal-cabinet {
+  height: 60px;
+  border: 2px lightgray solid;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+/* line 98, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.personal-cabinet a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-size: 0.7em;
+}
+
+/* line 109, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.whitestripe {
+  position: absolute;
+  width: 100%;
+  min-height: 600px;
+  background: white;
+  margin-top: 300px;
+  z-index: 10;
+}
+
+/* line 118, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.whitestripe h1 {
+  display: block;
+  text-align: center;
+  font-size: 4em;
+  transform: translateY(-30px);
+  font-weight: 100;
+  margin-bottom: 0px;
+}
+
+/* line 126, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.active {
+  z-index: 100;
+}
+
+/* line 131, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.proba {
+  transform: translateY(80px);
+  background: url(VIDEVO.png) no-repeat;
+  width: 100%;
+  height: 750px;
+  z-index: 1;
+}
+
+/*-------------------------------------------*/
+/*SLAIDER*/
+/* line 142, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.slider-wrapper {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+/* Ширина лайдера */
+/* line 150, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+#slider {
+  width: 500px;
+}
+
+/* Контейнер слайдера */
+/* line 155, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.ui-slider {
+  position: relative;
+  margin: auto;
+  transform: translateY(140px);
+}
+
+/* Ползунок */
+/* line 162, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 8px;
+  /* Задаем нужную ширину */
+  height: 30px;
+  /* и высоту */
+  background: black no-repeat;
+  /* картинка изображающая ползунок. Или можно залить цветом, задать бордюр и скругления */
+  cursor: pointer;
+}
+
+/* line 170, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  font-size: .7em;
+  display: block;
+  border: 0;
+  overflow: hidden;
+}
+
+/* горизонтальный слайдер (сама полоса по которой бегает ползунок) */
+/* line 179, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.ui-slider-horizontal {
+  height: 2px;
+  /* задаем высоту согласно дизайна */
+}
+
+/* позиционируем ползунки */
+/* line 183, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.ui-slider-horizontal .ui-slider-handle {
+  top: -13px;
+  margin-left: -5px;
+}
+
+/* line 187, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.ui-slider-horizontal .ui-slider-range {
+  top: 0;
+  height: 100%;
+}
+
+/* line 191, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.ui-slider-horizontal .ui-slider-range-min {
+  left: 0;
+}
+
+/* line 194, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.ui-slider-horizontal .ui-slider-range-max {
+  right: 0;
+}
+
+/* оформление полосы по которой ходит ползунок */
+/* line 198, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.ui-widget-content {
+  background: lightgray;
+}
+
+/* оформление активного участка (между двумя ползунками) */
+/* line 202, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.ui-widget-header {
+  background: gray;
+}
+
+/* скругление для полосы слайдера */
+/* line 207, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.slider-price-cell {
+  position: absolute;
+  width: 60px;
+  font-size: 1.3em;
+  top: 20%;
+  font-family: "Code Pro Light";
+}
+
+/* line 215, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.slider-wrapper span {
+  position: absolute;
+  width: 200px;
+  font-size: 1.4em;
+  display: block;
+  text-align: center;
+  left: 50%;
+  top: 10%;
+  margin-left: -100px;
+}
+
+/* line 227, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.slider-wrapper img {
+  display: block;
+  width: 80px;
+  position: absolute;
+  left: 50%;
+  bottom: 17%;
+  margin-left: -40px;
+}
+
+/* line 238, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.cell-min {
+  left: 5%;
+  border: none;
+}
+
+/* line 242, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.cell-max {
+  right: 0%;
+  border: none;
+}
+
+/* line 246, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.btn-search {
+  position: absolute;
+  display: block;
+  border: 1px solid black;
+  height: 40px;
+  width: 200px;
+  bottom: 40%;
+  left: 50%;
+  margin-left: -120px;
+  padding: 5px 20px;
+  color: white;
+  text-align: center;
+  background: black;
+  text-decoration: none;
+  -webkit-filter: drop-shadow(0 0 2px black);
+  transition: 0.5s ease;
+  font-size: 1.8em;
+}
+
+/* line 265, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.btn-search div {
+  padding: 2px;
+  border: 1px solid gray;
+  border-radius: 5%;
+}
+
+/* line 271, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.btn-search:hover {
+  background: gray;
+}
+
+/* line 277, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+#logo {
+  flex-basis: 200px;
+  flex-grow: 3;
+  background: url(logo_FAJNOL.png) no-repeat;
+  background-size: contain;
+  width: 200px;
+  height: 80px;
+  margin-left: 2%;
+}
+
+/* line 287, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+#btn-showfilters, #btn-hidefilters, #btn2-showfilters, #btn2-hidefilters {
+  position: absolute;
+  border: none;
+  background: none;
+  color: gray;
+  width: 180px;
+  left: 50%;
+  margin-left: -90px;
+  bottom: 10%;
+  transition: all 0.5s ease;
+}
+
+/* line 300, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+#btn-showfilters:hover, #btn-hidefilters:hover, #btn2-showfilters:hover, #btn2-hidefilters:hover {
+  -webkit-filter: drop-shadow(0px 0px 1px lightgray);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* line 306, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  height: 400px;
+  max-width: 1200px;
+  margin: -20px auto;
+}
+
+/* line 317, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box {
+  display: block;
+  width: 200px;
+  height: 200px;
+  padding: 5px;
+}
+
+/* line 325, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box span {
+  display: block;
+  font-size: 1.3em;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* line 332, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-round {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 0 lightgray;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* line 342, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-round:hover {
+  cursor: pointer;
+}
+
+/* line 347, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-round:before {
+  position: absolute;
+  content: "";
+  width: 150px;
+  height: 150px;
+  background: black;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+/* line 358, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-round:hover::before {
+  opacity: 0.75;
+}
+
+/* line 364, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box:nth-of-type(1) .filter-round {
+  background: url(Photo_for_filters/1.jpg) no-repeat 100% 50%;
+  background-size: cover;
+}
+
+/* line 370, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box:nth-of-type(1) .filter-round:hover::before {
+  opacity: 0.75;
+}
+
+/* line 375, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box:nth-of-type(2) .filter-round {
+  background: url(Photo_for_filters/2.jpg) no-repeat 50% 50%;
+  background-size: cover;
+}
+
+/* line 381, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box:nth-of-type(3) .filter-round {
+  background: url(Photo_for_filters/3.jpg) no-repeat 20% 50%;
+  background-size: cover;
+}
+
+/* line 387, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box:nth-of-type(4) .filter-round {
+  background: url(Photo_for_filters/4.jpg) no-repeat 30% 0%;
+  background-size: cover;
+}
+
+/* line 393, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box:nth-of-type(5) .filter-round {
+  background: url(Photo_for_filters/5.jpg) no-repeat 30% 0%;
+  background-size: cover;
+}
+
+/* line 399, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box:nth-of-type(6) .filter-round {
+  background: url(Photo_for_filters/6.jpg) no-repeat 30% 0%;
+  background-size: cover;
+}
+
+/* line 405, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box:nth-of-type(7) .filter-round {
+  background: url(Photo_for_filters/7.jpg) no-repeat 30% 0%;
+  background-size: cover;
+}
+
+/* line 410, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.filter-box:nth-of-type(8) .filter-round {
+  background: url(Photo_for_filters/8.jpg) no-repeat 30% 0%;
+  background-size: cover;
+}
+
+/* line 416, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.registration-box {
+  border: 2px black solid;
+  border-radius: 10px;
+  background: lightgray;
+  width: 50%;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+/* line 426, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.register_field {
+  margin: 20px auto;
+  width: 50%;
+}
+
+/* line 432, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+#error_explanation {
+  width: 50%;
+  margin: 20px auto;
+  background: lightpink;
+}
+
+/* line 439, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.alert {
+  width: 50%;
+  margin: 20px auto;
+  background: lightpink;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* line 448, C:/Users/FD/RubymineProjects/Canvas 2/app/assets/stylesheets/custom.scss */
+.site-container {
+  width: 100%;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
