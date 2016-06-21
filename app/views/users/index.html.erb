@@ -1,0 +1,14 @@
+<div>All users here </div>
+<% if !@users.empty? %>
+<ul class="users">
+  <% @users.each do |user|
+  user_avatar = user.avatar.url%>
+      <li>
+        <%=image_tag(user_avatar) %>
+        <%= link_to user.name, '#' %>
+      </li>
+  <% end %>
+</ul>
+<% else %>
+<div>There are no users!</div>
+<% end %>

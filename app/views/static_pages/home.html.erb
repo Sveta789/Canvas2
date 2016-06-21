@@ -1,0 +1,120 @@
+<script>
+    $(function(){
+        jQuery("#slider").slider({
+            min: 0,
+            max: 1000,
+            values: [0,1000],
+            range: true,
+            stop: function(event, ui) {
+                jQuery("input#minCost").val(jQuery("#slider").slider("values",0));
+                jQuery("input#maxCost").val(jQuery("#slider").slider("values",1));
+            },
+            slide: function(event, ui){
+                jQuery("input#minCost").val(jQuery("#slider").slider("values",0));
+                jQuery("input#maxCost").val(jQuery("#slider").slider("values",1));
+            }
+        });})
+    jQuery("input#minCost").change(function(){
+        var value1=jQuery("input#minCost").val();
+        var value2=jQuery("input#maxCost").val();
+        if(parseInt(value1) > parseInt(value2)){
+            value1 = value2;
+            jQuery("input#minCost").val(value1);
+        }
+        jQuery("#slider").slider("values",0,value1);
+    });
+
+    jQuery("input#maxCost").change(function(){
+        var value1=jQuery("input#minCost").val();
+        var value2=jQuery("input#maxCost").val();
+        if (value2 > 1000) { value2 = 1000; jQuery("input#maxCost").val(1000)}
+        if(parseInt(value1) > parseInt(value2)){
+            value2 = value1;
+            jQuery("input#maxCost").val(value2);
+        }})
+</script>
+<section>
+<div id="photoslide" class = "whitestripe active">
+  <h1>- ФОТОСЪЕМКА -</h1>
+  <div class = "slider-wrapper">
+    <span>СТОИМОСТЬ</span>
+    <input class = "slider-price-cell cell-min" type="text" id="minCost" value="0">
+    <input class = "slider-price-cell cell-max" type="text" id="maxCost" value="1000">
+    <div id="slider"></div>
+    <a href="#" class = "btn-search"><div>ИСКАТЬ</div></a>
+    <%= image_tag("birdy.png")%>
+    <button id = btn-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
+  </div>
+</div>
+
+<div id="photoslide-filters" class = "whitestripe">
+  <h1>- ВСЕ РАЗДЕЛЫ -</h1>
+  <div class = "filter-wrapper">
+    <div class=filter-box>
+      <div class="filter-round">            </div>
+      <span class="filter-label">СВАДЬБЫ</span>
+    </div>
+    <div class=filter-box>
+      <div class="filter-round">
+      </div>
+      <span class="filter-label">Праздники</span>
+    </div>
+    <div class=filter-box>
+      <div class="filter-round">
+      </div>
+      <span class="filter-label">LOVE STORY</span>                      </div>
+    <div class=filter-box>
+      <div class="filter-round">
+      </div>
+      <span class="filter-label">ПЕРСОНАЛЬНЫЕ</span>                   </div>
+
+    <div class=filter-box>
+      <div class="filter-round">
+      </div>
+      <span class="filter-label">КОММЕРЧЕСКИЕ</span>                  </div>
+    <div class=filter-box>
+      <div class="filter-round">
+      </div>
+      <span class="filter-label">ВЕЧЕРИНКИ</span>                     </div>
+    <div class=filter-box>
+      <div class="filter-round">
+      </div>
+      <span class="filter-label">ДРУГИЕ</span>                  </div>
+    <div class=filter-box>
+      <div class="filter-round">
+      </div>
+      <span class="filter-label">ФОТОПРОЕКТЫ</span>                   </div>
+  </div>
+
+  <button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>
+</div>
+</div>
+
+</section>
+
+<!--------СЛАЙД 2-------------->
+
+<section class = "slide slide2" data-role="section">
+  <div class = whitestripe>
+    <div class = "proba"></div>
+  </div>
+
+</section>
+
+<!-------СКРИПТЫ----------->
+<script>
+    $('section').horizon();
+</script>
+
+<script>
+    $('#btn-showfilters').bind('click', function()
+    {
+        $("#photoslide").fadeOut(500);
+    } );
+
+    $('#btn-hidefilters').bind('click', function()
+    {
+        $("#photoslide").fadeIn(500);
+    } );
+
+</script>
