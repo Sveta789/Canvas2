@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fec35e4c-b809-4e3d-ae53-552a102c0cc9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Canvas 2.iws" />
@@ -68,19 +68,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="production.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="0" selection-start="1969" selection-end="1969" vertical-scroll-proportion="0.0" vertical-offset="337" max-vertical-offset="1445">
+            <state line="31" column="31" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.31772575" vertical-offset="337" max-vertical-offset="1445">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/application.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="5" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.7675585" vertical-offset="0" max-vertical-offset="612">
+            <state line="27" column="5" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
@@ -191,8 +191,8 @@
         <option value="$PROJECT_DIR$/app/views/shared/_header.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" />
-        <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
+        <option value="$PROJECT_DIR$/config/environments/production.rb" />
       </list>
     </option>
   </component>
@@ -683,7 +683,11 @@
       <created>1466781978152</created>
       <updated>1466781978152</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="assets compiled 2&#10;">
+      <created>1466782468354</created>
+      <updated>1466782468354</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -730,7 +734,8 @@
     <MESSAGE value="profiles added&#10;" />
     <MESSAGE value="assets" />
     <MESSAGE value="assets compiled&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="assets compiled&#10;" />
+    <MESSAGE value="assets compiled 2&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="assets compiled 2&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1080,16 +1085,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="1969" selection-end="1969" vertical-scroll-proportion="0.0" vertical-offset="337" max-vertical-offset="1445">
+        <state line="27" column="5" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.rb">
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="5" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.7675585" vertical-offset="0" max-vertical-offset="612">
+        <state line="31" column="31" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.31772575" vertical-offset="337" max-vertical-offset="1445">
           <folding />
         </state>
       </provider>
