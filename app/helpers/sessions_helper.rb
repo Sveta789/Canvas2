@@ -31,5 +31,9 @@ module SessionsHelper
     current_user.id == id
   end
 
+  def operator?
+    current_user.operator
+  end
+
 
 end

@@ -15,7 +15,7 @@
           <li>
             <%= photo.title %>
             <br>
-            <%= image_tag photo.path %>
+            <%= image_tag photo.image.thumb %>
             <% if !current_user?(photo.user_id) %>
                 <%= link_to "delete", photo_path, method: :delete,
                             data: { confirm: "You sure?" },
@@ -29,11 +29,13 @@
 
     <%= form_for @photo, :html => {:multipart => true} do |f| %>
         <p>
-          <label>New Photo</label>
-          <%= image_tag(@photo.path) if @photo.path != nil %>
+          <label>Загрузить фото:</label>
+          <%= image_tag(@photo.image_url) if @photo.image != nil %>
+          <%= f.text_field :title %>
           <%= f.file_field :image %>
           <%= f.hidden_field :image_cache %>
-          <%= f.submit "Save new photo", class: "btn btn-primary" %>
+          <%= f.submit "Сохранить фото", class: "btn btn-primary" %>
+        </p>
         <% end %>
   </div>
 </div>

@@ -1,12 +1,10 @@
-<h1>Portfolio#show</h1>
-<p>Find me in app/views/portfolio/show.html.erb</p>
+<h1>Portfolio of <%= @portfolio.user.profile.name %></h1>
 <div> <%= @portfolio.description %></div>
-<ul>
+
+<h1> Фотосъемка </h1>
+<div class = container-for-photos>
   <% @photos.each do |photo| %>
-      <li>
-        <%= photo.title %>
-        <br>
-        <%= image_tag photo.path %>
-      </li>
+        <%= image_tag( photo.image.thumb.url, class: "photo-block") %>
   <% end %>
-</ul>
+</div>
+<%= link_to "Редактировать портфолио", edit_portfolio_path %>

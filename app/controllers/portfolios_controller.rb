@@ -5,26 +5,13 @@ class PortfoliosController < ApplicationController
 
   def show
     @portfolio = Portfolio.find(params[:id])
-    photos_array = Photo.all
-    @photos = []
-    photos_array.each do |photo|
-       if photo.user_id == @portfolio.user_id
-         @photos << photo
-      end
-    end
+    @photos = User.find(@portfolio.user_id).photos
   end
 
   def edit
     @portfolio = Portfolio.find(params[:id])
+    @photos = User.find(@portfolio.user_id).photos
     @photo = Photo.new
-    photos_array = Photo.all
-    @photos = []
-
-    photos_array.each do |photo|
-      if photo.user_id == @portfolio.user_id
-        @photos << photo
-      end
-    end
   end
 
   def update

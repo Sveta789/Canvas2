@@ -1,12 +1,15 @@
 <header>
-  <div id=logo></div>
+  <%= link_to "", root_path,  id:"logo" %>
   <div id=navmenu>
     <a href = "#">О нас</a>
     <a href = "#">Каталог</a>
     <a href = "#">Контакты</a>
     <div class = "personal-cabinet">
       <% if signed_in? %>
-          <%= link_to  current_user.name, current_user %>
+          <%= link_to  current_user.email, current_user.profile %>
+          <% if current_user.operator? %>
+            <%= link_to  "Портфолио", current_user.portfolio %>
+          <% end %>
           <%= link_to  "Выйти", signout_path, method: "delete" %>
       <% else %>
           <%= link_to  "Войти", signin_path %>

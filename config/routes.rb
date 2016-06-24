@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'profiles/show'
+
+  get 'profiles/edit'
+
+  get 'profiles/update'
+
+  get 'profiles/destroy'
+
+  get 'portfolios/show'
+
+  get 'portfolios/destroy'
+
+  get 'portfolios/edit'
+
+  get 'portfolios/update'
+
   get 'photos/destroy'
 
   get 'portfolios/index'
@@ -26,6 +42,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :portfolios
   resources :photos, only: [:destroy, :new, :create]
+  resources :profiles
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

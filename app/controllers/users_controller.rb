@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       # Handle a successful save.
       sign_in @user
       flash[:success] = "Welcome to the Canvas!"
-      redirect_to @user
+      redirect_to @user.profile
     else
       render 'new'
     end
@@ -26,8 +26,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:email, :password,
+                                 :password_confirmation, :operator)
   end
 
 end

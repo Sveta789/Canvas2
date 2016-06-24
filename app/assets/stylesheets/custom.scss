@@ -449,3 +449,22 @@ border-radius: 10px;
 {
   width: 100%;
 }
+
+.container-for-photos{
+  width:80%;
+  padding: 20px;
+  background: lightgray;
+  margin: 20px auto;
+  border-radius: 20px;
+  border: 2px gray solid;
+}
+
+.photo-block{
+  display: inline-block;
+  border: 2px gray solid;
+  margin:10px;
+}
+
+h1{
+  text-align: center;
+}

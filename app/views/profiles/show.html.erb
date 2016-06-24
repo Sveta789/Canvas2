@@ -1,0 +1,37 @@
+<h1>Profile of <%=@profile.user.email %></h1>
+
+<div class = "registration-box">
+  <div>
+     <%= image_tag @profile.avatar.thumb %>
+  </div>
+  <div>
+    Имя: <%= @profile.name %>
+  </div>
+  <div>
+    Фамилия: <%= @profile.surname %>
+  </div>
+  <div>
+    Пол: <%= @profile.sex %>
+  </div>
+  <div>
+    Дата рождения: <%= @profile.birthday %>
+  </div>
+  <div>
+    Город: <%= @profile.city %>
+  </div>
+  <div>
+    Телефон: <%= @profile.phone_number %>
+  </div>
+  <div>
+    E-mail: <%= @profile.social_email %>
+  </div>
+  <div>
+  Соц сети: <%= @profile.social_network %>
+</div>
+  <div>
+    О себе: <%= @profile.hobby %>
+  </div>
+  <%= link_to "Редактировать страницу", edit_profile_path %>
+</div>
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621154316) do
+ActiveRecord::Schema.define(version: 20160624142949) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160621154316) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -28,14 +29,29 @@ ActiveRecord::Schema.define(version: 20160621154316) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "profiles", force: :cascade do |t|
     t.string   "name"
+    t.string   "surname"
+    t.string   "sex"
+    t.date     "birthday"
+    t.string   "city"
+    t.string   "avatar"
+    t.string   "phone_number"
+    t.string   "social_email"
+    t.string   "social_network"
+    t.string   "hobby"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "avatar"
     t.string   "remember_token"
+    t.boolean  "operator"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
