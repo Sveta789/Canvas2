@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fec35e4c-b809-4e3d-ae53-552a102c0cc9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Canvas 2.iws" />
@@ -50,7 +49,11 @@
         <entry file="file://$PROJECT_DIR$/app/views/shared/_header.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="19" column="9" selection-start="644" selection-end="644" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="425">
-              <folding />
+              <folding>
+                <marker date="1466780704348" expanded="true" signature="7:643" placeholder="..." />
+                <marker date="1466780704348" expanded="true" signature="69:633" placeholder="..." />
+                <marker date="1466780704348" expanded="true" signature="195:624" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -671,7 +674,11 @@
       <created>1466781401445</created>
       <updated>1466781401445</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="assets">
+      <created>1466781904071</created>
+      <updated>1466781904071</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -716,7 +723,8 @@
     <MESSAGE value="heroku changes&#10;" />
     <MESSAGE value="new gems" />
     <MESSAGE value="profiles added&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="profiles added&#10;" />
+    <MESSAGE value="assets" />
+    <option name="LAST_COMMIT_MESSAGE" value="assets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1049,7 +1057,11 @@
     <entry file="file://$PROJECT_DIR$/app/views/shared/_header.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="9" selection-start="644" selection-end="644" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="425">
-          <folding />
+          <folding>
+            <marker date="1466780704348" expanded="true" signature="7:643" placeholder="..." />
+            <marker date="1466780704348" expanded="true" signature="69:633" placeholder="..." />
+            <marker date="1466780704348" expanded="true" signature="195:624" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
