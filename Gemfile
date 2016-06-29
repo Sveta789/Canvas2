@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.1.8'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record
@@ -15,7 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'heroku'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -27,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'mini_magick'
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
-
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'carrierwave'
@@ -48,6 +47,7 @@ group :production do
   gem 'pg', '0.17.1'
   gem 'rails_12factor', '0.0.2'
 end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
