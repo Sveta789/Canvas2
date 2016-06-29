@@ -1,3 +1,160 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search-result-item
+{
+  border-bottom:1px solid lightgray;
+  display: flex;
+  justify-content: space-around;
+  padding:10px;
+  background: white;
+  align-items: center;
+  -webkit-filter:drop-shadow(1px 1px 3px lightgray);
+}
+
+.avatar-photo-in-item
+{
+  display: block;
+  height:100px;
+  width:100px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  border-radius: 50%;
+  border:2px solid black;
+}
+
+.avatar-photo-in-item:hover
+{  -webkit-filter:blur(2px);
+  -webkit-filter:drop-shadow(1px 1px 3px black);
+}
+
+.photo-in-item{
+  display: inline-block;
+  height: 150px;
+  width: 200px;
+  border: 2px solid white;
+}
+
+.about-author-block
+{display: flex;
+  align-items: center;
+  width:30%;
+  text-align: center;
+}
+
+.center-button-block{
+  width:10%;
+  text-align: center;
+}
+
+.photo-examples-block, .form-cells-block
+{display: inline-block;
+  width:35%;
+  text-align: center;
+}
+
+.form-cells-block{
+  width:45%;
+}
+
+.catalog-filter-form-box
+{
+  display: flex;
+  height:200px;
+  border-bottom:1px solid lightgray;
+  -webkit-filter:drop-shadow(1px 1px 3px lightgray);
+  align-items: center;
+}
+
+.catalog-section{
+  background:url('mayak-fon.jpg');
+  background-size: cover;
+  height: 100%;
+  margin:0;
+}
+
+.about-author-block input
+{  text-align: center;
+  display: inline-block;
+}
+.author-info
+{
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.catalog-filter-form-box input[type = 'text']
+{
+  height: 35px;
+  padding: 5px;
+  width:60px;
+  border:2px solid black;
+  -webkit-filter:drop-shadow(0px 0px 2px black);
+  margin:20px;
+  margin-right: 40px;
+  margin-left: 0;
+  font-family: Verdana;
+
+
+}
+
+.catalog-filter-form-box select
+{
+  height: 50px;
+  padding: 5px;
+  width:200px;
+  border:2px solid black;
+  -webkit-filter:drop-shadow(0px 0px 2px black);
+  margin:20px;
+  margin-left: 0;
+  font-family: Verdana;
+  margin-right: 40px;
+}
+
+.catalog-filter-form-box input[type = 'submit']
+{
+  height: 50px;
+  padding: 5px;
+  width:100%;
+  border:2px solid black;
+  -webkit-filter:drop-shadow(0px 0px 2px black);
+  margin:20px;
+  margin-left: 0;
+  font-family: Verdana;
+}
+
+.swap-button
+{display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color:inherit;
+  height: 50px;
+  padding: 5px;
+  width:200px;
+  border:2px solid black;
+  -webkit-filter:drop-shadow(0px 0px 2px black);
+  margin-left: 0;
+  font-family: Verdana;
+  background: white;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: start;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.swap-button:after
+{position: absolute;
+  content: '';
+  height: 40px;
+  width:40px;
+  background:url("reload.png");
+  background-size: cover;
+  right: 10px;
+  bottom:4px;
+}

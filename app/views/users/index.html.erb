@@ -2,10 +2,10 @@
 <% if !@users.empty? %>
 <ul class="users">
   <% @users.each do |user|
-  user_avatar = user.avatar.url%>
+  user_avatar = user.profile.avatar.thumb%>
       <li>
         <%=image_tag(user_avatar) %>
-        <%= link_to user.name, '#' %>
+        <%= link_to user.email, user %>
       </li>
   <% end %>
 </ul>

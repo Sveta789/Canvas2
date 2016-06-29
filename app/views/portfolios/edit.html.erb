@@ -16,8 +16,8 @@
             <%= photo.title %>
             <br>
             <%= image_tag photo.image.thumb %>
-            <% if !current_user?(photo.user_id) %>
-                <%= link_to "delete", photo_path, method: :delete,
+            <% if current_user?(photo.user_id) %>
+                <%= link_to "delete", photo, method: :delete,
                             data: { confirm: "You sure?" },
                             title: photo.title %>
             <% end %>
@@ -31,7 +31,10 @@
         <p>
           <label>Загрузить фото:</label>
           <%= image_tag(@photo.image_url) if @photo.image != nil %>
+          <label> Название</label>
           <%= f.text_field :title %>
+          <%= f.label 'Категория:' %>
+          <%= select_tag "photo[category]", options_for_select([['Портрет'],['Вечеринки'],['Свадебная']],1) %>
           <%= f.file_field :image %>
           <%= f.hidden_field :image_cache %>
           <%= f.submit "Сохранить фото", class: "btn btn-primary" %>

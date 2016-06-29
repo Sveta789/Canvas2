@@ -1,0 +1,11 @@
+<div class = container-for-photos>
+  <% @my_shootings.each do |shooting| %>
+      <%= image_tag( shooting.image.thumb.url) %>
+      <div>
+        Категория: <%= shooting.category %>
+      </div>
+      <div>
+        Цена: <%= shooting.price %>
+      </div>
+<% end %>
+</div>

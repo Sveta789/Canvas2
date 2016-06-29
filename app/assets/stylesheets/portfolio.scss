@@ -1,3 +1,93 @@
 // Place all the styles related to the portfolio controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.info_and_avatar_block
+{
+  height:80px;
+  background: dimgrey;
+  margin-top: 20px;
+
+}
+
+.avatar-photo
+{
+  display: block;
+  height:100px;
+  width:100px;
+  margin: 0 auto;
+  transform:translateY(-10px);
+  border-radius: 50%;
+  border:2px solid black;
+}
+
+.name-surname-block
+{
+  margin-top: 20px;
+height:100px;
+}
+
+.name-of-author
+{
+  display: block;
+  margin:10px auto;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.container-for-photos, .container-for-shootings{
+  width:80%;
+  padding: 20px;
+  background: lightgray;
+  margin: 10px auto;
+  border-radius: 20px;
+  border: 2px gray solid;
+}
+
+.photo-block{
+  display: inline-block;
+  border: 2px gray solid;
+  width:100px;
+  height:75px;
+}
+
+.shooting-block
+{
+  height:106px;
+  display: flex;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.shooting-description-block
+{
+  height:100px;
+  border:2px solid white;
+  width:150px;
+  display:inline-block;
+  text-align: center;
+  font-style: bold;
+  margin: 0;
+}
+
+.shooting-photo-block
+{
+  height:100px;
+  border:2px solid white;
+  width:150px;
+  display:inline-block;
+  margin: 0;
+}
+
+.photo-preview{
+  display: inline-block;
+  border: 2px whitesmoke solid;
+  width:150px;
+  height:100px;
+  margin:0 ;
+}
+
+.form-for-new-photo{
+  width:80%;
+  margin:10px auto;
+}

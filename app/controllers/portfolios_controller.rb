@@ -5,7 +5,7 @@ class PortfoliosController < ApplicationController
 
   def show
     @portfolio = Portfolio.find(params[:id])
-    @photos = User.find(@portfolio.user_id).photos
+    @photo = Photo.new
   end
 
   def edit

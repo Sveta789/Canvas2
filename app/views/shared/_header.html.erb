@@ -2,7 +2,7 @@
   <%= link_to "", root_path,  id:"logo" %>
   <div id=navmenu>
     <a href = "#">О нас</a>
-    <a href = "#">Каталог</a>
+    <%= link_to  "Каталог", '/catalog' %>
     <a href = "#">Контакты</a>
     <div class = "personal-cabinet">
       <% if signed_in? %>

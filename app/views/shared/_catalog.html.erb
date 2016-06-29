@@ -1,0 +1,40 @@
+<% @result.each  do |shooting| %>
+    <div class = 'search-result-item'>
+      <div class = 'photo-examples-block'>
+        <% chosen = get_photos_by_category(shooting.user.photos, shooting)
+           puts chosen.inspect
+           counter = 0%>
+        <% if chosen.length > 3 && !chosen.blank?
+             (0..2).each do |photo| %>
+                <%= image_tag chosen[photo].image.preview, class: 'photo-in-item' %>
+            <% end %>
+        <% else if chosen.length <= 3 && !chosen.blank?
+                  (0..chosen.length-1).each do |photo| %>
+                    <%= image_tag chosen[photo].image.preview, class: 'photo-in-item' %>
+                <% end %>
+            <% end %>
+        <%end %>
+
+      </div>
+      <div class = 'about-author-block'>
+        <div class = "author-info">
+          <span class = 'name-of-author'><%= shooting.user.profile.name %></span>
+          <span class = 'name-of-author'><%= shooting.user.profile.surname %></span>
+        </div>
+        <div class = "author-info">
+          <%= link_to image_tag(shooting.user.profile.avatar.thumb, class: 'avatar-photo-in-item'),shooting.user.portfolio %>
+          <span class = 'age-cell'><%= get_age(shooting.user) %> лет</span>
+        </div>
+        <div class = "author-info">
+          <span class = 'price-cell'><%= shooting.price %>/час</span>
+        </div>
+      </div>
+      <div class = 'photo-examples-block'>
+        <% if chosen.length > 3 && !chosen.blank?
+             (3..5).each do |photo| %>
+                <%= image_tag chosen[photo].image.preview, class: 'photo-in-item' %>
+            <% end %>
+        <%end %>
+      </div>
+    </div>
+<% end %>

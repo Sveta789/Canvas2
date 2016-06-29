@@ -1,10 +1,58 @@
-<h1>Portfolio of <%= @portfolio.user.profile.name %></h1>
-<div> <%= @portfolio.description %></div>
 
-<h1> Фотосъемка </h1>
+<div class="info_and_avatar_block">
+  <%= image_tag @portfolio.user.profile.avatar.thumb, class: 'avatar-photo' %>
+</div>
+<div class = "name-surname-block">
+  <span class = 'name-of-author'><%= @portfolio.user.profile.name %></span>
+  <span class = 'name-of-author'><%= @portfolio.user.profile.surname %></span>
+</div>
+
+<h1> ФОТОУслуги </h1>
+<div class = container-for-shootings>
+  <% @portfolio.user.shootings.each do |shooting| %>
+      <div class="shooting-block">
+        <div class = "shooting-description-block">
+        <div>
+          <%= shooting.category %>
+        </div>
+        <div>
+          <%= shooting.price %>
+        </div>
+        </div>
+      <% @portfolio.user.photos.each do |photo| %>
+            <% puts photo.inspect %>
+          <% if photo.category == shooting.category %>
+      <%= image_tag( photo.image.preview.url, class: 'photo-preview') %>
+          <% end %>
+       <%end %>
+      </div>
+  <% end %>
+  </div>
+
+<h1>ВСЕ Фотоработы </h1>
 <div class = container-for-photos>
-  <% @photos.each do |photo| %>
-        <%= image_tag( photo.image.thumb.url, class: "photo-block") %>
+  <% @portfolio.user.photos.each do |photo| %>
+      <%= image_tag( photo.image.thumb.url, class: "photo-block") %>
+  <% end %>
+</div>
+<% if  signed_in? && current_user?(@portfolio.user_id) %>
+<div class = 'form-for-new-photo'>
+  <%= form_for @photo, :html => {:multipart => true} do |f| %>
+      <p>
+        <label>Загрузить фото:</label>
+        <%= image_tag(@photo.image_url) if @photo.image != nil %>
+        <label> Название</label>
+        <%= f.text_field :title %>
+        <%= f.label 'Категория:' %>
+        <%= select_tag "photo[category]", options_for_select([['Портрет'],['Вечеринки'],['Свадебная']],1) %>
+        <%= f.file_field :image %>
+        <%= f.hidden_field :image_cache %>
+        <%= f.submit "Добавить фото", class: "btn btn-primary" %>
+      </p>
   <% end %>
 </div>
 <%= link_to "Редактировать портфолио", edit_portfolio_path %>
+<%= link_to "Добавить услуги", shootings_new_path %>
+<%= link_to "Мои услуги", '/shootings' %>
+
+<% end %>

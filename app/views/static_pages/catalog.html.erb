@@ -1,0 +1,27 @@
+<div class="catalog-section">
+<div>
+  <%= form_tag("/filter", method: "post",class:'catalog-filter-form-box', remote: true) do %>
+      <div class = 'form-cells-block'>
+      <%= label_tag('filter[min]', "Цена от ") %>
+      <%= text_field_tag('filter[min]',0) %>
+      <%= label_tag('filter[max]', "до ") %>
+      <%= text_field_tag('filter[max]',1000) %>
+      <%= select_tag 'filter[sort_by]', options_for_select([['Цена'],['Популярность'],['Категория']]) %>
+      </div>
+      <div  class = 'center-button-block'>
+      <%= submit_tag('Искать') %>
+      </div>
+      <div class = 'form-cells-block'>
+      <%= select_tag 'filter[category]', options_for_select([['Портрет'],['Свадебная'],['Вечеринки']]) %>
+
+      <button class = 'swap-button' formaction = '/videocatalog'>Видеосъемка</button>
+        </div>
+
+  <% end %>
+
+</div>
+<% puts @result.inspect %>
+  <div class="catalog-finded-items">
+ <%= render 'shared/catalog' %>
+</div>
+</div>

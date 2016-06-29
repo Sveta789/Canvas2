@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   has_many :photos
+  has_many :shootings
   has_one :portfolio
   has_one :profile
 

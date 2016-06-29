@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'shootings/index'
+
+  get 'shootings/show'
+
+  get 'shootings/destroy'
+
+  get 'shootings/edit'
+
+  get 'shootings/new'
+
   get 'profiles/show'
 
   get 'profiles/edit'
@@ -43,9 +53,12 @@ Rails.application.routes.draw do
   resources :portfolios
   resources :photos, only: [:destroy, :new, :create]
   resources :profiles
+  resources :shootings
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/catalog', to: 'static_pages#catalog',     via: 'get'
+  match '/filter', to: 'static_pages#filter', via: 'post'
   # Example resource route with options:
   #   resources :products do
   #     member do
