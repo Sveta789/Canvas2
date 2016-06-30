@@ -23,7 +23,7 @@
         </div>
         <div class = "author-info">
           <%= link_to image_tag(shooting.user.profile.avatar.thumb, class: 'avatar-photo-in-item'),shooting.user.portfolio %>
-          <span class = 'age-cell'><%= get_age(shooting.user) %> лет</span>
+          <span class = 'age-cell'><%= get_age(shooting.user)%> <%= 'year'.pluralize(2) %></span>
         </div>
         <div class = "author-info">
           <span class = 'price-cell'><%= shooting.price %>/час</span>

@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
   def index
+    @photo_prices = get_min_and_max_price_of_model(Shooting.all)
+    @video_prices = get_min_and_max_price_of_model(Videography.all)
     render "static_pages/home"
   end
 
@@ -12,13 +14,12 @@ class StaticPagesController < ApplicationController
     render 'static_pages/catalog'
   end
 
-  def filter
-    @result = Shooting.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category])
-    @result.order(:sort_by)
-    render 'static_pages/catalog'
+  def videocatalog
+    @result = Videography.all
+    render 'static_pages/videocatalog'
   end
 
-  def filter
+  def photofilter
     @result = Shooting.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category])
     @result.order(:sort_by)
     respond_to do |format|
@@ -27,6 +28,18 @@ class StaticPagesController < ApplicationController
         format.js   {}
         format.json {}
       end
+  end
+
+
+  def videofilter
+    @result = Videography.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category])
+    @result.order(:sort_by)
+    respond_to do |format|
+
+      format.html { render 'static_pages/videocatalog'}
+      format.js   {}
+      format.json {}
+    end
   end
 
 

@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   has_many :photos
   has_many :shootings
+  has_many :videos
+  has_many :videographies
   has_one :portfolio
   has_one :profile
 

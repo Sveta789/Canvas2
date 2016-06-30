@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-around;
   padding:10px;
-  background: white;
+  background: rgba(255,255,255,0.7);
   align-items: center;
   -webkit-filter:drop-shadow(1px 1px 3px lightgray);
 }
@@ -56,6 +56,9 @@
 
 .form-cells-block{
   width:45%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .catalog-filter-form-box
@@ -67,11 +70,15 @@
   align-items: center;
 }
 
-.catalog-section{
+.catalog-section, .videocatalog-section{
   background:url('mayak-fon.jpg');
   background-size: cover;
   height: 100%;
   margin:0;
+}
+
+.videocatalog-section{
+  background:url('forest-fon.jpg');
 }
 
 .about-author-block input
@@ -125,6 +132,13 @@
   font-family: Verdana;
 }
 
+.catalog-filter-form-box input[type = 'submit']:hover{
+  cursor: pointer;
+  background: black;
+  color:white;
+  transition:0.5s;
+}
+
 .swap-button
 {display: inline-block;
   position: relative;
@@ -136,25 +150,40 @@
   border:2px solid black;
   -webkit-filter:drop-shadow(0px 0px 2px black);
   margin-left: 0;
-  font-family: Verdana;
   background: white;
+  box-sizing: border-box;
   letter-spacing: normal;
   word-spacing: normal;
   text-transform: none;
   text-indent: 0px;
   text-shadow: none;
   text-align: start;
-  align-items: center;
-  box-sizing: border-box;
+  font: 13.3333px Arial;
+  cursor: pointer;
+  align-items: flex-start;
+  line-height: 40px;
+
 }
 
 .swap-button:after
 {position: absolute;
   content: '';
-  height: 40px;
-  width:40px;
+  height: 30px;
+  width:30px;
   background:url("reload.png");
   background-size: cover;
   right: 10px;
-  bottom:4px;
+  bottom:8px;
+}
+
+.swap-button:hover{
+  cursor: pointer;
+  transition:0.5s;
+  background: lightgray;
+}
+
+.swap-button:hover:after{
+  transition:1s;
+  transform: rotate(-360deg);
+
 }

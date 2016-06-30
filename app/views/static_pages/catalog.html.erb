@@ -1,6 +1,6 @@
 <div class="catalog-section">
 <div>
-  <%= form_tag("/filter", method: "post",class:'catalog-filter-form-box', remote: true) do %>
+  <%= form_tag("/photofilter", method: "post",class:'catalog-filter-form-box', remote: true) do %>
       <div class = 'form-cells-block'>
       <%= label_tag('filter[min]', "Цена от ") %>
       <%= text_field_tag('filter[min]',0) %>
@@ -14,7 +14,7 @@
       <div class = 'form-cells-block'>
       <%= select_tag 'filter[category]', options_for_select([['Портрет'],['Свадебная'],['Вечеринки']]) %>
 
-      <button class = 'swap-button' formaction = '/videocatalog'>Видеосъемка</button>
+      <%= link_to 'Видеосъемка' , '/videocatalog'  ,class: 'swap-button' %>
         </div>
 
   <% end %>

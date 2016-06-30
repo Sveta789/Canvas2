@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'videographies/index'
+
+  get 'videographies/new'
+
+  get 'videographies/create'
+
+  get 'videos/destroy'
+
+  get 'videos/new'
+
+  get 'videos/create'
+
   get 'shootings/index'
 
   get 'shootings/show'
@@ -52,13 +64,17 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :portfolios
   resources :photos, only: [:destroy, :new, :create]
+  resources :videos, only: [:destroy, :new, :create]
   resources :profiles
-  resources :shootings
+  resources :shootings, :videographies
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/catalog', to: 'static_pages#catalog',     via: 'get'
-  match '/filter', to: 'static_pages#filter', via: 'post'
+  match '/videocatalog', to: 'static_pages#videocatalog',     via: 'get'
+  match '/photofilter', to: 'static_pages#photofilter', via: 'post'
+  match '/videofilter', to: 'static_pages#videofilter', via: 'post'
+
   # Example resource route with options:
   #   resources :products do
   #     member do

@@ -14,4 +14,11 @@ module StaticPagesHelper
     end
     return chosen_photos
   end
+
+  def get_min_and_max_price_of_model(shootings)
+    result = []
+    result << shootings.minimum('price')
+    result << shootings.maximum('price')
+
+  end
 end

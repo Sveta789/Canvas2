@@ -35,7 +35,7 @@ height:100px;
   font-size: 1.2em;
 }
 
-.container-for-photos, .container-for-shootings{
+.container-for-photos, .container-for-shootings, .container-for-videos, .container-for-videographies{
   width:80%;
   padding: 20px;
   background: lightgray;
@@ -44,14 +44,14 @@ height:100px;
   border: 2px gray solid;
 }
 
-.photo-block{
+.photo-block, .video-block{
   display: inline-block;
   border: 2px gray solid;
   width:100px;
   height:75px;
 }
 
-.shooting-block
+.shooting-block,.videography-block
 {
   height:106px;
   display: flex;
@@ -59,7 +59,7 @@ height:100px;
   margin-top: 0;
 }
 
-.shooting-description-block
+.shooting-description-block, .videography-description-block
 {
   height:100px;
   border:2px solid white;
@@ -70,7 +70,7 @@ height:100px;
   margin: 0;
 }
 
-.shooting-photo-block
+.shooting-photo-block,.videography-video-block
 {
   height:100px;
   border:2px solid white;
@@ -79,7 +79,7 @@ height:100px;
   margin: 0;
 }
 
-.photo-preview{
+.photo-preview,.video-preview{
   display: inline-block;
   border: 2px whitesmoke solid;
   width:150px;
@@ -87,7 +87,7 @@ height:100px;
   margin:0 ;
 }
 
-.form-for-new-photo{
+.form-for-new-photo, .form-for-new-video{
   width:80%;
   margin:10px auto;
 }

@@ -1,0 +1,40 @@
+<% @result.each  do |videography| %>
+    <div class = 'search-result-item'>
+      <div class = 'photo-examples-block'>
+        <% chosen = get_photos_by_category(videography.user.videos, videography)
+           puts chosen.inspect
+           counter = 0%>
+        <% if chosen.length > 3 && !chosen.blank?
+             (0..2).each do |video| %>
+                <iframe width="200px" height="150px" src=<%=chosen[video].path%> frameborder="0" allowfullscreen class = 'video-in-item'></iframe>
+            <% end %>
+        <% else if chosen.length <= 3 && !chosen.blank?
+                  (0..chosen.length-1).each do |video| %>
+                    <iframe width="200px" height="150px" src=<%=chosen[video].path%> frameborder="0" allowfullscreen class = 'video-in-item'></iframe>
+                <% end %>
+            <% end %>
+        <%end %>
+
+      </div>
+      <div class = 'about-author-block'>
+        <div class = "author-info">
+          <span class = 'name-of-author'><%= videography.user.profile.name %></span>
+          <span class = 'name-of-author'><%= videography.user.profile.surname %></span>
+        </div>
+        <div class = "author-info">
+          <%= link_to image_tag(videography.user.profile.avatar.thumb, class: 'avatar-photo-in-item'),videography.user.portfolio %>
+          <span class = 'age-cell'><%= get_age(videography.user) %> лет</span>
+        </div>
+        <div class = "author-info">
+          <span class = 'price-cell'><%= videography.price %>/час</span>
+        </div>
+      </div>
+      <div class = 'photo-examples-block'>
+        <% if chosen.length > 3 && !chosen.blank?
+             (3..5).each do |video| %>
+                <iframe width="200px" height="150px" src=<%=chosen[video].path%> frameborder="0" allowfullscreen class = 'video-in-item'></iframe>
+            <% end %>
+        <%end %>
+      </div>
+    </div>
+<% end %>

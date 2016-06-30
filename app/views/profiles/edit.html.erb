@@ -23,7 +23,7 @@
         </div>
         <div class = "register_field">
           <%= f.label 'Дата рождения' %>
-          <%= f.date_select :birthday %>
+          <%= f.date_select(:birthday, start_year: 1920, end_year: 2002, use_month_numbers: true) %>
         </div>
         <div class = "register_field">
           <%= f.label 'Город' %>

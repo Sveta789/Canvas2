@@ -1,9 +1,9 @@
 <script>
     $(function(){
         jQuery("#slider").slider({
-            min: 0,
-            max: 1000,
-            values: [0,1000],
+            min: <%= @photo_prices[0] %>,
+            max: <%= @photo_prices[1] %>,
+            values: [<%= @photo_prices[0] %>,<%= @photo_prices[1] %>],
             range: true,
             stop: function(event, ui) {
                 jQuery("input#minCost").val(jQuery("#slider").slider("values",0));
@@ -27,7 +27,7 @@
     jQuery("input#maxCost").change(function(){
         var value1=jQuery("input#minCost").val();
         var value2=jQuery("input#maxCost").val();
-        if (value2 > 1000) { value2 = 1000; jQuery("input#maxCost").val(1000)}
+        if (value2 > <%= @photo_prices[1] %>) { value2 = <%= @photo_prices[1] %>; jQuery("input#maxCost").val(<%= @photo_prices[1] %>)}
         if(parseInt(value1) > parseInt(value2)){
             value2 = value1;
             jQuery("input#maxCost").val(value2);
@@ -37,36 +37,36 @@
 <script>
     $(function(){
         jQuery("#slider2").slider({
-            min: 0,
-            max: 1000,
-            values: [0,1000],
+            min: <%= @video_prices[0] %>,
+            max: <%= @video_prices[1] %>,
+            values:  [<%= @video_prices[0] %>, <%= @video_prices[1] %>],
             range: true,
             stop: function(event, ui) {
-                jQuery("input#minCost").val(jQuery("#slider2").slider("values",0));
-                jQuery("input#maxCost").val(jQuery("#slider2").slider("values",1));
+                jQuery("input#minCost2").val(jQuery("#slider2").slider("values",0));
+                jQuery("input#maxCost2").val(jQuery("#slider2").slider("values",1));
             },
             slide: function(event, ui){
-                jQuery("input#minCost").val(jQuery("#slider2").slider("values",0));
-                jQuery("input#maxCost").val(jQuery("#slider2").slider("values",1));
+                jQuery("input#minCost2").val(jQuery("#slider2").slider("values",0));
+                jQuery("input#maxCost2").val(jQuery("#slider2").slider("values",1));
             }
         });})
     jQuery("input#minCost").change(function(){
-        var value1=jQuery("input#minCost").val();
-        var value2=jQuery("input#maxCost").val();
+        var value1=jQuery("input#minCost2").val();
+        var value2=jQuery("input#maxCost2").val();
         if(parseInt(value1) > parseInt(value2)){
             value1 = value2;
-            jQuery("input#minCost").val(value1);
+            jQuery("input#minCost2").val(value1);
         }
         jQuery("#slider2").slider("values",0,value1);
     });
 
     jQuery("input#maxCost").change(function(){
-        var value1=jQuery("input#minCost").val();
-        var value2=jQuery("input#maxCost").val();
-        if (value2 > 1000) { value2 = 1000; jQuery("input#maxCost").val(1000)}
+        var value1=jQuery("input#minCost2").val();
+        var value2=jQuery("input#maxCost2").val();
+        if (value2 > <%= @video_prices[1] %>) { value2 = <%= @video_prices[1] %>; jQuery("input#maxCost2").val( <%= @video_prices[1] %>)}
         if(parseInt(value1) > parseInt(value2)){
             value2 = value1;
-            jQuery("input#maxCost").val(value2);
+            jQuery("input#maxCost2").val(value2);
         }})
 </script>
 <section id = "photohome">
@@ -74,8 +74,8 @@
   <h1>- ФОТОСЪЕМКА -</h1>
   <div class = "slider-wrapper">
     <span>СТОИМОСТЬ</span>
-    <input class = "slider-price-cell cell-min" type="text" id="minCost" value="0">
-    <input class = "slider-price-cell cell-max" type="text" id="maxCost" value="1000">
+    <input class = "slider-price-cell cell-min" type="text" id="minCost" value=<%= @photo_prices[0] %>>
+    <input class = "slider-price-cell cell-max" type="text" id="maxCost" value=<%= @photo_prices[1] %>>
     <div id="slider"></div>
     <a href="#" class = "btn-search"><div>ИСКАТЬ</div></a>
     <%= image_tag("birdy.png")%>
@@ -135,8 +135,8 @@
     <h1>- Видеосъемка -</h1>
     <div class = "slider-wrapper">
       <span>СТОИМОСТЬ</span>
-      <input class = "slider-price-cell cell-min" type="text" id="minCost" value="0">
-      <input class = "slider-price-cell cell-max" type="text" id="maxCost" value="1000">
+      <input class = "slider-price-cell cell-min" type="text" id="minCost2" value=<%= @video_prices[0] %>>
+      <input class = "slider-price-cell cell-max" type="text" id="maxCost2" value=<%= @video_prices[1] %>>
       <div id="slider2"></div>
       <a href="#" class = "btn-search"><div>ИСКАТЬ</div></a>
       <%= image_tag("birdy.png")%>

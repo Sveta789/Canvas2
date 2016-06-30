@@ -29,10 +29,39 @@
   <% end %>
   </div>
 
+<h1> Видеоуслуги </h1>
+<div class = container-for-videographies>
+  <% @portfolio.user.videographies.each do |videography| %>
+      <div class="videography-block">
+        <div class = "videography-description-block">
+          <div>
+            <%= videography.category %>
+          </div>
+          <div>
+            <%= videography.price %>
+          </div>
+        </div>
+        <% @portfolio.user.videos.each do |video| %>
+            <% puts video.inspect %>
+            <% if video.category == videography.category %>
+                <iframe width="200px" height="150px" src=<%=video.path%> frameborder="0" allowfullscreen class = 'video-preview'></iframe>
+            <% end %>
+        <%end %>
+      </div>
+  <% end %>
+</div>
+
 <h1>ВСЕ Фотоработы </h1>
 <div class = container-for-photos>
   <% @portfolio.user.photos.each do |photo| %>
       <%= image_tag( photo.image.thumb.url, class: "photo-block") %>
+  <% end %>
+</div>
+
+<h1>ВСЕ ВИДЕОРАБОТЫ </h1>
+<div class = container-for-videos>
+  <% @portfolio.user.videos.each do |video| %>
+      <iframe width="200px" height="150px" src=<%=video.path%> frameborder="0" allowfullscreen></iframe>
   <% end %>
 </div>
 <% if  signed_in? && current_user?(@portfolio.user_id) %>
@@ -51,8 +80,26 @@
       </p>
   <% end %>
 </div>
+
+ <div class = 'form-for-new-videoo'>
+      <%= form_for @video, :html => {:multipart => true} do |f| %>
+          <p>
+            <label>Загрузить видео:</label>
+            <label> Название</label>
+            <%= f.text_field :title %>
+            <%= f.label 'Категория:' %>
+            <%= select_tag "video[category]", options_for_select([['Детское'],['Вечеринки'],['Свадебное']],1) %>
+            <label> Ссылка</label>
+            <%= f.text_field :path %>
+            <%= f.submit "Добавить видео", class: "btn btn-primary" %>
+          </p>
+      <% end %>
+ </div>
+
+
 <%= link_to "Редактировать портфолио", edit_portfolio_path %>
-<%= link_to "Добавить услуги", shootings_new_path %>
+<%= link_to "Добавить фотоуслуги", shootings_new_path %>
+    <%= link_to "Добавить видеоуслуги", videographies_new_path %>
 <%= link_to "Мои услуги", '/shootings' %>
 
 <% end %>
