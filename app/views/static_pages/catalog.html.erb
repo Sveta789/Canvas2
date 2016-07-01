@@ -1,19 +1,19 @@
 <div class="catalog-section">
 <div>
-  <% shooting_categories = ['Свадьбы','Праздники','Love Story','Персональные','Коммерческие','Вечеринки','Другие','Фотопроекты'] %>
+  <% shooting_categories = ['Все','Свадьбы','Праздники','Love Story','Персональные','Коммерческие','Вечеринки','Другие','Фотопроекты'] %>
   <%= form_tag("/photofilter", method: "post",class:'catalog-filter-form-box', remote: true) do %>
       <div class = 'form-cells-block'>
       <%= label_tag('filter[min]', "Цена от ") %>
-      <%= text_field_tag('filter[min]',0) %>
+      <%= text_field_tag('filter[min]', (@old_params != nil)? @old_params[:min] : 0) %>
       <%= label_tag('filter[max]', "до ") %>
-      <%= text_field_tag('filter[max]',1000) %>
+      <%= text_field_tag('filter[max]',(@old_params != nil)? @old_params[:max] : 1000) %>
       <%= select_tag 'filter[sort_by]', options_for_select([['Цена'],['Популярность'],['Категория']]) %>
       </div>
       <div  class = 'center-button-block'>
       <%= submit_tag('Искать') %>
       </div>
       <div class = 'form-cells-block'>
-      <%= select_tag 'filter[category]', options_for_select(shooting_categories) %>
+      <%= select_tag 'filter[category]', options_for_select(shooting_categories), selected: (@old_params != nil)? @old_params[:category] : 1 %>
 
       <%= link_to 'Видеосъемка' , '/videocatalog'  ,class: 'swap-button' %>
         </div>

@@ -72,15 +72,17 @@
 <section id = "photohome">
 <div id="photoslide" class = "whitestripe active">
   <h1>- ФОТОСЪЕМКА -</h1>
+  <%= form_tag("/photofilter", method: "post") do %>
   <div class = "slider-wrapper">
     <span>СТОИМОСТЬ</span>
-    <input class = "slider-price-cell cell-min" type="text" id="minCost" value=<%= @photo_prices[0] %>>
-    <input class = "slider-price-cell cell-max" type="text" id="maxCost" value=<%= @photo_prices[1] %>>
+    <input name = 'filter[min]' class = "slider-price-cell cell-min" type="text" id="minCost" value=<%= @photo_prices[0] %>>
+    <input name = 'filter[max]' class = "slider-price-cell cell-max" type="text" id="maxCost" value=<%= @photo_prices[1] %>>
     <div id="slider"></div>
-    <a href="#" class = "btn-search"><div>ИСКАТЬ</div></a>
+    <%= submit_tag 'ИСКАТЬ', class:"btn-search" %>
     <%= image_tag("birdy.png")%>
-    <button id = btn-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
+    <button formaction="#" id = btn-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
   </div>
+   <% end %>
 </div>
 
 <div id="photoslide-filters" class = "whitestripe">
@@ -133,15 +135,17 @@
 <section class = "slide slide2" data-role="section" id = "videohome">
   <div id="videoslide" class = "whitestripe active">
     <h1>- Видеосъемка -</h1>
+    <%= form_tag("/videofilter", method: "post") do %>
     <div class = "slider-wrapper">
       <span>СТОИМОСТЬ</span>
-      <input class = "slider-price-cell cell-min" type="text" id="minCost2" value=<%= @video_prices[0] %>>
-      <input class = "slider-price-cell cell-max" type="text" id="maxCost2" value=<%= @video_prices[1] %>>
+      <input name="filter[min]" class = "slider-price-cell cell-min" type="text" id="minCost2" value=<%= @video_prices[0] %>>
+      <input name = 'filter[max]' class = "slider-price-cell cell-max" type="text" id="maxCost2" value=<%= @video_prices[1] %>>
       <div id="slider2"></div>
-      <a href="#" class = "btn-search"><div>ИСКАТЬ</div></a>
+      <%= submit_tag 'ИСКАТЬ', class:"btn-search" %>
       <%= image_tag("birdy.png")%>
-      <button id = btn2-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
+      <button formaction="" id = btn2-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
     </div>
+      <% end %>
   </div>
 
   <div id="videoslide-filters" class = "whitestripe">
@@ -198,21 +202,25 @@
     $('#btn-showfilters').bind('click', function()
     {
         $("#photoslide").fadeOut(500);
+        return false;
     } );
 
     $('#btn-hidefilters').bind('click', function()
     {
         $("#photoslide").fadeIn(500);
+        return false;
     } );
 
     $('#btn2-showfilters').bind('click', function()
     {
         $("#videoslide").fadeOut(500);
+        return false;
     } );
 
     $('#btn2-hidefilters').bind('click', function()
     {
         $("#videoslide").fadeIn(500);
+        return false;
     } );
 
 

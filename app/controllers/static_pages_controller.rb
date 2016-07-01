@@ -20,8 +20,13 @@ class StaticPagesController < ApplicationController
   end
 
   def photofilter
+    if filter_params[:category] == 'Все' || filter_params[:category].nil?
+    @result = Shooting.where(price: filter_params[:min]..filter_params[:max])
+    else
     @result = Shooting.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category])
+    end
     @result.order(:sort_by)
+    @old_params = filter_params
     respond_to do |format|
 
         format.html { render 'static_pages/catalog'}
@@ -32,7 +37,11 @@ class StaticPagesController < ApplicationController
 
 
   def videofilter
-    @result = Videography.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category])
+    if filter_params[:category] == 'Все' || filter_params[:category].nil?
+      @result = Videography.where(price: filter_params[:min]..filter_params[:max])
+    else
+      @result = Videography.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category])
+    end
     @result.order(:sort_by)
     respond_to do |format|
 
