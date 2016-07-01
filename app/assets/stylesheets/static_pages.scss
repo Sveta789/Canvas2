@@ -71,14 +71,14 @@
 }
 
 .catalog-section, .videocatalog-section{
-  background:url('mayak-fon.jpg');
+  background:image-url('mayak-fon.jpg');
   background-size: cover;
   height: 100%;
   margin:0;
 }
 
 .videocatalog-section{
-  background:url('forest-fon.jpg');
+  background:image-url('forest-fon.jpg');
 }
 
 .about-author-block input
@@ -170,7 +170,7 @@
   content: '';
   height: 30px;
   width:30px;
-  background:url("reload.png");
+  background:image-url("reload.png");
   background-size: cover;
   right: 10px;
   bottom:8px;

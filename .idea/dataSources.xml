@@ -7,6 +7,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\FD\RubymineProjects\Canvas 2\db\development.sqlite3</jdbc-url>
       <libraries />
     </data-source>
+    <data-source source="LOCAL" name="Rails Canvas 2: production" uuid="474f8c6c-fdac-4f36-8492-087446bd857f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\FD\RubymineProjects\Canvas 2\db\production.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
   </component>
 </project>
 
