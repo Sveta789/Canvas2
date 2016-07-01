@@ -1,5 +1,6 @@
 <div class="catalog-section">
 <div>
+  <% shooting_categories = ['Свадьбы','Праздники','Love Story','Персональные','Коммерческие','Вечеринки','Другие','Фотопроекты'] %>
   <%= form_tag("/photofilter", method: "post",class:'catalog-filter-form-box', remote: true) do %>
       <div class = 'form-cells-block'>
       <%= label_tag('filter[min]', "Цена от ") %>
@@ -12,7 +13,7 @@
       <%= submit_tag('Искать') %>
       </div>
       <div class = 'form-cells-block'>
-      <%= select_tag 'filter[category]', options_for_select([['Портрет'],['Свадебная'],['Вечеринки']]) %>
+      <%= select_tag 'filter[category]', options_for_select(shooting_categories) %>
 
       <%= link_to 'Видеосъемка' , '/videocatalog'  ,class: 'swap-button' %>
         </div>

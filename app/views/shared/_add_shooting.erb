@@ -1,17 +1,12 @@
 <div class = "add-shooting">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for @shooting, :html => {:multipart => true} do |f| %>
+    <%= form_for @shooting, :html => {:multipart => true}, :method => 'post' do |f| %>
         <%= render 'shared/error_messages' , object: f.object%>
         <div class = "register_field">
-        <label>Picture</label>
-        <%= image_tag(@shooting.image.thumb) if @shooting.image? %>
-        <%= f.file_field :image %>
-        <%= f.hidden_field :image_cache %>
-          </div>
-        <div class = "register_field">
-          <%= f.label 'Категория съемки' %>
-          <%= select_tag "shooting[category]", options_for_select([['Портрет'],['Вечеринки'],['Свадебная']],1) %>
+          <%= f.label 'Категория' %>
+          <%= f.text_field :category, readonly: true%>
         </div>
+
         <div class = "register_field">
           <%= f.label 'Цена' %>
           <%= f.text_field :price %>

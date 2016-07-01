@@ -74,6 +74,7 @@ Rails.application.routes.draw do
   match '/videocatalog', to: 'static_pages#videocatalog',     via: 'get'
   match '/photofilter', to: 'static_pages#photofilter', via: 'post'
   match '/videofilter', to: 'static_pages#videofilter', via: 'post'
+  match '/new_shooting', to: 'portfolios#new_shooting', via: 'post'
 
   # Example resource route with options:
   #   resources :products do

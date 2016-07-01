@@ -20,7 +20,7 @@ class ShootingsController < ApplicationController
     @shooting = current_user.shootings.build(shooting_params)    # Not the final implementation!
     if @shooting.save
       flash[:success] = "Услуга добавлена!"
-      redirect_to :back
+      redirect_to @shooting.user.portfolio
     else
       render 'new'
     end
@@ -33,6 +33,6 @@ class ShootingsController < ApplicationController
 
   def shooting_params
     params.require(:shooting).permit(:category, :price,
-                                 :description, :image)
+                                 :description)
   end
 end

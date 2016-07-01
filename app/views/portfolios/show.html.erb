@@ -8,6 +8,28 @@
 </div>
 
 <h1> ФОТОУслуги </h1>
+<div class = container-for-adding-shootings>
+  <% shooting_categories = ['Свадьбы','Праздники','Love Story','Персональные','Коммерческие','Вечеринки','Другие','Фотопроекты'] %>
+  <% shooting_categories.each do |kindOf| %>
+      <% result = @portfolio.user.shootings.where(category: kindOf)
+         if result.exists? %>
+          <div class='form-for-shooting-add-block'>
+            <%= kindOf %>
+          <div class="shooting-existed-block" style="background-image:url('<%= get_background_by_category(kindOf) %>'); background-size: cover">
+
+            </div>
+          </div>
+      <% else %>
+          <%= form_tag("/new_shooting", method: "post", class: 'form-for-shooting-add-block') do %>
+              <input type="hidden" name="category" value="<%= kindOf %>">
+              <%= label_tag kindOf %>
+              <%= submit_tag('', class: 'shooting-add-block') %>
+          <% end %>
+      <% end %>
+  <% end %>
+</div>
+
+<h1> ФОТОУслуги </h1>
 <div class = container-for-shootings>
   <% @portfolio.user.shootings.each do |shooting| %>
       <div class="shooting-block">
@@ -73,7 +95,7 @@
         <label> Название</label>
         <%= f.text_field :title %>
         <%= f.label 'Категория:' %>
-        <%= select_tag "photo[category]", options_for_select([['Портрет'],['Вечеринки'],['Свадебная']],1) %>
+        <%= select_tag "photo[category]", options_for_select(shooting_categories) %>
         <%= f.file_field :image %>
         <%= f.hidden_field :image_cache %>
         <%= f.submit "Добавить фото", class: "btn btn-primary" %>
@@ -98,7 +120,6 @@
 
 
 <%= link_to "Редактировать портфолио", edit_portfolio_path %>
-<%= link_to "Добавить фотоуслуги", shootings_new_path %>
     <%= link_to "Добавить видеоуслуги", videographies_new_path %>
 <%= link_to "Мои услуги", '/shootings' %>
 

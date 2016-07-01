@@ -28,9 +28,18 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def new_shooting
+    @shooting = Shooting.new(params_for_shooting)
+    render 'shootings/new'
+  end
+
 
   def port_params
     params.require(:portfolio).permit(:description)
+  end
+
+  def params_for_shooting
+    params.permit(:category)
   end
 
 

@@ -35,13 +35,20 @@ height:100px;
   font-size: 1.2em;
 }
 
-.container-for-photos, .container-for-shootings, .container-for-videos, .container-for-videographies{
+.container-for-photos, .container-for-shootings, .container-for-videos, .container-for-videographies, .container-for-adding-shootings{
   width:80%;
   padding: 20px;
   background: lightgray;
   margin: 10px auto;
   border-radius: 20px;
   border: 2px gray solid;
+}
+
+.container-for-adding-shootings
+{
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo-block, .video-block{
@@ -90,4 +97,30 @@ height:100px;
 .form-for-new-photo, .form-for-new-video{
   width:80%;
   margin:10px auto;
+}
+
+.shooting-add-block, .shooting-existed-block
+{text-align: center;
+  height:150px;
+  border:2px solid white;
+  width:150px;
+  display:inline-block;
+  margin: 10px;
+  border-radius: 10px;
+  background:white image-url('plus.png') no-repeat;
+  background-position: center;
+  background-size: 50% auto;
+  text-decoration: none;
+  color:black;
+  vertical-align: top;
+}
+
+.shooting-existed-block{
+  background-image: none;
+}
+
+.form-for-shooting-add-block{
+  display: inline-block;
+  margin: 0;
+  text-align: center;
 }
