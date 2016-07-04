@@ -71,6 +71,7 @@ Rails.application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/catalog', to: 'static_pages#catalog',     via: 'get'
+  match '/about', to: 'static_pages#about',     via: 'get'
   match '/videocatalog', to: 'static_pages#videocatalog',     via: 'get'
   match '/photofilter', to: 'static_pages#photofilter', via: 'post'
   match '/videofilter', to: 'static_pages#videofilter', via: 'post'

@@ -9,6 +9,10 @@ class StaticPagesController < ApplicationController
     render "static_pages/signup"
   end
 
+  def about
+    render "static_pages/about"
+  end
+
   def catalog
     @result = Shooting.all
     render 'static_pages/catalog'
