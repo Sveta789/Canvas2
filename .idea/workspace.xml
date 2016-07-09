@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fec35e4c-b809-4e3d-ae53-552a102c0cc9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/about-a26cf7f831a427e4766ef945e677af6f55b88427a42781de32ab1c5b94710b54.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-042362093f0a79a3db833e156a2cf43acc543a39f2d8738e1ca388b4c4559a4c.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-d82326207039cb49ca15e1e2d9df0654878c6148371a1ac80fe390774e143b8c.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/blog-826b9ded1960885fa707be9b9be4c1646a1b26f712da5f11cf947e2463f18004.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/contact-ba8c00e012979ce53f3d2736b20c4b1902d73db45712b66a3dd1c021afdf03d9.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/home-b17342fd7cc52609b81afd26d6fe6c4504aec43c99752bf0367dc0ce1566a5c1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/maxresdefault-e637fee1b32e3c13e3db4135a1b27238f92d3581d2cf6edefbb81f5597463745.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-042362093f0a79a3db833e156a2cf43acc543a39f2d8738e1ca388b4c4559a4c.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-d82326207039cb49ca15e1e2d9df0654878c6148371a1ac80fe390774e143b8c.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-65ed86751a48f890d7963a509985beca.json" afterPath="$PROJECT_DIR$/public/assets/.sprockets-manifest-65ed86751a48f890d7963a509985beca.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Canvas 2.iws" />
@@ -673,7 +663,11 @@
       <created>1467631191994</created>
       <updated>1467631191994</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="compilled assets">
+      <created>1468050179782</created>
+      <updated>1468050179782</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -700,6 +694,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32983193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32809225" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914045" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -715,7 +710,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914045" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -777,7 +771,8 @@
     <MESSAGE value="production&#10;" />
     <MESSAGE value="paralax added" />
     <MESSAGE value="paralax added 2&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="paralax added 2&#10;" />
+    <MESSAGE value="compilled assets" />
+    <option name="LAST_COMMIT_MESSAGE" value="compilled assets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
