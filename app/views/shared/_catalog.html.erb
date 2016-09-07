@@ -18,12 +18,12 @@
       </div>
       <div class = 'about-author-block'>
         <div class = "author-info">
-          <span class = 'name-of-author'><%= shooting.user.profile.name %></span>
-          <span class = 'name-of-author'><%= shooting.user.profile.surname %></span>
+            РЕЙТИНГ
         </div>
         <div class = "author-info">
           <%= link_to image_tag(shooting.user.profile.avatar.thumb, class: 'avatar-photo-in-item'),shooting.user.portfolio %>
-          <span class = 'age-cell'><%= get_age(shooting.user)%> <%= 'year'.pluralize(2) %></span>
+          <span class = 'name-of-author'><%= shooting.user.profile.name %></span>
+          <span class = 'name-of-author'><%= shooting.user.profile.surname %></span>
         </div>
         <div class = "author-info">
           <span class = 'price-cell'><%= shooting.price %>/час</span>

@@ -4,23 +4,30 @@
 
 .search-result-item
 {
+  height: 130px;
   border-bottom:1px solid lightgray;
   display: flex;
   justify-content: space-around;
   padding:10px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,1);
   align-items: center;
   -webkit-filter:drop-shadow(1px 1px 3px lightgray);
 }
 
+.search-result-item:nth-child(2n)
+{
+  background: rgb(232,232,232) ;
+}
+
+
 .avatar-photo-in-item
 {
   display: block;
-  height:100px;
-  width:100px;
+  height:80px;
+  width:80px;
   margin: 0 auto;
   margin-bottom: 5px;
-  border-radius: 50%;
+  border-radius: 30%;
   border:2px solid black;
 }
 
@@ -31,7 +38,7 @@
 
 .photo-in-item{
   display: inline-block;
-  height: 150px;
+  height: 120px;
   width: 200px;
   border: 2px solid white;
 }
@@ -39,7 +46,7 @@
 .about-author-block
 {display: flex;
   align-items: center;
-  width:30%;
+  width:20%;
   text-align: center;
 }
 
@@ -48,10 +55,11 @@
   text-align: center;
 }
 
-.photo-examples-block, .form-cells-block
-{display: inline-block;
-  width:35%;
-  text-align: center;
+.photo-examples-block
+{display: inline-flex;
+  width:40%;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .form-cells-block{
@@ -61,17 +69,32 @@
   justify-content: center;
 }
 
+.top-filter-catalog-section
+{
+  width:100%;
+  background: #ffffff;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+.top-filter-catalog-block{
+  width:90%;
+  display: flex;
+  border: 4px dotted gray;
+  margin: 0px auto;
+  background: #ffffff;
+}
+
 .catalog-filter-form-box
 {
   display: flex;
   height:200px;
   border-bottom:1px solid lightgray;
-  -webkit-filter:drop-shadow(1px 1px 3px lightgray);
   align-items: center;
 }
 
 .catalog-section, .videocatalog-section{
-  background:image-url('mayak-fon.jpg');
+  background:#000000;
   background-size: cover;
   height: 100%;
   margin:0;
@@ -79,6 +102,16 @@
 
 .videocatalog-section{
   background:image-url('forest-fon.jpg');
+}
+
+#logo-div
+{
+  width:170px;
+  height:80px;
+  margin-top: 10px ;
+  background:image-url("canvaslogo.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .about-author-block input
@@ -94,48 +127,58 @@
 
 .catalog-filter-form-box input[type = 'text']
 {
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  outline: none;
   height: 35px;
   padding: 5px;
-  width:60px;
-  border:2px solid black;
-  -webkit-filter:drop-shadow(0px 0px 2px black);
+  width:40px;
   margin:20px;
-  margin-right: 40px;
+  margin-right: 10px;
   margin-left: 0;
-  font-family: Verdana;
-
-
+  font-family: 'Code Pro Light';;
+  font-size: 1em;
+  border: none;
 }
 
 .catalog-filter-form-box select
 {
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  outline: none;
   height: 50px;
   padding: 5px;
-  width:200px;
-  border:2px solid black;
-  -webkit-filter:drop-shadow(0px 0px 2px black);
+  width:100px;
   margin:20px;
   margin-left: 0;
-  font-family: Verdana;
+  font-family: 'Code Pro Light';
+  font-size: 1em;
   margin-right: 40px;
+  border: none;
 }
 
 .catalog-filter-form-box input[type = 'submit']
 {
-  height: 50px;
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  height: 35px;
   padding: 5px;
-  width:100%;
+  width:80%;
   border:2px solid black;
   -webkit-filter:drop-shadow(0px 0px 2px black);
-  margin:20px;
-  margin-left: 0;
-  font-family: Verdana;
+  margin: 20px auto;
+  font-family: 'Code Pro Light';;
+  font-size: 1em;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 10px;
+
 }
 
 .catalog-filter-form-box input[type = 'submit']:hover{
   cursor: pointer;
-  background: black;
-  color:white;
+  background: #d3d3d3;
+  color:#000000;
   transition:0.5s;
 }
 
@@ -146,9 +189,7 @@
   color:inherit;
   height: 50px;
   padding: 5px;
-  width:200px;
-  border:2px solid black;
-  -webkit-filter:drop-shadow(0px 0px 2px black);
+  width:100px;
   margin-left: 0;
   background: white;
   box-sizing: border-box;
@@ -158,7 +199,6 @@
   text-indent: 0px;
   text-shadow: none;
   text-align: start;
-  font: 13.3333px Arial;
   cursor: pointer;
   align-items: flex-start;
   line-height: 40px;

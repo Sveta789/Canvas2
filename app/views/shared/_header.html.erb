@@ -6,14 +6,21 @@
     <a href = "#">Контакты</a>
     <div class = "personal-cabinet">
       <% if signed_in? %>
-          <%= link_to  current_user.email, current_user.profile %>
+          <%= image_tag current_user.profile.avatar, class: "header-avatar"%>
+          <div class = "profile-block-header">
+          <%= link_to  current_user.profile.name, current_user.profile, id: 'name_header_link' %>
+           <div id="profile-block-header-button" clicked = "false" onclick="showMenu('profile-block-header-button','profile-block-header-menu')"></div>
+           <div id="profile-block-header-menu">
           <% if current_user.operator? %>
             <%= link_to  "Портфолио", current_user.portfolio %>
           <% end %>
           <%= link_to  "Выйти", signout_path, method: "delete" %>
+           </div>
+          </div>
       <% else %>
           <%= link_to  "Войти", signin_path %>
           <%= link_to  "Регистрация", signup_path %>
+
       <% end %>
     </div>
   </div>

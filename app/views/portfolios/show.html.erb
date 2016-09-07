@@ -1,15 +1,51 @@
-
+<% shooting_categories = ['Свадьбы','Праздники','Love Story','Персональные','Коммерческие','Вечеринки','Другие','Фотопроекты']%>
+<% videographies_categories = ['Детское', 'Вечеринки', 'Свадебное'] %>
+<%contact_button_info =  [@portfolio.user.profile.phone_number, @portfolio.user.profile.social_email, @portfolio.user.profile.social_network] %>
+<%author_about_button_info =  [@portfolio.user.profile.city] %>
+<div id = "line-with-logo">
+</div>
+<div class = "zaglushka"></div>
+<div class = "portfolio-main-section">
+  <div id = "switch-buttons-block">
+    <div id = "photocamera-button" clicked = "true" onclick="toggleButtons('photocamera-button','videocamera-button')"></div>
+    <div id = "videocamera-button" clicked = "false" onclick="toggleButtons('videocamera-button','photocamera-button')"></div>
+  </div>
+  <div id = "photo-categories-block">
+    <% shooting_categories.each do |kindOf| %>
+        <% result = @portfolio.user.shootings.where(category: kindOf)
+           if result.exists? %>
+            <%= link_to kindOf, '#', class: "link-to-category" %>
+        <% end %>
+    <% end %>
+  </div>
+  <div id = "video-categories-block">
+    <% videographies_categories.each do |kindOf| %>
+        <% result = @portfolio.user.videographies.where(category: kindOf)
+           if result.exists? %>
+            <%= link_to kindOf, '#', class: "link-to-category" %>
+        <% end %>
+    <% end %>
+  </div>
 <div class="info_and_avatar_block">
   <%= image_tag @portfolio.user.profile.avatar.thumb, class: 'avatar-photo' %>
-</div>
-<div class = "name-surname-block">
-  <span class = 'name-of-author'><%= @portfolio.user.profile.name %></span>
-  <span class = 'name-of-author'><%= @portfolio.user.profile.surname %></span>
+  <div class = "name-surname-block">
+    <span class = 'name-of-author'><%= @portfolio.user.profile.name %></span>
+    <span class = 'name-of-author'><%= @portfolio.user.profile.surname %></span>
+  </div>
 </div>
 
+  <div id = "rating-regards-block">
+  </div>
+</div>
+<div id = contact-and-info-buttons-block>
+  <div id = "contact-author-button" onclick="moveBlock('contact-author-button','show-info-author-button','onButton-clicked-author-block',<%= contact_button_info %>)" clicked = 'false'>Связаться</div>
+  <div id = "show-info-author-button" onclick="moveBlock('show-info-author-button','contact-author-button','onButton-clicked-author-block',<%= author_about_button_info %>)" clicked = 'false'>Личная информация</div>
+</div>
+<div id = "onButton-clicked-author-block" class = "moving-block-with-information" style = "display: none;">
+
+</div>
 <h1> ФОТОУслуги </h1>
 <div class = container-for-adding-shootings>
-  <% shooting_categories = ['Свадьбы','Праздники','Love Story','Персональные','Коммерческие','Вечеринки','Другие','Фотопроекты'] %>
   <% shooting_categories.each do |kindOf| %>
       <% result = @portfolio.user.shootings.where(category: kindOf)
          if result.exists? %>
@@ -66,7 +102,7 @@
         <% @portfolio.user.videos.each do |video| %>
             <% puts video.inspect %>
             <% if video.category == videography.category %>
-                <iframe width="200px" height="150px" src=<%=video.path%> frameborder="0" allowfullscreen class = 'video-preview'></iframe>
+               <!-- <iframe width="200px" height="150px" src=<%=video.path%> frameborder="0" allowfullscreen class = 'video-preview'></iframe> -->
             <% end %>
         <%end %>
       </div>
@@ -83,7 +119,7 @@
 <h1>ВСЕ ВИДЕОРАБОТЫ </h1>
 <div class = container-for-videos>
   <% @portfolio.user.videos.each do |video| %>
-      <iframe width="200px" height="150px" src=<%=video.path%> frameborder="0" allowfullscreen></iframe>
+      <!--<iframe width="200px" height="150px" src=<%=video.path%> frameborder="0" allowfullscreen></iframe>-->
   <% end %>
 </div>
 <% if  signed_in? && current_user?(@portfolio.user_id) %>
