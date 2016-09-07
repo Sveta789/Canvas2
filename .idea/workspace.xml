@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fec35e4c-b809-4e3d-ae53-552a102c0cc9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/arrow-down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/diagonal-noise.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/noisy_grid.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/photo-camera.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/video-camera.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/whitediamond.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Canvas 2.iml" afterPath="$PROJECT_DIR$/.idea/Canvas 2.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Development__Canvas_2.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Development__Canvas_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_catalog.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_catalog.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/static_pages/catalog.html.erb" afterPath="$PROJECT_DIR$/app/views/static_pages/catalog.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/subtle_zebra_3d.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/portfolio.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/portfolio.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/portfolios/show.html.erb" afterPath="$PROJECT_DIR$/app/views/portfolios/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/static_pages.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/static_pages.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Canvas 2.iws" />
@@ -70,10 +57,10 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/portfolios/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="31" selection-start="376" selection-end="376" vertical-scroll-proportion="52.96154" vertical-offset="1428" max-vertical-offset="2839">
+            <state line="69" column="26" selection-start="3307" selection-end="3307" vertical-scroll-proportion="-6.5384617" vertical-offset="1003" max-vertical-offset="2822">
               <folding>
                 <element signature="e#2336#2360#0" expanded="true" />
-                <element signature="e#2704#2801#0" expanded="true" />
+                <element signature="e#2682#2779#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,8 +105,10 @@
       <file leaf-file-name="custom.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="33" selection-start="1873" selection-end="1892" vertical-scroll-proportion="0.0" vertical-offset="719" max-vertical-offset="1309">
-              <folding />
+            <state line="70" column="5" selection-start="1968" selection-end="1968" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1309">
+              <folding>
+                <marker date="1473268705724" expanded="true" signature="1732:1970" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,7 +125,7 @@
       <file leaf-file-name="portfolio.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/portfolio.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="19" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.8439716" vertical-offset="2142" max-vertical-offset="4301">
+            <state line="182" column="0" selection-start="2839" selection-end="2855" vertical-scroll-proportion="0.42375886" vertical-offset="2855" max-vertical-offset="4301">
               <folding />
             </state>
           </provider>
@@ -215,9 +204,9 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/static_pages.scss" />
         <option value="$PROJECT_DIR$/app/views/shared/_line_with_logo.html.erb" />
         <option value="$PROJECT_DIR$/app/views/shared/_header.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/portfolios/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/custom.js" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" />
+        <option value="$PROJECT_DIR$/app/views/portfolios/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/portfolio.scss" />
       </list>
     </option>
@@ -675,7 +664,11 @@
       <created>1468050179782</created>
       <updated>1468050179782</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="js improvements&#10;">
+      <created>1473269096795</created>
+      <updated>1473269096795</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -702,6 +695,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32809225" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914045" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -717,7 +711,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914045" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -780,7 +773,8 @@
     <MESSAGE value="paralax added" />
     <MESSAGE value="paralax added 2&#10;" />
     <MESSAGE value="compilled assets" />
-    <option name="LAST_COMMIT_MESSAGE" value="compilled assets" />
+    <MESSAGE value="js improvements&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="js improvements&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1060,12 +1054,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/portfolios/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="31" selection-start="376" selection-end="376" vertical-scroll-proportion="52.96154" vertical-offset="1428" max-vertical-offset="2839">
+        <state line="144" column="14" selection-start="2030" selection-end="2030" vertical-scroll-proportion="-18.923077" vertical-offset="1956" max-vertical-offset="9367">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="5" selection-start="1968" selection-end="1968" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1309">
           <folding>
-            <element signature="e#2336#2360#0" expanded="true" />
-            <element signature="e#2704#2801#0" expanded="true" />
+            <marker date="1473268705724" expanded="true" signature="1732:1970" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1077,23 +1077,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom.scss">
+    <entry file="file://$PROJECT_DIR$/app/views/portfolios/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="14" selection-start="2030" selection-end="2030" vertical-scroll-proportion="-18.923077" vertical-offset="1956" max-vertical-offset="9367">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="33" selection-start="1873" selection-end="1892" vertical-scroll-proportion="0.0" vertical-offset="719" max-vertical-offset="1309">
-          <folding />
+        <state line="69" column="26" selection-start="3307" selection-end="3307" vertical-scroll-proportion="-6.5384617" vertical-offset="1003" max-vertical-offset="2822">
+          <folding>
+            <element signature="e#2336#2360#0" expanded="true" />
+            <element signature="e#2682#2779#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/portfolio.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="19" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.8439716" vertical-offset="2142" max-vertical-offset="4301">
+        <state line="182" column="0" selection-start="2839" selection-end="2855" vertical-scroll-proportion="0.42375886" vertical-offset="2855" max-vertical-offset="4301">
           <folding />
         </state>
       </provider>
