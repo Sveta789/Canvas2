@@ -70,3 +70,12 @@ function refreshBlock(idOfBlock, infoArray)
         block.append(row);
     }
 }
+
+function showZoom(state){
+
+    var img= e.target;
+    var url = img.src;
+    document.getElementById('picture-window').style.display = state;
+    document.getElementById('picture-window').style.backgroundImage = 'url('+url+')';
+    document.getElementById('picture-wrap').style.display = state;
+}

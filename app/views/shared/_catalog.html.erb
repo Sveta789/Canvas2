@@ -31,7 +31,7 @@
       </div>
       <div class = 'photo-examples-block'>
         <% if chosen.length > 3 && !chosen.blank?
-             (3..5).each do |photo| %>
+             (3..3).each do |photo| %>
                 <%= image_tag chosen[photo].image.preview, class: 'photo-in-item' %>
             <% end %>
         <%end %>
