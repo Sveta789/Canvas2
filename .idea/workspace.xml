@@ -2,17 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fec35e4c-b809-4e3d-ae53-552a102c0cc9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Canvas 2.iml" afterPath="$PROJECT_DIR$/.idea/Canvas 2.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Development__Canvas_2.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Development__Canvas_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Production__Canvas_2.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Production__Canvas_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/spec__Canvas_2.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/spec__Canvas_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/test__Canvas_2.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/test__Canvas_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-4de177e96ec0043a90c66f35db34930db45af2fb3b85205c1ffb6e4059158c31.js.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-55d69a49bf214e3e3b27a754d3ba0aa31605f131e0de7dceb1bf06d806ca3ac9.js.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-b136a2d3699d3b6bc81a4c276fe0fc09293ef54cee38fa7cee66eddc7382d20f.css.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-ed36d7ed24b06674cc35d7e50ddac864dc7ac190e4399e3c1b897be601f8401b.css.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/arrow-down-911b70af4ba3bb230e45e2a7413c37ec35bc4ce208d9799103d22e92ea8a169e.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/custom-969d7de1f7d523c68abf619855623ca5dc72b7c2e72906a4df0d8e8a8b818b9a.css.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/custom-a8b8ef624ed98f1b1d501014044a303b6b00a932e3251e567e9cfa471a6f5188.css.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/diagonal-noise-cd973c2b1ef865b051fc1845de9ae66cbb072a601e4bda7157f3a986b1fea0df.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/noisy_grid-dddb8827c1769226e5631db502bb45276ff2e21887198b4d4cede77bbfe2d4bc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/photo-camera-96ab3d0448164082a390c456db64549598bae56ca9cede1670355eed9d90f538.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/subtle_zebra_3d-f52bb997e439272c8136af70ccc449cdcc0e876798ee9bc64b0bd47254c252ee.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/video-camera-1d6df66e098cce35d86a4af404037bd4a82b0c98ac73f9a469937b8cbddc809b.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/whitediamond-c49f65e74d494b788fe1347f7c2baaf083b1fb130bc0ed32a1b46bffddd8642c.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-4de177e96ec0043a90c66f35db34930db45af2fb3b85205c1ffb6e4059158c31.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-55d69a49bf214e3e3b27a754d3ba0aa31605f131e0de7dceb1bf06d806ca3ac9.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-b136a2d3699d3b6bc81a4c276fe0fc09293ef54cee38fa7cee66eddc7382d20f.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-ed36d7ed24b06674cc35d7e50ddac864dc7ac190e4399e3c1b897be601f8401b.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/custom-969d7de1f7d523c68abf619855623ca5dc72b7c2e72906a4df0d8e8a8b818b9a.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/custom-a8b8ef624ed98f1b1d501014044a303b6b00a932e3251e567e9cfa471a6f5188.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-65ed86751a48f890d7963a509985beca.json" afterPath="$PROJECT_DIR$/public/assets/.sprockets-manifest-65ed86751a48f890d7963a509985beca.json" />
     </list>
     <ignored path="Canvas 2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +38,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Canvas 2@db_migrate__2_.coverage" NAME="db:migrate (2) Coverage Results" MODIFIED="1466873695616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
     <SUITE FILE_PATH="coverage/Canvas 2@secret__Canvas_2.coverage" NAME="secret: Canvas 2 Coverage Results" MODIFIED="1467301327513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
-    <SUITE FILE_PATH="coverage/Canvas 2@assets_precompile__Canvas_2.coverage" NAME="assets:precompile: Canvas 2 Coverage Results" MODIFIED="1468050068332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
+    <SUITE FILE_PATH="coverage/Canvas 2@assets_precompile__Canvas_2.coverage" NAME="assets:precompile: Canvas 2 Coverage Results" MODIFIED="1475402519090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
     <SUITE FILE_PATH="coverage/Canvas 2@db_migrate__1_.coverage" NAME="db:migrate (1) Coverage Results" MODIFIED="1466871578154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
     <SUITE FILE_PATH="coverage/Canvas 2@controller_generator.coverage" NAME="controller_generator Coverage Results" MODIFIED="1466420949363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lib/generators/controller" MODULE_NAME="Canvas 2" />
     <SUITE FILE_PATH="coverage/Canvas 2@db_migrate__Canvas_2.coverage" NAME="db:migrate: Canvas 2 Coverage Results" MODIFIED="1475397494402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
@@ -39,7 +49,7 @@
     <SUITE FILE_PATH="coverage/Canvas 2@Rails_console__Canvas_2.coverage" NAME="Rails console: Canvas 2 Coverage Results" MODIFIED="1467371401525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
     <SUITE FILE_PATH="coverage/Canvas 2@db_migrate__4_.coverage" NAME="db:migrate (4) Coverage Results" MODIFIED="1466873603031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
     <SUITE FILE_PATH="coverage/Canvas 2@db_migrate__3_.coverage" NAME="db:migrate (3) Coverage Results" MODIFIED="1466933472911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
-    <SUITE FILE_PATH="coverage/Canvas 2@Development__Canvas_2.coverage" NAME="Development: Canvas 2 Coverage Results" MODIFIED="1475397870087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
+    <SUITE FILE_PATH="coverage/Canvas 2@Development__Canvas_2.coverage" NAME="Development: Canvas 2 Coverage Results" MODIFIED="1475402232275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
     <SUITE FILE_PATH="coverage/Canvas 2@routes__Canvas_2.coverage" NAME="routes: Canvas 2 Coverage Results" MODIFIED="1466771159360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Canvas 2" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -61,7 +71,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/portfolios/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1035">
@@ -104,8 +114,8 @@
       <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -131,7 +141,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -205,7 +215,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -218,7 +228,24 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="RailsProjectView" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
@@ -238,7 +265,7 @@
       <recent name="C:\Users\FD\RubymineProjects\Canvas 2\app\assets\stylesheets" />
     </key>
   </component>
-  <component name="RunManager" selected="Rails.Development: Canvas 2">
+  <component name="RunManager" selected="Rake.assets:precompile: Canvas 2">
     <configuration default="false" name="db:migrate (5)" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="Canvas 2" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -348,7 +375,7 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <envs>
-        <env name="RAILS_ENV" value="development" />
+        <env name="RAILS_ENV" value="production" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
@@ -615,7 +642,7 @@
       <updated>1466419882489</updated>
       <workItem from="1475352555424" duration="2250000" />
       <workItem from="1475389194648" duration="1745000" />
-      <workItem from="1475397746483" duration="813000" />
+      <workItem from="1475397746483" duration="1947000" />
     </task>
     <task id="LOCAL-00001" summary="signin and signout">
       <created>1466507048399</created>
@@ -792,11 +819,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473269096795</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="ubuntu build&#10;">
+      <created>1475399431684</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1475399431684</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4808000" />
+    <option name="totallyTimeSpent" value="5942000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -820,9 +854,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18827361" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18827361" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33010882" sideWeight="0.5081433" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -876,7 +910,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="signin and signout" />
     <MESSAGE value="2 pages + portfolio&#10;" />
     <MESSAGE value="heroku changes&#10;" />
     <MESSAGE value="new gems" />
@@ -901,7 +934,8 @@
     <MESSAGE value="paralax added 2&#10;" />
     <MESSAGE value="compilled assets" />
     <MESSAGE value="js improvements&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="js improvements&#10;" />
+    <MESSAGE value="ubuntu build&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="ubuntu build&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1161,14 +1195,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/static_pages/catalog.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/jquery-rails-4.1.1/vendor/assets/javascripts/jquery2.js" />
     <entry file="uml://DATABASE/9fbde225-9e86-40dd-85d4-638af9f19a69">
       <provider selected="true" editor-type-id="UmlEditorProvider">
@@ -1212,26 +1238,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/portfolios.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/portfolios/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="26" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1256,6 +1266,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
           <caret line="144" column="14" selection-start-line="144" selection-start-column="14" selection-end-line="144" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/static_pages/catalog.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/portfolios/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="26" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
           <folding />
         </state>
       </provider>
