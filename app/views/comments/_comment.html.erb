@@ -1,0 +1,9 @@
+<div class="comment-block">
+  <%= image_tag( @comment.user.profile.avatar , class: "comment-avatar") %>
+  <div class = "comment-user">
+    <%= @comment.user.profile.name %>
+  </div>
+  <div class = comment-body>
+    <%= @comment.body %>
+  </div>
+</div>

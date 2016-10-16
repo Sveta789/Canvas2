@@ -7,12 +7,16 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.find(params[:id])
     @photo = Photo.new
     @video = Video.new
+    @comment = Comment.new
+    @rating = Rating.new
   end
 
   def edit
     @portfolio = Portfolio.find(params[:id])
     @photos = User.find(@portfolio.user_id).photos
     @photo = Photo.new
+    @comment = Comment.new
+    @rating = Rating.new
   end
 
   def update
