@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :shootings
   has_many :videos
   has_many :videographies
+  has_many :comments
+  has_many :ratings
   has_one :portfolio
   has_one :profile
 

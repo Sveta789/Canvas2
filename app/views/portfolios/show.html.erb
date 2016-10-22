@@ -41,6 +41,18 @@
 </div>
 
   <div id = "rating-regards-block">
+    Rating is:
+    <div id = rate>
+    <%= find_rating(@portfolio.ratings) %>
+    </div>
+    <%= form_for @rating, :html => {:multipart => true}, remote: true do |f| %>
+        <p>
+          <label>Поставь оценку:</label>
+          <%= f.select :rating, options_for_select([['1'],['2'],['3'],['4'],['5']]) %>
+          <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
+          <%= f.submit "OK", class: "btn btn-primary" %>
+        </p>
+    <% end %>
   </div>
 </div>
 <div id = contact-and-info-buttons-block>
@@ -113,6 +125,35 @@
         <%end %>
       </div>
   <% end %>
+</div>
+
+<h1> Комментарии </h1>
+
+<div class = "container-for-comments">
+  <% @portfolio.comments.each do |comment| %>
+      <div class="comment-block">
+        <%= image_tag( (comment.user.profile.avatar != nil) ? comment.user.profile.avatar : nil , class: "comment-avatar") %>
+        <!-- TODO add default image avatar! -->
+        <div class = "comment-user">
+          <%= comment.user.profile.name %>
+        </div>
+        <div class = comment-body>
+          <%= comment.body %>
+        </div>
+      </div>
+  <% end %>
+
+  <div class = 'form-for-new-comment'>
+    <%= form_for @comment, :html => {:multipart => true}, remote: true do |f| %>
+        <p>
+          <label>Новый коммент:</label>
+          <%= f.text_field :body, :value => "Введи текст" %>
+          <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
+          <%= f.submit "OK", class: "btn btn-primary" %>
+        </p>
+    <% end %>
+  </div>
+
 </div>
 
 <h1>ВСЕ Фотоработы </h1>

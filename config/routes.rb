@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  get 'ratings/new'
+
+  get 'ratings/create'
+
+  get 'ratings/edit'
+
+  get 'ratings/show'
+
+  get 'comments/new'
+
+  get 'comments/create'
+
+  get 'comments/edit'
+
+  get 'comments/destroy'
+
+  get 'comments/show'
+
+  get 'comments/index'
+
   get 'videographies/index'
 
   get 'videographies/new'
@@ -67,6 +87,8 @@ Rails.application.routes.draw do
   resources :videos, only: [:destroy, :new, :create]
   resources :profiles
   resources :shootings, :videographies
+  resources :comments, only: [:new, :create, :destroy]
+  resources :ratings, only: [:new, :create, :edit]
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
