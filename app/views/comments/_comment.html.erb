@@ -1,9 +1,14 @@
 <div class="comment-block">
-  <%= image_tag( @comment.user.profile.avatar , class: "comment-avatar") %>
   <div class = "comment-user">
+    <%= image_tag( (@comment.user.profile.avatar != nil) ? @comment.user.profile.avatar : nil , class: "comment-avatar") %>
+    <!-- TODO add default image avatar! -->
     <%= @comment.user.profile.name %>
   </div>
   <div class = comment-body>
     <%= @comment.body %>
+  </div>
+  <div class = comment-date>
+    Оставлено: <br>
+    <%= @comment.created_at.strftime("%Y-%m-%d") %>
   </div>
 </div>

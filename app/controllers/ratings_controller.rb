@@ -19,6 +19,27 @@ class RatingsController < ApplicationController
   end
 
   def edit
+
+  end
+
+  def onPluginClick
+    vote = current_user.ratings.where("portfolio_id = #{rating_params[:portfolio_id]}")
+    if (vote.blank?)
+      @rating = current_user.ratings.build(rating_params)
+      if @rating.save
+        render 'ratings/create'
+      else
+      end
+    else
+      vote.update
+      if vote.update_attributes(rating_params)
+        flash[:success] = "You voted"
+        render 'ratings/create'
+      else
+        render 'ratings/create'
+      end
+    end
+
   end
 
   def show

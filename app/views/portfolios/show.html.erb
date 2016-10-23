@@ -34,19 +34,18 @@
   </div>
 </div>
 
+  <div class="border-wrap">
+    <h2>Rating is:</h2>
+    <div class = "rating">
+
+    </div>
+  </div>
   <div id = "rating-regards-block">
     Rating is:
+    <div id = rating-wrapper votes = 12 rating = '<%= @rating.rating %>' answered = '<%= @hasVoted %>' user_id = '<%= current_user.id %>'  portfolio_id = '<%= @portfolio.id %>'></div>
     <div id = rate>
     <%= find_rating(@portfolio.ratings) %>
     </div>
-    <%= form_for @rating, :html => {:multipart => true}, remote: true do |f| %>
-        <p>
-          <label>Поставь оценку:</label>
-          <%= f.select :rating, options_for_select([['1'],['2'],['3'],['4'],['5']]) %>
-          <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
-          <%= f.submit "OK", class: "btn btn-primary" %>
-        </p>
-    <% end %>
   </div>
 </div>
 <div id = contact-and-info-buttons-block>
@@ -54,9 +53,10 @@
   <div id = "show-info-author-button" onclick="moveBlock('show-info-author-button','contact-author-button','onButton-clicked-author-block',<%= author_about_button_info %>)" clicked = 'false'>Личная информация</div>
 </div>
 <div id = "onButton-clicked-author-block" class = "moving-block-with-information" style = "display: none;">
-
 </div>
-<div class = container-for-adding-shootings>
+
+<% if !current_user.nil? && current_user.id == @portfolio.user_id %>
+<div class = "container container-for-adding-shootings">
   <% shooting_categories.each do |kindOf| %>
       <% result = @portfolio.user.shootings.where(category: kindOf)
          if result.exists? %>
@@ -75,9 +75,11 @@
       <% end %>
   <% end %>
 </div>
+<% end %>
 
-<h1> ФОТОУслуги </h1>
-<div class = container-for-shootings>
+<div class = "container">
+  <div class="spoiler-title" ><h1> ФОтоуслуги </h1></div>
+  <div class="spoiler-body">
   <% @portfolio.user.shootings.each do |shooting| %>
       <div class="shooting-block">
         <div class = "shooting-description-block">
@@ -97,9 +99,12 @@
       </div>
   <% end %>
   </div>
+  </div>
 
-<h1> Видеоуслуги </h1>
-<div class = container-for-videographies>
+
+<div class = "container">
+  <div class="spoiler-title" ><h1> Видеоуслуги </h1></div>
+  <div class="spoiler-body">
   <% @portfolio.user.videographies.each do |videography| %>
       <div class="videography-block">
         <div class = "videography-description-block">
@@ -118,46 +123,61 @@
         <%end %>
       </div>
   <% end %>
+    </div>
 </div>
 
-<h1> Комментарии </h1>
-
-<div class = "container-for-comments">
+<div class = "container" id = comments>
+  <div class="spoiler-title" ><h1> Отзывы </h1></div>
+  <div class="spoiler-body">
   <% @portfolio.comments.each do |comment| %>
       <div class="comment-block">
+        <div class = "comment-user">
         <%= image_tag( (comment.user.profile.avatar != nil) ? comment.user.profile.avatar : nil , class: "comment-avatar") %>
         <!-- TODO add default image avatar! -->
-        <div class = "comment-user">
           <%= comment.user.profile.name %>
         </div>
         <div class = comment-body>
           <%= comment.body %>
         </div>
+        <div class = comment-date>
+          Оставлено: <br>
+          <%= comment.created_at.strftime("%Y-%m-%d") %>
+        </div>
       </div>
   <% end %>
 
+    <% if signed_in? %>
+    <div class = "new-comment-block">
+    <div class = "comment-user make-inline">
+      <%= image_tag( (current_user.profile.avatar != nil) ? current_user.profile.avatar : nil , class: "comment-avatar") %>
+      <!-- TODO add default image avatar! -->
+      <%= current_user.profile.name %>
+    </div>
   <div class = 'form-for-new-comment'>
     <%= form_for @comment, :html => {:multipart => true}, remote: true do |f| %>
         <p>
-          <label>Новый коммент:</label>
+          <label>Новый коммент:</label><br>
           <%= f.text_field :body, :value => "Введи текст" %>
           <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
           <%= f.submit "OK", class: "btn btn-primary" %>
         </p>
     <% end %>
   </div>
+      </div>
+        <% end %>
+  </div>
 
 </div>
 
 <h1>ВСЕ Фотоработы </h1>
-<div class = container-for-photos>
+<div class = container>
   <% @portfolio.user.photos.each do |photo| %>
       <%= image_tag( photo.image.thumb.url, class: "photo-block") %>
   <% end %>
 </div>
 
 <h1>ВСЕ ВИДЕОРАБОТЫ </h1>
-<div class = container-for-videos>
+<div class = container>
   <% @portfolio.user.videos.each do |video| %>
       <!--<iframe width="200px" height="150px" src=<%=video.path%> frameborder="0" allowfullscreen></iframe>-->
   <% end %>

@@ -156,9 +156,9 @@ height:100px;
 }
 
 
-.container-for-photos, .container-for-shootings, .container-for-videos, .container-for-videographies, .container-for-adding-shootings{
+.container{
   width:100%;
-  background: lightgray;
+  background: whitesmoke;
   margin: 10px auto;
   border: 1px gray dotted;
 }
@@ -246,7 +246,7 @@ height:100px;
   text-align: center;
 }
 
-.container-for-comments{
+#comments{
   display: block;
   padding: 10px;
   border: 1px black solid;
