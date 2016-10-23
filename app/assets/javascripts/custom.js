@@ -1,3 +1,24 @@
+jQuery(document).ready(function(){
+    $('.spoiler-body').hide();
+    $('.spoiler-title').click(function(){
+        $(this).next().slideToggle();
+    });
+
+
+
+    $('div.rating').rating({
+        fx: 'float',
+        image: '/home/fd/RubymineProjects/Canvas2/app/assets/javascripts/images/stars.png',
+        loader: '/home/fd/RubymineProjects/Canvas2/app/assets/javascripts/images/ajax-loader.gif',
+        minimal: 0.6,
+        url: '/portfolio',
+        callback: function (responce) {
+
+            this.vote_success.fadeOut(2000);
+            if (responce.msg) alert(responce.msg);
+        }
+    });
+});
 
 function showMenu(buttonID, menuID) {
     var menu = $('#'+ menuID);
@@ -69,13 +90,4 @@ function refreshBlock(idOfBlock, infoArray)
         row.text(infoArray[i]);
         block.append(row);
     }
-}
-
-function showZoom(state){
-
-    var img= e.target;
-    var url = img.src;
-    document.getElementById('picture-window').style.display = state;
-    document.getElementById('picture-window').style.backgroundImage = 'url('+url+')';
-    document.getElementById('picture-wrap').style.display = state;
 }

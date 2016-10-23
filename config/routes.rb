@@ -98,6 +98,7 @@ Rails.application.routes.draw do
   match '/photofilter', to: 'static_pages#photofilter', via: 'post'
   match '/videofilter', to: 'static_pages#videofilter', via: 'post'
   match '/new_shooting', to: 'portfolios#new_shooting', via: 'post'
+  match 'portfolios/ratings/onPluginClick', to: 'ratings#onPluginClick', via: 'post'
 
   # Example resource route with options:
   #   resources :products do

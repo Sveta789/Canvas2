@@ -57,7 +57,7 @@ header
   max-height: 80px;
   background:rgb(248,248,248);
   text-transform: uppercase;
-  -webkit-filter:drop-shadow(0px 0px 1px lightgray);
+  filter:drop-shadow(0px 0px 1px lightgray);
   z-index: 1000;
 }
 
@@ -78,7 +78,7 @@ header a
 
 header a:hover
 {
-  -webkit-filter:drop-shadow(2px 2px 2px black);
+  filter:drop-shadow(2px 2px 2px black);
 }
 
 header #navmenu
@@ -542,33 +542,10 @@ h1{
   background-position: 50% 50%;
   background-color: white;
   background-repeat: no-repeat;
+  filter: drop-shadow(0px 0px 10px lightgray);
 
 }
 
-#picture-wrap {
-  display: none;
-  opacity: 0.8;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  padding: 16px;
-  background-color: rgba(1, 1, 1, 0.725);
-  z-index: 100;
-  overflow: auto;
-}
-
-#picture-window {
-  width: 50%;
-  height: 40%;
-  margin: 50px auto;
-  display: none;
-  z-index: 200;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  padding: 16px;
+.spoiler-title:hover {
+  cursor: pointer;
 }

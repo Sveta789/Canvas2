@@ -8,7 +8,13 @@ class PortfoliosController < ApplicationController
     @photo = Photo.new
     @video = Video.new
     @comment = Comment.new
-    @rating = Rating.new
+    @hasVoted = !@portfolio.comments.where("user_id = #{current_user.id}").blank?
+    puts @hasVoted
+    if(@hasVoted)
+      @rating = current_user.ratings.where("portfolio_id = #{@portfolio.id}")[0];
+    else
+      @rating = Rating.new
+    end
   end
 
   def edit

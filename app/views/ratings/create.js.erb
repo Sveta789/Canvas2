@@ -1,1 +1,2 @@
-$("#rate").text(<%= @rating.rating %>);
+var rate = <%= @rating.rating %>
+$("#rating-wrapper").attr("rating", rate);
