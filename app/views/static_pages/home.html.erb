@@ -70,11 +70,12 @@
         }})
 </script>
 <section id = "photohome">
+  <div class = photo-back></div>
 <div id="photoslide" class = "whitestripe active">
   <h1>- ФОТОСЪЕМКА -</h1>
   <%= form_tag("/photofilter", method: "post") do %>
   <div class = "slider-wrapper">
-    <span>СТОИМОСТЬ</span>
+    <h2>средняя стоимость за час работы</h2>
     <input name = 'filter[min]' class = "slider-price-cell cell-min" type="text" id="minCost" value=<%= @photo_prices[0] %>>
     <input name = 'filter[max]' class = "slider-price-cell cell-max" type="text" id="maxCost" value=<%= @photo_prices[1] %>>
     <div id="slider"></div>
