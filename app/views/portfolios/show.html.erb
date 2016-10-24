@@ -2,9 +2,6 @@
 <% videographies_categories = ['Детское', 'Вечеринки', 'Свадебное'] %>
 <%contact_button_info =  [@portfolio.user.profile.phone_number, @portfolio.user.profile.social_email, @portfolio.user.profile.social_network] %>
 <%author_about_button_info =  [@portfolio.user.profile.city] %>
-<script>
-    $('.photo-preview').addEventListener('mouseover',showZoom('block'),true);
-</script>
 <div onclick="showZoom('none','')" id="picture-wrap" style="display: none;"></div>
 <div id="picture-window" style="display: none; background-image: none">
 </div>

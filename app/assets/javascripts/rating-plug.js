@@ -148,7 +148,7 @@ var bindHandlers = function(element){
     });
 }
 
-
+/*
 $(document).ready(
     function(){
         var ratingWrap =  $('#rating-wrapper');
@@ -157,6 +157,16 @@ $(document).ready(
         var element = $("#rating-wrapper");
         bindHandlers(element);
     })
+    */
+
+var ready = function (){
+    var element = $('#rating-wrapper');
+    ratingBlock = new Rating("/rating", element.attr("answered"), element.attr("rating"),element.attr("votes"));
+    ratingBlock.getJQObject().appendTo(element);
+    bindHandlers(element);
+};
+
+$(document).on('turbolinks:load', ready);
 
 
 
