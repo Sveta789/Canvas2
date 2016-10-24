@@ -43,13 +43,14 @@ var Element = function(src, clicked){
     }
 }
 
-var Vote = function(votes){
+var Vote = function(votes,answered){
     RatingBase.apply(this,arguments);
     var self = this;
     this.className = "votes-block " + parent.getClassName() + " ";
     this.votes = votes;
+    this.hasAnswer = answered;
     this.getDiv = function(){
-        return "<div class = '" + self.className + "'> Проголосовало: " + self.votes +"</div>";
+        return "<div class = '" + self.className + "'>" + ((!this.hasAnswer) ?  "Проголосовало: " + self.votes : "Спасибо за отзыв!" ) +"</div>";
     }
     this.incVotes = function(){
         self.votes += 1;
@@ -66,7 +67,7 @@ var Rating = function(action, answered, rating, votes){
     this.hasAnswer = answered;
     this.rating = rating;
     this.elemsArray = [];
-    this.votes = new Vote(votes);
+    this.votes = new Vote(votes,answered);
     this.getDiv = function(){
         var res = "<div class = " + self.className + ">";
         for(var i = 0; i < this.elemsCount; i++){
@@ -142,7 +143,7 @@ var bindHandlers = function(element){
         //ratingWrap.attr("answered", answer.answered);
         //ratingWrap.attr("rating", answer.rating);
         //ratingWrap.attr("votes", answer.votes);
-        ratingBlock = new Rating("/rating", ratingWrap.attr("answered"), ratingWrap.attr("rating"), ratingWrap.attr("votes"));
+        ratingBlock = new Rating("/rating", ratingWrap.attr("answered"), index, ratingWrap.attr("votes"));
         $('#rating-wrapper .rating-block').replaceWith(ratingBlock.getJQObject());
     });
 }

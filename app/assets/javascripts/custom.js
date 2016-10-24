@@ -3,21 +3,6 @@ jQuery(document).ready(function(){
     $('.spoiler-title').click(function(){
         $(this).next().slideToggle();
     });
-
-
-
-    $('div.rating').rating({
-        fx: 'float',
-        image: '/home/fd/RubymineProjects/Canvas2/app/assets/javascripts/images/stars.png',
-        loader: '/home/fd/RubymineProjects/Canvas2/app/assets/javascripts/images/ajax-loader.gif',
-        minimal: 0.6,
-        url: '/portfolio',
-        callback: function (responce) {
-
-            this.vote_success.fadeOut(2000);
-            if (responce.msg) alert(responce.msg);
-        }
-    });
 });
 
 function showMenu(buttonID, menuID) {
@@ -26,12 +11,12 @@ function showMenu(buttonID, menuID) {
     var isClicked = btn.attr('clicked');
     if(isClicked == "false")
     {
-        menu.css({transition:'0.5s',left:"-100px",opacity: "1"});
+        menu.css({transition:'0.5s',left:"-120px",opacity: "1"});
         btn.attr("clicked", "true");
     }
     else
     {
-        menu.css({transition:'0.5s',left:"400px",opacity: "0"});
+        menu.css({transition:'0.5s',left:"420px",opacity: "0"});
         btn.attr("clicked", "false");
     }
 }

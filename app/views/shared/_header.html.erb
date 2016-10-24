@@ -1,9 +1,12 @@
 <header>
-  <%= link_to "", root_path,  id:"logo" %>
   <div id=navmenu>
+    <div class = side-section>
     <%= link_to  "О нас", '/about' %>
-    <%= link_to  "Каталог", '/catalog' %>
     <a href = "#">Контакты</a>
+      </div>
+    <div id = logo> </div>
+    <div class = side-section>
+    <%= link_to  "Каталог", '/catalog' %>
     <div class = "personal-cabinet">
       <% if signed_in? %>
           <%= image_tag current_user.profile.avatar, class: "header-avatar"%>
@@ -23,5 +26,6 @@
 
       <% end %>
     </div>
+     </div>
   </div>
 </header>

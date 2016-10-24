@@ -1,2 +1,5 @@
 var rate = <%= @rating.rating %>
 $("#rating-wrapper").attr("rating", rate);
+var ratingWrap =  $('#rating-wrapper');
+ratingBlock = new Rating("/rating", ratingWrap.attr("answered"), ratingWrap.attr("rating"), ratingWrap.attr("votes"));
+$('#rating-wrapper .rating-block').replaceWith(ratingBlock.getJQObject());
