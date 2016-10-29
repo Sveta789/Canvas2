@@ -132,32 +132,10 @@ var bindHandlers = function(element){
         var portfolio_id = parseInt(ratingWrap.attr("portfolio_id"));
         var answer;
         postRatingData(index,user_id,portfolio_id);
-        /*
-        $.ajax(ratingBlock.action).done(function(json){
-            answer = json;
-        }).fail(function(){
-            $("#rating-wrapper").append("<div>NEA!!</div>");
-        });
-        alert(answer);
-        */
-        //ratingWrap.attr("answered", answer.answered);
-        //ratingWrap.attr("rating", answer.rating);
-        //ratingWrap.attr("votes", answer.votes);
         ratingBlock = new Rating("/rating", ratingWrap.attr("answered"), index, ratingWrap.attr("votes"));
         $('#rating-wrapper .rating-block').replaceWith(ratingBlock.getJQObject());
     });
 }
-
-/*
-$(document).ready(
-    function(){
-        var ratingWrap =  $('#rating-wrapper');
-        ratingBlock = new Rating("/rating", ratingWrap.attr("answered"), ratingWrap.attr("rating"), ratingWrap.attr("votes"));
-        ratingBlock.getJQObject().appendTo("#rating-wrapper");
-        var element = $("#rating-wrapper");
-        bindHandlers(element);
-    })
-    */
 
 var ready = function (){
     var element = $('#rating-wrapper');

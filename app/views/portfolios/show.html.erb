@@ -38,15 +38,9 @@
 </div>
   <% if current_user %>
   <div id = "rating-regards-block">
-    <%
-      if @hasVoted
-        estim = @rating.rating
-        else
-        estim = find_rating(@portfolio.ratings)
-          end
-    %>
-
-    <div id = rating-wrapper votes = 12 rating = '<%= estim %>' answered = '<%= @hasVoted %>' user_id = '<%= current_user.id %>'  portfolio_id = '<%= @portfolio.id %>'></div>
+    <div id = rating-wrapper votes = 12 rating = '<%= @rating.rating %>' average-rating = '<%= find_rating(@portfolio.ratings) %>' answered = '<%= @hasVoted %>' user_id = '<%= current_user.id %>'  portfolio_id = '<%= @portfolio.id %>'></div>
+    <div id = average-rating> Общий рейтинг: <%=  find_rating(@portfolio.ratings) %> </div>
+    <div id = user-esteem> Ваша оценка: <%=  (@hasVoted) ? @rating.rating : "Еще не оценил"   %> </div>
   </div>
   <% end %>
 </div>
