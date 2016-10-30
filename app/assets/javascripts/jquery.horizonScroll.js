@@ -12,6 +12,8 @@
 
 // Semicolon to prevent breakage with concatenation.
 ;
+
+
 (function ($) {
     'use strict';
 
@@ -199,6 +201,7 @@
 
 })
 (jQuery);
+
 
 // SCROLLING NOTES
 // http://stackoverflow.com/questions/4989632/differentiate-between-scroll-up-down-in-jquery

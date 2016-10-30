@@ -43,22 +43,7 @@ var Element = function(src, clicked){
     }
 }
 
-var Vote = function(votes,answered){
-    RatingBase.apply(this,arguments);
-    var self = this;
-    this.className = "votes-block " + parent.getClassName() + " ";
-    this.votes = votes;
-    this.hasAnswer = answered;
-    this.getDiv = function(){
-        return "<div class = '" + self.className + "'>" + ((!this.hasAnswer) ?  "Проголосовало: " + self.votes : "Спасибо за отзыв!" ) +"</div>";
-    }
-    this.incVotes = function(){
-        self.votes += 1;
-    }
-
-}
-
-var Rating = function(action, answered, rating, votes){
+var Rating = function(action, answered, rating, average_rating ,votes){
     RatingBase.apply(this,arguments);
     var self = this;
     this.elemsCount = 10;
@@ -66,8 +51,9 @@ var Rating = function(action, answered, rating, votes){
     this.className = "rating-block " + parent.getClassName() + " ";
     this.hasAnswer = answered;
     this.rating = rating;
+    this.average_rating = average_rating;
     this.elemsArray = [];
-    this.votes = new Vote(votes,answered);
+    this.votes = votes;
     this.getDiv = function(){
         var res = "<div class = " + self.className + ">";
         for(var i = 0; i < this.elemsCount; i++){
@@ -80,7 +66,9 @@ var Rating = function(action, answered, rating, votes){
             this.elemsArray.push(elem);
             res += elem.getDiv();
         }
-        res += this.votes.getDiv();
+        res += "<div class = votes> Всего голосов: " + this.votes + "</div>";
+        res += "<div class = average-rating-block> Средняя оценка: " + this.average_rating + "</div>";
+        res += "<div class = your-rating-block> Вы поставили: " + ((answered) ? this.rating : "Еще нет оценки") + "</div>";
         res +=  "</div>";
         return res;
     }
@@ -128,18 +116,29 @@ var bindHandlers = function(element){
     element.on('click', '.rating-element',function(){
         var ratingWrap =  $('#rating-wrapper');
         var index = parseInt($(this).attr("id")) + 1;
+        var votes = parseInt($('#rating-wrapper').attr("votes"));
+        var average_rating = parseFloat($('#rating-wrapper').attr("average-rating"));
+        var full_rating = average_rating * votes;
+        if($(this).attr("answered") == false) {
+            full_rating += index;
+            votes++;
+            average_rating = full_rating/votes;
+        }
+        else{
+            full_rating = average_rating * (votes-1) + index;
+            average_rating = full_rating/votes;
+        }
         var user_id = parseInt(ratingWrap.attr("user_id"));
         var portfolio_id = parseInt(ratingWrap.attr("portfolio_id"));
-        var answer;
         postRatingData(index,user_id,portfolio_id);
-        ratingBlock = new Rating("/rating", ratingWrap.attr("answered"), index, ratingWrap.attr("votes"));
+        ratingBlock = new Rating("/rating", true, index, average_rating,votes);
         $('#rating-wrapper .rating-block').replaceWith(ratingBlock.getJQObject());
     });
 }
 
 var ready = function (){
     var element = $('#rating-wrapper');
-    ratingBlock = new Rating("/rating", element.attr("answered"), element.attr("rating"),element.attr("votes"));
+    ratingBlock = new Rating("/rating", element.attr("answered"), element.attr("rating"), element.attr("average-rating"),element.attr("votes"));
     ratingBlock.getJQObject().appendTo(element);
     bindHandlers(element);
 };

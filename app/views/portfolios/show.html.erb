@@ -38,9 +38,7 @@
 </div>
   <% if current_user %>
   <div id = "rating-regards-block">
-    <div id = rating-wrapper votes = 12 rating = '<%= @rating.rating %>' average-rating = '<%= find_rating(@portfolio.ratings) %>' answered = '<%= @hasVoted %>' user_id = '<%= current_user.id %>'  portfolio_id = '<%= @portfolio.id %>'></div>
-    <div id = average-rating> Общий рейтинг: <%=  find_rating(@portfolio.ratings) %> </div>
-    <div id = user-esteem> Ваша оценка: <%=  (@hasVoted) ? @rating.rating : "Еще не оценил"   %> </div>
+    <div id = rating-wrapper votes = '<%= @portfolio.ratings.count %>' rating = '<%= @rating.rating %>' average-rating = '<%= find_rating(@portfolio.ratings) %>' answered = '<%= @hasVoted %>'  user_id = '<%= current_user.id %>'  portfolio_id = '<%= @portfolio.id %>'></div>
   </div>
   <% end %>
 </div>
@@ -145,22 +143,16 @@
 
     <% if signed_in? %>
     <div class = "new-comment-block">
-    <div class = "comment-user make-inline">
-      <%= image_tag( (current_user.profile.avatar != nil) ? current_user.profile.avatar : nil , class: "comment-avatar") %>
-      <!-- TODO add default image avatar! -->
-      <%= current_user.profile.name %>
-    </div>
-  <div class = 'form-for-new-comment'>
-    <%= form_for @comment, :html => {:multipart => true}, remote: true do |f| %>
-        <p>
-          <label>Новый коммент:</label><br>
+    <div><%= current_user.profile.name %> говорит:</div>
+    <%= form_for @comment, :html => {:multipart => true},remote: true do |f| %>
+          <div class = "comment-user">
+          <%= image_tag( (current_user.profile.avatar != nil) ? current_user.profile.avatar : nil , class: "comment-avatar") %>
+          </div>
           <%= f.text_field :body, :value => "Введи текст" %>
           <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
           <%= f.submit "OK", class: "btn btn-primary" %>
-        </p>
     <% end %>
   </div>
-      </div>
         <% end %>
   </div>
 
