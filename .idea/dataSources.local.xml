@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails Canvas 2: development" uuid="9fbde225-9e86-40dd-85d4-638af9f19a69">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>memory</secret-storage>
+    </data-source>
+    <data-source name="Rails Canvas 2: production" uuid="474f8c6c-fdac-4f36-8492-087446bd857f">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>memory</secret-storage>
+    </data-source>
+  </component>
+</project>

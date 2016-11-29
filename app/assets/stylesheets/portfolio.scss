@@ -24,14 +24,13 @@
   height: 50px;
   background: image_url('photo-camera.png') no-repeat;
   background-size: cover;
-  opacity: 1;
+  opacity: 0.5;
 }
 
 #videocamera-button
 {
   background: image_url('video-camera.png') no-repeat;
   background-size: cover;
-  opacity: 0.5;
 }
 #photocamera-button:hover, #videocamera-button:hover
 {
@@ -181,32 +180,27 @@ height:100px;
 
 .shooting-block,.videography-block
 {
-  display: flex;
+  display: block;
   height:300px;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   margin-top: 0;
   background: whitesmoke;
 }
 
 .shooting-description-block, .videography-description-block
 {
-  height:280px;
-  border:1px solid gray;
+float:left;
+  height:298px;
   width:12%;
-  display:inline-block;
   text-align: center;
-  font-style: bold;
   font-size: 1.5em;
-  margin: 10px;
-  margin-right: 1%;
   background: white;
 }
 
 .scrollable-content-block
 {
-  display: inline-flex;
+  display:inline-block;
   overflow: hidden;
-  width: 87%;
   height:300px;
 
 }
@@ -263,4 +257,79 @@ height:100px;
   padding: 10px;
   border: 1px black solid;
   width:100%;
+}
+
+.track{
+  position: relative;
+  float: left;
+  height:300px;
+  width: 87%;
+
+}
+
+.view-port {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.slider-container {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.silverlight-item {
+  position: absolute;
+  width: 450px;
+  height: 300px;
+  margin-right: 8px
+}
+
+.img-in-gallery{
+  width: 100%;
+  height: 100%;
+}
+
+.track a.prev,
+.track a.next {
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -32px;
+  width: 64px;
+  height: 64px;
+  background: image-url("arrows.png");
+  background-repeat: no-repeat;
+}
+
+.track a.prev.disabled,
+.track a.next.disabled {
+  display: none;
+}
+
+.track a.prev {
+  left: 0;
+  background-position: 0 0;
+}
+
+.track a.prev:hover {
+  background-position: 0 -66px;
+}
+
+.track a.prev:active {
+  background-position: 0 -132px;
+}
+
+.track a.next {
+  right: 0;
+  background-position: -64px 0;
+}
+
+.track a.next:hover {
+  background-position: -64px -132px;
+}
+
+.track a.next:active {
+  background-position: -64px -198px;
 }

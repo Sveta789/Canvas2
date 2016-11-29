@@ -1,2 +1,2 @@
 $("<%= escape_javascript(render @comment) %>").insertBefore(".new-comment-block");
-$(".form-for-new-comment input[type = 'text']").val("Введи текст");
+document.getElementById('new-comment-text').value='';

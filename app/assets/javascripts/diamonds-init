@@ -1,0 +1,41 @@
+var ready = function(){
+    // Get photos from Flickrfunction
+
+    var initDiamonds = function(form, wrap) {
+        var opt = {
+            debugEnabled : true
+        };
+        $("[name]", form).each(function(index, input) {
+            var $input = $(input);
+            var val = $input.val();
+            if($input.hasClass("int")) {
+                val = parseInt(val);
+            }
+            if($input.hasClass("bool")) {
+                val = val.toLowerCase() === "true";
+            }
+            opt[$input.attr("name")] = val;
+        });
+
+        if(!$(wrap).data("diamonds")) {
+            $(wrap).diamonds(opt);
+        }
+        else {
+            $(wrap).diamonds("setOptions", opt);
+            $(wrap).diamonds("draw");
+        }
+    };
+
+    var initControls = function(form, wrap) {
+        $("[name]", form).each(function(index, input) {
+            $(input).on("change", function(e) {
+                initDiamonds(form, wrap);
+            });
+        });
+    };
+
+    initDiamonds($("#diamondsControls"), $("#flickrItems"));
+    initControls($("#diamondsControls"), $("#flickrItems"));
+};
+
+$(document).on('turbolinks:load', ready);

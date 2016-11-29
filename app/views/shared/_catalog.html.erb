@@ -18,7 +18,7 @@
       </div>
       <div class = 'about-author-block'>
         <div class = "author-info">
-            РЕЙТИНГ
+            РЕЙТИНГ: <%= find_rating(shooting.user.portfolio.ratings) %>
         </div>
         <div class = "author-info">
           <%= link_to image_tag(shooting.user.profile.avatar.thumb, class: 'avatar-photo-in-item'),shooting.user.portfolio %>

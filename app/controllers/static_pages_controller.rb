@@ -1,4 +1,7 @@
 class StaticPagesController < ApplicationController
+
+  layout "application", except: [:index]
+  layout "main_page", only: [:index]
   def index
     @photo_prices = get_min_and_max_price_of_model(Shooting.all)
     @video_prices = get_min_and_max_price_of_model(Videography.all)

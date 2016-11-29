@@ -21,19 +21,8 @@ function showMenu(buttonID, menuID) {
     }
 }
 
-
-function toggleButtons(btn1, btn2)
-{
-    var currentBtn = $('#'+ btn1);
-    var button2 = $('#'+ btn2);
-    var isClicked = currentBtn.attr('clicked');
-    if(isClicked == 'false')
-    {
-        currentBtn.attr("clicked", "true");
-        currentBtn.css({opacity:'1'});
-        button2.attr("clicked", "false");
-        button2.css({opacity:'0.5'});
-    }
+function clearTextField(id) {
+    $("#"+id).attr("value", "");
 }
 
 function moveBlock(btnId,btn2Id,idOfBlock,infoArray)

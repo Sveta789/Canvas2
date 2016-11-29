@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvas2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<script>
+  $(document).click(function(event) {
+    var text = $(event.target).text();
+  });
+</script>
+<%= render 'shared/header' %>
+<div class = "zaglushka"></div>
+<% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+<%= yield %>
+</body>
+</html>

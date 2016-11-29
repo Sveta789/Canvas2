@@ -88,43 +88,15 @@
 
 <div id="photoslide-filters" class = "whitestripe">
   <h1>- ВСЕ РАЗДЕЛЫ -</h1>
-  <div class = "filter-wrapper">
-    <div class=filter-box>
-      <div class="filter-round">            </div>
-      <span class="filter-label">СВАДЬБЫ</span>
-    </div>
-    <div class=filter-box>
-      <div class="filter-round">
-      </div>
-      <span class="filter-label">Праздники</span>
-    </div>
-    <div class=filter-box>
-      <div class="filter-round">
-      </div>
-      <span class="filter-label">LOVE STORY</span>                      </div>
-    <div class=filter-box>
-      <div class="filter-round">
-      </div>
-      <span class="filter-label">ПЕРСОНАЛЬНЫЕ</span>                   </div>
-
-    <div class=filter-box>
-      <div class="filter-round">
-      </div>
-      <span class="filter-label">КОММЕРЧЕСКИЕ</span>                  </div>
-    <div class=filter-box>
-      <div class="filter-round">
-      </div>
-      <span class="filter-label">ВЕЧЕРИНКИ</span>                     </div>
-    <div class=filter-box>
-      <div class="filter-round">
-      </div>
-      <span class="filter-label">ДРУГИЕ</span>                  </div>
-    <div class=filter-box>
-      <div class="filter-round">
-      </div>
-      <span class="filter-label">ФОТОПРОЕКТЫ</span>                   </div>
-  </div>
-
+  <div id = "flickrItems">
+    <a href = "#" class="item" id="filter-item-1"></a>
+    <a href = "#" class="item" id="filter-item-2"></a>
+    <a href = "#" class="item" id="filter-item-3"></a>
+    <a href = "#" class="item" id="filter-item-4"></a>
+    <a href = "#" class="item" id="filter-item-5"></a>
+    <a href = "#" class="item" id="filter-item-6"></a>
+    <a href = "#" class="item" id="filter-item-7"></a>
+    <a href = "#" class="item" id="filter-item-8"></a>
   <button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>
 </div>
 </div>
@@ -195,6 +167,16 @@
 </section>
 
 <!-------СКРИПТЫ----------->
+<script>
+  $("#flickrItems").diamonds({
+    size : 280,
+    gap : 2,
+    hideIncompleteRow : false, // default: false
+    autoRedraw : true, // default: true
+    itemSelector : ".item"
+  });
+</script>
+
 <script>
     $('section').horizon();
 </script>

@@ -10,8 +10,8 @@
 <div class = "zaglushka"></div>
 <div class = "portfolio-main-section">
   <div id = "switch-buttons-block">
-    <div id = "photocamera-button" clicked = "true" onclick="toggleButtons('photocamera-button','videocamera-button')"></div>
-    <div id = "videocamera-button" clicked = "false" onclick="toggleButtons('videocamera-button','photocamera-button')"></div>
+    <div id = "photocamera-button" class = "tabs_button active_tab_button" clicked = "true" onclick="toggleButtons('photocamera-button','videocamera-button')"></div>
+    <div id = "videocamera-button" class = "tabs_button" clicked = "false" onclick="toggleButtons('videocamera-button','photocamera-button')"></div>
   </div>
   <div id = "photo-categories-block">
     <% shooting_categories.each do |kindOf| %>
@@ -48,7 +48,8 @@
 </div>
 <div id = "onButton-clicked-author-block" class = "moving-block-with-information" style = "display: none;">
 </div>
-
+<div class = "tabs_container">
+  <div class = "tab_item active_tab">
 <% if !current_user.nil? && current_user.id == @portfolio.user_id %>
 <div class = "container container-for-adding-shootings">
   <% shooting_categories.each do |kindOf| %>
@@ -84,19 +85,30 @@
           <%= shooting.price %>
         </div>
         </div>
-        <div class = "scrollable-content-block">
+        <div class="track" id = "track-<%= %>">
+        <div class = "view-port">
+          <div class="slider-container">
       <% @portfolio.user.photos.each do |photo| %>
           <% if photo.category == shooting.category %>
-      <%= image_tag( photo.image.url, class: 'photo-preview') %>
+          <div class = "silverlight-item"><a class = "showcase" href = "<%=photo.image.url  %>" data-rel="lightcase:myCollection:slideshow"><%= image_tag( photo.image.url, class: "img-in-gallery") %></a></div>
           <% end %>
        <%end %>
+          </div>
         </div>
+
+        <div class="pagination">
+          <a href="#" class="prev disabled"></a>
+          <a href="#" class="next disabled"></a>
+        </div>
+        </div>
+
+
       </div>
   <% end %>
   </div>
   </div>
-
-
+  </div>
+<div class = "tab_item">
 <div class = "container">
   <div class="spoiler-title" ><h1> Видеоуслуги </h1></div>
   <div class="spoiler-body">
@@ -119,6 +131,9 @@
       </div>
   <% end %>
     </div>
+</div>
+</div>
+
 </div>
 
 <div class = "container" id = comments>
@@ -148,7 +163,7 @@
           <div class = "comment-user">
           <%= image_tag( (current_user.profile.avatar != nil) ? current_user.profile.avatar : nil , class: "comment-avatar") %>
           </div>
-          <%= f.text_field :body, :value => "Введи текст" %>
+          <%= f.text_field :body, id: "new-comment-text" %>
           <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
           <%= f.submit "OK", class: "btn btn-primary" %>
     <% end %>
