@@ -18,6 +18,7 @@ var ready = function() {
         track.start();
     });
     $('a[data-rel="lightcase:myCollection:slideshow"]').lightcase({showSequenceInfo: false, transition: 'scrollHorizontal'});
+    $('a[data-rel="lightcase"]').lightcase();
 };
 
 

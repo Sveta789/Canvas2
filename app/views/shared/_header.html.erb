@@ -1,31 +1,31 @@
 <header>
   <div id=navmenu>
-    <div class = side-section>
-    <%= link_to  "О нас", '/about' %>
-    <a href = "#">Контакты</a>
-      </div>
-    <div id = logo> </div>
-    <div class = side-section>
-    <%= link_to  "Каталог", '/catalog' %>
-    <div class = "personal-cabinet">
-      <% if signed_in? %>
-          <%= image_tag current_user.profile.avatar, class: "header-avatar"%>
-          <div class = "profile-block-header">
-          <%= link_to  current_user.profile.name, current_user.profile, id: 'name_header_link' %>
-           <div id="profile-block-header-button" clicked = "false" onclick="showMenu('profile-block-header-button','profile-block-header-menu')"></div>
-           <div id="profile-block-header-menu">
-          <% if current_user.operator? %>
-            <%= link_to  "Портфолио", current_user.portfolio %>
-          <% end %>
-          <%= link_to  "Выйти", signout_path, method: "delete" %>
-           </div>
-          </div>
-      <% else %>
-          <%= link_to  "Войти", signin_path %>
-          <%= link_to  "Регистрация", signup_path %>
-
-      <% end %>
+    <div class=side-section>
+      <%= link_to "О нас", '/about' %>
+      <a href="#">Контакты</a>
     </div>
-     </div>
+    <div id=logo></div>
+    <div class=side-section>
+      <%= link_to "Каталог", '/catalog' %>
+      <div class="personal-cabinet">
+        <% if signed_in? %>
+            <%= image_tag current_user.profile.avatar, class: "header-avatar" %>
+            <div class="profile-block-header">
+              <%= link_to current_user.profile.name, current_user.profile, id: 'name_header_link' %>
+              <div id="profile-block-header-button" clicked="false" onclick="showMenu('profile-block-header-button','profile-block-header-menu')"></div>
+              <div id="profile-block-header-menu">
+                <% if current_user.operator? %>
+                    <%= link_to "Портфолио", current_user.portfolio %>
+                <% end %>
+                <%= link_to "Выйти", signout_path, method: "delete" %>
+              </div>
+            </div>
+        <% else %>
+            <%= link_to "Войти", signin_path %>
+            <%= link_to "Регистрация", signup_path, 'data-rel'=>'lightcase', id:'sign_up_btn' %>
+
+        <% end %>
+      </div>
+    </div>
   </div>
 </header>

@@ -1,19 +1,19 @@
-<% shooting_categories = ['Свадьбы','Праздники','Love Story','Персональные','Коммерческие','Вечеринки','Другие','Фотопроекты']%>
+<% shooting_categories = ['Свадьбы', 'Праздники', 'Love Story', 'Персональные', 'Коммерческие', 'Вечеринки', 'Другие', 'Фотопроекты'] %>
 <% videographies_categories = ['Детское', 'Вечеринки', 'Свадебное'] %>
-<%contact_button_info =  [@portfolio.user.profile.phone_number, @portfolio.user.profile.social_email, @portfolio.user.profile.social_network] %>
-<%author_about_button_info =  [@portfolio.user.profile.city] %>
+<% contact_button_info = [@portfolio.user.profile.phone_number, @portfolio.user.profile.social_email, @portfolio.user.profile.social_network] %>
+<% author_about_button_info = [@portfolio.user.profile.city] %>
 <div onclick="showZoom('none','')" id="picture-wrap" style="display: none;"></div>
 <div id="picture-window" style="display: none; background-image: none">
 </div>
-<div id = "line-with-logo">
+<div id="line-with-logo">
 </div>
-<div class = "zaglushka"></div>
-<div class = "portfolio-main-section">
-  <div id = "switch-buttons-block">
-    <div id = "photocamera-button" class = "tabs_button active_tab_button" clicked = "true" onclick="toggleButtons('photocamera-button','videocamera-button')"></div>
-    <div id = "videocamera-button" class = "tabs_button" clicked = "false" onclick="toggleButtons('videocamera-button','photocamera-button')"></div>
+<div class="zaglushka"></div>
+<div class="portfolio-main-section">
+  <div id="switch-buttons-block">
+    <div id="photocamera-button" class="tabs_button active_tab_button" clicked="true" onclick="toggleButtons('photocamera-button','videocamera-button')"></div>
+    <div id="videocamera-button" class="tabs_button" clicked="false" onclick="toggleButtons('videocamera-button','photocamera-button')"></div>
   </div>
-  <div id = "photo-categories-block">
+  <div id="photo-categories-block">
     <% shooting_categories.each do |kindOf| %>
         <% result = @portfolio.user.shootings.where(category: kindOf)
            if result.exists? %>
@@ -21,7 +21,7 @@
         <% end %>
     <% end %>
   </div>
-  <div id = "video-categories-block">
+  <div id="video-categories-block">
     <% videographies_categories.each do |kindOf| %>
         <% result = @portfolio.user.videographies.where(category: kindOf)
            if result.exists? %>
@@ -29,198 +29,202 @@
         <% end %>
     <% end %>
   </div>
-<div class="info_and_avatar_block">
-  <%= image_tag @portfolio.user.profile.avatar.thumb, class: 'avatar-photo' %>
-  <div class = "name-surname-block">
-    <span class = 'name-of-author'><%= @portfolio.user.profile.name %></span>
-    <span class = 'name-of-author'><%= @portfolio.user.profile.surname %></span>
+  <div class="info_and_avatar_block">
+    <%= image_tag @portfolio.user.profile.avatar.thumb, class: 'avatar-photo' %>
+    <div class="name-surname-block">
+      <span class='name-of-author'><%= @portfolio.user.profile.name %></span>
+      <span class='name-of-author'><%= @portfolio.user.profile.surname %></span>
+    </div>
   </div>
-</div>
   <% if current_user %>
-  <div id = "rating-regards-block">
-    <div id = rating-wrapper votes = '<%= @portfolio.ratings.count %>' rating = '<%= @rating.rating %>' average-rating = '<%= find_rating(@portfolio.ratings) %>' answered = '<%= @hasVoted %>'  user_id = '<%= current_user.id %>'  portfolio_id = '<%= @portfolio.id %>'></div>
-  </div>
+      <div id="rating-regards-block">
+        <div id=rating-wrapper votes='<%= @portfolio.ratings.count %>' rating='<%= @rating.rating %>' average-rating='<%= find_rating(@portfolio.ratings) %>' answered='<%= @hasVoted %>' user_id='<%= current_user.id %>' portfolio_id='<%= @portfolio.id %>'></div>
+      </div>
   <% end %>
 </div>
-<div id = contact-and-info-buttons-block>
-  <div id = "contact-author-button" onclick="moveBlock('contact-author-button','show-info-author-button','onButton-clicked-author-block',<%= contact_button_info %>)" clicked = 'false'>Связаться</div>
-  <div id = "show-info-author-button" onclick="moveBlock('show-info-author-button','contact-author-button','onButton-clicked-author-block',<%= author_about_button_info %>)" clicked = 'false'>Личная информация</div>
+<div id=contact-and-info-buttons-block>
+  <div id="contact-author-button" onclick="moveBlock('contact-author-button','show-info-author-button','onButton-clicked-author-block',<%= contact_button_info %>)" clicked='false'>Связаться</div>
+  <div id="show-info-author-button" onclick="moveBlock('show-info-author-button','contact-author-button','onButton-clicked-author-block',<%= author_about_button_info %>)" clicked='false'>Личная
+    информация
+  </div>
 </div>
-<div id = "onButton-clicked-author-block" class = "moving-block-with-information" style = "display: none;">
+<div id="onButton-clicked-author-block" class="moving-block-with-information" style="display: none;">
 </div>
-<div class = "tabs_container">
-  <div class = "tab_item active_tab">
-<% if !current_user.nil? && current_user.id == @portfolio.user_id %>
-<div class = "container container-for-adding-shootings">
-  <% shooting_categories.each do |kindOf| %>
-      <% result = @portfolio.user.shootings.where(category: kindOf)
-         if result.exists? %>
-          <div class='form-for-shooting-add-block'>
-            <%= kindOf %>
-          <div class="shooting-existed-block" style="background-image:url('<%= get_background_by_category(kindOf) %>'); background-size: cover">
+<div class="tabs_container">
+  <div class="tab_item active_tab">
+    <% if !current_user.nil? && current_user.id == @portfolio.user_id %>
+        <div class="container container-for-adding-shootings">
+          <% shooting_categories.each do |kindOf| %>
+              <% result = @portfolio.user.shootings.where(category: kindOf)
+                 if result.exists? %>
+                  <div class='form-for-shooting-add-block'>
+                    <%= kindOf %>
+                    <div class="shooting-existed-block" style="background-image:url('<%= get_background_by_category(kindOf) %>'); background-size: cover">
+
+                    </div>
+                  </div>
+              <% else %>
+                  <%= form_tag("/new_shooting", method: "post", class: 'form-for-shooting-add-block') do %>
+                      <input type="hidden" name="category" value="<%= kindOf %>">
+                      <%= label_tag kindOf %>
+                      <%= submit_tag('', class: 'shooting-add-block') %>
+                  <% end %>
+              <% end %>
+          <% end %>
+        </div>
+    <% end %>
+
+    <div class="container">
+      <div class="spoiler-title"><h1> ФОтоуслуги </h1></div>
+      <div class="spoiler-body">
+        <% @portfolio.user.shootings.each do |shooting| %>
+            <div class="shooting-block">
+              <div class="shooting-description-block">
+                <div>
+                  <%= shooting.category %>
+                </div>
+                <div>
+                  <%= shooting.price %>
+                </div>
+              </div>
+              <div class="track" id="track-<%= %>">
+                <div class="view-port">
+                  <div class="slider-container">
+                    <% @portfolio.user.photos.each do |photo| %>
+                        <% if photo.category == shooting.category %>
+                            <div class="silverlight-item">
+                              <a class="showcase" href="<%= photo.image.url %>" data-rel="lightcase:myCollection:slideshow"><%= image_tag(photo.image.url, class: "img-in-gallery") %></a>
+                            </div>
+                        <% end %>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="pagination">
+                  <a href="#" class="prev disabled"></a>
+                  <a href="#" class="next disabled"></a>
+                </div>
+              </div>
+
 
             </div>
-          </div>
-      <% else %>
-          <%= form_tag("/new_shooting", method: "post", class: 'form-for-shooting-add-block') do %>
-              <input type="hidden" name="category" value="<%= kindOf %>">
-              <%= label_tag kindOf %>
-              <%= submit_tag('', class: 'shooting-add-block') %>
-          <% end %>
-      <% end %>
-  <% end %>
-</div>
-<% end %>
-
-<div class = "container">
-  <div class="spoiler-title" ><h1> ФОтоуслуги </h1></div>
-  <div class="spoiler-body">
-  <% @portfolio.user.shootings.each do |shooting| %>
-      <div class="shooting-block">
-        <div class = "shooting-description-block">
-        <div>
-          <%= shooting.category %>
-        </div>
-        <div>
-          <%= shooting.price %>
-        </div>
-        </div>
-        <div class="track" id = "track-<%= %>">
-        <div class = "view-port">
-          <div class="slider-container">
-      <% @portfolio.user.photos.each do |photo| %>
-          <% if photo.category == shooting.category %>
-          <div class = "silverlight-item"><a class = "showcase" href = "<%=photo.image.url  %>" data-rel="lightcase:myCollection:slideshow"><%= image_tag( photo.image.url, class: "img-in-gallery") %></a></div>
-          <% end %>
-       <%end %>
-          </div>
-        </div>
-
-        <div class="pagination">
-          <a href="#" class="prev disabled"></a>
-          <a href="#" class="next disabled"></a>
-        </div>
-        </div>
-
-
+        <% end %>
       </div>
-  <% end %>
-  </div>
-  </div>
-  </div>
-<div class = "tab_item">
-<div class = "container">
-  <div class="spoiler-title" ><h1> Видеоуслуги </h1></div>
-  <div class="spoiler-body">
-  <% @portfolio.user.videographies.each do |videography| %>
-      <div class="videography-block">
-        <div class = "videography-description-block">
-          <div>
-            <%= videography.category %>
-          </div>
-          <div>
-            <%= videography.price %>
-          </div>
-        </div>
-        <% @portfolio.user.videos.each do |video| %>
-            <% puts video.inspect %>
-            <% if video.category == videography.category %>
-               <!-- <iframe width="200px" height="150px" src=<%=video.path%> frameborder="0" allowfullscreen class = 'video-preview'></iframe> -->
-            <% end %>
-        <%end %>
-      </div>
-  <% end %>
     </div>
-</div>
-</div>
-
-</div>
-
-<div class = "container" id = comments>
-  <div class="spoiler-title" ><h1> Отзывы </h1></div>
-  <div class="spoiler-body">
-  <% @portfolio.comments.each do |comment| %>
-      <div class="comment-block">
-        <div class = "comment-user">
-        <%= image_tag( (comment.user.profile.avatar != nil) ? comment.user.profile.avatar : nil , class: "comment-avatar") %>
-        <!-- TODO add default image avatar! -->
-          <%= comment.user.profile.name %>
-        </div>
-        <div class = comment-body>
-          <%= comment.body %>
-        </div>
-        <div class = comment-date>
-          Оставлено: <br>
-          <%= comment.created_at.strftime("%Y-%m-%d") %>
-        </div>
+  </div>
+  <div class="tab_item">
+    <div class="container">
+      <div class="spoiler-title"><h1> Видеоуслуги </h1></div>
+      <div class="spoiler-body">
+        <% @portfolio.user.videographies.each do |videography| %>
+            <div class="videography-block">
+              <div class="videography-description-block">
+                <div>
+                  <%= videography.category %>
+                </div>
+                <div>
+                  <%= videography.price %>
+                </div>
+              </div>
+              <% @portfolio.user.videos.each do |video| %>
+                  <% puts video.inspect %>
+                  <% if video.category == videography.category %>
+                      <!-- <iframe width="200px" height="150px" src=<%= video.path %> frameborder="0" allowfullscreen class = 'video-preview'></iframe> -->
+                  <% end %>
+              <% end %>
+            </div>
+        <% end %>
       </div>
-  <% end %>
+    </div>
+  </div>
+
+</div>
+
+<div class="container" id=comments>
+  <div class="spoiler-title"><h1> Отзывы </h1></div>
+  <div class="spoiler-body">
+    <% @portfolio.comments.each do |comment| %>
+        <div class="comment-block">
+          <div class="comment-user">
+            <%= image_tag((comment.user.profile.avatar != nil) ? comment.user.profile.avatar : nil, class: "comment-avatar") %>
+            <!-- TODO add default image avatar! -->
+            <%= comment.user.profile.name %>
+          </div>
+          <div class=comment-body>
+            <%= comment.body %>
+          </div>
+          <div class=comment-date>
+            Оставлено: <br>
+            <%= comment.created_at.strftime("%Y-%m-%d") %>
+          </div>
+        </div>
+    <% end %>
 
     <% if signed_in? %>
-    <div class = "new-comment-block">
-    <div><%= current_user.profile.name %> говорит:</div>
-    <%= form_for @comment, :html => {:multipart => true},remote: true do |f| %>
-          <div class = "comment-user">
-          <%= image_tag( (current_user.profile.avatar != nil) ? current_user.profile.avatar : nil , class: "comment-avatar") %>
-          </div>
-          <%= f.text_field :body, id: "new-comment-text" %>
-          <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
-          <%= f.submit "OK", class: "btn btn-primary" %>
+        <div class="new-comment-block">
+          <div><%= current_user.profile.name %> говорит:</div>
+          <%= form_for @comment, :html => {:multipart => true}, remote: true do |f| %>
+              <div class="comment-user">
+                <%= image_tag((current_user.profile.avatar != nil) ? current_user.profile.avatar : nil, class: "comment-avatar") %>
+              </div>
+              <%= f.text_field :body, id: "new-comment-text" %>
+              <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
+              <%= f.submit "OK", class: "btn btn-primary" %>
+          <% end %>
+        </div>
     <% end %>
-  </div>
-        <% end %>
   </div>
 
 </div>
 
 <h1>ВСЕ Фотоработы </h1>
-<div class = container>
+<div class=container>
   <% @portfolio.user.photos.each do |photo| %>
-      <%= image_tag( photo.image.thumb.url, class: "photo-block") %>
+      <%= image_tag(photo.image.thumb.url, class: "photo-block") %>
   <% end %>
 </div>
 
 <h1>ВСЕ ВИДЕОРАБОТЫ </h1>
-<div class = container>
+<div class=container>
   <% @portfolio.user.videos.each do |video| %>
-      <!--<iframe width="200px" height="150px" src=<%=video.path%> frameborder="0" allowfullscreen></iframe>-->
+      <!--<iframe width="200px" height="150px" src=<%= video.path %> frameborder="0" allowfullscreen></iframe>-->
   <% end %>
 </div>
-<% if  signed_in? && current_user?(@portfolio.user_id) %>
-<div class = 'form-for-new-photo'>
-  <%= form_for @photo, :html => {:multipart => true} do |f| %>
-      <p>
-        <label>Загрузить фото:</label>
-        <%= image_tag(@photo.image_url) if @photo.image != nil %>
-        <label> Название</label>
-        <%= f.text_field :title %>
-        <%= f.label 'Категория:' %>
-        <%= select_tag "photo[category]", options_for_select(shooting_categories) %>
-        <%= f.file_field :image %>
-        <%= f.hidden_field :image_cache %>
-        <%= f.submit "Добавить фото", class: "btn btn-primary" %>
-      </p>
-  <% end %>
-</div>
+<% if signed_in? && current_user?(@portfolio.user_id) %>
+    <div class='form-for-new-photo'>
+      <%= form_for @photo, :html => {:multipart => true} do |f| %>
+          <p>
+            <label>Загрузить фото:</label>
+            <%= image_tag(@photo.image_url) if @photo.image != nil %>
+            <label> Название</label>
+            <%= f.text_field :title %>
+            <%= f.label 'Категория:' %>
+            <%= select_tag "photo[category]", options_for_select(shooting_categories) %>
+            <%= f.file_field :image %>
+            <%= f.hidden_field :image_cache %>
+            <%= f.submit "Добавить фото", class: "btn btn-primary" %>
+          </p>
+      <% end %>
+    </div>
 
- <div class = 'form-for-new-video'>
+    <div class='form-for-new-video'>
       <%= form_for @video, :html => {:multipart => true} do |f| %>
           <p>
             <label>Загрузить видео:</label>
             <label> Название</label>
             <%= f.text_field :title %>
             <%= f.label 'Категория:' %>
-            <%= select_tag "video[category]", options_for_select([['Детское'],['Вечеринки'],['Свадебное']],1) %>
+            <%= select_tag "video[category]", options_for_select([['Детское'], ['Вечеринки'], ['Свадебное']], 1) %>
             <label> Ссылка</label>
             <%= f.text_field :path %>
             <%= f.submit "Добавить видео", class: "btn btn-primary" %>
           </p>
       <% end %>
- </div>
+    </div>
 
 
-<%= link_to "Редактировать портфолио", edit_portfolio_path %>
+    <%= link_to "Редактировать портфолио", edit_portfolio_path %>
     <%= link_to "Добавить видеоуслуги", videographies_new_path %>
-<%= link_to "Мои услуги", '/shootings' %>
+    <%= link_to "Мои услуги", '/shootings' %>
 
 <% end %>

@@ -38,8 +38,6 @@
   -webkit-filter:drop-shadow(2px 2px 2px black);
 }
 
-
-
 #photo-categories-block
 {
   width:15%;
@@ -169,6 +167,7 @@ height:100px;
   display:flex;
   align-items: center;
   justify-content: center;
+  min-height: 200px;
 }
 
 .photo-block, .video-block{
@@ -228,9 +227,10 @@ float:left;
 
 .shooting-add-block, .shooting-existed-block
 {text-align: center;
-  height:150px;
+  min-height: 150px;
+  height:80%;
   border:2px solid white;
-  width:150px;
+  width:80%;
   display:inline-block;
   margin: 10px;
   border-radius: 10px;
@@ -247,7 +247,10 @@ float:left;
 }
 
 .form-for-shooting-add-block{
-  display: inline-block;
+  display: block;
+  min-height: 150px;
+  height:80%;
+  width:10%;
   margin: 0;
   text-align: center;
 }
