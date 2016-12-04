@@ -1,28 +1,38 @@
-<div class="registration-box" data-rel = "lightcase">
-  <div class="col-md-6 col-md-offset-3">
+<div class="registration-box">
     <%= form_for @user, :html => {:multipart => true} do |f| %>
         <%= render 'shared/error_messages' , object: f.object%>
-
-        <div class = "register_field">
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-        </div>
-        <div class = "register_field">
-        <%= f.label 'Пароль' %>
-        <%= f.password_field :password %>
+        <div class = "registration-box-fields-wrapper">
+          <div class = "registration-box-column">
+            <div class = "register_field">
+            <%= f.label :email %>
+              </div>
+            <div class = "register_field">
+            <%= f.label 'Пароль' %>
+              </div>
+            <div class = "register_field">
+            <%= f.label 'Подтвердите пароль' %>
+              </div>
+            <div class = "register_field">
+              <%= f.label 'Я оператор' %>
+              <%= f.check_box :operator %>
+            </div>
+            <div class = "register_field">
+              <%= f.submit "Продолжить", class: "btn btn-primary" %>
+            </div>
           </div>
-        <div class = "register_field">
-        <%= f.label 'Подтвердите пароль' %>
-        <%= f.password_field :password_confirmation %>
+          <div class = "registration-box-column">
+            <div class = "register_field">
+            <%= f.text_field :email %>
+              </div>
+            <div class = "register_field">
+            <%= f.password_field :password %>
+              </div>
+            <div class = "register_field">
+            <%= f.password_field :password_confirmation %>
+              </div>
+          </div>
         </div>
-        <div class = "register_field">
-          <%= f.label 'Я оператор' %>
-          <%= f.check_box :operator %>
-        </div>
-        <div class = "register_field">
-        <%= f.submit "Create my account", class: "btn btn-primary" %>
-        </div>
+
 
     <% end %>
-  </div>
 </div>

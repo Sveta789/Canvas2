@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  layout 'lightbox'
+
   def index
     @users = User.all
   end
