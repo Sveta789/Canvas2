@@ -1,38 +1,36 @@
-<div class="registration-box">
-    <%= form_for @user, :html => {:multipart => true} do |f| %>
-        <%= render 'shared/error_messages' , object: f.object%>
-        <div class = "registration-box-fields-wrapper">
-          <div class = "registration-box-column">
-            <div class = "register_field">
-            <%= f.label :email %>
-              </div>
-            <div class = "register_field">
-            <%= f.label 'Пароль' %>
-              </div>
-            <div class = "register_field">
-            <%= f.label 'Подтвердите пароль' %>
-              </div>
-            <div class = "register_field">
-              <%= f.label 'Я оператор' %>
-              <%= f.check_box :operator %>
-            </div>
-            <div class = "register_field">
-              <%= f.submit "Продолжить", class: "btn btn-primary" %>
-            </div>
-          </div>
-          <div class = "registration-box-column">
-            <div class = "register_field">
-            <%= f.text_field :email %>
-              </div>
-            <div class = "register_field">
-            <%= f.password_field :password %>
-              </div>
-            <div class = "register_field">
-            <%= f.password_field :password_confirmation %>
-              </div>
-          </div>
-        </div>
-
-
-    <% end %>
+<div id="signup-form" class="registration-box" style="display: none">
+  <%= form_for @user, :html => {:multipart => true, :class => 'registration-box-fields-wrapper'}, remote: true do |f| %>
+      <div class="full-row-field form-header"> БЫСТРАЯ РЕГИСТРАЦИЯ</div>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="register_field">
+        <%= f.text_field :email, :placeholder => 'Ваш E-Mail' %>
+      </div>
+      <div class="register_field">
+        <%= f.password_field :password, :placeholder => 'Ваш пароль' %>
+      </div>
+      <div class="register_field">
+        <%= f.password_field :password_confirmation, :placeholder => 'Повторите пароль' %>
+      </div>
+      <div class="full-row-field">
+        <%= f.label 'Я оператор', :class => "check-box-replace-button", :onclick => 'customCheckbox($(this))' %>
+      </div>
+      <div class="register_field" style = "display:none" >
+        <%= f.check_box :operator, :id => 'operator-checkbox'%>
+      </div>
+      <div class="full-row-field form-submit">
+        <%= f.submit "Продолжить", class: "form-submit-btn" %>
+      </div>
+  <% end %>
 </div>
+
+<script>
+  var customCheckbox = function(author) {
+    var checkbox = $('#operator-checkbox');
+    if(checkbox.prop('value') == 0){
+      checkbox.prop('value', 1);
+    }else{
+      checkbox.prop('value', 0);
+    }
+    $(author).toggleClass('custom-checkbox-checked');
+  }
+</script>

@@ -11,6 +11,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    respond_to do |format|
+        format.html {redirect_to signup_path}
+        format.js{ render 'users/replace'}
+        format.json { render 'users/replace' }
+    end
   end
 
   def create

@@ -11,7 +11,7 @@ function showMenu(buttonID, menuID) {
     var isClicked = btn.attr('clicked');
     if(isClicked == "false")
     {
-        menu.css({transition:'0.5s',left:"-120px",opacity: "1"});
+        menu.css({transition:'0.5s',left:"0",opacity: "1"});
         btn.attr("clicked", "true");
     }
     else

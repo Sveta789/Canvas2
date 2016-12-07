@@ -1,30 +1,36 @@
 <header>
-  <div id=navmenu>
-    <div class=side-section>
+    <div class="header-section">
       <%= link_to "О нас", '/about' %>
+    </div>
+    <div class="header-section">
       <a href="#">Контакты</a>
     </div>
-    <div id=logo></div>
-    <div class=side-section>
+    <div class="header-section" id=logo></div>
+    <div class=header-section>
       <%= link_to "Каталог", '/catalog' %>
-      <div class="personal-cabinet">
+    </div>
+      <div class="personal-cabinet header-section">
         <% if signed_in? %>
             <%= image_tag current_user.profile.avatar, class: "header-avatar" %>
+            <%= link_to current_user.profile.name, current_user.profile, id: 'name_header_link' %>
             <div class="profile-block-header">
-              <%= link_to current_user.profile.name, current_user.profile, id: 'name_header_link' %>
               <div id="profile-block-header-button" clicked="false" onclick="showMenu('profile-block-header-button','profile-block-header-menu')"></div>
-              <div id="profile-block-header-menu">
-                <% if current_user.operator? %>
-                    <%= link_to "Портфолио", current_user.portfolio %>
-                <% end %>
-                <%= link_to "Выйти", signout_path, method: "delete" %>
-              </div>
             </div>
         <% else %>
-            <%= link_to "Войти", signin_path,'data-rel':'lightcase'  %>
-            <%= link_to "Регистрация", signup_path, 'data-rel':'lightcase', id:'sign_up_btn' %>
+            <%= link_to "Войти", '#login-form','data-rel':'lightcase', remote: true  %>
+            <%= link_to "Регистрация", signup_path, id:'sign_up_btn', remote: true %>
         <% end %>
+        <div id="profile-block-header-menu" class = "header-section">
+          <% if current_user.operator? %>
+              <%= link_to "Портфолио", current_user.portfolio %>
+          <% end %>
+          <%= link_to "Выйти", signout_path, method: "delete" %>
+        </div>
       </div>
-    </div>
-  </div>
 </header>
+<div class = zaglushka></div>
+<div id="line-with-logo">
+</div>
+
+<%= render 'shared/login_form' %>
+

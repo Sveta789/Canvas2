@@ -9,6 +9,7 @@
 html
 {
   height:100%;
+  min-width: 400px;
   overflow-X: hidden;
 
 }
@@ -40,150 +41,7 @@ section
 }
 
 
-header
-{
-  position: fixed;
-  font-family: "Code Pro Light";
-  font-size: 1.8em;
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
 
-  width:100%;
-  top:0px;
-  min-height:120px;
-  max-height: 120px;
-  background:rgb(255,255,255);
-  text-transform: uppercase;
-  filter:drop-shadow(0px 0px 1px lightgray);
-  z-index: 1000;
-}
-
-.zaglushka
-{
-  width:100%;
-  top:0px;
-  min-height:120px;
-  max-height: 120px;
-  z-index: 0;
-}
-
-header a
-{
-  text-decoration: none;
-  color:black;
-}
-
-header a:hover
-{
-  filter:drop-shadow(2px 2px 2px black);
-}
-
-header #navmenu
-{   display:flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-basis:100%;
-}
-
-header .side-section{
-  display: inline-flex;
-  justify-content: space-around;
-  align-items: center;
-  width:40%;
-
-}
-
-.personal-cabinet
-{
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-around;;
-  height: 100%;
-}
-.personal-cabinet a
-{
-display: block;
-  text-decoration: none;
-  color:black;
- font-size: 0.7em;
-}
-
-.header-avatar
-{
-  width:120px;
-  height:120px;
-  display: inline-block;
-}
-
-.profile-block-header
-{
-
-  height:100%;
-  width: 130px;
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  justify-content: space-around;
-
-}
-
-#profile-block-header-button
-{
-  display: inline-block;
-  width:40px;
-  height:40px;
-  background:image-url('arrow-down.png') no-repeat;
-  background-size: cover;
-}
-
-#profile-block-header-button:hover
-{
-  cursor: pointer;
-  filter:drop-shadow(0px 0px 2px black);
-}
-
-#profile-block-header-menu
-{
-  width:320px;
-  bottom: -128px;
-  left:420px;
-  position: absolute;
-  opacity: 0;
-  color: #ffffff;
-  z-index: 101;
-
-
-}
-
-#profile-block-header-menu a
-{
-  display: block;
-  padding: 10px;
-  color: #ffffff;
-  background-color: rgba(96,96,96,0.5);
-  -webkit-filter:drop-shadow(0 0 0 black);
-
-}
-
-#profile-block-header-menu a:hover
-{
-  display: block;
-  background-color: rgba(144,144,144,0.5) ;
-
-
-}
-
-#profile-block-header-button:hover
-{
-  -webkit-filter:drop-shadow(2px 2px 2px black);
-}
-
-#name_header_link
-{
-  display: inline-block;
-}
 
 .photo-back {
   background:image-url('mainback.jpg') no-repeat;
@@ -374,14 +232,6 @@ display: block;
 }
 
 
-#logo
-{
-  background:image-url('canvaslogo.png') no-repeat 50% 50%;
-  background-size:contain;
-  width:20%;
-  height:80px;
-}
-
 #btn-showfilters, #btn-hidefilters, #btn2-showfilters, #btn2-hidefilters
 {
   position:absolute;
@@ -461,29 +311,117 @@ display: block;
 
 .registration-box
 {
-  //display: none;
-  background: lightgray;
+  background-color: rgb(62, 63, 66);
+  border-radius: 5px;
+  font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+
+  max-width: 350px;
+  min-width: 200px;
+  min-height: 400px;
   width:100%;
   height:100%;
-  margin: 0 0;
+  margin: 0 auto;
+  filter: drop-shadow(0px 0px 5px black);
+}
+
+.registration-box a{
+  text-decoration: none;
+  color:whitesmoke;
+  transition-duration: 200ms;
+}
+
+.registration-box a:hover{
+  text-decoration: underline;
 }
 
 .registration-box-fields-wrapper{
   display: flex;
-  width: 60%;
-  margin:20% auto;
-}
-
-.registration-box-column{
-  display: inline-block;
-  width:50%;
-  height: 100%;
+  min-width: 175px;
+  max-width: 350px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .register_field
 {
-  margin: 20px auto;
-  width:100%;
+  display: inline-block;
+  flex-grow: 2;
+  min-width: 175px;
+  min-height: 50px;
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  color: whitesmoke;
+  line-height: 50px;
+}
+
+.full-row-field{
+  flex-grow: 2;
+  padding:5px;
+  min-height: 60px;
+  flex-basis: 350px;
+  min-width: 175px;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 60px;
+}
+
+.form-header{
+  background: rgb(19, 20, 22);
+  min-height: 75px;
+  font-weight: bold;
+  line-height: 75px;
+  color: white;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 25px;
+}
+
+.form-submit{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.registration-box input{
+  width:80%;
+  margin: 0;
+  min-height:40px;
+  box-sizing: border-box;
+  padding: 5px;
+  line-height: 40px;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+.form-submit-btn{
+
+  background: whitesmoke;
+  color:rgb(19, 20, 22) ;
+  transition: 0.3s;
+}
+
+.form-submit-btn:hover {
+cursor: pointer;
+background: rgb(19, 20, 22);
+ color: whitesmoke;
+}
+
+.check-box-replace-button{
+   border:white 2px solid;
+   border-radius: 2px;
+   padding: 10px;
+  color:whitesmoke;
+  box-sizing: border-box;
+ }
+
+.check-box-replace-button:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.custom-checkbox-checked{
+  background:whitesmoke;
+  color:black;
 }
 
 #error_explanation
@@ -513,20 +451,6 @@ h1{
   text-align: center;
 }
 
-#line-with-logo
-{
-  position: fixed;
-  width:100%;
-  height:80px;
-  background-image: image-url('canvaslogo.png');
-  background-size: 80px 80px;
-  background-position: 50% 50%;
-  background-color: white;
-  background-repeat: no-repeat;
-  filter: drop-shadow(0px 0px 10px lightgray);
-  z-index: 100;
-
-}
 
 .spoiler-title:hover {
   cursor: pointer;

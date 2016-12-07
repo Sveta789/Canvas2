@@ -209,7 +209,7 @@
     z-index: 1;
     overflow: hidden;
     text-shadow: none;
-    background-color: #fff;
+      background: none !important;
     -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     -o-box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
@@ -220,7 +220,7 @@
 @media screen and (min-width: 641px) {
   /* line 24, ../scss/components/modules/_content.scss */
   #lightcase-case[data-lc-type=image] #lightcase-content, #lightcase-case[data-lc-type=video] #lightcase-content {
-    background-color: #333;
+      background: none !important;
   }
 }
 /* line 32, ../scss/components/modules/_content.scss */
@@ -395,7 +395,7 @@
     left: 0;
     max-width: 87.5%;
     padding: 5px 15px;
-    background: #333;
+      background: none !important;
   }
 }
 /* line 33, ../scss/components/modules/_info.scss */
