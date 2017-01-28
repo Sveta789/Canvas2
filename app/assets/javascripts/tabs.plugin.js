@@ -1,4 +1,4 @@
-var Tabs = function(options){
+var TabsReplace = function(options){
     var tabs_class = options.tabs_name;
     var container = options.container_name;
     var active_tab_name = options.active_tab;
@@ -26,3 +26,4 @@ var Tabs = function(options){
         })
     });
 };
+

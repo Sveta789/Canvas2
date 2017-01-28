@@ -2,8 +2,16 @@
   display: none;
 }
 
+.tab_item_fade{
+  opacity:0.5;
+}
+
 .active_tab{
-  display: block;
+   display: block;
+ }
+
+.active_tab_fade{
+  opacity:1;
 }
 
 .active_tab_button{

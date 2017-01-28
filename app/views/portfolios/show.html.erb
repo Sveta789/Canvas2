@@ -7,10 +7,11 @@
 </div>
 <div class="portfolio-main-section">
   <div id="switch-buttons-block">
-    <div id="photocamera-button" class="tabs_button active_tab_button" clicked="true" onclick="toggleButtons('photocamera-button','videocamera-button')"></div>
-    <div id="videocamera-button" class="tabs_button" clicked="false" onclick="toggleButtons('videocamera-button','photocamera-button')"></div>
+    <div id="photocamera-button" class="tabs_button tabs_button_fade active_tab_button active_tab_button_fade" clicked="true"></div>
+    <div id="videocamera-button" class="tabs_button tabs_button_fade" clicked="false"></div>
   </div>
-  <div id="photo-categories-block">
+  <div class = "tabs_container_fade" id = "categories_container">
+  <div id="photo-categories-block" class="tab_item_fade active_tab_fade">
     <% shooting_categories.each do |kindOf| %>
         <% result = @portfolio.user.shootings.where(category: kindOf)
            if result.exists? %>
@@ -18,7 +19,7 @@
         <% end %>
     <% end %>
   </div>
-  <div id="video-categories-block">
+  <div id="video-categories-block" class="tab_item_fade">
     <% videographies_categories.each do |kindOf| %>
         <% result = @portfolio.user.videographies.where(category: kindOf)
            if result.exists? %>
@@ -26,6 +27,7 @@
         <% end %>
     <% end %>
   </div>
+    </div>
   <div class="info_and_avatar_block">
     <%= image_tag @portfolio.user.profile.avatar.thumb, class: 'avatar-photo' %>
     <div class="name-surname-block">

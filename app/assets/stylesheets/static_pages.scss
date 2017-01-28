@@ -4,11 +4,11 @@
 
 .search-result-item
 {
-  height: 130px;
+  height: 150px;
   border-bottom:1px solid lightgray;
   display: flex;
   justify-content: space-around;
-  padding:10px;
+  padding:2px;
   background: rgba(255,255,255,1);
   align-items: center;
   -webkit-filter:drop-shadow(1px 1px 3px lightgray);
@@ -23,8 +23,8 @@
 .avatar-photo-in-item
 {
   display: block;
-  height:80px;
-  width:80px;
+  height:70px;
+  width:70px;
   margin: 0 auto;
   margin-bottom: 5px;
   border-radius: 30%;
@@ -38,16 +38,20 @@
 
 .photo-in-item{
   display: inline-block;
-  height: 120px;
-  width: 200px;
+  height: 146px;
+  width:33%;
   border: 2px solid white;
 }
 
 .about-author-block
 {display: flex;
+  box-sizing:border-box;
   align-items: center;
   width:20%;
+  height: 146px;
   text-align: center;
+  border: 2px solid white;
+  border-radius:10px;
 }
 
 .center-button-block{
@@ -55,8 +59,8 @@
   text-align: center;
 }
 
-.photo-examples-block
-{display: inline-flex;
+.photo-examples-block {
+  display: inline-flex;
   width:40%;
   align-items: center;
   justify-content: space-around;
@@ -96,8 +100,15 @@
 .catalog-section, .videocatalog-section{
   background:#000000;
   background-size: cover;
-  height: 100%;
-  margin:0;
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -200px;
+}
+
+.catalog-section:after,.videocatalog-section:after {
+  content: "";
+  display: block;
+  height: 200px;
 }
 
 .videocatalog-section{

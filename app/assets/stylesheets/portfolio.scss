@@ -38,17 +38,24 @@
   -webkit-filter:drop-shadow(2px 2px 2px black);
 }
 
+#categories_container{
+  width:30%;
+  height: 100%;
+}
+
 #photo-categories-block
 {
-  width:15%;
+  float:left;
+  width:50%;
   height: 100%;
-  background: rgba(128,128,128,0.2);
+  background: rgba(128,128,128,0.5);
 }
 #video-categories-block
 {
-  width:15%;
+  float:left;
+  width:50%;
   height: 100%;
-  background: rgba(128,128,128,0);
+  background: rgba(128,128,128,0.5);
 }
 
 .link-to-category
@@ -105,7 +112,7 @@ height:100px;
   display: block;
   margin:4px auto;
   text-align: center;
-  font-size: 1em;
+  font-size: 0.8em;
 }
 
 #contact-and-info-buttons-block
