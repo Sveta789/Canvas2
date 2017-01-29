@@ -3,7 +3,7 @@ var ready = function(){
 
     var initDiamonds = function(form, wrap) {
         var opt = {
-            debugEnabled : true
+            debugEnabled : false
         };
         $("[name]", form).each(function(index, input) {
             var $input = $(input);

@@ -1,3 +1,4 @@
+<%= content_for(:body_attributes) do %>data-no-turbolink<% end %>
 <script>
     $(function(){
         jQuery("#slider").slider({
@@ -97,8 +98,8 @@
     <a href = "#" class="item" id="filter-item-6"></a>
     <a href = "#" class="item" id="filter-item-7"></a>
     <a href = "#" class="item" id="filter-item-8"></a>
-  <button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>
 </div>
+  <button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>
 </div>
 
 </section>
@@ -169,7 +170,7 @@
 <!-------СКРИПТЫ----------->
 <script>
   $("#flickrItems").diamonds({
-    size : 280,
+    size : 200,
     gap : 2,
     hideIncompleteRow : false, // default: false
     autoRedraw : true, // default: true

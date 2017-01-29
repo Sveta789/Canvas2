@@ -183,7 +183,7 @@
             $(this).width(iInnerWidth);
         });
 
-        $('html').width($.fn.horizon.defaults.limit * iInnerWidth);
+        $('body').width($.fn.horizon.defaults.limit * iInnerWidth);
 
         scrollTo($.fn.horizon.defaults.i, 0);
     };
