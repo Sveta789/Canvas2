@@ -22,7 +22,9 @@ body
 
 section
 {float:left;
-  width:1600px;
+  width:100%;
+  min-width: 600px;
+  max-width:1920px;
   margin:0;
   height:100%;
   min-height: 400px;
@@ -37,11 +39,11 @@ section
 
 #videohome
 {
-  background:image-url('number_tu_fon.png') no-repeat ;
-  background-size: contain;
+  background:image-url('wall2.jpg') no-repeat ;
+  background-size: cover;
 }
 
-.photo-back {
+.transparent-block300 {
   width:100%;
   height:300px;
 }
@@ -101,7 +103,7 @@ section
 
 }
 /* Ширина лайдера */
-#slider {
+#slider, #slider2 {
   width: 500px;
 
 }
@@ -203,9 +205,9 @@ section
   border:1px solid black;
   height:50px;
   width:200px;
-  top:25%;
-  left:50%;
-  margin-left:-120px;
+  top:28%;
+  left:calc(50% - 100px);
+
   color:white;
   text-align: center;
   background:black;
@@ -213,7 +215,7 @@ section
   -webkit-filter:drop-shadow(0 0 2px black);
   transition:0.5s ease;
   font-size: 1.5em;
-  line-height: 40px;
+  line-height: 50px;
 }
 
 .btn-search div

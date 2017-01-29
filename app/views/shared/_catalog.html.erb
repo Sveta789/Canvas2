@@ -30,8 +30,10 @@
       </div>
       <div class = 'photo-examples-block'>
         <% if chosen.length > 3 && !chosen.blank?
-             (3..3).each do |photo| %>
+             (3..5).each do |photo| %>
+                <% if !chosen[photo].nil? %>
                 <a class="showcase photo-in-item" href="<%= chosen[photo].image.url %>" data-rel="lightcase"> <%= image_tag chosen[photo].image.preview %></a>
+                <% end %>
             <% end %>
         <%end %>
       </div>
