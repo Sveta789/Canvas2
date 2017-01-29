@@ -41,6 +41,17 @@
   height: 146px;
   width:33%;
   border: 2px solid white;
+  transition: 0.3s, sine;
+}
+
+.photo-in-item:hover{
+  filter:blur(1px);
+  border-color: black;
+}
+
+.photo-in-item img{
+  height: 100%;
+  width:100%;
 }
 
 .about-author-block
@@ -52,6 +63,11 @@
   text-align: center;
   border: 2px solid white;
   border-radius:10px;
+}
+
+.name-of-author{
+  text-decoration: none;
+  color:black;
 }
 
 .center-button-block{

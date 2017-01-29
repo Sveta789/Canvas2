@@ -79,11 +79,13 @@
         <% @portfolio.user.shootings.each do |shooting| %>
             <div class="shooting-block">
               <div class="shooting-description-block">
+                <div class = "shooting-description-block-inner">
                 <div>
                   <%= shooting.category %>
                 </div>
                 <div>
                   <%= shooting.price %>
+                </div>
                 </div>
               </div>
               <div class="track" id="track-<%= %>">

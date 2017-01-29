@@ -195,12 +195,23 @@ height:100px;
 
 .shooting-description-block, .videography-description-block
 {
+  box-sizing: border-box;
 float:left;
-  height:298px;
+  min-height:298px;
   width:12%;
   text-align: center;
   font-size: 1.5em;
-  background: white;
+  padding:20px;
+}
+
+.shooting-description-block-inner{
+  background: rgba(150,150,150,0.5);
+  width:80%;
+  margin:0 auto;
+  height:80%;
+  min-height: 258px;
+  border-radius: 10px;
+
 }
 
 .scrollable-content-block
