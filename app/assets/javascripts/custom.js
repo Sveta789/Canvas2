@@ -1,5 +1,11 @@
-$(document).on('turbolinks:load', function(){
-    $('.spoiler-body').hide();
+$(document).on('turbolinks:load', function() {
+    var allSpoilers = $('.spoiler-body');
+    console.log(allSpoilers);
+    allSpoilers.each(function(i,item){
+        if($(item).hasClass("closed")){
+            $(item).hide();
+        }
+    });
     $('.spoiler-title').click(function(){
         $(this).next().slideToggle();
     });

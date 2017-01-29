@@ -1,10 +1,9 @@
-<h1>Profile of <%=@profile.user.email %></h1>
 
-<div class = "registration-box">
-  <div>
+<div class = "profile-box">
+  <div class = "profile-avatar">
      <%= image_tag @profile.avatar.thumb %>
   </div>
-  <div>
+  <div >
     Имя: <%= @profile.name %>
   </div>
   <div>
