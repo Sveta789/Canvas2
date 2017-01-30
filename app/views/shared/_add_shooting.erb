@@ -1,21 +1,30 @@
-<div class = "add-shooting">
+<%
+  shooting_categories = ['Свадьбы','Праздники','Love Story','Персональные','Коммерческие','Вечеринки','Другие','Фотопроекты']
+  categories = []
+  current_user.shootings.each do |s|
+     categories << s.category
+   end
+  categories = shooting_categories - categories
+%>
+
+<div class="add-shooting" id="add-shooting">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @shooting, :html => {:multipart => true}, :method => 'post' do |f| %>
-        <%= render 'shared/error_messages' , object: f.object%>
-        <div class = "register_field">
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="register_field">
           <%= f.label 'Категория' %>
-          <%= f.text_field :category, readonly: true%>
+          <%= f.select :category, options_for_select(categories)%>
         </div>
 
-        <div class = "register_field">
+        <div class="register_field">
           <%= f.label 'Цена' %>
           <%= f.text_field :price %>
         </div>
-        <div class = "register_field">
+        <div class="register_field">
           <%= f.label 'Авторское описание' %>
           <%= f.text_area :description %>
         </div>
-        <div class = "register_field">
+        <div class="register_field">
           <%= f.submit "Добавить", class: "btn btn-primary" %>
         </div>
 

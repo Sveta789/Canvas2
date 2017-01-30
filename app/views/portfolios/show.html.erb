@@ -10,24 +10,25 @@
     <div id="photocamera-button" class="tabs_button tabs_button_fade active_tab_button active_tab_button_fade" clicked="true"></div>
     <div id="videocamera-button" class="tabs_button tabs_button_fade" clicked="false"></div>
   </div>
-  <div class = "tabs_container_fade" id = "categories_container">
-  <div id="photo-categories-block" class="tab_item_fade active_tab_fade">
-    <% shooting_categories.each do |kindOf| %>
-        <% result = @portfolio.user.shootings.where(category: kindOf)
-           if result.exists? %>
-            <%= link_to kindOf, '#', class: "link-to-category" %>
-        <% end %>
-    <% end %>
-  </div>
-  <div id="video-categories-block" class="tab_item_fade">
-    <% videographies_categories.each do |kindOf| %>
-        <% result = @portfolio.user.videographies.where(category: kindOf)
-           if result.exists? %>
-            <%= link_to kindOf, '#', class: "link-to-category" %>
-        <% end %>
-    <% end %>
-  </div>
+  <div class="tabs_container_fade" id="categories_container">
+    <div id="photo-categories-block" class="tab_item_fade active_tab_fade">
+      <% shooting_categories.each do |kindOf| %>
+          <% result = @portfolio.user.shootings.where(category: kindOf)
+             if result.exists? %>
+              <%= link_to kindOf, '#', class: "link-to-category" %>
+          <% end %>
+      <% end %>
+      <%= link_to "add new", shootings_new_path, class: "link-to-category", remote: true %>
     </div>
+    <div id="video-categories-block" class="tab_item_fade">
+      <% videographies_categories.each do |kindOf| %>
+          <% result = @portfolio.user.videographies.where(category: kindOf)
+             if result.exists? %>
+              <%= link_to kindOf, '#', class: "link-to-category" %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
   <div class="info_and_avatar_block">
     <%= image_tag @portfolio.user.profile.avatar.thumb, class: 'avatar-photo' %>
     <div class="name-surname-block">
@@ -51,41 +52,22 @@
 </div>
 <div class="tabs_container">
   <div class="tab_item active_tab">
-    <% if !current_user.nil? && current_user.id == @portfolio.user_id %>
-        <div class="container container-for-adding-shootings">
-          <% shooting_categories.each do |kindOf| %>
-              <% result = @portfolio.user.shootings.where(category: kindOf)
-                 if result.exists? %>
-                  <div class='form-for-shooting-add-block'>
-                    <%= kindOf %>
-                    <div class="shooting-existed-block" style="background-image:url('<%= get_background_by_category(kindOf) %>'); background-size: cover">
-
-                    </div>
-                  </div>
-              <% else %>
-                  <%= form_tag("/new_shooting", method: "post", class: 'form-for-shooting-add-block') do %>
-                      <input type="hidden" name="category" value="<%= kindOf %>">
-                      <%= label_tag kindOf %>
-                      <%= submit_tag('', class: 'shooting-add-block') %>
-                  <% end %>
-              <% end %>
-          <% end %>
-        </div>
-    <% end %>
-
     <div class="container">
       <div class="spoiler-title"><h1> ФОтоуслуги </h1></div>
       <div class="spoiler-body">
         <% @portfolio.user.shootings.each do |shooting| %>
             <div class="shooting-block">
               <div class="shooting-description-block">
-                <div class = "shooting-description-block-inner">
-                <div>
-                  <%= shooting.category %>
-                </div>
-                <div>
-                  <%= shooting.price %>
-                </div>
+                <div class="shooting-description-block-inner">
+                  <div>
+                    <%= shooting.category %>
+                  </div>
+                  <div>
+                    <%= shooting.price %>
+                  </div>
+                  <div>
+                    <%= link_to "upload photo", new_photo_path, class: "link-to-category", remote: true %>
+                  </div>
                 </div>
               </div>
               <div class="track" id="track-<%= %>">
@@ -192,21 +174,7 @@
   <% end %>
 </div>
 <% if signed_in? && current_user?(@portfolio.user_id) %>
-    <div class='form-for-new-photo'>
-      <%= form_for @photo, :html => {:multipart => true} do |f| %>
-          <p>
-            <label>Загрузить фото:</label>
-            <%= image_tag(@photo.image_url) if @photo.image != nil %>
-            <label> Название</label>
-            <%= f.text_field :title %>
-            <%= f.label 'Категория:' %>
-            <%= select_tag "photo[category]", options_for_select(shooting_categories) %>
-            <%= f.file_field :image %>
-            <%= f.hidden_field :image_cache %>
-            <%= f.submit "Добавить фото", class: "btn btn-primary" %>
-          </p>
-      <% end %>
-    </div>
+
 
     <div class='form-for-new-video'>
       <%= form_for @video, :html => {:multipart => true} do |f| %>

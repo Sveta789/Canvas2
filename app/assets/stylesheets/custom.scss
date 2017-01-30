@@ -347,23 +347,23 @@ section
   display: inline-block;
   flex-grow: 2;
   min-width: 175px;
-  min-height: 50px;
+  min-height: 45px;
   padding: 5px;
   box-sizing: border-box;
   text-align: center;
   color: whitesmoke;
-  line-height: 50px;
+  line-height: 45px;
 }
 
 .full-row-field{
   flex-grow: 2;
   padding:5px;
-  min-height: 60px;
+  min-height: 50px;
   flex-basis: 350px;
   min-width: 175px;
   box-sizing: border-box;
   text-align: center;
-  line-height: 60px;
+  line-height: 50px;
 }
 
 .form-header{
@@ -456,6 +456,6 @@ h1{
 }
 
 #flickrItems{
-  width: 60%;
+  width: 54%;
   margin:10px auto;
 }

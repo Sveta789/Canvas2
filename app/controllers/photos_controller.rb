@@ -6,6 +6,11 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+    respond_to do |format|
+      format.html {redirect_to photos_path}
+      format.js{ render 'photos/add_new'}
+      format.json { render 'photos/add_new'}
+    end
   end
 
 

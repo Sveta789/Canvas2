@@ -5,7 +5,7 @@
   <div class="header-section">
     <a href="#">Контакты</a>
   </div>
-  <%= link_to "", root_path, class: "header-section", id: 'logo'%>
+  <%= link_to "", root_path, class: "header-section", id: 'logo' %>
   <div class=header-section>
     <%= link_to "Каталог", '/catalog' %>
   </div>
@@ -21,7 +21,7 @@
         <%= link_to "Регистрация", signup_path, id: 'sign_up_btn', remote: true %>
     <% end %>
     <div id="profile-block-header-menu" class="header-section">
-      <% if current_user.operator? %>
+      <% if signed_in? && current_user.operator? %>
           <%= link_to "Портфолио", current_user.portfolio %>
       <% end %>
       <%= link_to "Выйти", signout_path, method: "delete" %>

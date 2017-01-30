@@ -1,0 +1,7 @@
+$("<%= escape_javascript(render 'shared/add_new_photo') %>").appendTo("body");
+lightcase.start({
+  href: '#add_new_photo',
+  width: 450
+  // more options like width, height, etc.
+});
+lightcase.resize();

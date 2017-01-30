@@ -14,6 +14,11 @@ class ShootingsController < ApplicationController
 
   def new
     @shooting = Shooting.new
+    respond_to do |format|
+      format.html {redirect_to signup_path}
+      format.js{ render 'shootings/new_shooting'}
+      format.json { render 'shootings/new_shooting'}
+    end
   end
 
   def create

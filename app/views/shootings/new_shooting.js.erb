@@ -1,0 +1,7 @@
+$("<%= escape_javascript(render 'shared/add_shooting') %>").appendTo("body");
+lightcase.start({
+  href: '.form-for-new-photo',
+  width: 450
+  // more options like width, height, etc.
+});
+lightcase.resize();

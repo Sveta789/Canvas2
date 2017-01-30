@@ -4,6 +4,7 @@
 
 .tab_item_fade{
   opacity:0.5;
+  pointer-events: none;
 }
 
 .active_tab{
@@ -12,6 +13,7 @@
 
 .active_tab_fade{
   opacity:1;
+  pointer-events: auto;
 }
 
 .active_tab_button{
