@@ -5,6 +5,11 @@ class VideographiesController < ApplicationController
 
   def new
     @videography = Videography.new
+    respond_to do |format|
+      format.html {redirect_to signup_path}
+      format.js{ render 'videographies/new_videography'}
+      format.json { render 'videographies/new_videography'}
+    end
   end
 
   def create

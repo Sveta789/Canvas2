@@ -1,5 +1,12 @@
 <% shooting_categories = ['Свадьбы', 'Праздники', 'Love Story', 'Персональные', 'Коммерческие', 'Вечеринки', 'Другие', 'Фотопроекты'] %>
-<% videographies_categories = ['Детское', 'Вечеринки', 'Свадебное'] %>
+<% videographies_categories =  ['TFP',
+                                'Творческие',
+                                'Свадьбы',
+                                'Праздники',
+                                'Вечеринки',
+                                'Лав стори',
+                                'Коммерческие',
+                                'Другие'] %>
 <% contact_button_info = [@portfolio.user.profile.phone_number, @portfolio.user.profile.social_email, @portfolio.user.profile.social_network] %>
 <% author_about_button_info = [@portfolio.user.profile.city] %>
 <div onclick="showZoom('none','')" id="picture-wrap" style="display: none;"></div>
@@ -27,6 +34,7 @@
               <%= link_to kindOf, '#', class: "link-to-category" %>
           <% end %>
       <% end %>
+      <%= link_to "add new", videographies_new_path, class: "link-to-category", remote: true %>
     </div>
   </div>
   <div class="info_and_avatar_block">
@@ -65,9 +73,11 @@
                   <div>
                     <%= shooting.price %>
                   </div>
-                  <div>
-                    <%= link_to "upload photo", new_photo_path, class: "link-to-category", remote: true %>
+                  <% if signed_in? && current_user?(@portfolio.user_id) %>
+                  <div class = "nice_button centered_block">
+                    <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
                   </div>
+                  <% end %>
                 </div>
               </div>
               <div class="track" id="track-<%= %>">

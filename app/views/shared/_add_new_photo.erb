@@ -6,7 +6,7 @@
         <label> Название</label>
         <%= f.text_field :title %>
         <%= f.label 'Категория:' %>
-        <%= select_tag "photo[category]", options_for_select(shooting_categories) %>
+        <%= f.hidden_field :category, value: @category %>
         <%= f.file_field :image %>
         <%= f.hidden_field :image_cache %>
         <%= f.submit "Добавить фото", class: "btn btn-primary" %>

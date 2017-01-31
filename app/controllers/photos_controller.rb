@@ -6,6 +6,7 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
+    @category = params[:category]
     respond_to do |format|
       format.html {redirect_to photos_path}
       format.js{ render 'photos/add_new'}
