@@ -1,10 +1,15 @@
-
+$min_width: 500px;
 .zaglushka
 {
   width:100%;
   top:0px;
   height: 100px;
   z-index: 0;
+}
+
+.zaglushka-add{
+  display: none;
+  height: 50px;
 }
 
 header
@@ -16,7 +21,7 @@ header
   flex-wrap: wrap;
 
   width:100%;
-  min-width: 400px;
+  min-width: $min_width;
   top:0px;
   min-height:50px;
   max-height: 100px;
@@ -171,6 +176,7 @@ header a:hover
   #line-with-logo{
     display: block;
   }
+
 }
 
 @media screen and (min-width: 736px) and (max-width: 1024px) {
@@ -216,6 +222,10 @@ header a:hover
 
   .zaglushka {
     height: 50px;
+  }
+
+  .zaglushka-add{
+    display: block;
   }
 
   #line-with-logo{

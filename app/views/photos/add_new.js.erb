@@ -1,7 +1,12 @@
-$("<%= escape_javascript(render 'shared/add_new_photo') %>").appendTo("body");
+$("<%= escape_javascript(render 'shared/add_new_photo') %>").appendTo("#tempObjects");
 lightcase.start({
   href: '#add_new_photo',
-  width: 450
+  width: 450,
   // more options like width, height, etc.
+  onClose: {
+    qux: function () {
+      $('#tempObjects').empty();
+    }
+  }
 });
 lightcase.resize();

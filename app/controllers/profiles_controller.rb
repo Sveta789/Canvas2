@@ -7,6 +7,18 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
+  def edit_avatar
+    @profile = Profile.find(params[:id])
+    if current_user.id == @profile.user_id
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js { render 'profiles/edit_avatar' }
+        format.json { render 'profiles/edit_avatar' }
+      end
+    end
+  end
+
+
   def update
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(profile_params)

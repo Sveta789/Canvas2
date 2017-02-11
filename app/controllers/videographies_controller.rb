@@ -22,6 +22,11 @@ class VideographiesController < ApplicationController
     end
   end
 
+  def destroy
+    Videography.find(params[:id]).destroy
+    redirect_to current_user.portfolio
+  end
+
   def videographies_params
     params.require(:videography).permit(:category, :price,
                                      :description)

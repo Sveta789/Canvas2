@@ -1,4 +1,6 @@
-<%= content_for(:body_attributes) do %>data-no-turbolink<% end %>
+<% content_for(:body_attributes) do %>
+    data-no-turbolink="true" style="overflow-y:hidden"
+<% end %>
 <script>
     $(function(){
         jQuery("#slider").slider({
@@ -74,7 +76,7 @@
   <div class = transparent-block300></div>
 <div id="photoslide" class = "whitestripe active">
   <h1>- ФОТОСЪЕМКА -</h1>
-  <%= form_tag("/photofilter", method: "post") do %>
+  <%= form_tag("/catalog", method: "post", id: 'photo_filter_form') do %>
   <div class = "slider-wrapper">
     <h2>средняя стоимость за час работы</h2>
     <input name = 'filter[min]' class = "slider-price-cell cell-min" type="text" id="minCost" value=<%= @photo_prices[0] %>>
@@ -84,20 +86,29 @@
     <%= image_tag("birdy.png")%>
     <button formaction="#" id = btn-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
   </div>
+      <%= hidden_field('filter', 'category', {id: 'photo_category_field', value: 'Все'}) %>
+      <%= hidden_field('filter', 'area', {id: 'photo_area', value: 'Фотосъемка'}) %>
    <% end %>
 </div>
+
+<script>
+  var setAndSubmit = function (formId,fieldId,category) {
+    $(fieldId).val(category);
+    $(formId).submit();
+  }
+</script>
 
 <div id="photoslide-filters" class = "whitestripe">
   <h1>- ВСЕ РАЗДЕЛЫ -</h1>
   <div id = "flickrItems">
-    <a href = "#" class="item" id="filter-item-1"></a>
-    <a href = "#" class="item" id="filter-item-2"></a>
-    <a href = "#" class="item" id="filter-item-3"></a>
-    <a href = "#" class="item" id="filter-item-4"></a>
-    <a href = "#" class="item" id="filter-item-5"></a>
-    <a href = "#" class="item" id="filter-item-6"></a>
-    <a href = "#" class="item" id="filter-item-7"></a>
-    <a href = "#" class="item" id="filter-item-8"></a>
+    <a class="item" id="filter-item-1" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Свадьбы')"></a>
+    <a class="item" id="filter-item-2" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Праздники')"></a>
+    <a class="item" id="filter-item-3" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Love Story')"></a>
+    <a class="item" id="filter-item-4" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Персональные')"></a>
+    <a class="item" id="filter-item-5" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Коммерческие')"></a>
+    <a class="item" id="filter-item-6" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Вечеринки')"></a>
+    <a class="item" id="filter-item-7" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Другие')"></a>
+    <a class="item" id="filter-item-8" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Фотопроекты')"></a>
 </div>
   <button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>
 </div>
@@ -110,7 +121,7 @@
   <div class = transparent-block300></div>
   <div id="videoslide" class = "whitestripe active">
     <h1>- Видеосъемка -</h1>
-    <%= form_tag("/videofilter", method: "post") do %>
+    <%= form_tag("/catalog", method: "post") do %>
     <div class = "slider-wrapper">
       <h2>средняя стоимость за час работы</h2>
       <input name="filter[min]" class = "slider-price-cell cell-min" type="text" id="minCost2" value=<%= @video_prices[0] %>>
@@ -119,6 +130,8 @@
       <%= submit_tag 'ИСКАТЬ', class:"btn-search" %>
       <%= image_tag("birdy.png")%>
       <button formaction="" id = btn2-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
+      <%= hidden_field('filter', 'area', {id: 'video_area', value: 'Видеосъемка'}) %>
+      <%= hidden_field('filter', 'category', {id: 'video_category_field', value: 'Все'}) %>
     </div>
       <% end %>
   </div>

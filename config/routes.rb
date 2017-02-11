@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   get 'videographies/create'
 
+  get 'videographies/destroy'
+
   get 'videos/destroy'
 
   get 'videos/new'
@@ -93,12 +95,15 @@ Rails.application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/catalog', to: 'static_pages#catalog',     via: 'get'
+  match '/catalog', to: 'static_pages#catalog',     via: 'post'
   match '/about', to: 'static_pages#about',     via: 'get'
-  match '/videocatalog', to: 'static_pages#videocatalog',     via: 'get'
   match '/photofilter', to: 'static_pages#photofilter', via: 'post'
+  match '/photofilter', to: 'static_pages#catalog', via: 'get'
   match '/videofilter', to: 'static_pages#videofilter', via: 'post'
+  match '/videofilter', to: 'static_pages#catalog', via: 'get'
   match '/new_shooting', to: 'portfolios#new_shooting', via: 'post'
   match 'portfolios/ratings/onPluginClick', to: 'ratings#onPluginClick', via: 'post'
+  match '/edit_avatar', to: 'profiles#edit_avatar',  via: 'get', as: :edit_avatar
 
   # Example resource route with options:
   #   resources :products do

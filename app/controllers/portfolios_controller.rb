@@ -15,15 +15,25 @@ class PortfoliosController < ApplicationController
     else
       @rating = Rating.new
     end
-      end
+    end
+    @edit_mode = false;
   end
 
   def edit
     @portfolio = Portfolio.find(params[:id])
-    @photos = User.find(@portfolio.user_id).photos
     @photo = Photo.new
+    @video = Video.new
     @comment = Comment.new
-    @rating = Rating.new
+    if current_user
+      @hasVoted = @portfolio.ratings.where("user_id = #{current_user.id}").any?
+      if(@hasVoted)
+        @rating = current_user.ratings.find_by("portfolio_id = #{@portfolio.id}");
+      else
+        @rating = Rating.new
+      end
+    end
+    @edit_mode = true;
+    render 'portfolios/show'
   end
 
   def update

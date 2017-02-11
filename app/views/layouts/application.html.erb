@@ -6,7 +6,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body <%= yield(:body_attributes) %>>
+<body  <% if content_for?(:body_attributes) %>
+       <%= yield(:body_attributes) %>
+       <% end %>>
 <script>
     $(document).click(function(event) {
         var text = $(event.target).text();

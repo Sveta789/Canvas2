@@ -7,6 +7,8 @@ class ShootingsController < ApplicationController
   end
 
   def destroy
+    Shooting.find(params[:id]).destroy
+    redirect_to current_user.portfolio
   end
 
   def edit

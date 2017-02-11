@@ -1,0 +1,37 @@
+<div class="catalog-section parallax">
+  <div class="top-filter-catalog-section parallax_small_group">
+    <div  id="first-about" class="parallax__layer parallax__layer--back">
+    </div>
+    <% shooting_categories = ['Все', 'Свадьбы', 'Праздники', 'Love Story', 'Персональные', 'Коммерческие', 'Вечеринки', 'Другие', 'Фотопроекты'] %>
+    <%= form_tag("/photofilter", method: "post", class: 'catalog-filter-form-box', remote: true) do %>
+        <div class="top-filter-catalog-block">
+          <div class='form-cells-block'>
+            <%= label_tag('filter[min]', "Цена от ") %>
+            <%= text_field_tag('filter[min]', (@old_params != nil) ? @old_params[:min] : 0) %>
+            <%= label_tag('filter[max]', "до ") %>
+            <%= text_field_tag('filter[max]', (@old_params != nil) ? @old_params[:max] : 1000) %>
+            <%= label_tag('filter[sort_by]', "Сортировка по") %>
+            <%= select_tag 'filter[sort_by]', options_for_select([['Цена'], ['Популярность'], ['Категория']]) %>
+            <%= link_to 'Видео', '/videocatalog', class: 'swap-button' %>
+          </div>
+          <div class='center-button-block'>
+            <div id="logo-div"></div>
+            <%= submit_tag('Искать') %>
+          </div>
+          <div class='form-cells-block'>
+            <%= label_tag('filter[category]', "Категория:") %>
+            <%= select_tag 'filter[category]', options_for_select(shooting_categories, (@old_params != nil) ? @old_params[:category] : 'Все') %>
+            <%= label_tag('filter[author_name]', "Поиск по имени") %>
+            <%= text_field_tag('filter[author_name]', 'VASYA') %>
+
+          </div>
+        </div>
+
+    <% end %>
+
+  </div>
+  <% puts @result.inspect %>
+  <div class="catalog-finded-items">
+    <%= render 'shared/catalog' %>
+  </div>
+</div>

@@ -1,13 +1,13 @@
 <header>
   <div class="header-section">
-    <%= link_to "О нас", '/about' %>
+    <%= link_to "О нас", '/about', 'data-no-turbolink' => true %>
   </div>
   <div class="header-section">
     <a href="#">Контакты</a>
   </div>
   <%= link_to "", root_path, class: "header-section", id: 'logo' %>
   <div class=header-section>
-    <%= link_to "Каталог", '/catalog' %>
+    <%= link_to "Каталог", '/catalog','data-no-turbolink' => true %>
   </div>
   <div class="personal-cabinet header-section">
     <% if signed_in? %>
@@ -21,8 +21,11 @@
         <%= link_to "Регистрация", signup_path, id: 'sign_up_btn', remote: true %>
     <% end %>
     <div id="profile-block-header-menu" class="header-section">
-      <% if signed_in? && current_user.operator? %>
-          <%= link_to "Портфолио", current_user.portfolio %>
+      <% if signed_in? %>
+          <%= link_to "Профиль", current_user.profile %>
+          <% if current_user.operator? %>
+              <%= link_to "Портфолио", current_user.portfolio %>
+          <% end %>
       <% end %>
       <%= link_to "Выйти", signout_path, method: "delete" %>
     </div>
@@ -31,6 +34,7 @@
 <div class=zaglushka></div>
 <div id="line-with-logo">
 </div>
+<div class="zaglushka zaglushka-add"></div>
 
 <%= render 'shared/login_form' %>
 

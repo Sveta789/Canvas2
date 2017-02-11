@@ -1,0 +1,12 @@
+$("<%= escape_javascript(render 'shared/change_avatar') %>").appendTo("#tempObjects");
+lightcase.start({
+  href: '#avatar_edit_form',
+  width: 450,
+// more options like width, height, etc.
+  onClose: {
+    qux: function () {
+      $('#tempObjects').empty();
+    }
+  }
+});
+lightcase.resize();

@@ -9,7 +9,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = current_user.videos.build(path: (video_params[:path].sub("watch?v=", "v/")), title: video_params[:title], category: video_params[:category])
+    @video = current_user.videos.build(path: (video_params[:path].sub("watch?v=", "v/") + "?html5=1"), title: video_params[:title], category: video_params[:category])
 
     respond_to do |format|
       if @video.save

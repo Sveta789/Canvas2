@@ -1,35 +1,34 @@
 <div id="signup-form" class="registration-box" style="display: none">
-  <%= form_for @user, :html => {:multipart => true, :class => 'registration-box-fields-wrapper'}, remote: true do |f| %>
+  <%= form_tag users_path, method: 'post' , :html => {:multipart => true, :class => 'registration-box-fields-wrapper'}, remote: true do |f| %>
       <div class="full-row-field form-header"> БЫСТРАЯ РЕГИСТРАЦИЯ</div>
-      <%= render 'shared/error_messages', object: f.object %>
       <div class="register_field">
-        <%= f.text_field :email, :placeholder => 'Ваш E-Mail' %>
+        <%= text_field_tag 'user[email]', nil ,:placeholder => 'Ваш E-Mail' %>
       </div>
       <div class="register_field">
-        <%= f.password_field :password, :placeholder => 'Ваш пароль' %>
+        <%= password_field_tag 'user[password]', nil ,:placeholder => 'Ваш пароль' %>
       </div>
       <div class="register_field">
-        <%= f.password_field :password_confirmation, :placeholder => 'Повторите пароль' %>
+        <%= password_field_tag 'user[password_confirmation]', nil ,:placeholder => 'Повторите пароль' %>
       </div>
       <div class="full-row-field">
-        <%= f.label 'Я оператор', :class => "check-box-replace-button", :onclick => 'customCheckbox($(this))' %>
+        <%= label_tag 'operator', 'Я оператор', {:class => "check-box-replace-button", :onclick => 'customCheckbox($(this))'} %>
       </div>
       <div class="register_field" style = "display:none" >
-        <%= f.check_box :operator, :id => 'operator-checkbox'%>
+        <%= check_box 'user', 'operator', {id: 'operator-checkbox'}, 'true', 'false'   %>
       </div>
       <div class="full-row-field form-submit">
-        <%= f.submit "Продолжить", class: "form-submit-btn" %>
+        <%= submit_tag "Продолжить", class: "form-submit-btn" %>
       </div>
   <% end %>
 </div>
 
 <script>
   var customCheckbox = function(author) {
-    var checkbox = $('#operator-checkbox');
-    if(checkbox.prop('value') == 0){
-      checkbox.prop('value', 1);
+    var checkbox = $('.register_field input[type=hidden]');
+    if(checkbox.prop('value') == 'false'){
+      checkbox.prop('value', 'true');
     }else{
-      checkbox.prop('value', 0);
+      checkbox.prop('value', 'false');
     }
     $(author).toggleClass('custom-checkbox-checked');
   }

@@ -1,7 +1,12 @@
-$("<%= escape_javascript(render 'shared/registration_form') %>").appendTo("header");
+$("<%= escape_javascript(render 'shared/registration_form') %>").appendTo("#tempObjects");
 lightcase.start({
   href: '#signup-form',
-  width: 450
+  width: 450,
   // more options like width, height, etc.
+  onClose : {
+    qux: function() {
+      $('#tempObjects').empty();
+    }
+  }
 });
 lightcase.resize();

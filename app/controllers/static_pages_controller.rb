@@ -2,6 +2,8 @@ class StaticPagesController < ApplicationController
 
   layout "application", except: [:index]
   layout "main_page", only: [:index]
+  include ApplicationHelper
+
   def index
     @photo_prices = get_min_and_max_price_of_model(Shooting.all)
     @video_prices = get_min_and_max_price_of_model(Videography.all)
@@ -17,29 +19,36 @@ class StaticPagesController < ApplicationController
   end
 
   def catalog
-    @result = Shooting.all
-    render 'static_pages/catalog'
-  end
-
-  def videocatalog
-    @result = Videography.all
-    render 'static_pages/videocatalog'
-  end
-
-  def photofilter
-    if filter_params[:category] == 'Все' || filter_params[:category].nil?
-    @result = Shooting.where(price: filter_params[:min]..filter_params[:max])
+    if request.get?
+      @result = Shooting.all
+      @categories =  getPhotoCats
+      @hidden_area = "Видеосъемка"
     else
-    @result = Shooting.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category])
+      cur_cat = (filter_params[:category].nil? || filter_params[:category] == 'Все') ? nil : cur_cat
+      area = nil
+      if filter_params[:area].nil? || filter_params[:area] == "Фотосъемка"
+        area = Shooting
+        @categories = getPhotoCats
+        @hidden_area = "Видеосъемка"
+      else
+        area = Videography
+        @categories = getVideoCats
+        @hidden_area = "Фотосъемка"
+      end
+
+      if cur_cat == nil
+        @result = area.where(price: filter_params[:min]..filter_params[:max])
+      else
+        @result = area.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category])
+      end
+      @old_params = filter_params
     end
-    @result.order(:sort_by)
-    @old_params = filter_params
     respond_to do |format|
 
-        format.html { render 'static_pages/catalog'}
-        format.js   {}
-        format.json {}
-      end
+      format.html { render 'static_pages/catalog' }
+      format.js { render 'catalog_refresh'}
+      format.json {render 'catalog_refresh'}
+    end
   end
 
 
@@ -52,18 +61,22 @@ class StaticPagesController < ApplicationController
     @result.order(:sort_by)
     respond_to do |format|
 
-      format.html { render 'static_pages/videocatalog'}
-      format.js   {}
+      format.html { render 'static_pages/videocatalog' }
+      format.js {}
       format.json {}
     end
   end
 
 
-
-
   def filter_params
-    params.require(:filter).permit(:min, :max,
-                                     :sort_by, :category)
+    params.require(:filter).permit(:min, :max, :sort_by, :category, :area)
+  end
+
+  private
+
+  def prepareFilterData
+
+
   end
 
 end

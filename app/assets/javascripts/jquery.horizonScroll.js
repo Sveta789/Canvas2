@@ -91,7 +91,7 @@
     $.fn.horizon.defaults = {
         scrollTimeout: null,
         scrollEndDelay: 250,
-        scrollDuration: 400,
+        scrollDuration: 300,
         i: 0,
         limit: 0,
         docWidth: 0,
@@ -174,6 +174,9 @@
     };
 
     var sizeSections = function () {
+        if ($('section').length == 0){
+            return;
+        }
         console.log('Sizing sections...');
 
         var iInnerWidth = $(window).innerWidth();

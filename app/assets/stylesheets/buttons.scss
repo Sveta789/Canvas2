@@ -1,0 +1,30 @@
+.simple_button{
+  display: block;
+  width:75px;
+  height:50px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border:1px solid black;
+  text-align: center;
+}
+
+.delete_button{
+  display:block;
+  width:30px;
+  height: 30px;
+  box-sizing: border-box;
+  border:1px solid black;
+  border-radius: 5px;
+  background: white image_url('icons/delete_icon.png') no-repeat 50% 50%;
+  background-size: cover;
+}
+
+.photo_position{
+  position: absolute;
+  top:5%;
+  left:5%;
+}
+
+.inline_button{
+  display: inline-block;
+}

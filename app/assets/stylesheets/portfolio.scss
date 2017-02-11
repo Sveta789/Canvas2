@@ -12,13 +12,17 @@
 
 #switch-buttons-block
 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width:10%;
   height: 100%;
 }
 
 #photocamera-button, #videocamera-button
 {
-  margin: 20px auto;
+  margin-top: 20px;
   width:50px;
   height: 50px;
   background: image_url('photo-camera.png') no-repeat;
@@ -30,6 +34,7 @@
 {
   background: image_url('video-camera.png') no-repeat;
   background-size: cover;
+  margin-bottom: 20px;
 }
 #photocamera-button:hover, #videocamera-button:hover
 {
@@ -59,7 +64,6 @@
 
 .link-to-category
 {
-  margin: 10px;
   display: block;
   text-decoration: none;
   color:black;
@@ -84,8 +88,8 @@
 .avatar-photo
 {
   display: block;
-  height:100px;
-  width:100px;
+  height:150px;
+  width:150px;
   margin: 20px auto;
   margin-top: 50px;
   border-radius: 20%;
@@ -119,7 +123,6 @@ height:100px;
   width:100%;
   background: #ffffff;
   height:120px;
-  padding: 10px;
 }
 
 #contact-author-button, #show-info-author-button
@@ -201,16 +204,21 @@ float:left;
   text-align: center;
   font-size: 1.5em;
   padding:20px;
+  $red-randomize: random() * 255;
+  $green-randomize: random() * 255;
+  $blue-randomize: random() * 255;
+  background-color: rgba($red-randomize, $green-randomize, $blue-randomize, 0.2);
 }
 
 .shooting-description-block-inner{
+  box-sizing: border-box;
   background: rgba(150,150,150,0.5);
-  width:80%;
+  width:90%;
   margin:0 auto;
-  height:80%;
+  height:90%;
   min-height: 258px;
   border-radius: 10px;
-
+  border: 15px solid white;
 }
 
 .scrollable-content-block
@@ -274,7 +282,6 @@ float:left;
 
 #comments{
   display: block;
-  padding: 10px;
   border: 1px black solid;
   width:100%;
 }
@@ -304,6 +311,11 @@ float:left;
   width: 450px;
   height: 300px;
   margin-right: 8px
+}
+
+.image_plugin_container{
+  width: 450px;
+  height: 300px;
 }
 
 .img-in-gallery{

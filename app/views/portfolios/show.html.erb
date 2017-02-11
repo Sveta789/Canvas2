@@ -1,14 +1,8 @@
-<% shooting_categories = ['Свадьбы', 'Праздники', 'Love Story', 'Персональные', 'Коммерческие', 'Вечеринки', 'Другие', 'Фотопроекты'] %>
-<% videographies_categories =  ['TFP',
-                                'Творческие',
-                                'Свадьбы',
-                                'Праздники',
-                                'Вечеринки',
-                                'Лав стори',
-                                'Коммерческие',
-                                'Другие'] %>
+<% shooting_categories = getPhotoCats %>
+<% videographies_categories = getVideoCats %>
 <% contact_button_info = [@portfolio.user.profile.phone_number, @portfolio.user.profile.social_email, @portfolio.user.profile.social_network] %>
 <% author_about_button_info = [@portfolio.user.profile.city] %>
+<% isOwner = @portfolio.user_id == current_user.id %>
 <div onclick="showZoom('none','')" id="picture-wrap" style="display: none;"></div>
 <div id="picture-window" style="display: none; background-image: none">
 </div>
@@ -16,29 +10,50 @@
   <div id="switch-buttons-block">
     <div id="photocamera-button" class="tabs_button tabs_button_fade active_tab_button active_tab_button_fade" clicked="true"></div>
     <div id="videocamera-button" class="tabs_button tabs_button_fade" clicked="false"></div>
+    <% if isOwner %>
+        <% if @edit_mode %>
+            <%= link_to 'done', portfolio_path, class: 'simple_button' %>
+        <% else %>
+            <%= link_to 'edit mode', edit_portfolio_path, class: 'simple_button' %>
+        <% end %>
+    <% end %>
   </div>
   <div class="tabs_container_fade" id="categories_container">
     <div id="photo-categories-block" class="tab_item_fade active_tab_fade">
       <% shooting_categories.each do |kindOf| %>
           <% result = @portfolio.user.shootings.where(category: kindOf)
              if result.exists? %>
-              <%= link_to kindOf, '#', class: "link-to-category" %>
+              <div class="horizontal_flex">
+                <%= link_to kindOf, '#', class: "link-to-category" %>
+                <% if isOwner && @edit_mode %>
+                    <%= link_to '', shootings_destroy_path(id: result.first.id), class: "delete_button" %>
+                <% end %>
+              </div>
           <% end %>
       <% end %>
-      <%= link_to "add new", shootings_new_path, class: "link-to-category", remote: true %>
+      <div class="horizontal_flex">
+        <%= link_to "add new", shootings_new_path, class: "link-to-category", remote: true %>
+      </div>
     </div>
     <div id="video-categories-block" class="tab_item_fade">
       <% videographies_categories.each do |kindOf| %>
           <% result = @portfolio.user.videographies.where(category: kindOf)
              if result.exists? %>
-              <%= link_to kindOf, '#', class: "link-to-category" %>
+              <div class="horizontal_flex">
+                <%= link_to kindOf, '#', class: "link-to-category" %>
+                <% if isOwner && @edit_mode %>
+                    <%= link_to '', videographies_destroy_path(id: result.first.id), class: "delete_button" %>
+                <% end %>
+              </div>
           <% end %>
       <% end %>
+      <div class="horizontal_flex">
       <%= link_to "add new", videographies_new_path, class: "link-to-category", remote: true %>
+      </div>
     </div>
   </div>
   <div class="info_and_avatar_block">
-    <%= image_tag @portfolio.user.profile.avatar.thumb, class: 'avatar-photo' %>
+    <%= link_to(image_tag(@portfolio.user.profile.avatar, class: 'avatar-photo'), edit_avatar_path(:id => @portfolio.user.profile.id), remote: true) %>
     <div class="name-surname-block">
       <span class='name-of-author'><%= @portfolio.user.profile.name %></span>
       <span class='name-of-author'><%= @portfolio.user.profile.surname %></span>
@@ -74,9 +89,9 @@
                     <%= shooting.price %>
                   </div>
                   <% if signed_in? && current_user?(@portfolio.user_id) %>
-                  <div class = "nice_button centered_block">
-                    <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
-                  </div>
+                      <div class="nice_button centered_block">
+                        <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
+                      </div>
                   <% end %>
                 </div>
               </div>
@@ -86,7 +101,11 @@
                     <% @portfolio.user.photos.each do |photo| %>
                         <% if photo.category == shooting.category %>
                             <div class="silverlight-item">
-                              <a class="showcase" href="<%= photo.image.url %>" data-rel="lightcase:myCollection:slideshow"><%= image_tag(photo.image.url, class: "img-in-gallery") %></a>
+                              <a class="showcase" href="<%= photo.image.url %>" data-rel="lightcase:myCollection:slideshow">
+                                <div class="image_plugin_container"><%= image_tag(photo.image.url, class: "img-in-gallery") %>
+                                  <% if isOwner && @edit_mode %> <%= link_to '', photos_destroy_path(id: photo.id), class: "delete_button photo_position" %>
+                                  <% end %></div>
+                              </a>
                             </div>
                         <% end %>
                     <% end %>
@@ -122,7 +141,7 @@
               <% @portfolio.user.videos.each do |video| %>
                   <% puts video.inspect %>
                   <% if video.category == videography.category %>
-                      <!-- <iframe width="200px" height="150px" src=<%= video.path %> frameborder="0" allowfullscreen class = 'video-preview'></iframe> -->
+                      <%= youtube_video video.path %>
                   <% end %>
               <% end %>
             </div>
@@ -170,21 +189,7 @@
 
 </div>
 
-<h1>ВСЕ Фотоработы </h1>
-<div class=container>
-  <% @portfolio.user.photos.each do |photo| %>
-      <%= image_tag(photo.image.thumb.url, class: "photo-block") %>
-  <% end %>
-</div>
-
-<h1>ВСЕ ВИДЕОРАБОТЫ </h1>
-<div class=container>
-  <% @portfolio.user.videos.each do |video| %>
-      <!--<iframe width="200px" height="150px" src=<%= video.path %> frameborder="0" allowfullscreen></iframe>-->
-  <% end %>
-</div>
 <% if signed_in? && current_user?(@portfolio.user_id) %>
-
 
     <div class='form-for-new-video'>
       <%= form_for @video, :html => {:multipart => true} do |f| %>
@@ -193,17 +198,12 @@
             <label> Название</label>
             <%= f.text_field :title %>
             <%= f.label 'Категория:' %>
-            <%= select_tag "video[category]", options_for_select([['Детское'], ['Вечеринки'], ['Свадебное']], 1) %>
+            <%= select_tag "video[category]", options_for_select(videographies_categories, 1) %>
             <label> Ссылка</label>
             <%= f.text_field :path %>
             <%= f.submit "Добавить видео", class: "btn btn-primary" %>
           </p>
       <% end %>
     </div>
-
-
-    <%= link_to "Редактировать портфолио", edit_portfolio_path %>
-    <%= link_to "Добавить видеоуслуги", videographies_new_path %>
-    <%= link_to "Мои услуги", '/shootings' %>
 
 <% end %>
