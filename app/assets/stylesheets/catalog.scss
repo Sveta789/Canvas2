@@ -1,6 +1,10 @@
+@import 'custom.scss';
+
 .search-result-item
 {
-  height: 150px;
+  max-height: 150px;
+  min-height: 75px;
+  height:150px;
   display: flex;
   justify-content: space-around;
   padding:2px;
@@ -18,12 +22,21 @@
 .avatar-photo-in-item
 {
   display: block;
-  height:70px;
-  width:70px;
+  height:100%;
+  width:100%;
+  border-radius: 10%;
+  border:2px solid black;
+}
+
+.avatar-link-in-item
+{
+  display: block;
+  height:100px;
+  width:100px;
   margin: 0 auto;
   margin-bottom: 5px;
-  border-radius: 30%;
-  border:2px solid black;
+  border-radius: 10%;
+
 }
 
 .avatar-photo-in-item:hover
@@ -33,7 +46,8 @@
 
 .photo-in-item{
   display: inline-block;
-  height: 146px;
+  box-sizing: border-box;
+  height: 100%;
   width:33%;
   border: 2px solid white;
   transition: 0.3s, sine;
@@ -53,10 +67,11 @@
 {display: flex;
   box-sizing:border-box;
   align-items: center;
-  width:20%;
-  height: 146px;
+  height: 100%;
   text-align: center;
   border-radius:10px;
+  flex-grow: 1;
+  flex-basis: 20%;
 }
 
 .name-of-author{
@@ -74,8 +89,10 @@
 
 .photo-examples-block {
   display: inline-flex;
-  width:40%;
+  height: 100%;
   align-items: center;
+  flex-grow: 4;
+  flex-basis: 40%;
   justify-content: space-around;
 }
 
@@ -84,6 +101,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .top-filter-catalog-section
@@ -100,7 +120,7 @@
 .top-filter-catalog-block{
   box-sizing: border-box;
   width:90%;
-  height:110px;
+  height:90%;
   display: flex;
   border: 4px dotted gray;
   background-color: rgba(200,200,200,0.2);
@@ -114,7 +134,10 @@
   justify-content: center;
   font-size: 0.9em;
   font-family: 'Code Pro Light';
-  width:70%;
+  max-width: $screen-lg-min;
+  min-width: $screen-xsm-min;
+  width:95%;
+
 }
 
 .catalog-section, .videocatalog-section{
@@ -152,9 +175,14 @@
 }
 .author-info
 {
-  display: inline-block;
-  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
   margin: 0 auto;
+  height:100%;
+  flex-basis:33%;
 }
 
 .catalog-filter-form-box input {
@@ -198,6 +226,7 @@
   color: #ffffff;
   border-radius: 10px;
   height: 70px;
+  min-width: 70px;
 
 }
 
@@ -213,9 +242,10 @@
   position: relative;
   text-decoration: none;
   color:inherit;
-  height: 40px;
-  padding: 8px;
-  width:170px;
+  height: 35px;
+  padding: 5px;
+  margin-top: 5px;
+  width:105px;
   background: white;
   box-sizing: border-box;
   letter-spacing: normal;
@@ -240,7 +270,7 @@
   background:image-url("reload.png");
   background-size: cover;
   right: 10px;
-  bottom:5px;
+  bottom:4px;
 }
 
 .swap-button:hover{
@@ -253,4 +283,121 @@
   transition:1s;
   transform: rotate(-360deg);
 
+}
+
+@media (max-width: $screen-xsm-min) {
+  .search-result-item
+  {
+    height:80px;
+    font-size: 0.7em;
+  }
+
+  .search-result-item .photo-examples-block:last-child
+  {
+    display: none;
+  }
+
+  .search-result-item .photo-examples-block
+  {
+    order: 2;
+  }
+  .search-result-item .about-author-block
+  {
+    order: 1;
+  }
+
+  .catalog-filter-form-box{
+    height: 250px;
+  }
+
+  .avatar-link-in-item
+  {
+    height: 50px;
+    width:50px;
+  }
+}
+
+// 480 - 768
+@media (min-width: $screen-xsm-min) and (max-width: $screen-sm-min) {
+  .search-result-item
+  {
+    height:90px;
+    font-size: 0.7em;
+  }
+
+  .search-result-item .photo-examples-block:last-child
+  {
+    display: none;
+  }
+
+  .search-result-item .photo-examples-block
+  {
+    order: 2;
+  }
+  .search-result-item .about-author-block
+  {
+    order: 1;
+  }
+
+  .catalog-filter-form-box{
+    height: 250px;
+  }
+
+  .avatar-link-in-item
+  {
+    height: 50px;
+    width:50px;
+  }
+}
+
+// 768 - 996
+@media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+  .search-result-item
+  {
+    height:105px;
+    font-size: 0.8em;
+  }
+
+  .catalog-filter-form-box{
+    height: 250px;
+  }
+  .avatar-link-in-item
+  {
+    height: 60px;
+    width:60px;
+  }
+
+}
+
+// 996 - 1200
+@media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+  .search-result-item
+  {
+    height:120px;
+    font-size: 0.9em;
+  }
+
+  .catalog-filter-form-box{
+    height: 200px;
+  }
+
+  .avatar-link-in-item
+  {
+    height: 80px;
+    width:80px;
+  }
+}
+
+// 1200 - 1400
+@media (min-width: $screen-lg-min) and (max-width: 1400px) {
+  .search-result-item
+  {
+    height:135px;
+  }
+
+  .avatar-link-in-item
+  {
+    height: 90px;
+    width:90px;
+  }
 }

@@ -18,14 +18,14 @@
       </div>
       <div class = 'about-author-block'>
         <div class = "author-info">
-            РЕЙТИНГ: <%= find_rating(shooting.user.portfolio.ratings) %>
+            РЕЙТИНГ: <br> <%= find_rating(shooting.user.portfolio.ratings) %>
         </div>
         <div class = "author-info">
-          <%= link_to image_tag(shooting.user.profile.avatar.thumb, class: 'avatar-photo-in-item'),shooting.user.portfolio %>
+          <%= link_to image_tag(shooting.user.profile.avatar.thumb, class: 'avatar-photo-in-item'),shooting.user.portfolio,class: 'avatar-link-in-item' %>
           <%= link_to shooting.user.profile.name, shooting.user.portfolio, class: 'name-of-author' %>
         </div>
         <div class = "author-info">
-          <span class = 'price-cell'><%= shooting.price %>/час</span>
+          <span class = 'price-cell'><%= shooting.price %> <br> в/час</span>
         </div>
       </div>
       <div class = 'photo-examples-block'>

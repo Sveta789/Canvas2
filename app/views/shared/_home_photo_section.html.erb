@@ -1,0 +1,79 @@
+<script>
+  $(function(){
+    jQuery("#slider").slider({
+      min: <%= prices[0] %>,
+      max: <%= prices[1] %>,
+      values: [<%= prices[0] %>,<%= prices[1] %>],
+      range: true,
+      stop: function(event, ui) {
+        jQuery("input#minCost").val(jQuery("#slider").slider("values",0));
+        jQuery("input#maxCost").val(jQuery("#slider").slider("values",1));
+      },
+      slide: function(event, ui){
+        jQuery("input#minCost").val(jQuery("#slider").slider("values",0));
+        jQuery("input#maxCost").val(jQuery("#slider").slider("values",1));
+      }
+    });})
+  jQuery("input#minCost").change(function(){
+    var value1=jQuery("input#minCost").val();
+    var value2=jQuery("input#maxCost").val();
+    if(parseInt(value1) > parseInt(value2)){
+      value1 = value2;
+      jQuery("input#minCost").val(value1);
+    }
+    jQuery("#slider").slider("values",0,value1);
+  });
+
+  jQuery("input#maxCost").change(function(){
+    var value1=jQuery("input#minCost").val();
+    var value2=jQuery("input#maxCost").val();
+    if (value2 > <%= prices[1] %>) { value2 = <%= prices[1] %>; jQuery("input#maxCost").val(<%= prices[1] %>)}
+    if(parseInt(value1) > parseInt(value2)){
+      value2 = value1;
+      jQuery("input#maxCost").val(value2);
+    }})
+</script>
+<section id = "photohome">
+  <div class = transparent-block300></div>
+  <div id="photoslide" class = "whitestripe active">
+    <h1>- ФОТОСЪЕМКА -</h1>
+    <%= form_tag("/catalog", method: "post", id: 'photo_filter_form') do %>
+        <div class = "slider-wrapper">
+          <h2>средняя стоимость за час работы</h2>
+          <input name = 'filter[min]' class = "slider-price-cell cell-min" type="text" id="minCost" value=<%= prices[0] %>>
+          <input name = 'filter[max]' class = "slider-price-cell cell-max" type="text" id="maxCost" value=<%= prices[1] %>>
+          <div id="slider"></div>
+          <%= submit_tag 'ИСКАТЬ', class:"btn-search" %>
+          <%= hidden_field('filter', 'category', {id: 'photo_category_field', value: 'Все'}) %>
+          <%= hidden_field('filter', 'area', {id: 'photo_area', value: 'Фотосъемка'}) %>
+        </div>
+    <% end %>
+        <div class = "slider-controls">
+          <%= image_tag("birdy.png")%>
+          <button formaction="#" id = btn-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
+        </div>
+  </div>
+
+  <script>
+    var setAndSubmit = function (formId,fieldId,category) {
+      $(fieldId).val(category);
+      $(formId).submit();
+    }
+  </script>
+
+  <div id="photoslide-filters" class = "whitestripe">
+    <h1>- ВСЕ РАЗДЕЛЫ -</h1>
+    <div id = "flickrItems">
+      <a class="item" id="filter-item-1" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Свадьбы')"></a>
+      <a class="item" id="filter-item-2" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Праздники')"></a>
+      <a class="item" id="filter-item-3" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Love Story')"></a>
+      <a class="item" id="filter-item-4" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Персональные')"></a>
+      <a class="item" id="filter-item-5" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Коммерческие')"></a>
+      <a class="item" id="filter-item-6" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Вечеринки')"></a>
+      <a class="item" id="filter-item-7" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Другие')"></a>
+      <a class="item" id="filter-item-8" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Фотопроекты')"></a>
+    </div>
+      <button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>
+  </div>
+
+</section>

@@ -1,190 +1,29 @@
 <% content_for(:body_attributes) do %>
-    data-no-turbolink="true" style="overflow-y:hidden"
+    data-no-turbolink="true" style="overflow:hidden"
 <% end %>
-<script>
-    $(function(){
-        jQuery("#slider").slider({
-            min: <%= @photo_prices[0] %>,
-            max: <%= @photo_prices[1] %>,
-            values: [<%= @photo_prices[0] %>,<%= @photo_prices[1] %>],
-            range: true,
-            stop: function(event, ui) {
-                jQuery("input#minCost").val(jQuery("#slider").slider("values",0));
-                jQuery("input#maxCost").val(jQuery("#slider").slider("values",1));
-            },
-            slide: function(event, ui){
-                jQuery("input#minCost").val(jQuery("#slider").slider("values",0));
-                jQuery("input#maxCost").val(jQuery("#slider").slider("values",1));
-            }
-        });})
-    jQuery("input#minCost").change(function(){
-        var value1=jQuery("input#minCost").val();
-        var value2=jQuery("input#maxCost").val();
-        if(parseInt(value1) > parseInt(value2)){
-            value1 = value2;
-            jQuery("input#minCost").val(value1);
-        }
-        jQuery("#slider").slider("values",0,value1);
-    });
 
-    jQuery("input#maxCost").change(function(){
-        var value1=jQuery("input#minCost").val();
-        var value2=jQuery("input#maxCost").val();
-        if (value2 > <%= @photo_prices[1] %>) { value2 = <%= @photo_prices[1] %>; jQuery("input#maxCost").val(<%= @photo_prices[1] %>)}
-        if(parseInt(value1) > parseInt(value2)){
-            value2 = value1;
-            jQuery("input#maxCost").val(value2);
-        }})
-</script>
+<%= render partial: 'shared/home_photo_section', locals: {prices: @photo_prices} %>
+<%= render partial: 'shared/home_video_section', locals: {prices: @video_prices} %>
 
-<script>
-    $(function(){
-        jQuery("#slider2").slider({
-            min: <%= @video_prices[0] %>,
-            max: <%= @video_prices[1] %>,
-            values:  [<%= @video_prices[0] %>, <%= @video_prices[1] %>],
-            range: true,
-            stop: function(event, ui) {
-                jQuery("input#minCost2").val(jQuery("#slider2").slider("values",0));
-                jQuery("input#maxCost2").val(jQuery("#slider2").slider("values",1));
-            },
-            slide: function(event, ui){
-                jQuery("input#minCost2").val(jQuery("#slider2").slider("values",0));
-                jQuery("input#maxCost2").val(jQuery("#slider2").slider("values",1));
-            }
-        });})
-    jQuery("input#minCost").change(function(){
-        var value1=jQuery("input#minCost2").val();
-        var value2=jQuery("input#maxCost2").val();
-        if(parseInt(value1) > parseInt(value2)){
-            value1 = value2;
-            jQuery("input#minCost2").val(value1);
-        }
-        jQuery("#slider2").slider("values",0,value1);
-    });
-
-    jQuery("input#maxCost").change(function(){
-        var value1=jQuery("input#minCost2").val();
-        var value2=jQuery("input#maxCost2").val();
-        if (value2 > <%= @video_prices[1] %>) { value2 = <%= @video_prices[1] %>; jQuery("input#maxCost2").val( <%= @video_prices[1] %>)}
-        if(parseInt(value1) > parseInt(value2)){
-            value2 = value1;
-            jQuery("input#maxCost2").val(value2);
-        }})
-</script>
-<section id = "photohome">
-  <div class = transparent-block300></div>
-<div id="photoslide" class = "whitestripe active">
-  <h1>- ФОТОСЪЕМКА -</h1>
-  <%= form_tag("/catalog", method: "post", id: 'photo_filter_form') do %>
-  <div class = "slider-wrapper">
-    <h2>средняя стоимость за час работы</h2>
-    <input name = 'filter[min]' class = "slider-price-cell cell-min" type="text" id="minCost" value=<%= @photo_prices[0] %>>
-    <input name = 'filter[max]' class = "slider-price-cell cell-max" type="text" id="maxCost" value=<%= @photo_prices[1] %>>
-    <div id="slider"></div>
-    <%= submit_tag 'ИСКАТЬ', class:"btn-search" %>
-    <%= image_tag("birdy.png")%>
-    <button formaction="#" id = btn-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
-  </div>
-      <%= hidden_field('filter', 'category', {id: 'photo_category_field', value: 'Все'}) %>
-      <%= hidden_field('filter', 'area', {id: 'photo_area', value: 'Фотосъемка'}) %>
-   <% end %>
-</div>
-
-<script>
-  var setAndSubmit = function (formId,fieldId,category) {
-    $(fieldId).val(category);
-    $(formId).submit();
-  }
-</script>
-
-<div id="photoslide-filters" class = "whitestripe">
-  <h1>- ВСЕ РАЗДЕЛЫ -</h1>
-  <div id = "flickrItems">
-    <a class="item" id="filter-item-1" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Свадьбы')"></a>
-    <a class="item" id="filter-item-2" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Праздники')"></a>
-    <a class="item" id="filter-item-3" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Love Story')"></a>
-    <a class="item" id="filter-item-4" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Персональные')"></a>
-    <a class="item" id="filter-item-5" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Коммерческие')"></a>
-    <a class="item" id="filter-item-6" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Вечеринки')"></a>
-    <a class="item" id="filter-item-7" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Другие')"></a>
-    <a class="item" id="filter-item-8" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Фотопроекты')"></a>
-</div>
-  <button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>
-</div>
-
-</section>
-
-<!--------СЛАЙД 2-------------->
-
-<section id = "videohome">
-  <div class = transparent-block300></div>
-  <div id="videoslide" class = "whitestripe active">
-    <h1>- Видеосъемка -</h1>
-    <%= form_tag("/catalog", method: "post") do %>
-    <div class = "slider-wrapper">
-      <h2>средняя стоимость за час работы</h2>
-      <input name="filter[min]" class = "slider-price-cell cell-min" type="text" id="minCost2" value=<%= @video_prices[0] %>>
-      <input name = 'filter[max]' class = "slider-price-cell cell-max" type="text" id="maxCost2" value=<%= @video_prices[1] %>>
-      <div id="slider2"></div>
-      <%= submit_tag 'ИСКАТЬ', class:"btn-search" %>
-      <%= image_tag("birdy.png")%>
-      <button formaction="" id = btn2-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
-      <%= hidden_field('filter', 'area', {id: 'video_area', value: 'Видеосъемка'}) %>
-      <%= hidden_field('filter', 'category', {id: 'video_category_field', value: 'Все'}) %>
-    </div>
-      <% end %>
-  </div>
-
-  <div id="videoslide-filters" class = "whitestripe">
-    <h1>- ВСЕ РАЗДЕЛЫ -</h1>
-    <div class = "filter-wrapper">
-      <div class=filter-box>
-        <div class="filter-round">            </div>
-        <span class="filter-label">СВАДЬБЫ</span>
-      </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">Праздники</span>
-      </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">LOVE STORY</span>                      </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">ПЕРСОНАЛЬНЫЕ</span>                   </div>
-
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">КОММЕРЧЕСКИЕ</span>                  </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">ВЕЧЕРИНКИ</span>                     </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">ДРУГИЕ</span>                  </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">ФОТОПРОЕКТЫ</span>                   </div>
-    </div>
-
-    <button id=btn2-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>
-  </div>
-  </div>
-
-</section>
 
 <!-------СКРИПТЫ----------->
 <script>
+  var width = $(window).width();
+  var diamondSize = 195;
+  if (width > 1200){
+    diamondSize = 195;
+  }else if(width > 992){
+    diamondSize = 180;
+  }else if(width > 768){
+    diamondSize = 160;
+  }else if(width > 480){
+    diamondSize = 140
+  }else{
+    diamondSize = 120;
+  }
+
   $("#flickrItems").diamonds({
-    size : 200,
+    size : diamondSize,
     gap : 2,
     hideIncompleteRow : false, // default: false
     autoRedraw : true, // default: true
@@ -193,7 +32,7 @@
 </script>
 
 <script>
-    $('section').horizon();
+    $('section').horizon({swipe: false});
 </script>
 
 <script>

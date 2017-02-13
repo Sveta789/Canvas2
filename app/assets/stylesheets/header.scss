@@ -1,4 +1,5 @@
-$min_width: 500px;
+@import 'custom.scss';
+
 .zaglushka
 {
   width:100%;
@@ -151,6 +152,7 @@ header a:hover
   position: fixed;
   display: none;
   width:100%;
+  min-width: $min_width;
   height:65px;
   background-image: image-url('canvaslogo.png');
   background-size: 65px 65px;
@@ -169,17 +171,8 @@ header a:hover
 }
 
 
-@media screen and (max-width: 1024px) {
-  #logo{
-    display: none;
-  }
-  #line-with-logo{
-    display: block;
-  }
 
-}
-
-@media screen and (min-width: 736px) and (max-width: 1024px) {
+@media screen and (max-width: $screen-lg-min) {
 
   .header-section, .header-avatar{
     min-height: 75px;
@@ -200,9 +193,24 @@ header a:hover
   .zaglushka {
     height: 75px;
   }
+
+  #line-with-logo{
+    display: block;
+  }
 }
 
-@media screen and (max-width: 736px) {
+@media screen and (min-width: $screen-md-min) and (max-width: $screen-lg-min){
+  #logo{
+    display: none;
+  }
+  .zaglushka-add{
+    display: block;
+    height: 65px;
+  }
+}
+
+
+@media screen and (max-width: $screen-md-min) {
   .header-section, .header-avatar{
     flex-basis: 100px;
     min-height: 50px;
@@ -226,10 +234,15 @@ header a:hover
 
   .zaglushka-add{
     display: block;
+    height: 50px;
   }
 
   #line-with-logo{
     height:50px;
     background-size: 50px 50px;
+  }
+
+  #logo{
+    display: none;
   }
 }

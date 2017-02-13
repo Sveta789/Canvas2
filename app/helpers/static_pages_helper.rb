@@ -17,8 +17,8 @@ module StaticPagesHelper
 
   def get_min_and_max_price_of_model(shootings)
     result = []
-    result << shootings.minimum('price')
-    result << shootings.maximum('price')
+    result << shootings.minimum('price').to_i
+    result << shootings.maximum('price').to_i
 
   end
 end

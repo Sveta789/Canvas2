@@ -1,3 +1,11 @@
+<% swap_button_value = ""
+  if (@hidden_area == 'Видеосъемка')
+     swap_button_value = 'Видео'
+   else
+     swap_button_value = 'Фото'
+   end
+%>
+
 <div class="catalog-section">
   <div class="top-filter-catalog-section">
     <%= form_tag("/catalog", method: "post", class: 'catalog-filter-form-box', id: 'filter-form-box', remote: true) do %>
@@ -28,7 +36,7 @@
             <%= label_tag('filter[author_name]', "Поиск по имени") %>
             <%= text_field_tag('filter[author_name]', 'VASYA') %>
             </div>
-            <a class='swap-button' onclick='$("#filter-form-box").submit()'><%= @hidden_area %></a>
+            <a class='swap-button' onclick='$("#filter-form-box").submit()'><%= swap_button_value %></a>
             <%= hidden_field('filter', 'area', {id: 'catalog_area', value: @hidden_area}) %>
           </div>
         </div>

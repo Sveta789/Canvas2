@@ -1,138 +1,141 @@
-$min_width: 500px;
+$screen-xsm-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$min_width: 480px;
+$diamond-row-size: 210px;
 
 @font-face {
   font-family: 'Code Pro Light';
-  src:url(asset-path('fonts/CodeProLight.woff'));
+  src: url(asset-path('fonts/CodeProLight.woff'));
   font-weight: 400;
   font-style: normal;
 }
 
-
-html
-{
-  height:100%;
+html {
+  height: 100%;
   min-width: $min_width;
 }
 
-
-body
-{width:100%;
-  height:100%;
-  margin:0;
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
   font-family: "Code Pro Light";
   min-width: $min_width;
 }
 
-section
-{float:left;
-  width:100%;
+section {
+  float: left;
+  width: 100%;
   min-width: $min_width;
-  max-width:1920px;
-  margin:0;
-  height:100%;
+  max-width: 1920px;
+  margin: 0;
+  height: 100%;
   min-height: 400px;
 }
 
-.horizontal_flex{
+.horizontal_flex {
   display: flex;
   justify-content: space-around;
   align-items: center;
   align-content: center;
 }
 
-#photohome
-{
-  background:image-url('Blurred1.jpg') no-repeat;
+#photohome {
+  background: image-url('Blurred1.jpg') no-repeat;
   background-size: cover;
   overflow: hidden;
 }
 
-#videohome
-{
-  background:image-url('Blurred2.jpg') no-repeat ;
+#videohome {
+  background: image-url('Blurred2.jpg') no-repeat;
   background-size: cover;
 }
 
 .transparent-block300 {
-  width:100%;
-  height:300px;
+  width: 100%;
+  height: 300px;
+  min-width: $min_width;
 }
 
-
-.whitestripe
-{position: absolute;;
-  width:100%;
-  min-height:600px;
-  background:white;
-  z-index:10;
-  padding:50px 0;
+.whitestripe {
+  position: absolute;;
+  width: 100%;
+  min-height: 600px;
+  background: white;
+  z-index: 10;
+  padding: 50px 0;
 }
 
-.whitestripe h1
-{
+.whitestripe h1 {
   text-align: center;
   font-size: 3em;
   font-weight: 100;
-  margin-bottom:0px;
+  margin-bottom: 0px;
   margin-top: 8px;
 }
 
-.whitestripe h2
-{
+.whitestripe h2 {
   text-align: center;
   font-size: 1em;
-  font-weight: 50;
-  margin-bottom:0px;
+  font-weight: 500;
+  margin-bottom: 0px;
 }
 
-.whitestripe form{
-  margin:0;
+.whitestripe form {
+  margin: 0;
 }
 
-.active
-{ z-index: 100;
+.active {
+  z-index: 100;
 }
 
-
-.proba
-{transform:translateY(80px);
-  background:image-url('VIDEVO.png') no-repeat;
-  width:100%;
-  height:750px;;
-  z-index:1;
+.proba {
+  transform: translateY(80px);
+  background: image-url('VIDEVO.png') no-repeat;
+  width: 100%;
+  height: 750px;;
+  z-index: 1;
 
 }
 
 /*-------------------------------------------*/
 /*SLAIDER*/
-.slider-wrapper
-{position:relative;
-  width:600px;
-  height:400px;
-  margin:0 auto;
+.slider-wrapper {
+  position: relative;
+  max-width: $screen-md-min;
+  min-width: $screen-xsm-min;
+  min-height: 200px;
+  max-height: 250px;
+  margin: 0 auto;
 
 }
+
 /* Ширина лайдера */
 #slider, #slider2 {
-  width: 500px;
+  width: calc(100% - 150px);
 
 }
+
 /* Контейнер слайдера */
 .ui-slider {
-  position:relative;
-  margin:auto;
+  position: relative;
+  margin: auto;
   transform: translateY(50px);
 
 }
+
 /* Ползунок */
 .ui-slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
-  width: 8px;   /* Задаем нужную ширину */
-  height: 30px;  /* и высоту */
-  background:black no-repeat; /* картинка изображающая ползунок. Или можно залить цветом, задать бордюр и скругления */
+  width: 8px; /* Задаем нужную ширину */
+  height: 30px; /* и высоту */
+  background: black no-repeat; /* картинка изображающая ползунок. Или можно залить цветом, задать бордюр и скругления */
   cursor: pointer
 }
+
 .ui-slider .ui-slider-range {
   position: absolute;
   z-index: 1;
@@ -141,209 +144,212 @@ section
   border: 0;
   overflow: hidden;
 }
+
 /* горизонтальный слайдер (сама полоса по которой бегает ползунок) */
 .ui-slider-horizontal {
   height: 2px; /* задаем высоту согласно дизайна */
 }
+
 /* позиционируем ползунки */
 .ui-slider-horizontal .ui-slider-handle {
   top: -13px;
   margin-left: -5px;
 }
+
 .ui-slider-horizontal .ui-slider-range {
   top: 0;
   height: 100%;
 }
+
 .ui-slider-horizontal .ui-slider-range-min {
   left: 0;
 }
+
 .ui-slider-horizontal .ui-slider-range-max {
   right: 0;
 }
+
 /* оформление полосы по которой ходит ползунок */
 .ui-widget-content {
   background: lightgray;
 }
+
 /* оформление активного участка (между двумя ползунками) */
 .ui-widget-header {
   background: gray;
 }
+
 /* скругление для полосы слайдера */
 
-.slider-price-cell
-{position:absolute;
-  width:60px;
+.slider-price-cell {
+  position: absolute;
+  width: 60px;
   font-size: 1.3em;
-  top:5%;
+  top: 5%;
   font-family: "Code Pro Light";
 }
 
-.slider-wrapper span
-{  position:absolute;
-  width:200px;
+.slider-wrapper span {
+  position: absolute;
+  width: 200px;
   font-size: 1.4em;
-  display:block;
+  display: block;
   text-align: center;
   left: 50%;
-  top:10%;
+  top: 10%;
   margin-left: -100px;
 
 }
 
-.slider-wrapper img
-{display: block;
-  width:80px;
-  position:absolute;
-  left: 50%;
-  bottom:40%;
-  margin-left: -40px;
-
+.cell-min {
+  left: 5%;
+  border: none;
 }
 
-
-.cell-min
-{left:5%;
-  border:none;
+.cell-max {
+  right: 0%;
+  border: none;
 }
-.cell-max
-{right:0%;
-  border:none;
-}
-.btn-search
-{position:absolute;
-  display:block;
-  border:1px solid black;
-  height:50px;
-  width:200px;
-  top:28%;
-  left:calc(50% - 100px);
 
-  color:white;
+.btn-search {
+  position: absolute;
+  display: block;
+  border: 1px solid black;
+  height: 50px;
+  width: 200px;
+  bottom: calc(50% - 80px);
+  left: calc(50% - 100px);
+
+  color: white;
   text-align: center;
-  background:black;
+  background: black;
   text-decoration: none;
-  -webkit-filter:drop-shadow(0 0 2px black);
-  transition:0.5s ease;
+  -webkit-filter: drop-shadow(0 0 2px black);
+  transition: 0.5s ease;
   font-size: 1.5em;
   line-height: 50px;
 }
 
-.btn-search div
-{padding: 2px;
-  border:1px solid gray;
+.btn-search div {
+  padding: 2px;
+  border: 1px solid gray;
   border-radius: 5%;
 }
 
-.btn-search:hover
-{
+.btn-search:hover {
   background: gray;
   cursor: pointer;
 }
 
-
-#btn-showfilters, #btn-hidefilters, #btn2-showfilters, #btn2-hidefilters
-{
-  position:absolute;
-  border:none;
-  background:none;
-  color:gray;
-  width:180px;
-  left:50%;
-  margin-left:-90px;
-  bottom:35%;
-  transition:all 0.5s ease;
+.slider-controls {
+  height: 100px;
+  max-width: $screen-md-min;
+  min-width: $screen-xsm-min;
+  margin: 0 auto;
+  img {
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    display: block;
+  }
 }
 
-#btn-showfilters:hover,#btn-hidefilters:hover,#btn2-showfilters:hover,#btn2-hidefilters:hover
-{
-  -webkit-filter:drop-shadow(0px 0px 1px lightgray);
-  text-decoration:underline;
-  cursor:pointer;
+#btn-showfilters, #btn-hidefilters, #btn2-showfilters, #btn2-hidefilters {
+  display: block;
+  border: none;
+  background: none;
+  color: gray;
+  width: 180px;
+  margin: 0 auto;
+  transition: all 0.5s ease;
 }
-.filter-wrapper
-{position:relative;
-  display:flex;
+
+#btn-hidefilters, #btn2-hidefilters {
+  margin-top: calc(1.6 * #{$diamond-row-size});
+}
+
+#btn-showfilters:hover, #btn-hidefilters:hover, #btn2-showfilters:hover, #btn2-hidefilters:hover {
+  -webkit-filter: drop-shadow(0px 0px 1px lightgray);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.filter-wrapper {
+  position: relative;
+  display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  width:80%;
-  height:400px;
+  width: 80%;
+  height: 400px;
   max-width: 1200px;
-  margin:-20px auto;
+  margin: -20px auto;
 }
 
-#flickrItems #filter-item-1
-{
-  background-image:image-url('Photo_for_filters/1.jpg');
-  background-size:cover;
+#flickrItems #filter-item-1 {
+  background-image: image-url('Photo_for_filters/1.jpg');
+  background-size: cover;
 }
 
-#flickrItems #filter-item-2
-{
-  background-image:image-url('Photo_for_filters/2.jpg');
-  background-size:cover;
+#flickrItems #filter-item-2 {
+  background-image: image-url('Photo_for_filters/2.jpg');
+  background-size: cover;
 }
 
-#flickrItems #filter-item-3
-{
-  background-image:image-url('Photo_for_filters/3.jpg');
-  background-size:cover;
+#flickrItems #filter-item-3 {
+  background-image: image-url('Photo_for_filters/3.jpg');
+  background-size: cover;
 }
 
-#flickrItems #filter-item-4
-{
-  background-image:image-url('Photo_for_filters/4.jpg');
-  background-size:cover;
+#flickrItems #filter-item-4 {
+  background-image: image-url('Photo_for_filters/4.jpg');
+  background-size: cover;
 }
 
-#flickrItems #filter-item-5
-{
-  background-image:image-url('Photo_for_filters/5.jpg');
-  background-size:cover;
+#flickrItems #filter-item-5 {
+  background-image: image-url('Photo_for_filters/5.jpg');
+  background-size: cover;
 }
 
-#flickrItems #filter-item-6
-{
-  background-image:image-url('Photo_for_filters/6.jpg');
-  background-size:cover;
+#flickrItems #filter-item-6 {
+  background-image: image-url('Photo_for_filters/6.jpg');
+  background-size: cover;
 }
 
-#flickrItems #filter-item-7
-{
-  background-image:image-url('Photo_for_filters/7.jpg');
-  background-size:cover;
-}
-#flickrItems #filter-item-8
-{
-  background-image:image-url('Photo_for_filters/8.jpg');
-  background-size:cover;
+#flickrItems #filter-item-7 {
+  background-image: image-url('Photo_for_filters/7.jpg');
+  background-size: cover;
 }
 
-.registration-box
-{
+#flickrItems #filter-item-8 {
+  background-image: image-url('Photo_for_filters/8.jpg');
+  background-size: cover;
+}
+
+.registration-box {
   background-color: rgb(62, 63, 66);
   border-radius: 5px;
   font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
 
   max-width: 350px;
   min-width: 200px;
-  min-height: 400px;
-  width:100%;
-  height:100%;
+  min-height: 450px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   filter: drop-shadow(0px 0px 5px black);
 }
 
-.registration-box a{
+.registration-box a {
   text-decoration: none;
-  color:whitesmoke;
+  color: whitesmoke;
   transition-duration: 200ms;
 }
 
-.registration-box a:hover{
+.registration-box a:hover {
   text-decoration: underline;
 }
 
-.registration-box-fields-wrapper{
+.registration-box-fields-wrapper {
   display: flex;
   min-width: 175px;
   max-width: 350px;
@@ -352,9 +358,8 @@ section
   justify-content: center;
 }
 
-.register_field
-{
-  display: inline-block;
+.register_field {
+  display: block;
   flex-grow: 2;
   min-width: 175px;
   min-height: 45px;
@@ -365,9 +370,9 @@ section
   line-height: 45px;
 }
 
-.full-row-field{
+.full-row-field {
   flex-grow: 2;
-  padding:5px;
+  padding: 5px;
   min-height: 50px;
   flex-basis: 350px;
   min-width: 175px;
@@ -376,7 +381,7 @@ section
   line-height: 50px;
 }
 
-.form-header{
+.form-header {
   background: rgb(19, 20, 22);
   min-height: 75px;
   font-weight: bold;
@@ -386,15 +391,14 @@ section
   margin-bottom: 25px;
 }
 
-.form-submit{
-  margin-top: 20px;
-  margin-bottom: 20px;
+.form-submit {
+  margin-top: 0;
 }
 
-.registration-box input{
-  width:80%;
+.registration-box input {
+  width: 80%;
   margin: 0;
-  min-height:40px;
+  min-height: 40px;
   box-sizing: border-box;
   padding: 5px;
   line-height: 40px;
@@ -402,103 +406,133 @@ section
   border-radius: 5px;
 }
 
-.form-submit-btn{
-
+.registration-box .form-submit-btn {
+  margin-top:10px;
   background: whitesmoke;
-  color:rgb(19, 20, 22) ;
+  color: rgb(19, 20, 22);
   transition: 0.3s;
 }
 
 .form-submit-btn:hover {
-cursor: pointer;
-background: rgb(19, 20, 22);
- color: whitesmoke;
+  cursor: pointer;
+  background: rgb(19, 20, 22);
+  color: whitesmoke;
 }
 
-.check-box-replace-button{
-   border:white 2px solid;
-   border-radius: 2px;
-   padding: 10px;
-  color:whitesmoke;
+.check-box-replace-button {
+  border: white 2px solid;
+  border-radius: 2px;
+  padding: 10px;
+  color: whitesmoke;
   box-sizing: border-box;
- }
+}
 
-.check-box-replace-button:hover{
+.check-box-replace-button:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-.custom-checkbox-checked{
-  background:whitesmoke;
-  color:black;
+.custom-checkbox-checked {
+  background: whitesmoke;
+  color: black;
 }
 
-#error_explanation
-{
-  width:50%;
+#error_explanation {
+  width: 50%;
   margin: 20px auto;
   background: lightpink;
 }
 
-.alert
-{
-  width:50%;
+.alert {
+  width: 50%;
   margin: 20px auto;
   background: lightpink;
-border-radius: 10px;
+  border-radius: 10px;
   padding: 10px;
 }
 
-.site-container
-{
+.site-container {
   width: 100%;
 }
 
-
-
-h1{
+h1 {
   text-align: center;
 }
-
 
 .spoiler-title:hover {
   cursor: pointer;
 }
 
-#flickrItems{
-  width: 54%;
-  margin:10px auto;
-}
-
-.nice_button{
+#flickrItems {
   display: block;
-  width:100px;
-  height:100px;
-  border-radius:10px;
-  border: darkgray;
-  background: linear-gradient( to bottom, #999999, #BBBBBB);
+  max-width: $screen-md-min;
+  min-width: $screen-xsm-min;
+  margin: 10px auto;
+  .diamond-row-wrap {
+    margin: 0 auto;
+  }
 }
 
-.centered_block{
+.nice_button {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  border: darkgray;
+  background: linear-gradient(to bottom, #999999, #BBBBBB);
+}
+
+.centered_block {
   margin: 10px auto 0;
 }
 
-.add_new_item{
+.add_new_item {
   display: block;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   background: image_url("icons/add_icon.png") no-repeat 50% 50%;
   background-size: 50%;
 
 }
 
-#tempObjects{
-  display:none;
+#tempObjects {
+  display: none;
 }
 
-.form-element-with-title{
-  display:flex;
+.form-element-with-title {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+// eXTRA Small devices 480
+@media (max-width: $screen-xsm-min) {
+  .transparent-block300 {
+    height: 150px;
+  }
+}
+
+// 480 - 768
+@media (min-width: $screen-xsm-min) and (max-width: $screen-sm-min) {
+  .transparent-block300 {
+    height: 150px;
+  }
+}
+
+// 768 - 996
+@media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+  .transparent-block300 {
+    height: 200px;
+  }
+}
+
+// 996 - 1200
+@media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+  .transparent-block300 {
+    height: 250px;
+  }
 }
