@@ -1,24 +1,90 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'custom.scss';
 
 .profile-box
 {
+  display:flex;
+  flex-direction: column;
   background-color: rgba(120, 120, 120, 0.5);
   border-radius: 5px;
   font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-  padding:20px;
 
-  max-width: 1000px;
-  min-width: 400px;
-  min-height: 400px;
-  width:70%;
-  margin: 50px auto;
+  max-width: $screen-lg-min;
+  min-width: $screen-xsm-min;
+  width:80%;
+  margin: 20px auto;
+  box-sizing: border-box;
+  min-height: calc(100% - 120px );
+  /* equal to footer height */
+  margin-bottom: -200px;
 }
 
-.profile-box div{
-  padding:5px;
+.profile-box:after{
+  content: "";
+  display: block;
+  height: 200px;
 }
+
+.profile-box-header{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  width:100%;
+  box-sizing: border-box;
+  min-height: 50px;
+  flex-grow: 1;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 30px;
+  border-bottom: 1px solid black;
+}
+
+.profile-box-header-title{
+  line-height: calc(100% - 15px);
+}
+
+.profile-box-body{
+  display: flex;
+  box-sizing: border-box;
+  width:100%;
+  flex-grow: 6;
+}
+
+.profile-box-aside{
+  display: flex;
+  box-sizing: border-box;
+  flex-grow: 1;
+  padding: 30px;
+  border-right: 1px solid black;
+  min-width: 150px;
+  max-width: 250px;
+  min-height: 300px;
+}
+
+.profile-box-avatar{
+  min-width: 90px;
+  min-height: 120px;
+  max-width: 190px;
+  max-height: 250px;
+  width:auto;
+  height:auto;
+}
+
+.profile-box-avatar img{
+  width: 100%;
+  height:auto;
+}
+
+.profile-box-main-content{
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  flex-grow: 6;
+  padding: 30px;
+}
+
 
 .profile-avatar img{
   border:1px solid black;
@@ -35,12 +101,17 @@
   text-decoration: underline;
 }
 
-.profile-box-fields-wrapper{
+.profile-box-field{
   display: flex;
-  min-width: 175px;
-  max-width: 350px;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.profile-box-field-title{
+  font-size: 1.2em;
+  font-weight: lighter;
+}
+
+.profile-box-field-content{
+  margin-left: 10px;
 }
 

@@ -1,36 +1,50 @@
+<div class="profile-box">
+  <div class="profile-box-header">
+    <div class="profile-box-header-title">
+      <%= @profile.name + "  " + @profile.surname %>
+    </div>
+  </div>
 
-<div class = "profile-box">
-  <div class = "profile-avatar">
-     <%= image_tag @profile.avatar.thumb %>
+  <div class="profile-box-body">
+    <div class="profile-box-aside">
+      <div class="profile-box-avatar">
+        <%= image_tag @profile.avatar %>
+      </div>
+      <div class="profile-box-menu"></div>
+    </div>
+    <div class="profile-box-main-content">
+      <div class='profile-box-field'>
+        <div class='profile-box-field-title'>Пол:</div>
+        <div class='profile-box-field-content'><%= @profile.sex %></div>
+      </div>
+      <div class='profile-box-field'>
+        <div class='profile-box-field-title'>Дата рождения:</div>
+        <div class='profile-box-field-content'><%= @profile.birthday %></div>
+      </div>
+      <div class='profile-box-field'>
+        <div class='profile-box-field-title'>Город: </div>
+        <div class='profile-box-field-content'><%= @profile.city %></div>
+      </div>
+      <div class='profile-box-field'>
+        <div class='profile-box-field-title'>Телефон:</div>
+        <div class='profile-box-field-content'><%= @profile.phone_number %></div>
+      </div>
+      <div class='profile-box-field'>
+        <div class='profile-box-field-title'>E-mail:</div>
+        <div class='profile-box-field-content'><%= @profile.social_email %></div>
+      </div>
+      <div class='profile-box-field'>
+        <div class='profile-box-field-title'>Соц сети:</div>
+        <div class='profile-box-field-content'><%= @profile.social_network %></div>
+      </div>
+      <div class='profile-box-field'>
+        <div class='profile-box-field-title'>О себе:</div>
+        <div class='profile-box-field-content'><%= @profile.hobby %></div>
+      </div>
+      <%= link_to "Редактировать страницу", edit_profile_path %>
+
+    </div>
   </div>
-  <div >
-    Имя: <%= @profile.name %>
-  </div>
-  <div>
-    Фамилия: <%= @profile.surname %>
-  </div>
-  <div>
-    Пол: <%= @profile.sex %>
-  </div>
-  <div>
-    Дата рождения: <%= @profile.birthday %>
-  </div>
-  <div>
-    Город: <%= @profile.city %>
-  </div>
-  <div>
-    Телефон: <%= @profile.phone_number %>
-  </div>
-  <div>
-    E-mail: <%= @profile.social_email %>
-  </div>
-  <div>
-  Соц сети: <%= @profile.social_network %>
-</div>
-  <div>
-    О себе: <%= @profile.hobby %>
-  </div>
-  <%= link_to "Редактировать страницу", edit_profile_path %>
 </div>
 
 
