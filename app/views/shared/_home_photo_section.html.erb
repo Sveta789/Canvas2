@@ -40,8 +40,8 @@
     <%= form_tag("/catalog", method: "post", id: 'photo_filter_form') do %>
         <div class = "slider-wrapper">
           <h2>средняя стоимость за час работы</h2>
-          <input name = 'filter[min]' class = "slider-price-cell cell-min" type="text" id="minCost" value=<%= prices[0] %>>
-          <input name = 'filter[max]' class = "slider-price-cell cell-max" type="text" id="maxCost" value=<%= prices[1] %>>
+          <input name = 'filter[min]' class = "slider-price-cell cell-min" type="number" min="0" max="100000" id="minCost" value=<%= prices[0] %>>
+          <input name = 'filter[max]' class = "slider-price-cell cell-max" type="number" min="0" max="100000" id="maxCost" value=<%= prices[1] %>>
           <div id="slider"></div>
           <%= submit_tag 'ИСКАТЬ', class:"btn-search" %>
           <%= hidden_field('filter', 'category', {id: 'photo_category_field', value: 'Все'}) %>

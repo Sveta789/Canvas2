@@ -2,7 +2,7 @@
 <% videographies_categories = getVideoCats %>
 <% contact_button_info = [@portfolio.user.profile.phone_number, @portfolio.user.profile.social_email, @portfolio.user.profile.social_network] %>
 <% author_about_button_info = [@portfolio.user.profile.city] %>
-<% isOwner = @portfolio.user_id == current_user.id %>
+<% isOwner = (!current_user.nil? && @portfolio.user_id == current_user.id) %>
 <div onclick="showZoom('none','')" id="picture-wrap" style="display: none;"></div>
 <div id="picture-window" style="display: none; background-image: none">
 </div>
@@ -12,9 +12,9 @@
     <div id="videocamera-button" class="tabs_button tabs_button_fade" clicked="false"></div>
     <% if isOwner %>
         <% if @edit_mode %>
-            <%= link_to 'done', portfolio_path, class: 'simple_button' %>
+            <%= link_to '', portfolio_path, class: 'simple_button', id: 'done_edit_portfolio_button' %>
         <% else %>
-            <%= link_to 'edit mode', edit_portfolio_path, class: 'simple_button' %>
+            <%= link_to '', edit_portfolio_path, class: 'simple_button', id: 'edit_portfolio_button' %>
         <% end %>
     <% end %>
   </div>
@@ -31,9 +31,11 @@
               </div>
           <% end %>
       <% end %>
+      <% if isOwner %>
       <div class="horizontal_flex">
-        <%= link_to "add new", shootings_new_path, class: "link-to-category", remote: true %>
+        <%= link_to "Добавить", shootings_new_path, class: "link-to-category", remote: true %>
       </div>
+      <% end %>
     </div>
     <div id="video-categories-block" class="tab_item_fade">
       <% videographies_categories.each do |kindOf| %>
@@ -47,13 +49,15 @@
               </div>
           <% end %>
       <% end %>
+      <% if isOwner %>
       <div class="horizontal_flex">
-      <%= link_to "add new", videographies_new_path, class: "link-to-category", remote: true %>
+      <%= link_to "Добавить", videographies_new_path, class: "link-to-category", remote: true %>
       </div>
+      <% end %>
     </div>
   </div>
   <div class="info_and_avatar_block">
-    <%= link_to(image_tag(@portfolio.user.profile.avatar, class: 'avatar-photo'), edit_avatar_path(:id => @portfolio.user.profile.id), remote: true) %>
+    <%= link_to(image_tag(@portfolio.user.profile.avatar, class: 'avatar-photo'), edit_avatar_path(:id => @portfolio.user.profile.id), remote: true, pointer_events:((isOwner) ? 'all' : 'none')) %>
     <div class="name-surname-block">
       <span class='name-of-author'><%= @portfolio.user.profile.name %></span>
       <span class='name-of-author'><%= @portfolio.user.profile.surname %></span>
@@ -88,7 +92,7 @@
                   <div>
                     <%= shooting.price %>
                   </div>
-                  <% if signed_in? && current_user?(@portfolio.user_id) %>
+                  <% if signed_in? && current_user.id == @portfolio.user_id %>
                       <div class="nice_button centered_block">
                         <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
                       </div>
@@ -189,7 +193,7 @@
 
 </div>
 
-<% if signed_in? && current_user?(@portfolio.user_id) %>
+<% if signed_in? && current_user.id == @portfolio.user_id %>
 
     <div class='form-for-new-video'>
       <%= form_for @video, :html => {:multipart => true} do |f| %>

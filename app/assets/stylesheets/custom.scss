@@ -12,6 +12,28 @@ $diamond-row-size: 210px;
   font-style: normal;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
 html {
   height: 100%;
   min-width: $min_width;
@@ -330,9 +352,10 @@ section {
   border-radius: 5px;
   font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
 
-  max-width: 350px;
+  max-width: 450px;
   min-width: 200px;
   min-height: 450px;
+  max-height: 540px;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -371,6 +394,9 @@ section {
 }
 
 .full-row-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-grow: 2;
   padding: 5px;
   min-height: 50px;
@@ -379,6 +405,24 @@ section {
   box-sizing: border-box;
   text-align: center;
   line-height: 50px;
+  color: white;
+}
+
+.quart-row-field {
+  display: block;
+  width: 25%;
+  height: 100%;
+  line-height: 100%;
+}
+
+.quart-row-field input{
+  height: 100%;
+}
+
+.half-row-field {
+  display: block;
+  width: 50%;
+  height: 100%;
 }
 
 .form-header {
@@ -449,6 +493,7 @@ section {
   background: lightpink;
   border-radius: 10px;
   padding: 10px;
+  display: none;
 }
 
 .site-container {

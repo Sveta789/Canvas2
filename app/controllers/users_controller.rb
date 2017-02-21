@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
+  def new2
     @user = User.new
     respond_to do |format|
         format.html {redirect_to signup_path}

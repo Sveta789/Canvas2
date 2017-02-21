@@ -10,6 +10,9 @@ group :development, :test do
 end
 # Use SCSS for stylesheets
 gem 'sqlite3'
+gem 'pundit'
+gem 'devise'
+gem 'rails_admin', '~> 1.1', '>= 1.1.1'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
@@ -26,6 +29,7 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
+gem 'thor', '0.19.1'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'mini_magick'
 # Use ActiveModel has_secure_password

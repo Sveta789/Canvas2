@@ -3,7 +3,7 @@
     <%= link_to "О нас", '/about', 'data-no-turbolink' => true %>
   </div>
   <div class="header-section">
-    <a href="#">Контакты</a>
+    <%= link_to "Архив", '#'%>
   </div>
   <%= link_to "", root_path, class: "header-section", id: 'logo' %>
   <div class=header-section>
@@ -17,8 +17,8 @@
           <div id="profile-block-header-button" clicked="false" onclick="showMenu('profile-block-header-button','profile-block-header-menu')"></div>
         </div>
     <% else %>
-        <%= link_to "Войти", '#login-form', 'data-rel': 'lightcase', remote: true %>
-        <%= link_to "Регистрация", signup_path, id: 'sign_up_btn', remote: true %>
+        <%= link_to "Войти", new_user_session_path %>
+        <%= link_to "Регистрация", new_user_registration_path, id: 'sign_up_btn' %>
     <% end %>
     <div id="profile-block-header-menu" class="header-section">
       <% if signed_in? %>
@@ -27,7 +27,7 @@
               <%= link_to "Портфолио", current_user.portfolio %>
           <% end %>
       <% end %>
-      <%= link_to "Выйти", signout_path, method: "delete" %>
+      <%= link_to "Выйти", destroy_user_session_path, method: "delete" %>
     </div>
   </div>
 </header>
@@ -36,5 +36,5 @@
 </div>
 <div class="zaglushka zaglushka-add"></div>
 
-<%= render 'shared/login_form' %>
+ <!-- render 'shared/login_form' -->
 

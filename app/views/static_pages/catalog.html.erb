@@ -13,11 +13,11 @@
           <div class='form-cells-block'>
             <div class='form-element-with-title'>
               <%= label_tag('filter[min]', "Цена от ") %>
-              <%= text_field_tag('filter[min]', (@old_params != nil) ? @old_params[:min] : 0) %>
+              <%= number_field_tag('filter[min]', (@old_params != nil) ? @old_params[:min] : 0, min:0, max:100000) %>
             </div>
             <div class='form-element-with-title'>
               <%= label_tag('filter[max]', "до ") %>
-              <%= text_field_tag('filter[max]', (@old_params != nil) ? @old_params[:max] : 1000) %>
+              <%= number_field_tag('filter[max]', (@old_params != nil) ? @old_params[:max] : 1000, min:0, max:100000) %>
             </div>
             <div class='form-element-with-title'>
               <%= label_tag('filter[sort_by]', "Сортировка") %>
@@ -34,7 +34,7 @@
             </div>
             <div class='form-element-with-title'>
             <%= label_tag('filter[author_name]', "Поиск по имени") %>
-            <%= text_field_tag('filter[author_name]', 'VASYA') %>
+            <%= text_field_tag('filter[author_name]') %>
             </div>
             <a class='swap-button' onclick='$("#filter-form-box").submit()'><%= swap_button_value %></a>
             <%= hidden_field('filter', 'area', {id: 'catalog_area', value: @hidden_area}) %>

@@ -1,0 +1,52 @@
+<h2 class = 'full-row-field form-header'>Быстрая регистрация</h2>
+<div id="signup-form" class="registration-box">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="register_field">
+    <%= f.label :email, value: 'E-mail' %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="register_field">
+    <%= f.label :password, value: 'Пароль' %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> символов минимум)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="register_field">
+    <%= f.label :password_confirmation, value: 'Подтвердите пароль'%><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="full-row-field">
+    <%= label_tag 'operator', 'Я оператор', {:class => "check-box-replace-button", :onclick => 'customCheckbox($(this))'} %>
+  </div>
+  <div class="register_field hidden-role" style = "display:none" >
+    <%= check_box 'user', 'operator', {id: 'operator-checkbox'}, 'true', 'false'   %>
+  </div>
+
+  <div class="full-row-field form-submit">
+    <%= f.submit "Отправить", class: "form-submit-btn" %>
+  </div>
+
+      <%= render "devise/shared/links" %>
+
+<% end %>
+</div>
+
+<script>
+  var customCheckbox = function(author) {
+    var checkbox = $('.hidden-role input[type=hidden]');
+    if(checkbox.prop('value') == 'false'){
+      checkbox.prop('value', 'true');
+    }else{
+      checkbox.prop('value', 'false');
+    }
+    $(author).toggleClass('custom-checkbox-checked');
+  }
+</script>
+
+

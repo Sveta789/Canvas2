@@ -44,8 +44,8 @@
     <%= form_tag("/catalog", method: "post") do %>
         <div class = "slider-wrapper">
           <h2>средняя стоимость за час работы</h2>
-          <input name="filter[min]" class = "slider-price-cell cell-min" type="text" id="minCost2" value=<%= prices[0] %>>
-          <input name = 'filter[max]' class = "slider-price-cell cell-max" type="text" id="maxCost2" value=<%= prices[1] %>>
+          <input name="filter[min]" class = "slider-price-cell cell-min" type="number" min="0" max="100000" id="minCost2" value=<%= prices[0] %>>
+          <input name = 'filter[max]' class = "slider-price-cell cell-max" type="number" min="0" max="100000" id="maxCost2" value=<%= prices[1] %>>
           <div id="slider2"></div>
           <%= hidden_field('filter', 'area', {id: 'video_area', value: 'Видеосъемка'}) %>
           <%= hidden_field('filter', 'category', {id: 'video_category_field', value: 'Все'}) %>

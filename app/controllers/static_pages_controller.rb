@@ -21,11 +21,13 @@ class StaticPagesController < ApplicationController
   def catalog
     if request.get?
       @result = Shooting.all
-      @categories =  getPhotoCats
+      @categories = getPhotoCats
       @hidden_area = "Видеосъемка"
     else
       cur_cat = (filter_params[:category].nil? || filter_params[:category] == 'Все') ? nil : cur_cat
+      author_name = (filter_params[:author_name].nil? || filter_params[:author_name] == '') ? nil : filter_params[:author_name]
       area = nil
+      order = getOrderSymbol(filter_params[:sort_by])
       if filter_params[:area].nil? || filter_params[:area] == "Фотосъемка"
         area = Shooting
         @categories = getPhotoCats
@@ -37,17 +39,17 @@ class StaticPagesController < ApplicationController
       end
 
       if cur_cat == nil
-        @result = area.where(price: filter_params[:min]..filter_params[:max])
+        @result = area.where(price: filter_params[:min]..filter_params[:max]).order(order)
       else
-        @result = area.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category])
+        @result = area.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category]).order(order)
       end
       @old_params = filter_params
     end
     respond_to do |format|
 
       format.html { render 'static_pages/catalog' }
-      format.js { render 'catalog_refresh'}
-      format.json {render 'catalog_refresh'}
+      format.js { render 'catalog_refresh' }
+      format.json { render 'catalog_refresh' }
     end
   end
 
@@ -79,4 +81,14 @@ class StaticPagesController < ApplicationController
 
   end
 
+  def getOrderSymbol(order_cat)
+    case order_cat
+    when 'Цена'
+      return :price
+    when 'Категория'
+        return :category
+    else
+        return :price
+    end
+  end
 end

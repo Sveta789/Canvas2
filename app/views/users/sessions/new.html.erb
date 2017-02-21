@@ -1,0 +1,32 @@
+<h2 class='full-row-field form-header'>Вход</h2>
+<div id="login-form" class="registration-box">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="register_field">
+        <%= f.label :email, value: 'E-mail' %><br/>
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="register_field">
+        <%= f.label :password, value: 'Пароль'  %><br/>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+          <div class="full-row-field">
+            <div class="quart-row-field">
+            <%= f.check_box :remember_me %>
+            </div>
+          <div class="half-row-field">
+            <%= f.label :remember_me, value: 'Запомнить меня' %>
+          </div>
+          </div>
+      <% end -%>
+
+      <div class="full-row-field form-submit">
+        <%= f.submit "Войти", class: "form-submit-btn" %>
+      </div>
+      <%= render "devise/shared/links" %>
+  <% end %>
+</div>
+
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations' }
   get 'ratings/new'
 
   get 'ratings/create'
@@ -82,8 +83,8 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+  # resources :users
+  # resources :sessions, only: [:new, :create, :destroy]
   resources :portfolios
   resources :photos, only: [:destroy, :new, :create]
   resources :videos, only: [:destroy, :new, :create]
@@ -91,9 +92,9 @@ Rails.application.routes.draw do
   resources :shootings, :videographies
   resources :comments, only: [:new, :create, :destroy]
   resources :ratings, only: [:new, :create, :edit]
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  # match '/signup',  to: 'users#new',            via: 'get'
+  # match '/signin',  to: 'sessions#new',         via: 'get'
+  # match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/catalog', to: 'static_pages#catalog',     via: 'get'
   match '/catalog', to: 'static_pages#catalog',     via: 'post'
   match '/about', to: 'static_pages#about',     via: 'get'
