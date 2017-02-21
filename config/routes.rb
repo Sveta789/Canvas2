@@ -105,6 +105,7 @@ Rails.application.routes.draw do
   match '/new_shooting', to: 'portfolios#new_shooting', via: 'post'
   match 'portfolios/ratings/onPluginClick', to: 'ratings#onPluginClick', via: 'post'
   match '/edit_avatar', to: 'profiles#edit_avatar',  via: 'get', as: :edit_avatar
+  match '/update_avatar', to: 'profiles#update_avatar',  via: 'patch', as: :update_avatar
 
   # Example resource route with options:
   #   resources :products do

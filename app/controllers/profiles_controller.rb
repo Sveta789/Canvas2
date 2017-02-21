@@ -23,7 +23,17 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(profile_params)
       flash[:success] = "Profile updated"
-      redirect_to @profile
+        redirect_to @profile
+    else
+      render 'edit'
+    end
+  end
+
+  def update_avatar
+    @profile = Profile.find(profile_params[:id])
+    if @profile.update_attributes(profile_params)
+      flash[:success] = "Profile updated"
+      redirect_to @profile.user.portfolio
     else
       render 'edit'
     end
