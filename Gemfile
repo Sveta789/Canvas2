@@ -12,7 +12,7 @@ end
 gem 'sqlite3'
 gem 'pundit'
 gem 'devise'
-gem 'rails_admin', '~> 1.1', '>= 1.1.1'
+gem 'rails_admin', '~> 1.0'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
