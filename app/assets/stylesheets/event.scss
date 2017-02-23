@@ -1,0 +1,43 @@
+.events-wrapper{
+  box-sizing: border-box;
+  padding-top: 20px;
+  width:100%;
+  height:100%;
+  background: image-url('Blurred3.jpg') no-repeat;
+  background-size: cover;
+}
+.event-wrapper{
+  margin-top: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  width:100%;
+  max-height: 400px;
+  min-height: 300px;
+  background-color: rgba(255,255,255,0.9);
+}
+
+.event-text-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  flex-basis: 70%;
+  flex-grow: 7;
+}
+
+.event-image-block{
+  flex-basis: 20%;
+  flex-grow: 2;
+}
+
+.event-type-block{
+  display: flex;
+  min-width: 115px;
+  flex-basis: 10%;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}

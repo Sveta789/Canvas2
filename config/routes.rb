@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'events/index'
+
+  get 'events/show'
+
   devise_for :admins, :skip => [:registrations]
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations' }
@@ -87,6 +91,7 @@ Rails.application.routes.draw do
   #   resources :products
   # resources :users
   # resources :sessions, only: [:new, :create, :destroy]
+  resources :events, only: [:index, :show]
   resources :portfolios
   resources :photos, only: [:destroy, :new, :create]
   resources :videos, only: [:destroy, :new, :create]

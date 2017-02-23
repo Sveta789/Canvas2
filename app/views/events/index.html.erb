@@ -1,0 +1,5 @@
+<div class = "events-wrapper">
+<% @events.each  do |event|%>
+  <%= render partial: 'shared/event_summary', locals: {event: event} %>
+<% end %>
+</div>

@@ -31,6 +31,7 @@ gem 'jquery-turbolinks'
 gem 'jbuilder'
 gem 'thor', '0.19.1'
 # bundle exec rake doc:rails generates the API under doc/api.
+gem 'image_magick'
 gem 'mini_magick'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
