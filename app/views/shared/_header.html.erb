@@ -21,7 +21,7 @@
         <%= link_to "Регистрация", new_user_registration_path, id: 'sign_up_btn' %>
     <% end %>
     <div id="profile-block-header-menu" class="header-section">
-      <% if signed_in? %>
+      <% if user_signed_in? %>
           <%= link_to "Профиль", current_user.profile %>
           <% if current_user.operator? %>
               <%= link_to "Портфолио", current_user.portfolio %>

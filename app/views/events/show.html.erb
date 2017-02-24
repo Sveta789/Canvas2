@@ -1,2 +1,22 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="page-wrapper event-page-wrapper">
+  <div class=full-event-wrapper>
+    <div class="event-body-box">
+      <div class = 'event-title'>
+      <h1><%= @event.title %></h1>
+      </div>
+      <div class="event-body">
+        <%= @event.body %>
+      </div>
+    </div>
+    <div class="event-side-box">
+      <div class="event-image-box">
+        <%= image_tag @event.image, class: 'event-image' %>
+      </div>
+      <div class="event-data-box">
+        <%= @event.created_at %>
+        <br>
+        <%= @event.updated_at %>
+      </div>
+    </div>
+  </div>
+</div>

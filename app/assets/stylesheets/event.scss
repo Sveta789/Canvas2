@@ -6,6 +6,12 @@
   background: image-url('Blurred3.jpg') no-repeat;
   background-size: cover;
 }
+
+.event-page-wrapper{
+  background: image-url('Blurred5.jpg') no-repeat;
+  background-size: cover;
+}
+
 .event-wrapper{
   margin-top: 20px;
   box-sizing: border-box;
@@ -40,4 +46,54 @@
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+
+.event-image{
+  height: 100%;
+  width: auto;
+}
+
+.full-event-wrapper{
+  display: flex;
+  width: 90%;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.8);
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.event-body-box{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  flex-basis: 500px;
+}
+
+.event-side-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  flex-grow: 1;
+  flex-basis: 250px;
+}
+
+.event-title{
+  box-sizing: border-box;
+  padding: 10px;
+ text-align: center;
+}
+
+.event-body{
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.event-image-box{
+
+}
+
+.event-data-box{
+
 }
