@@ -61,8 +61,17 @@ section {
   box-sizing: border-box;
   padding-top: 20px;
   width:100%;
-  height:100%;
+  height:  calc(100% - 100px );
+  /* equal to footer height */
+  margin-bottom: -200px;
+  overflow-y: scroll
 }
+.page-wrapper:after{
+  content: "";
+  display: block;
+  height: 200px;
+}
+
 
 .horizontal_flex {
   display: flex;

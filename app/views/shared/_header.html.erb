@@ -10,7 +10,7 @@
     <%= link_to "Каталог", '/catalog','data-no-turbolink' => true %>
   </div>
   <div class="personal-cabinet header-section">
-    <% if signed_in? %>
+    <% if user_signed_in? %>
         <%= image_tag current_user.profile.avatar, class: "header-avatar", onerror:"this.style.display='none'" %>
         <%= link_to current_user.profile.name, current_user.profile, id: 'name_header_link' %>
         <div class="profile-block-header">
