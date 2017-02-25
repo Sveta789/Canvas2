@@ -4,6 +4,7 @@ $screen-md-min: 992px;
 $screen-lg-min: 1200px;
 $min_width: 480px;
 $diamond-row-size: 210px;
+$footer_height: 80px;
 
 @font-face {
   font-family: 'Code Pro Light';
@@ -63,13 +64,13 @@ section {
   width:100%;
   height:  calc(100% - 100px );
   /* equal to footer height */
-  margin-bottom: -200px;
+  margin-bottom: - $footer_height;
   overflow-y: scroll
 }
 .page-wrapper:after{
   content: "";
   display: block;
-  height: 200px;
+  height: $footer_height;
 }
 
 
