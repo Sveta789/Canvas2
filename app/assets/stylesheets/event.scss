@@ -50,7 +50,7 @@
 
 .event-image{
   height: 100%;
-  width: auto;
+  width: 100%;
 }
 
 .full-event-wrapper{
@@ -91,7 +91,10 @@
 }
 
 .event-image-box{
-
+  max-width: 400px;
+  max-height: 300px;
+  min-width: 200px;
+  min-height: 150px;
 }
 
 .event-data-box{
