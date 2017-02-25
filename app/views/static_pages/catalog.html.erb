@@ -1,27 +1,27 @@
 <% swap_button_value = ""
-  if (@hidden_area == 'Видеосъемка')
+  if @hidden_area == 'Видеосъемка'
      swap_button_value = 'Видео'
    else
      swap_button_value = 'Фото'
    end
 %>
 
-<div class="catalog-section">
+<div class="catalog-section page-wrapper">
   <div class="top-filter-catalog-section">
     <%= form_tag("/catalog", method: "post", class: 'catalog-filter-form-box', id: 'filter-form-box', remote: true) do %>
         <div class="top-filter-catalog-block">
           <div class='form-cells-block'>
             <div class='form-element-with-title'>
-              <%= label_tag('filter[min]', "Цена от ") %>
-              <%= number_field_tag('filter[min]', (@old_params != nil) ? @old_params[:min] : 0, min:0, max:100000) %>
+              <%= label_tag('filter[price[min]', "Цена от ") %>
+              <%= number_field_tag('filter[price[min]', (@old_params != nil) ? Integer(@old_params['price']['min']) : @prices[0], min:@prices[0], max: @prices[1]) %>
             </div>
             <div class='form-element-with-title'>
-              <%= label_tag('filter[max]', "до ") %>
-              <%= number_field_tag('filter[max]', (@old_params != nil) ? @old_params[:max] : 1000, min:0, max:100000) %>
+              <%= label_tag('filter[price[max]', "до ") %>
+              <%= number_field_tag('filter[price[max]', (@old_params != nil) ? Integer(@old_params['price']['max']) : @prices[1], min:@prices[0], max: @prices[1]) %>
             </div>
             <div class='form-element-with-title'>
               <%= label_tag('filter[sort_by]', "Сортировка") %>
-              <%= select_tag 'filter[sort_by]', options_for_select([['Цена'], ['Популярность'], ['Категория']]) %>
+              <%= select_tag 'filter[sort_by]', options_for_select([['Цена'], ['Популярность'], ['Категория']],(@old_params != nil) ? @old_params[:sort_by] : 'Цена'), onchange: "this.form.submit()" %>
             </div>
           </div>
           <div class='center-button-block'>
@@ -30,15 +30,16 @@
           <div class='form-cells-block'>
             <div class='form-element-with-title'>
             <%= label_tag('filter[category]', "Категория:") %>
-            <%= select_tag 'filter[category]', options_for_select(@categories, (@old_params != nil) ? @old_params[:category] : 'Все') %>
+            <%= select_tag 'filter[category]', options_for_select(@categories, (@old_params != nil) ? @old_params[:category] : 'Все'), onchange: "this.form.submit()" %>
             </div>
             <div class='form-element-with-title'>
             <%= label_tag('filter[author_name]', "Поиск по имени") %>
-            <%= text_field_tag('filter[author_name]') %>
+            <%= text_field_tag('filter[author_name]',(@old_params != nil) ? @old_params['author_name'] : '') %>
             </div>
-            <a class='swap-button' onclick='$("#filter-form-box").submit()'><%= swap_button_value %></a>
+            <a class='swap-button' onclick='swap_function();'><%= swap_button_value %></a>
             <%= hidden_field('filter', 'area', {id: 'catalog_area', value: @hidden_area}) %>
           </div>
+          <noscript>This form requires that you have javascript enabled to work properly please enable javascript in your browser.</noscript>
         </div>
 
     <% end %>
@@ -49,3 +50,17 @@
     <%= render 'shared/catalog' %>
   </div>
 </div>
+
+<script>
+    var swap_function = function () {
+      var area = $("#catalog_area");
+      if (area.val() == 'Видеосъемка') {
+        area.val('Фотосъемка');
+        $('.swap-button').html('Фото');
+      } else {
+        area.val('Видеосъемка');
+        $('.swap-button').html('Видео');
+      }
+      $("#filter-form-box").submit();
+    };
+</script>

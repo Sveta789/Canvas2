@@ -65,7 +65,7 @@ section {
   height:  calc(100% - 100px );
   /* equal to footer height */
   margin-bottom: - $footer_height;
-  overflow-y: scroll
+  overflow-y: auto;
 }
 .page-wrapper:after{
   content: "";

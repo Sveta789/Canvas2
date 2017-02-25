@@ -40,6 +40,6 @@ class ShootingsController < ApplicationController
 
   def shooting_params
     params.require(:shooting).permit(:category, :price,
-                                 :description)
+                                 :description, :author_name)
   end
 end

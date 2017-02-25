@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223075616) do
+ActiveRecord::Schema.define(version: 20170225174251) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -94,11 +94,11 @@ ActiveRecord::Schema.define(version: 20170223075616) do
   create_table "shootings", force: :cascade do |t|
     t.string   "category"
     t.float    "price"
-    t.string   "image"
     t.string   "description"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "author_name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -126,11 +126,11 @@ ActiveRecord::Schema.define(version: 20170223075616) do
   create_table "videographies", force: :cascade do |t|
     t.string   "category"
     t.float    "price"
-    t.string   "image"
     t.string   "description"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "author_name"
   end
 
   create_table "videos", force: :cascade do |t|

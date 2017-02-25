@@ -8,11 +8,11 @@ module ApplicationHelper
     return avg/arrayOfRatings.length
   end
 
-  def getVideoCats
+  def self.get_video_categories
     ['Все','TFP', 'Творческие', 'Свадьбы', 'Праздники', 'Вечеринки', 'Love story', 'Коммерческие', 'Другие']
   end
 
-  def getPhotoCats
+  def self.get_photo_categories
     ['Все', 'Свадьбы', 'Праздники', 'Love Story', 'Персональные', 'Коммерческие', 'Вечеринки', 'Другие', 'Фотопроекты']
   end
 

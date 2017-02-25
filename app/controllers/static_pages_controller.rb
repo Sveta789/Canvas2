@@ -19,34 +19,30 @@ class StaticPagesController < ApplicationController
   end
 
   def catalog
+
+
     if request.get?
       @result = Shooting.all
-      @categories = getPhotoCats
-      @hidden_area = "Видеосъемка"
+      @categories = ApplicationHelper.get_photo_categories
+      @hidden_area = "Фотосъемка"
+      @prices = get_min_and_max_price_of_model(Shooting.all)
     else
-      cur_cat = (filter_params[:category].nil? || filter_params[:category] == 'Все') ? nil : cur_cat
-      author_name = (filter_params[:author_name].nil? || filter_params[:author_name] == '') ? nil : filter_params[:author_name]
-      area = nil
       order = getOrderSymbol(filter_params[:sort_by])
-      if filter_params[:area].nil? || filter_params[:area] == "Фотосъемка"
-        area = Shooting
-        @categories = getPhotoCats
-        @hidden_area = "Видеосъемка"
-      else
-        area = Videography
-        @categories = getVideoCats
+      if filter_params[:area] == "Фотосъемка"
+        @result = Shooting.filter(filter_params.slice(:author_name, :category, :price)).order(order)
+        @categories = ApplicationHelper.get_photo_categories
         @hidden_area = "Фотосъемка"
-      end
-
-      if cur_cat == nil
-        @result = area.where(price: filter_params[:min]..filter_params[:max]).order(order)
+        @prices = get_min_and_max_price_of_model(Shooting.all)
       else
-        @result = area.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category]).order(order)
+        @result = Videography.filter(filter_params.slice(:author_name, :category, :price)).order(order)
+        @categories = ApplicationHelper.get_video_categories
+        @hidden_area = "Видеосъемка"
+        @prices = get_min_and_max_price_of_model(Videography.all)
       end
       @old_params = filter_params
     end
-    respond_to do |format|
 
+    respond_to do |format|
       format.html { render 'static_pages/catalog' }
       format.js { render 'catalog_refresh' }
       format.json { render 'catalog_refresh' }
@@ -54,24 +50,9 @@ class StaticPagesController < ApplicationController
   end
 
 
-  def videofilter
-    if filter_params[:category] == 'Все' || filter_params[:category].nil?
-      @result = Videography.where(price: filter_params[:min]..filter_params[:max])
-    else
-      @result = Videography.where(price: filter_params[:min]..filter_params[:max], category: filter_params[:category])
-    end
-    @result.order(:sort_by)
-    respond_to do |format|
-
-      format.html { render 'static_pages/videocatalog' }
-      format.js {}
-      format.json {}
-    end
-  end
-
-
   def filter_params
-    params.require(:filter).permit(:min, :max, :sort_by, :category, :area)
+    price_params = (params[:filter] || {})[:price].keys
+    params.require(:filter).permit(:sort_by, :category, :area, :author_name, price: price_params)
   end
 
   private
@@ -83,11 +64,11 @@ class StaticPagesController < ApplicationController
 
   def getOrderSymbol(order_cat)
     case order_cat
-    when 'Цена'
-      return :price
-    when 'Категория'
+      when 'Цена'
+        return :price
+      when 'Категория'
         return :category
-    else
+      else
         return :price
     end
   end

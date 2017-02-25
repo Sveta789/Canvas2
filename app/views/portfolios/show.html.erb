@@ -1,5 +1,5 @@
-<% shooting_categories = getPhotoCats %>
-<% videographies_categories = getVideoCats %>
+<% shooting_categories = ApplicationHelper.get_photo_categories %>
+<% videographies_categories = ApplicationHelper.get_video_categories %>
 <% contact_button_info = [@portfolio.user.profile.phone_number, @portfolio.user.profile.social_email, @portfolio.user.profile.social_network] %>
 <% author_about_button_info = [@portfolio.user.profile.city] %>
 <% isOwner = (!current_user.nil? && @portfolio.user_id == current_user.id) %>

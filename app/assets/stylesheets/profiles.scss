@@ -10,21 +10,11 @@
   background-color: rgba(120, 120, 120, 0.5);
   border-radius: 5px;
   font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-
   max-width: $screen-lg-min;
   min-width: $screen-xsm-min;
   width:80%;
   margin: 20px auto;
   box-sizing: border-box;
-  min-height: calc(100% - 120px );
-  /* equal to footer height */
-  margin-bottom: -200px;
-}
-
-.profile-box:after{
-  content: "";
-  display: block;
-  height: 200px;
 }
 
 .profile-box-header{

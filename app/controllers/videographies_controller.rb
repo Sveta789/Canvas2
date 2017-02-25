@@ -29,6 +29,6 @@ class VideographiesController < ApplicationController
 
   def videographies_params
     params.require(:videography).permit(:category, :price,
-                                     :description)
+                                     :description, :author_name)
   end
 end

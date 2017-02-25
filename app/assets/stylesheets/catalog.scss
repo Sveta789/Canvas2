@@ -143,17 +143,8 @@
 .catalog-section, .videocatalog-section{
   background: image_url('Blurred9.jpg');
   background-size: cover;
-  min-height: 100%;
-  /* equal to footer height */
-  margin-bottom: -200px;
 }
 
-
-.catalog-section:after,.videocatalog-section:after {
-  content: "";
-  display: block;
-  height: 200px;
-}
 
 .videocatalog-section{
   background:image-url('forest-fon.jpg');

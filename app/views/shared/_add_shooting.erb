@@ -1,10 +1,9 @@
 <%
-  shooting_categories = ['Свадьбы','Праздники','Love Story','Персональные','Коммерческие','Вечеринки','Другие','Фотопроекты']
   categories = []
   current_user.shootings.each do |s|
      categories << s.category
    end
-  categories = shooting_categories - categories
+  categories = ApplicationHelper.get_photo_categories - ['Все'] - categories
 %>
 
 <div class="add-shooting" id="add-shooting">
@@ -24,6 +23,7 @@
           <%= f.label 'Авторское описание' %>
           <%= f.text_area :description %>
         </div>
+        <%= f.hidden_field :author_name, value: "#{current_user.profile.name} #{current_user.profile.surname}" %>
         <div class="register_field">
           <%= f.submit "Добавить", class: "btn btn-primary" %>
         </div>

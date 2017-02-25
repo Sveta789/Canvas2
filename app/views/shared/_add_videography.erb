@@ -1,17 +1,9 @@
 <%
-  video_categories = ['TFP',
-  'Творческие',
-  'Свадьбы',
-  'Праздники',
-  'Вечеринки',
-  'Лав стори',
-  'Коммерческие',
-  'Другие']
   categories = []
   current_user.videographies.each do |s|
      categories << s.category
    end
-  categories = video_categories - categories
+  categories = ApplicationHelper.get_video_categories - ['Все'] - categories
 %>
 
 <div class="add-videography" id="add-videography">
@@ -31,6 +23,7 @@
           <%= f.label 'Авторское описание' %>
           <%= f.text_area :description %>
         </div>
+        <%= f.hidden_field :author_name, value: "#{current_user.profile.name} #{current_user.profile.surname}" %>
         <div class="register_field">
           <%= f.submit "Добавить", class: "btn btn-primary" %>
         </div>
