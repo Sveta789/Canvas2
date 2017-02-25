@@ -21,5 +21,5 @@ class Videography < ActiveRecord::Base
       where category: category
     end
   }
-  scope :price, -> (price) { where("price >= ? and price <= ?", "#{price['min']}%", "#{price['max']}%") }
+  scope :price, -> (price) { where("price >= ? and price <= ?", "#{price['min']}", "#{price['max']}") }
 end
