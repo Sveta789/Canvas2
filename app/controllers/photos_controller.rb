@@ -25,8 +25,9 @@ class PhotosController < ApplicationController
         format.js   {}
         format.json { render json: @photo, status: :created, location: @current_user.portfolio }
       else
-        format.html { render action: current_user.portfolio }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
+        format.html { redirect_to current_user.portfolio}
+        # format.json { render json: @photo.errors, status: :unprocessable_entity }
+        format.json { }
       end
     end
   end

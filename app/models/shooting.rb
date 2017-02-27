@@ -22,4 +22,8 @@ class Shooting < ActiveRecord::Base
     end
   }
   scope :price, -> (price) { where("price >= ? and price <= ?", "#{price['min']}", "#{price['max']}") }
+
+  scope :popularity,  -> (rating){
+    includes(:user).where(user.rating > rating)
+  }
 end

@@ -49,18 +49,21 @@
   box-sizing: border-box;
   height: 100%;
   width:33%;
-  border: 2px solid white;
-  transition: 0.3s, sine;
+  transition: 0.05s,ease-in;
 }
 
 .photo-in-item:hover{
-  filter:blur(1px);
-  border-color: black;
+  border: 2px solid black;
 }
 
 .photo-in-item img{
-  height: 100%;
-  width:100%;
+  display: block;
+  width: auto;
+  height: auto;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
 }
 
 .about-author-block

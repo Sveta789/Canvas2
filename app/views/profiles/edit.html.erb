@@ -1,54 +1,57 @@
-<h1>Profile</h1>
-<div class="profile-box">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for @profile, :html => {:multipart => true} do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-        <div class = "register_field">
-          <label>Аватар</label>
-          <%= image_tag(@profile.avatar.thumb) if @profile.avatar? %>
+
+<div class="page-wrapper">
+  <%= form_for @profile, :html => {:multipart => true} do |f| %>
+  <div class="profile-box">
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="profile-box-header">
+      <div class="profile-box-header-title">
+        <%= f.text_field :name %><span>   </span><%= f.text_field :surname %>
+      </div>
+    </div>
+
+    <div class="profile-box-body">
+      <div class="profile-box-aside">
+        <div class="profile-box-avatar">
+          <%= image_tag(@profile.avatar) if @profile.avatar? %>
           <%= f.file_field :avatar %>
           <%= f.hidden_field :avatar_cache %>
         </div>
-        <div class = "register_field">
-          <%= f.label 'Имя' %>
-          <%= f.text_field :name %>
+        <div class="profile-box-menu"></div>
+      </div>
+      <div class="profile-box-main-content">
+        <div class='profile-box-field'>
+          <div class='profile-box-field-title'>Пол:</div>
+          <div class='profile-box-field-content'> <%= f.select :sex,  options_for_select([['Мужской'], ['Женский']]) %></div>
         </div>
-        <div class = "register_field">
-          <%= f.label 'Фамилия' %>
-          <%= f.text_field :surname %>
+        <div class='profile-box-field'>
+          <div class='profile-box-field-title'>Дата рождения:</div>
+          <div class='profile-box-field-content'><%= f.date_select(:birthday, start_year: 1920, end_year: 2002, use_month_numbers: true) %></div>
         </div>
-        <div class = "register_field">
-          <%= f.label 'Пол' %>
-          <%= f.text_field :sex %>
+        <div class='profile-box-field'>
+          <div class='profile-box-field-title'>Город:</div>
+          <div class='profile-box-field-content'><%= f.text_field :city %></div>
         </div>
-        <div class = "register_field">
-          <%= f.label 'Дата рождения' %>
-          <%= f.date_select(:birthday, start_year: 1920, end_year: 2002, use_month_numbers: true) %>
+        <div class='profile-box-field'>
+          <div class='profile-box-field-title'>Телефон:</div>
+          <div class='profile-box-field-content'><%= f.phone_field :phone_number %></div>
         </div>
-        <div class = "register_field">
-          <%= f.label 'Город' %>
-          <%= f.text_field :city %>
+        <div class='profile-box-field'>
+          <div class='profile-box-field-title'>E-mail:</div>
+          <div class='profile-box-field-content'><%= f.email_field :social_email %></div>
         </div>
-        <div class = "register_field">
-          <%= f.label 'Мобильный' %>
-          <%= f.text_field :phone_number %>
+        <div class='profile-box-field'>
+          <div class='profile-box-field-title'>Соц сети:</div>
+          <div class='profile-box-field-content'><%= f.text_field :social_network %></div>
         </div>
-        <div class = "register_field">
-          <%= f.label 'E-mail для связи' %>
-          <%= f.text_field :social_email %>
+        <div class='profile-box-field'>
+          <div class='profile-box-field-title'>О себе:</div>
+          <div class='profile-box-field-content'><%= f.text_field :hobby %></div>
         </div>
-        <div class = "register_field">
-          <%= f.label 'Соц сети' %>
-          <%= f.text_field :social_network %>
-        </div>
-        <div class = "register_field">
-          <%= f.label 'Хобби' %>
-          <%= f.text_field :hobby %>
-        </div>
+        <%= f.submit "Сохранить изменения", class: "simple_button button_150_50", style: 'margin-top:10px;' %>
 
-        <div class = "register_field">
-          <%= f.submit "Create my account", class: "btn btn-primary" %>
-        </div>
-    <% end %>
+      </div>
+    </div>
   </div>
+   <% end %>
 </div>
+

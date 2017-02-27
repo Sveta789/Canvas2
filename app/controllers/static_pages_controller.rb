@@ -29,12 +29,12 @@ class StaticPagesController < ApplicationController
     else
       order = getOrderSymbol(filter_params[:sort_by])
       if filter_params[:area] == "Фотосъемка"
-        @result = Shooting.filter(filter_params.slice(:author_name, :category, :price)).order(order)
+        @result = Shooting.includes(:user).filter(filter_params.slice(:author_name, :category, :price)).order(order)
         @categories = ApplicationHelper.get_photo_categories
         @hidden_area = "Фотосъемка"
         @prices = get_min_and_max_price_of_model(Shooting.all)
       else
-        @result = Videography.filter(filter_params.slice(:author_name, :category, :price)).order(order)
+        @result = Videography.includes(:user).filter(filter_params.slice(:author_name, :category, :price)).order(order)
         @categories = ApplicationHelper.get_video_categories
         @hidden_area = "Видеосъемка"
         @prices = get_min_and_max_price_of_model(Videography.all)
@@ -68,6 +68,8 @@ class StaticPagesController < ApplicationController
         return :price
       when 'Категория'
         return :category
+      # when 'Популярность'
+      #   return "portfolio.rating desc"
       else
         return :price
     end

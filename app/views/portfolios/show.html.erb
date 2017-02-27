@@ -85,7 +85,6 @@
         <% @portfolio.user.shootings.each do |shooting| %>
             <div class="shooting-block">
               <div class="shooting-description-block">
-                <div class="shooting-description-block-inner">
                   <div>
                     <%= shooting.category %>
                   </div>
@@ -97,7 +96,6 @@
                         <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
                       </div>
                   <% end %>
-                </div>
               </div>
               <div class="track" id="track-<%= %>">
                 <div class="view-port">
@@ -183,7 +181,7 @@
               <div class="comment-user">
                 <%= image_tag((current_user.profile.avatar != nil) ? current_user.profile.avatar : nil, class: "comment-avatar") %>
               </div>
-              <%= f.text_field :body, id: "new-comment-text" %>
+              <%= f.text_area :body, id: "new-comment-text" %>
               <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
               <%= f.submit "OK", class: "btn btn-primary" %>
           <% end %>

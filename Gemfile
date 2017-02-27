@@ -31,13 +31,13 @@ gem 'jquery-turbolinks'
 gem 'jbuilder'
 gem 'thor', '0.19.1'
 # bundle exec rake doc:rails generates the API under doc/api.
+gem 'carrierwave'
 gem 'image_magick'
 gem 'mini_magick'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem 'carrierwave'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "paperclip", "~> 5.0.0"
