@@ -1,5 +1,8 @@
 class Videography < ActiveRecord::Base
   belongs_to :user
+  has_one :profile, :through => :user
+  has_one :portfolio, :through => :user
+  has_many :ratings, :through => :portfolio
   include Filterable
   include ApplicationHelper
   validates :category, presence: true,
@@ -11,7 +14,7 @@ class Videography < ActiveRecord::Base
     if author_name == ''
       all
     else
-      where("lower(author_name) like ?", "%#{author_name.mb_chars.downcase.to_s}%")
+      joins(:profile).where("(lower(profiles.name) || ' ' || lower(profiles.surname)) like ?", "%#{author_name.mb_chars.downcase.to_s}%")
     end
   }
   scope :category, -> (category) {
@@ -22,4 +25,17 @@ class Videography < ActiveRecord::Base
     end
   }
   scope :price, -> (price) { where("price >= ? and price <= ?", "#{price['min']}", "#{price['max']}") }
+
+  scope :sort_it, -> (sorter) {
+    case sorter
+      when :price
+        order(:price)
+      when :category
+        order(:category)
+      when :popularity
+        joins(:ratings).order("ratings.rating DESC")
+      else
+        order(:price)
+    end
+  }
 end

@@ -16,7 +16,9 @@ module ApplicationHelper
     ['Все', 'Свадьбы', 'Праздники', 'Love Story', 'Персональные', 'Коммерческие', 'Вечеринки', 'Другие', 'Фотопроекты']
   end
 
-  def youtube_video(url)
-    render :partial => 'shared/video', :locals => { :url => url }
+  def youtube_video(id)
+    render :partial => 'shared/video', :locals => { :id => id }
   end
+
+
 end

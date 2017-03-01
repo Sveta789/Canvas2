@@ -6,6 +6,14 @@
 <div onclick="showZoom('none','')" id="picture-wrap" style="display: none;"></div>
 <div id="picture-window" style="display: none; background-image: none">
 </div>
+<script>
+  var avg = <%= find_rating(@portfolio.ratings) %>;
+  var voted = <%= @hasVoted %>;
+  var us = <%= (@rating.rating) ? @rating.rating : 0 %>;
+  var votes = <%= @portfolio.ratings.count %>;
+  var usId = <%= current_user.id %>;
+  var pId = <%= @portfolio.id %>;
+</script>
 <div class="portfolio-main-section">
   <div id="switch-buttons-block">
     <div id="photocamera-button" class="tabs_button tabs_button_fade active_tab_button active_tab_button_fade" clicked="true"></div>
@@ -32,9 +40,9 @@
           <% end %>
       <% end %>
       <% if isOwner %>
-      <div class="horizontal_flex">
-        <%= link_to "Добавить", shootings_new_path, class: "link-to-category", remote: true %>
-      </div>
+          <div class="horizontal_flex">
+            <%= link_to "Добавить", shootings_new_path, class: "link-to-category", remote: true %>
+          </div>
       <% end %>
     </div>
     <div id="video-categories-block" class="tab_item_fade">
@@ -50,22 +58,22 @@
           <% end %>
       <% end %>
       <% if isOwner %>
-      <div class="horizontal_flex">
-      <%= link_to "Добавить", videographies_new_path, class: "link-to-category", remote: true %>
-      </div>
+          <div class="horizontal_flex">
+            <%= link_to "Добавить", videographies_new_path, class: "link-to-category", remote: true %>
+          </div>
       <% end %>
     </div>
   </div>
   <div class="info_and_avatar_block">
-    <%= link_to(image_tag(@portfolio.user.profile.avatar, class: 'avatar-photo'), edit_avatar_path(:id => @portfolio.user.profile.id), remote: true, pointer_events:((isOwner) ? 'all' : 'none')) %>
+    <%= link_to(image_tag(@portfolio.user.profile.avatar, class: 'avatar-photo'), edit_avatar_path(:id => @portfolio.user.profile.id), remote: true, pointer_events: ((isOwner) ? 'all' : 'none')) %>
     <div class="name-surname-block">
       <span class='name-of-author'><%= @portfolio.user.profile.name %></span>
       <span class='name-of-author'><%= @portfolio.user.profile.surname %></span>
     </div>
   </div>
-  <% if current_user %>
+  <% if user_signed_in? %>
       <div id="rating-regards-block">
-        <div id=rating-wrapper votes='<%= @portfolio.ratings.count %>' rating='<%= @rating.rating %>' average-rating='<%= find_rating(@portfolio.ratings) %>' answered='<%= @hasVoted %>' user_id='<%= current_user.id %>' portfolio_id='<%= @portfolio.id %>'></div>
+        <div id=rating-wrapper></div>
       </div>
   <% end %>
 </div>
@@ -85,17 +93,17 @@
         <% @portfolio.user.shootings.each do |shooting| %>
             <div class="shooting-block">
               <div class="shooting-description-block">
-                  <div>
-                    <%= shooting.category %>
-                  </div>
-                  <div>
-                    <%= shooting.price %>
-                  </div>
-                  <% if signed_in? && current_user.id == @portfolio.user_id %>
-                      <div class="nice_button centered_block">
-                        <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
-                      </div>
-                  <% end %>
+                <div>
+                  <%= shooting.category %>
+                </div>
+                <div>
+                  <%= shooting.price %>
+                </div>
+                <% if user_signed_in? && current_user.id == @portfolio.user_id %>
+                    <div class="nice_button centered_block">
+                      <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
+                    </div>
+                <% end %>
               </div>
               <div class="track" id="track-<%= %>">
                 <div class="view-port">
@@ -139,13 +147,20 @@
                 <div>
                   <%= videography.price %>
                 </div>
+                <% if user_signed_in? && current_user.id == @portfolio.user_id %>
+                    <div class="nice_button centered_block">
+                      <%= link_to "", new_video_path(category: videography.category), class: "add_new_item", remote: true %>
+                    </div>
+                <% end %>
               </div>
-              <% @portfolio.user.videos.each do |video| %>
-                  <% puts video.inspect %>
-                  <% if video.category == videography.category %>
-                      <%= youtube_video video.path %>
-                  <% end %>
-              <% end %>
+              <div class="track">
+                <% @portfolio.user.videos.each do |video| %>
+                    <% puts video.inspect %>
+                    <% if video.category == videography.category %>
+                        <%= youtube_video video.path %>
+                    <% end %>
+                <% end %>
+              </div>
             </div>
         <% end %>
       </div>
@@ -174,7 +189,7 @@
         </div>
     <% end %>
 
-    <% if signed_in? %>
+    <% if user_signed_in? %>
         <div class="new-comment-block">
           <div><%= current_user.profile.name %> говорит:</div>
           <%= form_for @comment, :html => {:multipart => true}, remote: true do |f| %>
@@ -190,22 +205,3 @@
   </div>
 
 </div>
-
-<% if signed_in? && current_user.id == @portfolio.user_id %>
-
-    <div class='form-for-new-video'>
-      <%= form_for @video, :html => {:multipart => true} do |f| %>
-          <p>
-            <label>Загрузить видео:</label>
-            <label> Название</label>
-            <%= f.text_field :title %>
-            <%= f.label 'Категория:' %>
-            <%= select_tag "video[category]", options_for_select(videographies_categories, 1) %>
-            <label> Ссылка</label>
-            <%= f.text_field :path %>
-            <%= f.submit "Добавить видео", class: "btn btn-primary" %>
-          </p>
-      <% end %>
-    </div>
-
-<% end %>

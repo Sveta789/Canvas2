@@ -34,6 +34,7 @@ gem 'thor', '0.19.1'
 gem 'carrierwave'
 gem 'image_magick'
 gem 'mini_magick'
+gem 'youtube_addy', '~> 1.0', '>= 1.0.4'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 # Use Unicorn as the app server

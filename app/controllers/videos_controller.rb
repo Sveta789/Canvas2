@@ -6,10 +6,16 @@ class VideosController < ApplicationController
 
   def new
     @video = Video.new
+    @category = params[:category]
+    respond_to do |format|
+      format.html {redirect_to videos_path}
+      format.js{ render 'videos/add_new'}
+      format.json { render 'videos/add_new'}
+    end
   end
 
   def create
-    @video = current_user.videos.build(path: (video_params[:path].sub("watch?v=", "v/") + "?html5=1"), title: video_params[:title], category: video_params[:category])
+    @video = current_user.videos.build(path: YouTubeAddy.extract_video_id(video_params[:path]), title: video_params[:title], category: video_params[:category])
 
     respond_to do |format|
       if @video.save

@@ -2,6 +2,10 @@ class Shooting < ActiveRecord::Base
   include Filterable
   include ApplicationHelper
   belongs_to :user
+  has_one :profile, :through => :user
+  has_one :portfolio, :through => :user
+  has_many :ratings, :through => :portfolio
+
   validates :category, presence: true,
             inclusion: {in: ApplicationHelper.get_photo_categories}
   validates :user_id, presence: true
@@ -11,7 +15,7 @@ class Shooting < ActiveRecord::Base
     if author_name == ''
       all
     else
-      where("lower(author_name) like ?", "%#{author_name.mb_chars.downcase.to_s}%")
+      joins(:profile).where("(lower(profiles.name) || ' ' || lower(profiles.surname)) like ?", "%#{author_name.mb_chars.downcase.to_s}%")
     end
   }
   scope :category, -> (category) {
@@ -23,7 +27,22 @@ class Shooting < ActiveRecord::Base
   }
   scope :price, -> (price) { where("price >= ? and price <= ?", "#{price['min']}", "#{price['max']}") }
 
-  scope :popularity,  -> (rating){
-    includes(:user).where(user.rating > rating)
+  scope :popularity, -> (rating) {
+    joins(:portfolio).where(find_rating(portfolio.ratings) > rating)
   }
+
+  scope :sort_it, -> (sorter) {
+    case sorter
+      when :price
+        order(:price)
+      when :category
+        order(:category)
+      when :popularity
+        joins(:ratings).order("ratings.rating DESC")
+      else
+        order(:price)
+    end
+  }
+
+
 end

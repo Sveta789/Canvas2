@@ -23,7 +23,6 @@
           <%= f.label 'Авторское описание' %>
           <%= f.text_area :description %>
         </div>
-        <%= f.hidden_field :author_name, value: "#{current_user.profile.name} #{current_user.profile.surname}" %>
         <div class="register_field">
           <%= f.submit "Добавить", class: "btn btn-primary" %>
         </div>

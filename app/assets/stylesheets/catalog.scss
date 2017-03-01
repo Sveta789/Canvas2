@@ -10,7 +10,7 @@
   padding:2px;
   background: rgba(255,255,255,0.1);
   align-items: center;
-  margin-bottom:20px;
+  margin-top:20px;
 }
 
 .search-result-item:nth-child(2n)
@@ -117,7 +117,7 @@
   width:100%;
   background-color: rgba(200,200,200,0.2);
   margin-bottom: 20px;
-  box-shadow: 0px 0px 10px gray;
+  box-shadow: 0px 5px 10px gray;
 }
 
 .top-filter-catalog-block{
@@ -146,6 +146,10 @@
 .catalog-section, .videocatalog-section{
   background: image_url('Blurred9.jpg');
   background-size: cover;
+}
+
+.page-wrapper.catalog-section{
+  padding-top: 0;
 }
 
 
