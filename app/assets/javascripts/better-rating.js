@@ -107,10 +107,3 @@ Element.prototype.handleClick = function () {
     this.mParent.wasClicked(this.mOrderNum);
 }
 
-var ready = function () {
-    if (rating == null) {
-        var rating = new BetterRating('rating-wrapper', avg, us, votes, voted, usId, pId);
-    }
-};
-
-$(document).on('turbolinks:load', ready);

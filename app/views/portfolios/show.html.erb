@@ -13,6 +13,13 @@
   var votes = <%= @portfolio.ratings.count %>;
   var usId = <%= current_user.id %>;
   var pId = <%= @portfolio.id %>;
+  var ready = function () {
+    if (rating == null) {
+      var rating = new BetterRating('rating-wrapper', avg, us, votes, voted, usId, pId);
+    }
+  };
+
+  $(document).on('turbolinks:load', ready);
 </script>
 <div class="portfolio-main-section">
   <div id="switch-buttons-block">
