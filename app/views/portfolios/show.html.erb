@@ -15,6 +15,7 @@
   var pId = <%= @portfolio.id %>;
   var ready = function () {
     if (rating == null) {
+      $('#rating-wrapper').empty();
       var rating = new BetterRating('rating-wrapper', avg, us, votes, voted, usId, pId);
     }
   };
