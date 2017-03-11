@@ -43,14 +43,14 @@
           <input name = 'filter[price[min]' class = "slider-price-cell cell-min" type="number" min="0" max="100000" id="minCost" value=<%= prices[0] %>>
           <input name = 'filter[price[max]' class = "slider-price-cell cell-max" type="number" min="0" max="100000" id="maxCost" value=<%= prices[1] %>>
           <div id="slider"></div>
-          <%= submit_tag 'ИСКАТЬ', class:"btn-search" %>
+          <%= submit_tag 'ИСКАТЬ', class:"btn-search", onclick: "showFilter(); return false;" %>
           <%= hidden_field('filter', 'category', {id: 'photo_category_field', value: 'Все'}) %>
           <%= hidden_field('filter', 'area', {id: 'photo_area', value: 'Фотосъемка'}) %>
         </div>
     <% end %>
         <div class = "slider-controls">
           <%= image_tag("birdy.png")%>
-          <button formaction="#" id = btn-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
+          <!--<button formaction="#" id = btn-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>-->
         </div>
   </div>
 
@@ -62,18 +62,71 @@
   </script>
 
   <div id="photoslide-filters" class = "whitestripe">
-    <h1>- ВСЕ РАЗДЕЛЫ -</h1>
-    <div id = "flickrItems">
-      <a class="item" id="filter-item-1" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Свадьбы')"></a>
-      <a class="item" id="filter-item-2" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Праздники')"></a>
-      <a class="item" id="filter-item-3" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Love Story')"></a>
-      <a class="item" id="filter-item-4" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Персональные')"></a>
-      <a class="item" id="filter-item-5" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Коммерческие')"></a>
-      <a class="item" id="filter-item-6" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Вечеринки')"></a>
-      <a class="item" id="filter-item-7" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Другие')"></a>
-      <a class="item" id="filter-item-8" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Фотопроекты')"></a>
+    <h1>- Выберите раздел-</h1>
+    <div class = "filter-and-controls-section">
+      <div class="filter-section-back-step">
+        К ЦЕНЕ
+        <div class="filter-section-back-step-button" onclick="showPrice()">
+        </div>
+      </div>
+    <div class = "filter-section">
+
+      <a class="filter-section-item"  ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Свадьбы')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-1"></div>
+          <div class="filter-section-item-flipper-back">Свадьбы</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Праздники')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-2"></div>
+          <div class="filter-section-item-flipper-back">Праздники</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Love Story')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-3"></div>
+          <div class="filter-section-item-flipper-back">Love Story</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Персональные')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-4"></div>
+          <div class="filter-section-item-flipper-back" >Персональные</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Коммерческие')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-5"></div>
+          <div class="filter-section-item-flipper-back" >Коммерческие</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Вечеринки')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-6"></div>
+          <div class="filter-section-item-flipper-back" >Вечеринки</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Другие')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-7"></div>
+          <div class="filter-section-item-flipper-back">Другие</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Фотопроекты')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-8"></div>
+          <div class="filter-section-item-flipper-back" >Фотопроекты</div>
+        </div>
+      </a>
     </div>
-      <button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>
+      <div class="filter-section-next-step">
+        Пропустить
+        <div class="filter-section-next-step-button" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Все')">
+        </div>
+      </div>
+      <!--<button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>-->
+    </div>
   </div>
 
 </section>

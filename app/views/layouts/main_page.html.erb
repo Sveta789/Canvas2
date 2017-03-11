@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html class="loading">
 <head>
   <title>Canvas2</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script>
+
+  </script>
 </head>
 <body <% if content_for?(:body_attributes) %>
       <%= yield(:body_attributes) %>
-      <% end %>>
+      <% end %> onload="$( 'html' ).removeClass( 'loading' );">
 <script>
   $(document).click(function(event) {
     var text = $(event.target).text();
@@ -22,3 +25,4 @@
 <div id = tempObjects></div>
 </body>
 </html>
+

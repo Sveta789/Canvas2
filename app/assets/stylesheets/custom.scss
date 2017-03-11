@@ -36,16 +36,34 @@ select {
 }
 
 html {
+  min-height: 100%;
   height: 100%;
   min-width: $min_width;
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
+}
+
+html.loading {
+  background: #FFF image-url('icons/rolling.gif') no-repeat 50% 50%;
+  -webkit-transition: background-color 0s;
+  transition: background-color 0s;
 }
 
 body {
+  min-height: 100%;
   width: 100%;
   height: 100%;
   margin: 0;
   font-family: "Code Pro Light";
   min-width: $min_width;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+html.loading body {
+  opacity: 0;
+  -webkit-transition: opacity 0s;
+  transition: opacity 0s;
 }
 
 section {
@@ -99,7 +117,12 @@ section {
 }
 
 .whitestripe {
-  position: absolute;;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: space-around;
+  //align-content: space-around;
+  //align-items: center;
+  position: absolute;
   width: 100%;
   min-height: 600px;
   background: white;
@@ -324,42 +347,42 @@ section {
   margin: -20px auto;
 }
 
-#flickrItems #filter-item-1 {
+#filter-item-front-1 {
   background-image: image-url('Photo_for_filters/1.jpg');
   background-size: cover;
 }
 
-#flickrItems #filter-item-2 {
+#filter-item-front-2 {
   background-image: image-url('Photo_for_filters/2.jpg');
   background-size: cover;
 }
 
-#flickrItems #filter-item-3 {
+#filter-item-front-3 {
   background-image: image-url('Photo_for_filters/3.jpg');
   background-size: cover;
 }
 
-#flickrItems #filter-item-4 {
+#filter-item-front-4 {
   background-image: image-url('Photo_for_filters/4.jpg');
   background-size: cover;
 }
 
-#flickrItems #filter-item-5 {
+#filter-item-front-5 {
   background-image: image-url('Photo_for_filters/5.jpg');
   background-size: cover;
 }
 
-#flickrItems #filter-item-6 {
+#filter-item-front-6 {
   background-image: image-url('Photo_for_filters/6.jpg');
   background-size: cover;
 }
 
-#flickrItems #filter-item-7 {
+#filter-item-front-7 {
   background-image: image-url('Photo_for_filters/7.jpg');
   background-size: cover;
 }
 
-#flickrItems #filter-item-8 {
+#filter-item-front-8 {
   background-image: image-url('Photo_for_filters/8.jpg');
   background-size: cover;
 }
