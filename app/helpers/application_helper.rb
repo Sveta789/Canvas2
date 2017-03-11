@@ -20,5 +20,4 @@ module ApplicationHelper
     render :partial => 'shared/video', :locals => { :id => id }
   end
 
-
 end

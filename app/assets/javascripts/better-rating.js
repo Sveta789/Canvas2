@@ -51,7 +51,7 @@ BetterRating.prototype.initLabels = function (wrap) {
     var self = this;
     $('.rating-labels').remove();
     var labels = $('<div class="rating-labels"></div>');
-    labels.append($('<div> Средняя Оценка:' + ((this.mTempAvgRate == null) ? this.mAvgRate : this.mTempAvgRate) + '</div>'));
+    labels.append($('<div> Средняя Оценка:' + ((this.mTempAvgRate == null) ? Math.ceil(this.mAvgRate) : Math.ceil(this.mTempAvgRate)) + '</div>'));
     labels.append($('<div> Ваша Оценка:' + ((this.mUserVoted) ? this.mUserRate : 'Не Голосовал') + '</div>'));
     labels.append($('<div> Всего Голосов:' + this.mVotes + '</div>'));
     wrap.append(labels);

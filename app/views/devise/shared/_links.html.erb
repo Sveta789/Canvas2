@@ -1,20 +1,26 @@
-<div class="full-row-field">
+
 <%- if controller_name != 'sessions' %>
+    <div class="full-row-field">
   <%= link_to "Уже есть аккаунт?", new_session_path(resource_name) %><br />
+    </div>
 <% end -%>
-</div>
 
-<div class="full-row-field">
+
+
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <div class="full-row-field">
       <%= link_to "Забыли пароль?", new_password_path(resource_name) %><br />
+    </div>
   <% end -%>
-</div>
 
-<div class="full-row-field">
+
+
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <div class="full-row-field">
   <%= link_to "Зарегистрируйся прямо сейчас!", new_registration_path(resource_name) %><br />
+    </div>
 <% end -%>
-</div>
+
 
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

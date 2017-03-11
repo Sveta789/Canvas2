@@ -1,6 +1,10 @@
+<div class = "page-wrapper">
 <h2 class='full-row-field form-header'>Вход</h2>
 <div id="login-form" class="registration-box">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :class => "flash_error", :id => "flash_#{name}" if msg.is_a?(String) %>
+      <%- end -%>
       <div class="register_field">
         <%= f.label :email, value: 'E-mail' %><br/>
         <%= f.email_field :email, autofocus: true %>
@@ -28,5 +32,6 @@
       <%= render "devise/shared/links" %>
   <% end %>
 </div>
+  </div>
 
 

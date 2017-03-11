@@ -1,3 +1,4 @@
+<div class = "page-wrapper">
 <h2 class = 'full-row-field form-header'>Быстрая регистрация</h2>
 <div id="signup-form" class="registration-box">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -9,14 +10,11 @@
   </div>
 
   <div class="register_field">
-    <%= f.label :password, value: 'Пароль' %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> символов минимум)</em>
-    <% end %><br />
+    <%= f.label :password, value: "Пароль  (#{@minimum_password_length} символов минимум)" %>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="register_field">
+  <div class="register_field" style="margin-bottom: 10px;">
     <%= f.label :password_confirmation, value: 'Подтвердите пароль'%><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
@@ -31,10 +29,9 @@
   <div class="full-row-field form-submit">
     <%= f.submit "Отправить", class: "form-submit-btn" %>
   </div>
-
       <%= render "devise/shared/links" %>
-
 <% end %>
+</div>
 </div>
 
 <script>

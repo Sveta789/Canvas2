@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
 
   def destroy
     Photo.find(params[:id]).destroy
-    redirect_to current_user.portfolio
+    redirect_to :back
   end
 
   def new
