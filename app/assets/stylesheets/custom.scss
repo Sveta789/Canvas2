@@ -2,7 +2,7 @@ $screen-xsm-min: 480px;
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
-$min_width: 480px;
+$min_width: 600px;
 $diamond-row-size: 210px;
 $footer_height: 80px;
 
@@ -58,6 +58,7 @@ body {
   min-width: $min_width;
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
+  overflow-y: auto;
 }
 
 html.loading body {
@@ -67,28 +68,29 @@ html.loading body {
 }
 
 section {
+  box-sizing: border-box;
   float: left;
   width: 100%;
   min-width: $min_width;
   max-width: 1920px;
   margin: 0;
-  height: 100%;
   min-height: 400px;
+  height: 90%;
 }
 
 .page-wrapper{
   box-sizing: border-box;
   padding-top: 20px;
   width:100%;
-  height:  calc(100% - 100px );
+  min-height:  calc(100% - 100px );
   /* equal to footer height */
-  margin-bottom: - $footer_height;
-  overflow-y: auto;
+  //margin-bottom: - $footer_height;
+  //overflow-y: auto;
 }
 .page-wrapper:after{
-  content: "";
-  display: block;
-  height: $footer_height;
+  //content: "";
+  //display: block;
+  //height: $footer_height;
 }
 
 
@@ -112,22 +114,28 @@ section {
 
 .transparent-block300 {
   width: 100%;
-  height: 300px;
   min-width: $min_width;
+  min-height: 10px;
+  max-height: 300px;
+  height: 30%;
 }
 
 .whitestripe {
-  //display: flex;
-  //flex-direction: column;
-  //justify-content: space-around;
-  //align-content: space-around;
-  //align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
   position: absolute;
   width: 100%;
-  min-height: 600px;
+  height: calc(70% - 40px);
+  min-height: 300px;
+  max-height: 700px;
   background: white;
   z-index: 10;
-  padding: 50px 0;
+  padding: 20px 0;
+
 }
 
 .whitestripe h1 {
@@ -147,6 +155,7 @@ section {
 
 .whitestripe form {
   margin: 0;
+  width: 80%;
 }
 
 .active {
@@ -391,7 +400,7 @@ section {
   background-color: rgb(62, 63, 66);
   border-radius: 5px;
   font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-  padding: 20px;
+  padding: 20px 0;
   max-width: 450px;
   min-width: 200px;
   min-height: 450px;
@@ -593,30 +602,36 @@ h1 {
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
-// eXTRA Small devices 480
-@media (max-width: $screen-xsm-min) {
-  .transparent-block300 {
-    height: 150px;
-  }
-}
+//// eXTRA Small devices 480
+//@media (max-width: $screen-xsm-min) {
+//  .transparent-block300 {
+//    height: 150px;
+//  }
+//}
+//
+//// 480 - 768
+//@media (min-width: $screen-xsm-min) and (max-width: $screen-sm-min) {
+//  .transparent-block300 {
+//    height: 150px;
+//  }
+//}
+//
+//// 768 - 996
+//@media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+//  .transparent-block300 {
+//    height: 200px;
+//  }
+//}
+//
+//// 996 - 1200
+//@media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+//  .transparent-block300 {
+//    height: 250px;
+//  }
+//}
 
-// 480 - 768
-@media (min-width: $screen-xsm-min) and (max-width: $screen-sm-min) {
-  .transparent-block300 {
-    height: 150px;
-  }
-}
-
-// 768 - 996
-@media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
-  .transparent-block300 {
-    height: 200px;
-  }
-}
-
-// 996 - 1200
-@media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
-  .transparent-block300 {
-    height: 250px;
-  }
+#place-for-drop{
+  min-height: 200px;
+  //width: 100%;
+  //height: 100px;
 }

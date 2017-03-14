@@ -3,9 +3,6 @@
 <% contact_button_info = [@portfolio.user.profile.phone_number, @portfolio.user.profile.social_email, @portfolio.user.profile.social_network] %>
 <% author_about_button_info = [@portfolio.user.profile.city] %>
 <% isOwner = (!current_user.nil? && @portfolio.user_id == current_user.id) %>
-<div onclick="showZoom('none','')" id="picture-wrap" style="display: none;"></div>
-<div id="picture-window" style="display: none; background-image: none">
-</div>
 <script>
   var avg = <%= find_rating(@portfolio.ratings) %>;
   var voted = <%= @hasVoted %>;
@@ -14,14 +11,25 @@
   var usId = <%= current_user.id %>;
   var pId = <%= @portfolio.id %>;
   var ready = function () {
+    Dropzone.autoDiscover = false;
     if (rating == null) {
       $('#rating-wrapper').empty();
       var rating = new BetterRating('rating-wrapper', avg, us, votes, voted, usId, pId);
     }
+//    var myDropzone = new Dropzone("div#place-for-drop", { url: "/upload_image", paramName: "photo[image]"});
+//    document.querySelector("div#place-for-drop").classList.add("dropzone");
+//    myDropzone.on('sending', function(file, xhr, formData){
+//      formData.append('photo[title]', 'Great Image');
+//      formData.append('photo[category]', 'Свадьбы');
+//    });
+
   };
 
   $(document).on('turbolinks:load', ready);
+
+
 </script>
+<div class="page-wrapper">
 <div class="portfolio-main-section">
   <div id="switch-buttons-block">
     <div id="photocamera-button" class="tabs_button tabs_button_fade active_tab_button active_tab_button_fade" clicked="true"></div>
@@ -213,3 +221,5 @@
   </div>
 
 </div>
+<!--<div id="place-for-drop"></div>-->
+  </div>

@@ -7,6 +7,11 @@ lightcase.start({
     qux: function () {
       $('#tempObjects').empty();
     }
+  },
+  onFinish:{
+    baz: function() {
+      initDropZone();
+    }
   }
 });
 lightcase.resize();

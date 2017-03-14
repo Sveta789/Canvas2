@@ -1,0 +1,47 @@
+<script>
+  $(window).on('resize', function () {
+    $('header .menu').toggleClass('activated', false);
+    $('header #profile-block-menu').toggleClass('activated', false);
+  })
+</script>
+
+<header>
+  <div class="menu-button" onclick="$(this).toggleClass('open');$('.menu').toggleClass('activated');">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="menu">
+    <%= link_to "О нас", '/about', 'data-no-turbolink' => true %>
+    <%= link_to "Новости", events_index_path%>
+    <%= link_to "", root_path, id: 'logo' %>
+    <%= link_to "Каталог", '/catalog','data-no-turbolink' => true %>
+  </div>
+
+  <div class="personal-cabinet">
+    <% if user_signed_in? %>
+        <%= image_tag current_user.profile.avatar, class: "header-avatar", onerror:"this.style.display='none'" %>
+        <%= link_to current_user.profile.name, current_user.profile, id: 'name_header_link' %>
+        <div id="profile-block-menu-button" clicked="false" onclick="$('#profile-block-menu').toggleClass('activated')"></div>
+    <% else %>
+        <%= link_to "Войти", new_user_session_path %>
+        <%= link_to "Регистрация", new_user_registration_path, id: 'sign_up_btn' %>
+    <% end %>
+    <div id="profile-block-menu">
+      <% if user_signed_in? %>
+          <%= link_to "Профиль", current_user.profile %>
+          <% if current_user.operator? %>
+              <%= link_to "Портфолио", current_user.portfolio %>
+          <% end %>
+          <%= link_to "Выйти", destroy_user_session_path, method: "delete" %>
+      <% end %>
+    </div>
+  </div>
+</header>
+<div class=zaglushka></div>
+<div id="line-with-logo">
+</div>
+
+ <!-- render 'shared/login_form' -->
+

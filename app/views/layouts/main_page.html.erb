@@ -9,15 +9,17 @@
 
   </script>
 </head>
-<body <% if content_for?(:body_attributes) %>
-      <%= yield(:body_attributes) %>
-      <% end %> onload="$( 'html' ).removeClass( 'loading' );">
+<body
+<% if content_for?(:body_attributes) %>
+
+      <% end %>
+      onload="$( 'html' ).removeClass( 'loading' );">
 <script>
   $(document).click(function(event) {
     var text = $(event.target).text();
   });
 </script>
-<%= render 'shared/header' %>
+<%= render 'shared/better_header' %>
 <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
 <% end %>

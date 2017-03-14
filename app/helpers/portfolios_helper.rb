@@ -23,9 +23,9 @@ module PortfoliosHelper
   def find_rating(arrayOfRatings)
     avg = 0;
     if(arrayOfRatings.nil? || arrayOfRatings.length == 0)
-      return avg;
+      return '%.1f' % avg;
     end
     arrayOfRatings.each { |rating| avg += rating.rating  }
-    return avg/arrayOfRatings.length
+    return '%.1f' % (avg/arrayOfRatings.length)
   end
 end
