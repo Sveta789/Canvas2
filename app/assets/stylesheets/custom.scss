@@ -1,8 +1,6 @@
-$screen-xsm-min: 480px;
-$screen-sm-min: 768px;
-$screen-md-min: 992px;
-$screen-lg-min: 1200px;
-$min_width: 600px;
+@import "consts";
+
+
 $diamond-row-size: 210px;
 $footer_height: 80px;
 
@@ -59,6 +57,7 @@ body {
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
   overflow-y: auto;
+  font-size: $standard-font-size;
 }
 
 html.loading body {
@@ -115,9 +114,9 @@ section {
 .transparent-block300 {
   width: 100%;
   min-width: $min_width;
-  min-height: 10px;
+  min-height: 2px;
   max-height: 300px;
-  height: 30%;
+  height: $size-of-stub;
 }
 
 .whitestripe {
@@ -129,7 +128,7 @@ section {
   box-sizing: border-box;
   position: absolute;
   width: 100%;
-  height: calc(70% - 40px);
+  height: calc(#{$size-of-stripe} - 40px);
   min-height: 300px;
   max-height: 700px;
   background: white;
@@ -138,15 +137,15 @@ section {
 
 }
 
-.whitestripe h1 {
+h1 {
   text-align: center;
   font-size: 3em;
   font-weight: 100;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   margin-top: 8px;
 }
 
-.whitestripe h2 {
+h2 {
   text-align: center;
   font-size: 1em;
   font-weight: 500;
@@ -176,7 +175,7 @@ section {
 .slider-wrapper {
   position: relative;
   max-width: $screen-md-min;
-  min-width: $screen-xsm-min;
+  min-width: calc(#{$min_width} * 0.8);
   min-height: 200px;
   max-height: 250px;
   margin: 0 auto;
@@ -185,7 +184,8 @@ section {
 
 /* Ширина лайдера */
 #slider, #slider2 {
-  width: calc(100% - 150px);
+  width: calc(100% - 50px);
+  max-width: 800px;
 
 }
 
@@ -256,7 +256,7 @@ section {
   position: absolute;
   width: 60px;
   font-size: 1.3em;
-  top: 5%;
+  top: 10%;
   font-family: "Code Pro Light";
 }
 
@@ -287,9 +287,11 @@ section {
   display: block;
   border: 1px solid black;
   height: 50px;
-  width: 200px;
-  bottom: calc(50% - 80px);
-  left: calc(50% - 100px);
+  width: 30%;
+  min-width: 88px;
+  max-width: 300px;
+  bottom: calc(50% - 50px);
+  left: calc(50% - 15%);
 
   color: white;
   text-align: center;
