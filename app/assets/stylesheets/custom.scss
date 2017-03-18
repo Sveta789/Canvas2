@@ -1,4 +1,4 @@
-@import "consts";
+@import "z-consts";
 
 
 $diamond-row-size: 210px;
@@ -82,6 +82,7 @@ section {
   padding-top: 20px;
   width:100%;
   min-height:  calc(100% - 100px );
+  min-width: $min_width;
   /* equal to footer height */
   //margin-bottom: - $footer_height;
   //overflow-y: auto;
@@ -116,7 +117,7 @@ section {
   min-width: $min_width;
   min-height: 2px;
   max-height: 300px;
-  height: $size-of-stub;
+  height: calc(20% - #{$header-mini-height}/2);
 }
 
 .whitestripe {
@@ -128,12 +129,11 @@ section {
   box-sizing: border-box;
   position: absolute;
   width: 100%;
-  height: calc(#{$size-of-stripe} - 40px);
-  min-height: 300px;
+  height: calc(80% - #{$header-mini-height}/2);
+  min-height: 260px;
   max-height: 700px;
   background: white;
   z-index: 10;
-  padding: 20px 0;
 
 }
 
@@ -142,7 +142,7 @@ h1 {
   font-size: 3em;
   font-weight: 100;
   margin-bottom: 10px;
-  margin-top: 8px;
+  transform: translateY(10px);
 }
 
 h2 {
@@ -158,7 +158,7 @@ h2 {
 }
 
 .active {
-  z-index: 100;
+  z-index: 50;
 }
 
 .proba {
@@ -599,6 +599,12 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  min-width: 70px;
+  max-width: 150px;
+}
+
+.form-element-with-title *{
+  width: 100%;
 }
 
 /* Extra small devices (phones, less than 768px) */

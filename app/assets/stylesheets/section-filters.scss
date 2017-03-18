@@ -1,4 +1,4 @@
-@import "consts";
+@import "z-consts";
 
 .filter-and-controls-section{
   box-sizing: border-box;
@@ -18,7 +18,7 @@
   align-content: center;
   justify-content: center;
   align-items: center;
-  min-width: 80px;
+  min-width: 40px;
   min-height: 80px;
   flex-basis: 80px;
   height: 100%;
@@ -54,7 +54,7 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  min-width: calc(#{$filter_size} * 3 + 30px);
+  min-width: 240px;
   min-height: 200px;
   max-width: 720px;
   flex-basis: 400px;

@@ -1,14 +1,14 @@
-@import "consts";
+@import "z-consts";
 
 header {
   position: fixed;
-  height: $header-height;
   background: white;
   width: 100%;
   z-index: 100;
   font-size: 1.2em;
   min-width: $min_width;
   border-bottom: 1px lightgrey solid;
+  height: $header-mini-height;
 
   &.onmain{
     width: 100%;
@@ -55,7 +55,7 @@ header {
       position: absolute;
       width: 200px;
       left: -200px;
-      top: $header-height;
+      top: $header-mini-height;
       flex-direction: column;
       height: 150px;
       background: rgba(100,100,100,0.75);
@@ -80,12 +80,12 @@ header {
     position: absolute;
     width: 20%;
     right: -20%;
-    top: $header-height;
     flex-direction: column;
     height: 150px;
     background: rgba(100,100,100,0.75);
     transition: 0.2s;
     z-index: 150;
+    top: $header-mini-height;
 
     &.activated{
       right: 0;
@@ -124,7 +124,7 @@ header {
     cursor: pointer;
     width: 50px;
     height: 35px;
-    margin: calc((#{$header-height} - 35px)/2)  20px;
+    margin: calc((#{$header-mini-height} - 35px)/2)  20px;
     display: none;
 
     span{
@@ -233,12 +233,12 @@ header {
   .header-avatar{
     height: 100%;
     width: auto;
-    max-width: $header-height;
-    max-height: $header-height;
+    max-width: $header-mini-height;
+    max-height: $header-mini-height;
   }
 
 }
 
 .zaglushka{
-  height: $header-height;
+  height: $header-mini-height;
 }

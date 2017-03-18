@@ -138,7 +138,7 @@
   font-size: 0.9em;
   font-family: 'Code Pro Light';
   max-width: $screen-lg-min;
-  min-width: $screen-xsm-min;
+  min-width: $min_width;
   width:95%;
 
 }
@@ -216,15 +216,15 @@
 
 .catalog-filter-form-box input[type = 'submit']
 {
-  width:80%;
+  width:90%;
   border:2px solid black;
   -webkit-filter:drop-shadow(0px 0px 2px black);
   margin: 0 auto;
   background-color: #000000;
   color: #ffffff;
   border-radius: 10px;
-  height: 70px;
-  min-width: 70px;
+  height: 40px;
+  min-width: 40px;
 
 }
 
