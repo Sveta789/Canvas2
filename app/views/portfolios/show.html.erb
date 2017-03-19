@@ -6,23 +6,22 @@
 <script>
   var avg = <%= find_rating(@portfolio.ratings) %>;
   var voted = <%= @hasVoted %>;
+  <% if user_signed_in? %>
   var us = <%= (@rating.rating) ? @rating.rating : 0 %>;
-  var votes = <%= @portfolio.ratings.count %>;
   var usId = <%= current_user.id %>;
+  <% else %>
+  var us = 0;
+  var usId = 0;
+  <% end %>
+  var votes = <%= @portfolio.ratings.count %>;
   var pId = <%= @portfolio.id %>;
+
   var ready = function () {
     Dropzone.autoDiscover = false;
     if (rating == null) {
       $('#rating-wrapper').empty();
       var rating = new BetterRating('rating-wrapper', avg, us, votes, voted, usId, pId);
     }
-//    var myDropzone = new Dropzone("div#place-for-drop", { url: "/upload_image", paramName: "photo[image]"});
-//    document.querySelector("div#place-for-drop").classList.add("dropzone");
-//    myDropzone.on('sending', function(file, xhr, formData){
-//      formData.append('photo[title]', 'Great Image');
-//      formData.append('photo[category]', 'Свадьбы');
-//    });
-
   };
 
   $(document).on('turbolinks:load', ready);
@@ -30,196 +29,198 @@
 
 </script>
 <div class="page-wrapper">
-<div class="portfolio-main-section">
-  <div id="switch-buttons-block">
-    <div id="photocamera-button" class="tabs_button tabs_button_fade active_tab_button active_tab_button_fade" clicked="true"></div>
-    <div id="videocamera-button" class="tabs_button tabs_button_fade" clicked="false"></div>
-    <% if isOwner %>
-        <% if @edit_mode %>
-            <%= link_to '', portfolio_path, class: 'simple_button', id: 'done_edit_portfolio_button' %>
-        <% else %>
-            <%= link_to '', edit_portfolio_path, class: 'simple_button', id: 'edit_portfolio_button' %>
+  <div class="portfolio-main-section">
+    <div id="switch-buttons-block">
+      <div id="photocamera-button" class="tabs_button tabs_button_fade active_tab_button active_tab_button_fade" clicked="true"></div>
+      <div id="videocamera-button" class="tabs_button tabs_button_fade" clicked="false"></div>
+      <% if isOwner %>
+          <% if @edit_mode %>
+              <%= link_to '', portfolio_path, class: 'simple_button', id: 'done_edit_portfolio_button' %>
+          <% else %>
+              <%= link_to '', edit_portfolio_path, class: 'simple_button', id: 'edit_portfolio_button' %>
+          <% end %>
+      <% end %>
+    </div>
+    <div class="tabs_container_fade" id="categories_container">
+      <div id="photo-categories-block" class="tab_item_fade active_tab_fade">
+        <% shooting_categories.each do |kindOf| %>
+            <% result = @portfolio.user.shootings.where(category: kindOf)
+               if result.exists? %>
+                <div class="horizontal_flex">
+                  <%= link_to kindOf, '#', class: "link-to-category" %>
+                  <% if isOwner && @edit_mode %>
+                      <%= link_to '', shootings_destroy_path(id: result.first.id), class: "delete_button" %>
+                  <% end %>
+                </div>
+            <% end %>
         <% end %>
-    <% end %>
-  </div>
-  <div class="tabs_container_fade" id="categories_container">
-    <div id="photo-categories-block" class="tab_item_fade active_tab_fade">
-      <% shooting_categories.each do |kindOf| %>
-          <% result = @portfolio.user.shootings.where(category: kindOf)
-             if result.exists? %>
-              <div class="horizontal_flex">
-                <%= link_to kindOf, '#', class: "link-to-category" %>
-                <% if isOwner && @edit_mode %>
-                    <%= link_to '', shootings_destroy_path(id: result.first.id), class: "delete_button" %>
-                <% end %>
-              </div>
-          <% end %>
-      <% end %>
-      <% if isOwner %>
-          <div class="horizontal_flex">
-            <%= link_to "Добавить", shootings_new_path, class: "link-to-category", remote: true %>
-          </div>
-      <% end %>
-    </div>
-    <div id="video-categories-block" class="tab_item_fade">
-      <% videographies_categories.each do |kindOf| %>
-          <% result = @portfolio.user.videographies.where(category: kindOf)
-             if result.exists? %>
-              <div class="horizontal_flex">
-                <%= link_to kindOf, '#', class: "link-to-category" %>
-                <% if isOwner && @edit_mode %>
-                    <%= link_to '', videographies_destroy_path(id: result.first.id), class: "delete_button" %>
-                <% end %>
-              </div>
-          <% end %>
-      <% end %>
-      <% if isOwner %>
-          <div class="horizontal_flex">
-            <%= link_to "Добавить", videographies_new_path, class: "link-to-category", remote: true %>
-          </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="info_and_avatar_block">
-    <%= link_to(image_tag(@portfolio.user.profile.avatar, class: 'avatar-photo'), edit_avatar_path(:id => @portfolio.user.profile.id), remote: true, pointer_events: ((isOwner) ? 'all' : 'none')) %>
-    <div class="name-surname-block">
-      <span class='name-of-author'><%= @portfolio.user.profile.name %></span>
-      <span class='name-of-author'><%= @portfolio.user.profile.surname %></span>
-    </div>
-  </div>
-  <% if user_signed_in? %>
-      <div id="rating-regards-block">
-        <div id=rating-wrapper></div>
+        <% if isOwner %>
+            <div class="horizontal_flex">
+              <%= link_to "Добавить", shootings_new_path, class: "link-to-category", remote: true %>
+            </div>
+        <% end %>
       </div>
-  <% end %>
-</div>
-<div id=contact-and-info-buttons-block>
-  <div id="contact-author-button" onclick="moveBlock('contact-author-button','show-info-author-button','onButton-clicked-author-block',<%= contact_button_info %>)" clicked='false'>Связаться</div>
-  <div id="show-info-author-button" onclick="moveBlock('show-info-author-button','contact-author-button','onButton-clicked-author-block',<%= author_about_button_info %>)" clicked='false'>Личная
-    информация
+      <div id="video-categories-block" class="tab_item_fade">
+        <% videographies_categories.each do |kindOf| %>
+            <% result = @portfolio.user.videographies.where(category: kindOf)
+               if result.exists? %>
+                <div class="horizontal_flex">
+                  <%= link_to kindOf, '#', class: "link-to-category" %>
+                  <% if isOwner && @edit_mode %>
+                      <%= link_to '', videographies_destroy_path(id: result.first.id), class: "delete_button" %>
+                  <% end %>
+                </div>
+            <% end %>
+        <% end %>
+        <% if isOwner %>
+            <div class="horizontal_flex">
+              <%= link_to "Добавить", videographies_new_path, class: "link-to-category", remote: true %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="info_and_avatar_block">
+      <%= link_to(image_tag(@portfolio.user.profile.avatar, class: 'avatar-photo'), edit_avatar_path(:id => @portfolio.user.profile.id), remote: true, pointer_events: ((isOwner) ? 'all' : 'none')) %>
+      <div class="name-surname-block">
+        <span class='name-of-author'><%= @portfolio.user.profile.name %></span>
+        <span class='name-of-author'><%= @portfolio.user.profile.surname %></span>
+      </div>
+    </div>
+    <div id="rating-regards-block">
+      <% if user_signed_in? %>
+          <div id=rating-wrapper></div>
+      <% else %>
+          <div id=rating-wrapper style="pointer-events:none;"></div>
+      <% end %>
+    </div>
   </div>
-</div>
-<div id="onButton-clicked-author-block" class="moving-block-with-information" style="display: none;">
-</div>
-<div class="tabs_container">
-  <div class="tab_item active_tab">
-    <div class="container">
-      <div class="spoiler-title"><h1> ФОтоуслуги </h1></div>
-      <div class="spoiler-body">
-        <% @portfolio.user.shootings.each do |shooting| %>
-            <div class="shooting-block">
-              <div class="shooting-description-block">
-                <div>
-                  <%= shooting.category %>
+  <div id=contact-and-info-buttons-block>
+    <div id="contact-author-button" onclick="moveBlock('contact-author-button','show-info-author-button','onButton-clicked-author-block',<%= contact_button_info %>)" clicked='false'>Связаться</div>
+    <div id="show-info-author-button" onclick="moveBlock('show-info-author-button','contact-author-button','onButton-clicked-author-block',<%= author_about_button_info %>)" clicked='false'>Личная
+      информация
+    </div>
+  </div>
+  <div id="onButton-clicked-author-block" class="moving-block-with-information" style="display: none;">
+  </div>
+  <div class="tabs_container">
+    <div class="tab_item active_tab">
+      <div class="container">
+        <div class="spoiler-title"><h1> ФОтоуслуги </h1></div>
+        <div class="spoiler-body">
+          <% @portfolio.user.shootings.each do |shooting| %>
+              <div class="shooting-block">
+                <div class="shooting-description-block">
+                  <div>
+                    <%= shooting.category %>
+                  </div>
+                  <div>
+                    <%= shooting.price %>
+                  </div>
+                  <% if user_signed_in? && current_user.id == @portfolio.user_id %>
+                      <div class="nice_button centered_block">
+                        <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
+                      </div>
+                  <% end %>
                 </div>
-                <div>
-                  <%= shooting.price %>
-                </div>
-                <% if user_signed_in? && current_user.id == @portfolio.user_id %>
-                    <div class="nice_button centered_block">
-                      <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
+                <div class="track" id="track-<%= %>">
+                  <div class="view-port">
+                    <div class="slider-container">
+                      <% @portfolio.user.photos.each do |photo| %>
+                          <% if photo.category == shooting.category %>
+                              <div class="silverlight-item">
+                                <a class="showcase" href="<%= photo.image.url %>" data-rel="lightcase:myCollection:slideshow">
+                                  <div class="image_plugin_container"><%= image_tag(photo.image.url, class: "img-in-gallery") %>
+                                    <% if isOwner && @edit_mode %> <%= link_to '', photos_destroy_path(id: photo.id), class: "delete_button photo_position" %>
+                                    <% end %></div>
+                                </a>
+                              </div>
+                          <% end %>
+                      <% end %>
                     </div>
-                <% end %>
-              </div>
-              <div class="track" id="track-<%= %>">
-                <div class="view-port">
-                  <div class="slider-container">
-                    <% @portfolio.user.photos.each do |photo| %>
-                        <% if photo.category == shooting.category %>
-                            <div class="silverlight-item">
-                              <a class="showcase" href="<%= photo.image.url %>" data-rel="lightcase:myCollection:slideshow">
-                                <div class="image_plugin_container"><%= image_tag(photo.image.url, class: "img-in-gallery") %>
-                                  <% if isOwner && @edit_mode %> <%= link_to '', photos_destroy_path(id: photo.id), class: "delete_button photo_position" %>
-                                  <% end %></div>
-                              </a>
-                            </div>
-                        <% end %>
-                    <% end %>
+                  </div>
+
+                  <div class="pagination">
+                    <a href="#" class="prev disabled"></a>
+                    <a href="#" class="next disabled"></a>
                   </div>
                 </div>
 
-                <div class="pagination">
-                  <a href="#" class="prev disabled"></a>
-                  <a href="#" class="next disabled"></a>
-                </div>
+
               </div>
-
-
-            </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="tab_item">
-    <div class="container">
-      <div class="spoiler-title"><h1> Видеоуслуги </h1></div>
-      <div class="spoiler-body">
-        <% @portfolio.user.videographies.each do |videography| %>
-            <div class="videography-block">
-              <div class="videography-description-block">
-                <div>
-                  <%= videography.category %>
-                </div>
-                <div>
-                  <%= videography.price %>
-                </div>
-                <% if user_signed_in? && current_user.id == @portfolio.user_id %>
-                    <div class="nice_button centered_block">
-                      <%= link_to "", new_video_path(category: videography.category), class: "add_new_item", remote: true %>
-                    </div>
-                <% end %>
-              </div>
-              <div class="track">
-                <% @portfolio.user.videos.each do |video| %>
-                    <% puts video.inspect %>
-                    <% if video.category == videography.category %>
-                        <%= youtube_video video.path %>
-                    <% end %>
-                <% end %>
-              </div>
-            </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div class="container" id=comments>
-  <div class="spoiler-title"><h1> Отзывы </h1></div>
-  <div class="spoiler-body closed">
-    <% @portfolio.comments.each do |comment| %>
-        <div class="comment-block">
-          <div class="comment-user">
-            <%= image_tag((comment.user.profile.avatar != nil) ? comment.user.profile.avatar : nil, class: "comment-avatar") %>
-            <!-- TODO add default image avatar! -->
-            <%= comment.user.profile.name %>
-          </div>
-          <div class=comment-body>
-            <%= comment.body %>
-          </div>
-          <div class=comment-date>
-            Оставлено: <br>
-            <%= comment.created_at.strftime("%Y-%m-%d") %>
-          </div>
-        </div>
-    <% end %>
-
-    <% if user_signed_in? %>
-        <div class="new-comment-block">
-          <div><%= current_user.profile.name %> говорит:</div>
-          <%= form_for @comment, :html => {:multipart => true}, remote: true do |f| %>
-              <div class="comment-user">
-                <%= image_tag((current_user.profile.avatar != nil) ? current_user.profile.avatar : nil, class: "comment-avatar") %>
-              </div>
-              <%= f.text_area :body, id: "new-comment-text" %>
-              <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
-              <%= f.submit "OK", class: "btn btn-primary" %>
           <% end %>
         </div>
-    <% end %>
+      </div>
+    </div>
+    <div class="tab_item">
+      <div class="container">
+        <div class="spoiler-title"><h1> Видеоуслуги </h1></div>
+        <div class="spoiler-body">
+          <% @portfolio.user.videographies.each do |videography| %>
+              <div class="videography-block">
+                <div class="videography-description-block">
+                  <div>
+                    <%= videography.category %>
+                  </div>
+                  <div>
+                    <%= videography.price %>
+                  </div>
+                  <% if user_signed_in? && current_user.id == @portfolio.user_id %>
+                      <div class="nice_button centered_block">
+                        <%= link_to "", new_video_path(category: videography.category), class: "add_new_item", remote: true %>
+                      </div>
+                  <% end %>
+                </div>
+                <div class="track">
+                  <% @portfolio.user.videos.each do |video| %>
+                      <% puts video.inspect %>
+                      <% if video.category == videography.category %>
+                          <%= youtube_video video.path %>
+                      <% end %>
+                  <% end %>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-</div>
-<!--<div id="place-for-drop"></div>-->
+  <div class="container" id=comments>
+    <div class="spoiler-title"><h1> Отзывы </h1></div>
+    <div class="spoiler-body closed">
+      <% @portfolio.comments.each do |comment| %>
+          <div class="comment-block">
+            <div class="comment-user">
+              <%= image_tag((comment.user.profile.avatar != nil) ? comment.user.profile.avatar : nil, class: "comment-avatar") %>
+              <!-- TODO add default image avatar! -->
+              <%= comment.user.profile.name %>
+            </div>
+            <div class=comment-body>
+              <%= comment.body %>
+            </div>
+            <div class=comment-date>
+              Оставлено: <br>
+              <%= comment.created_at.strftime("%Y-%m-%d") %>
+            </div>
+          </div>
+      <% end %>
+
+      <% if user_signed_in? %>
+          <div class="new-comment-block">
+            <div><%= current_user.profile.name %> говорит:</div>
+            <%= form_for @comment, :html => {:multipart => true}, remote: true do |f| %>
+                <div class="comment-user">
+                  <%= image_tag((current_user.profile.avatar != nil) ? current_user.profile.avatar : nil, class: "comment-avatar") %>
+                </div>
+                <%= f.text_area :body, id: "new-comment-text" %>
+                <%= f.hidden_field :portfolio_id, value: @portfolio.id %>
+                <%= f.submit "OK", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+
   </div>
+  <!--<div id="place-for-drop"></div>-->
+</div>

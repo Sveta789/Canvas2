@@ -3,7 +3,10 @@
     <%= link_to "О нас", '/about', 'data-no-turbolink' => true %>
   </div>
   <div class="header-section">
-    <%= link_to "Новости", events_index_path%>
+  <%= link_to "Новости", events_index_path%>
+</div>
+  <div class="header-section" id="hidden-main-link">
+    <%= link_to "На Главную", root_path%>
   </div>
   <%= link_to "", root_path, class: "header-section", id: 'logo' %>
   <div class=header-section>

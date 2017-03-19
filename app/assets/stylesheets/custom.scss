@@ -2,7 +2,6 @@
 
 
 $diamond-row-size: 210px;
-$footer_height: 80px;
 
 @font-face {
   font-family: 'Code Pro Light';
@@ -81,8 +80,13 @@ section {
   box-sizing: border-box;
   padding-top: 20px;
   width:100%;
-  min-height:  calc(100% - 100px );
+  min-height:  calc(100% - #{$header-mini-height} - #{$footer_height} );
   min-width: $min_width;
+  @media only screen and (min-height: 600px) {
+    min-height:  calc(100% - #{$header-height} - #{$footer_height} );
+  }
+
+
   /* equal to footer height */
   //margin-bottom: - $footer_height;
   //overflow-y: auto;
@@ -605,6 +609,11 @@ h1 {
 
 .form-element-with-title *{
   width: 100%;
+}
+
+.autosize-img{
+  height: 100%;
+  width: auto;
 }
 
 /* Extra small devices (phones, less than 768px) */

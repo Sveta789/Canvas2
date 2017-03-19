@@ -1,12 +1,16 @@
-<%= form_for @profile, :url => url_for(:controller => 'profiles', :action => 'update_avatar'), :html => {:multipart => true, :id => 'avatar_edit_form'} do |f| %>
+<%= form_for @profile, :url => url_for(:controller => 'profiles', :action => 'update_avatar'), :html => {:multipart => true, :id => 'avatar_edit_form', :class => 'registration-box', :style => 'min-height:250px;'} do |f| %>
     <div class = "register_field">
       <label>Аватар</label>
-      <%= image_tag(@profile.avatar.thumb) if @profile.avatar? %>
+      <div class = "register_field" style="max-height: 150px; max-width: 200px">
+      <%= image_tag(@profile.avatar, :class => 'autosize-img') if @profile.avatar? %>
+        </div>
+      <div class = "register_field">
       <%= f.file_field :avatar %>
       <%= f.hidden_field :avatar_cache %>
       <%= f.hidden_field :id, value: @profile.id %>
+      </div>
     </div>
     <div class = "register_field">
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.submit "Изменить аватар", class: "btn btn-primary" %>
     </div>
 <% end %>

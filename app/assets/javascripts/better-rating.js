@@ -12,8 +12,7 @@ var BetterRating = function (id, average_rate, user_rate, votes, user_voted, use
     var wrapper = this.createWrapper();
     this.initElements(wrapper);
     this.initLabels($('#' + this.mId));
-    console.log('RatingPlug created');
-}
+};
 
 BetterRating.prototype.initElements = function (wrap) {
     var self = this;
