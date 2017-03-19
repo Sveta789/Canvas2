@@ -117,9 +117,7 @@
                     <%= shooting.price %>
                   </div>
                   <% if user_signed_in? && current_user.id == @portfolio.user_id %>
-                      <div class="nice_button centered_block">
                         <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
-                      </div>
                   <% end %>
                 </div>
                 <div class="track" id="track-<%= %>">
