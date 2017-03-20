@@ -41,6 +41,9 @@ class PhotosController < ApplicationController
       filepath = file
     end
 
+    Aws.config.update(
+        region: 'eu-central-1',
+    )
     s3 = Aws::S3::Resource.new
     obj = s3.bucket('canvas-storage').object(uploaded_io.original_filename)
     obj.upload_file(Rails.root.join('public', 'uploads/photo/image', uploaded_io.original_filename), acl:'public-read')
