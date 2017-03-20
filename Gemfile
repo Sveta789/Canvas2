@@ -14,6 +14,8 @@ gem 'pundit'
 gem 'devise'
 gem 'rails_admin', '~> 1.0'
 gem 'sass-rails', '~> 5.0'
+gem "fog-aws"
+gem "aws-sdk"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
@@ -61,6 +63,8 @@ end
 group :production do
   gem 'rails_12factor', '0.0.2'
 end
+
+gem 'dotenv-rails', :groups => [:development, :test]
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

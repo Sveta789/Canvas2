@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-
+  require 'aws-sdk'
   def destroy
     Photo.find(params[:id]).destroy
     redirect_to :back
@@ -40,12 +40,20 @@ class PhotosController < ApplicationController
       file.write(uploaded_io.read)
       filepath = file
     end
+
+    s3 = Aws::S3::Resource.new
+    obj = s3.bucket('canvas-storage').object(uploaded_io.original_filename)
+    obj.upload_file(Rails.root.join('public', 'uploads/photo/image', uploaded_io.original_filename), acl:'public-read')
+    obj.public_url
+
+
     @photo = current_user.photos.build(photo_params)
     if @photo.save
       render json: @photo, status: :created, location: @current_user.portfolio
     else
       render 'static_pages/catalog'
     end
+
   end
 
 
