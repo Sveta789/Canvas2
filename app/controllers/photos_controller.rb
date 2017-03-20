@@ -42,7 +42,9 @@ class PhotosController < ApplicationController
     end
 
     Aws.config.update(
-        region: 'eu-central-1',
+        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
+        region: 'eu-central-1'
     )
     s3 = Aws::S3::Resource.new
     obj = s3.bucket('canvas-storage').object(uploaded_io.original_filename)
