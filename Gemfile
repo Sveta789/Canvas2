@@ -15,7 +15,7 @@ gem 'devise'
 gem 'rails_admin', '~> 1.0'
 gem 'sass-rails', '~> 5.0'
 gem "fog-aws"
-gem "aws-sdk"
+gem 'aws-sdk', '~> 2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
