@@ -267,7 +267,6 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   mini_magick
-  nokogiri (= 1.7.0)
   paperclip (~> 5.0.0)
   paperclip-av-transcoder
   pg
