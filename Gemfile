@@ -45,7 +45,6 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 # gem 'capistrano-rails', group: :development
 gem "paperclip", "~> 5.0.0"
 gem 'paperclip-av-transcoder'
-
 gem 'figaro'
 gem 'puma'
 gem 'pg'
