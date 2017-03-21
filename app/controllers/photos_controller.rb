@@ -52,9 +52,9 @@ class PhotosController < ApplicationController
 
     @photo = current_user.photos.build(photo_params)
     if @photo.save
-      render json: @photo, status: :created, location: @current_user.portfolio
+      render 'photos/append'
     else
-      render 'static_pages/catalog'
+      render 'portfolios/show'
     end
 
   end

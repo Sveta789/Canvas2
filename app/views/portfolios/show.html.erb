@@ -108,7 +108,7 @@
         <div class="spoiler-title"><h1> ФОтоуслуги </h1></div>
         <div class="spoiler-body">
           <% @portfolio.user.shootings.each do |shooting| %>
-              <div class="shooting-block">
+              <div class="shooting-block" id=<%= shooting.category %>>
                 <div class="shooting-description-block">
                   <div>
                     <%= shooting.category %>
