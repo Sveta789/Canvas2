@@ -46,11 +46,8 @@ class PhotosController < ApplicationController
         region: 'eu-central-1'
     )
 
-    client = Aws::S3::Client.new(region: 'eu-central-1',
-                                 :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-                                 :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'])
-
-    obj = client.bucket('canvas-storage').object(uploaded_io.original_filename)
+    s3 = Aws::S3::Resource.new
+    obj = s3.bucket('canvas-storage').object(uploaded_io.original_filename)
     obj.upload_file(Rails.root.join('public', 'uploads/photo/image', uploaded_io.original_filename), acl:'public-read')
     obj.public_url
 
