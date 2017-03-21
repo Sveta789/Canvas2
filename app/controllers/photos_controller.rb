@@ -34,22 +34,20 @@ class PhotosController < ApplicationController
 
   def upload
     uploaded_io = params[:photo][:image]
-    filepath = nil
-    File.open(Rails.root.join('public', 'uploads/photo/image', uploaded_io.original_filename), 'wb') do |file|
-      file.write(uploaded_io.read)
-      filepath = file
-    end
+    # File.open(Rails.root.join('public', 'uploads/photo/image', uploaded_io.original_filename), 'wb') do |file|
+    #   file.write(uploaded_io.read)
+    # end
 
     Aws.config.update(
         :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
         region: 'eu-central-1'
     )
-
-    s3 = Aws::S3::Resource.new
-    obj = s3.bucket('canvas-storage').object(uploaded_io.original_filename)
-    obj.upload_file(Rails.root.join('public', 'uploads/photo/image', uploaded_io.original_filename), acl:'public-read')
-    obj.public_url
+    #
+    # s3 = Aws::S3::Resource.new
+    # obj = s3.bucket('canvas-storage').object(uploaded_io.original_filename)
+    # obj.upload_file(Rails.root.join('public', 'uploads/photo/image', uploaded_io.original_filename), acl:'public-read')
+    # obj.public_url
 
 
     @photo = current_user.photos.build(photo_params)
