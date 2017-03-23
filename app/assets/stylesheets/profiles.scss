@@ -11,10 +11,11 @@
   border-radius: 5px;
   font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
   max-width: $screen-lg-min;
-  min-width: $screen-xsm-min;
+  min-width: 280px;
   width:80%;
   margin: 20px auto;
   box-sizing: border-box;
+
 }
 
 .profile-box-header{
@@ -46,15 +47,15 @@
   display: flex;
   box-sizing: border-box;
   flex-grow: 1;
-  padding: 30px;
+  padding: 20px;
   border-right: 1px solid black;
-  min-width: 150px;
+  min-width: 140px;
   max-width: 250px;
   min-height: 300px;
 }
 
 .profile-box-avatar{
-  min-width: 90px;
+  min-width: 100px;
   min-height: 120px;
   max-width: 190px;
   max-height: 250px;
@@ -73,6 +74,7 @@
   flex-direction: column;
   flex-grow: 6;
   padding: 30px;
+  min-width: 140px;
 }
 
 
@@ -94,6 +96,7 @@
 .profile-box-field{
   display: flex;
   flex-direction: column;
+
 }
 
 .profile-box-field-title{
@@ -103,5 +106,7 @@
 
 .profile-box-field-content{
   margin-left: 10px;
+  width:100%;
+  word-wrap: break-word;
 }
 

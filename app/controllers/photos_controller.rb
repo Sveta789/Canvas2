@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
 
   def new
     @photo = Photo.new
-    @category = params[:category]
+    @category = params[:category].gsub(/\s+/, "")
     respond_to do |format|
       format.html { redirect_to photos_path }
       format.js { render 'photos/add_new' }
@@ -51,11 +51,11 @@ class PhotosController < ApplicationController
 
 
     @photo = current_user.photos.build(photo_params)
-    if @photo.save
-      render 'photos/append'
-    else
-      render 'portfolios/show'
-    end
+      if @photo.save
+        render partial:  'photos/photo_preview.html.erb', formats: :html
+      else
+        redirect_to current_user.portfolio
+      end
 
   end
 

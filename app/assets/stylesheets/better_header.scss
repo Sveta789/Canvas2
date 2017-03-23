@@ -66,7 +66,7 @@ header {
       top: $header-mini-height;
       flex-direction: column;
       height: 200px;
-      background: rgba(100,100,100,0.75);
+      background: rgba(100,100,100,0.98);
 
       &.activated{
         left: 0;
@@ -90,7 +90,7 @@ header {
     right: -20%;
     flex-direction: column;
     height: 150px;
-    background: rgba(100,100,100,0.75);
+    background: rgba(100,100,100,0.98);
     transition: 0.2s;
     z-index: 150;
     top: $header-mini-height;

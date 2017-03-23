@@ -7,8 +7,15 @@ class AvatarUploader < CarrierWave::Uploader::Base
    include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  # storage :file
-  storage :fog
+  # Use local storage if in development or test
+   if Rails.env.development? || Rails.env.test?
+       storage = :file
+   end
+
+  # Use AWS storage if in production
+   if Rails.env.production?
+       storage = :fog
+   end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

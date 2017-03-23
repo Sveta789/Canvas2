@@ -22,6 +22,18 @@
       $('#rating-wrapper').empty();
       var rating = new BetterRating('rating-wrapper', avg, us, votes, voted, usId, pId);
     }
+    $('.slider-container').each(function(index, element){
+
+      $(element).slick({
+        dots: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 1,
+        variableWidth: true
+    });
+
+    });
+
   };
 
   $(document).on('turbolinks:load', ready);
@@ -108,7 +120,7 @@
         <div class="spoiler-title"><h1> ФОтоуслуги </h1></div>
         <div class="spoiler-body">
           <% @portfolio.user.shootings.each do |shooting| %>
-              <div class="shooting-block" id=<%= shooting.category %>>
+              <div class="shooting-block" id=<%= shooting.category.gsub(/\s+/, "") %>>
                 <div class="shooting-description-block">
                   <div>
                     <%= shooting.category %>
@@ -117,33 +129,20 @@
                     <%= shooting.price %>
                   </div>
                   <% if user_signed_in? && current_user.id == @portfolio.user_id %>
-                        <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
+                      <%= link_to "", new_photo_path(category: shooting.category), class: "add_new_item", remote: true %>
                   <% end %>
                 </div>
-                <div class="track" id="track-<%= %>">
-                  <div class="view-port">
-                    <div class="slider-container">
-                      <% @portfolio.user.photos.each do |photo| %>
-                          <% if photo.category == shooting.category %>
-                              <div class="silverlight-item">
-                                <a class="showcase" href="<%= photo.image.url %>" data-rel="lightcase:myCollection:slideshow">
-                                  <div class="image_plugin_container"><%= image_tag(photo.image.url, class: "img-in-gallery") %>
-                                    <% if isOwner && @edit_mode %> <%= link_to '', photos_destroy_path(id: photo.id), class: "delete_button photo_position" %>
-                                    <% end %></div>
-                                </a>
-                              </div>
-                          <% end %>
+                <div class="slider-container">
+                  <% @portfolio.user.photos.each do |photo| %>
+                      <% if photo.category == shooting.category %>
+                            <a class="showcase" href="<%= photo.image.url %>" data-rel="lightcase:myCollection:slideshow">
+                              <div class="image_plugin_container"><%= image_tag(photo.image.url, class: "img-in-gallery") %>
+                                <% if isOwner && @edit_mode %> <%= link_to '', photos_destroy_path(id: photo.id), class: "delete_button photo_position" %>
+                                <% end %></div>
+                            </a>
                       <% end %>
-                    </div>
-                  </div>
-
-                  <div class="pagination">
-                    <a href="#" class="prev disabled"></a>
-                    <a href="#" class="next disabled"></a>
-                  </div>
+                  <% end %>
                 </div>
-
-
               </div>
           <% end %>
         </div>

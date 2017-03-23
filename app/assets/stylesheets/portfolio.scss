@@ -344,10 +344,11 @@
 }
 
 .slider-container {
+  flex-grow: 10;
+  min-width: 160px;
+  flex-basis: 160px;
   position: relative;
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 .silverlight-item {
@@ -377,30 +378,37 @@
   }
 }
 
+.slick-list.draggable, .slick-track{
+  height:100%;
+}
+
 .image_plugin_container {
-  width: 160px;
-  height: 120px;
-  background: image_url('diagonal-noise.png') repeat;
-
-  @media only screen and (min-width: $screen-xsm-min){
-    height: 140px;
-    width: 180px;
-  }
-
-  @media only screen and (min-width: $screen-sm-min){
-    height: 160px;
-    width: 210px;
-  }
-
-  @media only screen and (min-width: $screen-md-min){
-    height: 180px;
-    width: 240px;
-  }
-
-  @media only screen and (min-width: $screen-lg-min){
-    height: 200px;
-    width: 265px;
-  }
+  position: relative;
+  height:100%;
+  margin-right: 5px;
+  //width: 160px;
+  //height: 120px;
+  //background: image_url('diagonal-noise.png') repeat;
+  //
+  //@media only screen and (min-width: $screen-xsm-min){
+  //  height: 140px;
+  //  width: 180px;
+  //}
+  //
+  //@media only screen and (min-width: $screen-sm-min){
+  //  height: 160px;
+  //  width: 210px;
+  //}
+  //
+  //@media only screen and (min-width: $screen-md-min){
+  //  height: 180px;
+  //  width: 240px;
+  //}
+  //
+  //@media only screen and (min-width: $screen-lg-min){
+  //  height: 200px;
+  //  width: 265px;
+  //}
 }
 
 .img-in-gallery {
