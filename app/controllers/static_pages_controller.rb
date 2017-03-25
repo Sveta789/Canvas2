@@ -50,6 +50,10 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def greetings
+    render "static_pages/greeting"
+  end
+
 
   def filter_params
     price_params = (params[:filter] || {})[:price].keys

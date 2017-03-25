@@ -102,6 +102,7 @@ Rails.application.routes.draw do
   # match '/signup',  to: 'users#new',            via: 'get'
   # match '/signin',  to: 'sessions#new',         via: 'get'
   # match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/greeting', to: 'static_pages#greetings',     via: 'get', as: :greeting_user
   match '/catalog', to: 'static_pages#catalog',     via: 'get'
   match '/catalog', to: 'static_pages#catalog',     via: 'post'
   match '/about', to: 'static_pages#about',     via: 'get'
