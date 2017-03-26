@@ -1,16 +1,17 @@
-<h2>Resend confirmation instructions</h2>
+<div class = "page-wrapper">
+  <h2 class='full-row-field form-header'>Переслать инструкции</h2>
+  <div id="login-form" class="registration-box" style="max-height:400px; min-height:300px;">
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="register_field">
+          <%= f.label :email, value: 'E-mail' %><br />
+          <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        <div class="full-row-field form-submit">
+          <%= f.submit "Переслать инструкции", class: "form-submit-btn" %>
+        </div>
+        <%= render "devise/shared/links" %>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

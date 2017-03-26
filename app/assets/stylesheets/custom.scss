@@ -435,9 +435,8 @@ h2 {
 }
 
 .register_field {
-  display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-grow: 2;
   min-width: 175px;
@@ -447,6 +446,7 @@ h2 {
   text-align: center;
   color: whitesmoke;
   line-height: 45px;
+  max-height: 110px;
 }
 
 .full-row-field {
@@ -462,7 +462,15 @@ h2 {
   text-align: center;
   line-height: 50px;
   color: white;
+
+  &.full-row-field-link{
+    min-height: 30px;
+    line-height: 30px;
+    padding: 5px;
+  }
 }
+
+
 
 .quart-row-field {
   display: block;
