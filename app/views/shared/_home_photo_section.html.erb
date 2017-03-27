@@ -1,38 +1,55 @@
 <script>
   $(function(){
-    jQuery("#slider").slider({
+    var slider = $('#slider');
+    var minCost = $('input#minCost');
+    var maxCost = $('input#maxCost');
+    slider.slider({
       min: <%= prices[0] %>,
       max: <%= prices[1] %>,
       values: [<%= prices[0] %>,<%= prices[1] %>],
       range: true,
+      animate: 'fast',
       stop: function(event, ui) {
-        jQuery("input#minCost").val(jQuery("#slider").slider("values",0));
-        jQuery("input#maxCost").val(jQuery("#slider").slider("values",1));
+        minCost.val(slider.slider("values",0));
+        maxCost.val(slider.slider("values",1));
+        $(document).swipe('enable');
       },
       slide: function(event, ui){
-        jQuery("input#minCost").val(jQuery("#slider").slider("values",0));
-        jQuery("input#maxCost").val(jQuery("#slider").slider("values",1));
+        minCost.val(slider.slider("values",0));
+        maxCost.val(slider.slider("values",1));
+      },
+
+      start: function(event, ui){
+        $(document).swipe('disable');
       }
-    });})
-  jQuery("input#minCost").change(function(){
-    var value1=jQuery("input#minCost").val();
-    var value2=jQuery("input#maxCost").val();
-    if(parseInt(value1) > parseInt(value2)){
-      value1 = value2;
-      jQuery("input#minCost").val(value1);
-    }
-    jQuery("#slider").slider("values",0,value1);
+    });
+
+    minCost.on('input', function(){
+      var value1= minCost.val();
+      var value2= maxCost.val();
+      if(parseInt(value1) > parseInt(value2)){
+        value1 = value2;
+        minCost.val(value1);
+      }
+      slider.slider("values",0,value1);
+    });
+
+    maxCost.on('input', function(){
+
+      var value1=minCost.val();
+      var value2=maxCost.val();
+      if (value2 > <%= prices[1] %>) { value2 = <%= prices[1] %>; maxCost.val(<%= prices[1] %>)}
+      if(parseInt(value1) > parseInt(value2)){
+        value2 = value1;
+        maxCost.val(value2);
+      }
+      slider.slider("values",0,value2);
+    });
   });
 
-  jQuery("input#maxCost").change(function(){
-    var value1=jQuery("input#minCost").val();
-    var value2=jQuery("input#maxCost").val();
-    if (value2 > <%= prices[1] %>) { value2 = <%= prices[1] %>; jQuery("input#maxCost").val(<%= prices[1] %>)}
-    if(parseInt(value1) > parseInt(value2)){
-      value2 = value1;
-      jQuery("input#maxCost").val(value2);
-    }})
+
 </script>
+
 <section id = "photohome">
   <div class = transparent-block300></div>
   <div id="photoslide" class = "whitestripe active">
@@ -49,13 +66,6 @@
         </div>
     <% end %>
   </div>
-
-  <script>
-    var setAndSubmit = function (formId,fieldId,category) {
-      $(fieldId).val(category);
-      $(formId).submit();
-    }
-  </script>
 
   <div id="photoslide-filters" class = "whitestripe">
     <div class = "filter-and-controls-section">

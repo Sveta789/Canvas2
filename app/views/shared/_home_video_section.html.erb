@@ -1,38 +1,53 @@
 <script>
   $(function(){
-    jQuery("#slider2").slider({
+    var slider2 = $('#slider2');
+    var minCost2 = $('input#minCost2');
+    var maxCost2 = $('input#maxCost2');
+    slider2.slider({
       min: <%= prices[0] %>,
       max: <%= prices[1] %>,
-      values:  [<%= prices[0] %>, <%= prices[1] %>],
+      values: [<%= prices[0] %>,<%= prices[1] %>],
       range: true,
+      animate: 'fast',
       stop: function(event, ui) {
-        jQuery("input#minCost2").val(jQuery("#slider2").slider("values",0));
-        jQuery("input#maxCost2").val(jQuery("#slider2").slider("values",1));
+        minCost2.val(slider2.slider("values",0));
+        maxCost2.val(slider2.slider("values",1));
+        $(document).swipe('enable');
       },
       slide: function(event, ui){
-        jQuery("input#minCost2").val(jQuery("#slider2").slider("values",0));
-        jQuery("input#maxCost2").val(jQuery("#slider2").slider("values",1));
+        minCost2.val(slider2.slider("values",0));
+        maxCost2.val(slider2.slider("values",1));
+      },
+
+      start: function(event, ui){
+        $(document).swipe('disable');
       }
-    });})
-  jQuery("input#minCost").change(function(){
-    var value1=jQuery("input#minCost2").val();
-    var value2=jQuery("input#maxCost2").val();
-    if(parseInt(value1) > parseInt(value2)){
-      value1 = value2;
-      jQuery("input#minCost2").val(value1);
-    }
-    jQuery("#slider2").slider("values",0,value1);
+    });
+
+    minCost2.on('input', function(){
+      var value1= minCost2.val();
+      var value2= maxCost2.val();
+      if(parseInt(value1) > parseInt(value2)){
+        value1 = value2;
+        minCost2.val(value1);
+      }
+      slider2.slider("values",0,value1);
+    });
+
+    maxCost2.on('input', function(){
+
+      var value1=minCost2.val();
+      var value2=maxCost2.val();
+      if (value2 > <%= prices[1] %>) { value2 = <%= prices[1] %>; maxCost2.val(<%= prices[1] %>)}
+      if(parseInt(value1) > parseInt(value2)){
+        value2 = value1;
+        maxCost2.val(value2);
+      }
+      slider2.slider("values",0,value2);
+    });
   });
 
-  jQuery("input#maxCost").change(function(){
-    var value1=jQuery("input#minCost2").val();
-    var value2=jQuery("input#maxCost2").val();
-    if (value2 > <%= prices[1] %>) { value2 = <%= prices[1] %>; jQuery("input#maxCost2").val( <%= prices[1] %>)}
-    if(parseInt(value1) > parseInt(value2)){
-      value2 = value1;
-      jQuery("input#maxCost2").val(value2);
-    }})
-</script>
+ </script>
 
 
 <!--------СЛАЙД 2-------------->
@@ -41,7 +56,7 @@
   <div class = transparent-block300></div>
   <div id="videoslide" class = "whitestripe active">
     <h1>- Видеосъемка -</h1>
-    <%= form_tag("/catalog", method: "post") do %>
+    <%= form_tag("/catalog", method: "post", id: 'video_filter_form') do %>
         <div class = "slider-wrapper">
           <h2>средняя стоимость за час работы</h2>
           <input name="filter[price[min]" class = "slider-price-cell cell-min" type="number" min="0" max="100000" id="minCost2" value=<%= prices[0] %>>
@@ -49,56 +64,75 @@
           <div id="slider2"></div>
           <%= hidden_field('filter', 'area', {id: 'video_area', value: 'Видеосъемка'}) %>
           <%= hidden_field('filter', 'category', {id: 'video_category_field', value: 'Все'}) %>
-          <%= submit_tag 'ИСКАТЬ', class:"btn-search" %>
+          <%= submit_tag 'ИСКАТЬ', class:"btn-search", onclick: "showFilter(); return false;" %>
         </div>
     <% end %>
-    <div class = "slider-controls">
-      <%= image_tag("birdy.png")%>
-      <button formaction="" id = btn2-showfilters>ПОКАЗАТЬ РАЗДЕЛЫ</button>
-    </div>
   </div>
 
   <div id="videoslide-filters" class = "whitestripe">
-    <h1>- ВСЕ РАЗДЕЛЫ -</h1>
-    <div class = "filter-wrapper">
-      <div class=filter-box>
-        <div class="filter-round">            </div>
-        <span class="filter-label">СВАДЬБЫ</span>
+    <div class = "filter-and-controls-section">
+      <div class="filter-section-back-step">
+        К ЦЕНЕ
+        <div class="filter-section-back-step-button" onclick="showPrice()">
+        </div>
       </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">Праздники</span>
+      <div class = "filter-section">
+        <a class="filter-section-item"  ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Свадьбы')">
+          <div class="filter-section-item-flipper">
+            <div class="filter-section-item-flipper-front" id="filter-item-front-1"></div>
+            <div class="filter-section-item-flipper-back">TFP</div>
+          </div>
+        </a>
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Праздники')">
+          <div class="filter-section-item-flipper">
+            <div class="filter-section-item-flipper-front" id="filter-item-front-2"></div>
+            <div class="filter-section-item-flipper-back">Творческие</div>
+          </div>
+        </a>
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Love Story')">
+          <div class="filter-section-item-flipper">
+            <div class="filter-section-item-flipper-front" id="filter-item-front-3"></div>
+            <div class="filter-section-item-flipper-back">Свадьбы</div>
+          </div>
+        </a>
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Персональные')">
+          <div class="filter-section-item-flipper">
+            <div class="filter-section-item-flipper-front" id="filter-item-front-4"></div>
+            <div class="filter-section-item-flipper-back" >Праздники</div>
+          </div>
+        </a>
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Коммерческие')">
+          <div class="filter-section-item-flipper">
+            <div class="filter-section-item-flipper-front" id="filter-item-front-5"></div>
+            <div class="filter-section-item-flipper-back" >Вечеринки</div>
+          </div>
+        </a>
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Вечеринки')">
+          <div class="filter-section-item-flipper">
+            <div class="filter-section-item-flipper-front" id="filter-item-front-6"></div>
+            <div class="filter-section-item-flipper-back" >Love Story</div>
+          </div>
+        </a>
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Другие')">
+          <div class="filter-section-item-flipper">
+            <div class="filter-section-item-flipper-front" id="filter-item-front-7"></div>
+            <div class="filter-section-item-flipper-back">Коммерческие</div>
+          </div>
+        </a>
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Фотопроекты')">
+          <div class="filter-section-item-flipper">
+            <div class="filter-section-item-flipper-front" id="filter-item-front-8"></div>
+            <div class="filter-section-item-flipper-back" >Другие</div>
+          </div>
+        </a>
       </div>
-      <div class=filter-box>
-        <div class="filter-round">
+      <div class="filter-section-next-step">
+        Пропустить
+        <div class="filter-section-next-step-button" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Все')">
         </div>
-        <span class="filter-label">LOVE STORY</span>                      </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">ПЕРСОНАЛЬНЫЕ</span>                   </div>
-
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">КОММЕРЧЕСКИЕ</span>                  </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">ВЕЧЕРИНКИ</span>                     </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">ДРУГИЕ</span>                  </div>
-      <div class=filter-box>
-        <div class="filter-round">
-        </div>
-        <span class="filter-label">ФОТОПРОЕКТЫ</span>                   </div>
+      </div>
+      <!--<button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>-->
     </div>
-
-    <button id=btn2-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>
-  </div>
   </div>
 
 </section>

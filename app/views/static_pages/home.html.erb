@@ -14,15 +14,24 @@
 </script>
 
 <script>
+  var setAndSubmit = function (formId,fieldId,category) {
+    $(fieldId).val(category);
+    $(formId).submit();
+  }
+</script>
+
+<script>
 
 
   var showPrice = function () {
     $("#photoslide").fadeIn(500);
+    $("#videoslide").fadeIn(500);
     return false;
   };
 
   var showFilter = function () {
     $("#photoslide").fadeOut(500);
+    $("#videoslide").fadeOut(500);
     return false;
   };
 

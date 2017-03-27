@@ -205,10 +205,11 @@ h2 {
 .ui-slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
-  width: 8px; /* Задаем нужную ширину */
-  height: 30px; /* и высоту */
+  width: 16px; /* Задаем нужную ширину */
+  height: 35px; /* и высоту */
   background: black no-repeat; /* картинка изображающая ползунок. Или можно залить цветом, задать бордюр и скругления */
-  cursor: pointer
+  cursor: pointer;
+  border-radius:5px;
 }
 
 .ui-slider .ui-slider-range {
@@ -222,13 +223,21 @@ h2 {
 
 /* горизонтальный слайдер (сама полоса по которой бегает ползунок) */
 .ui-slider-horizontal {
-  height: 2px; /* задаем высоту согласно дизайна */
+  height: 4px; /* задаем высоту согласно дизайна */
+}
+
+.ui-slider-horizontal:hover{
+  cursor: pointer;
 }
 
 /* позиционируем ползунки */
 .ui-slider-horizontal .ui-slider-handle {
-  top: -13px;
+  top: -15px;
   margin-left: -5px;
+}
+
+.ui-slider-horizontal .ui-slider-handle:hover{
+  background: darkgray no-repeat;
 }
 
 .ui-slider-horizontal .ui-slider-range {

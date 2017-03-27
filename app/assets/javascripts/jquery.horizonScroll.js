@@ -51,25 +51,18 @@
             if ($.fn.horizon.defaults.swipe) {
                 $(document).swipe({
                     // Generic swipe handler for all directions.
+                    click: function (event, target) {
+                        alert('clicked');
+                        event.preventDefault();
+                        event.stopPropagation();
+                        event.stopImmediatePropagation();
+                    },
                     swipe: function (event, direction, distance, duration, fingerCount) {
                         if (scrolls[direction]) {
                             scrolls[direction]();
                         }
                     },
-                    /*click: function (event, target) {
-                     event.preventDefault();
-                     event.stopPropagation();
-                     event.stopImmediatePropagation();
 
-                     //$(target).click();
-                     },
-                     tap: function (event, target) {
-                     event.preventDefault();
-                     event.stopPropagation();
-                     event.stopImmediatePropagation();
-
-                     $(target).click();
-                     },*/
                     // Default is 75px, set to 0 for demo so any distance triggers swipe
                     threshold: 75
                 });
