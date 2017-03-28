@@ -1,73 +1,88 @@
-var BetterRating = function (id, average_rate, user_rate, votes, user_voted, userId, portfolioId) {
+var BetterRating = function (id, userId, portfolioId) {
+    var self = this;
     this.mId = id;
-    this.mAvgRate = average_rate;
-    this.mUserRate = user_rate;
-    this.mTempAvgRate = null;
-    this.mVotes = votes;
-    this.mUserVoted = user_voted;
+    this.mAvgRate = 0;
+    this.mUserRate = 0;
+    this.mVotes = 0;
     this.mUserId = userId;
     this.mPortfolioId = portfolioId;
     this.mElements = [];
-    this.mElementsInDom = [];
-    var wrapper = this.createWrapper();
-    this.initElements(wrapper);
+    this.mElem = this.createWrapper();
+    this.initElements(this.mElem);
+
+    this.mElem.on( "rating:clicked", function(event, index) {
+        self.mElements.forEach(function(item, i, arr) {
+            if(i <= index - 1){
+                item.setActive(true);
+            }else{
+                item.setActive(false);
+            }
+        });
+        self.initLabels($('#' + self.mId));
+    });
+
+    this.mElem.on( "rating:hovered", function(event, index) {
+        self.mElements.forEach(function(item, i, arr) {
+            if(i <= index){
+                item.mElem.addClass('rating-element-hovered');
+            }
+        });
+    });
+
+    this.mElem.on( "rating:leaved", function(event, index) {
+        self.mElements.forEach(function(item, i, arr) {
+            if(i <= index){
+                item.mElem.removeClass('rating-element-hovered');
+            }
+        });
+    });
+
+
+    this.initPlugin();
     this.initLabels($('#' + this.mId));
 };
+
+BetterRating.prototype.initPlugin = function () {
+    var self = this;
+    var data = {rating: {user_id: this.mUserId, portfolio_id: this.mPortfolioId}};
+    $.ajax({
+        type: "POST",
+        url: "ratings/get_rating_info",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(data),
+        complete: function (data) {
+            self.updateFields(data);
+        }
+    })
+}
+
 
 BetterRating.prototype.initElements = function (wrap) {
     var self = this;
     this.mElements.length = 0;
-    this.mElementsInDom.length = 0;
     for (i = 0; i < 10; i++) {
-        var active = ((this.mUserVoted) ? this.mUserRate : this.mAvgRate) >= i + 1;
-        var e = new Element(i, this, active);
+        var e = new Element(i, this, false);
         this.mElements.push(e);
-        var eInDom = $('<div class = "rating-element"></div>');
-        this.mElementsInDom.push(eInDom);
-        if (this.mElements[i].mActive) {
-            this.mElementsInDom[i].toggleClass('rating-element-active');
-        }
-        wrap.append(eInDom);
+        wrap.append(e.mElem);
     }
-    this.mElementsInDom.forEach(function (eInDom, index, elems) {
-        eInDom.on('click', function () {
-            self.mElements[index].handleClick();
-        });
-        eInDom.on('mouseover',function () {
-            for (var i = 0; i <= index; i++) {
-                self.mElementsInDom[i].addClass('rating-element-hovered');
-            }
-        });
-        eInDom.on('mouseleave',function () {
-            for (var i = 0; i <= index; i++) {
-                self.mElementsInDom[i].removeClass('rating-element-hovered');
-            }
-        });
-    });
-}
+};
 
 BetterRating.prototype.initLabels = function (wrap) {
     var self = this;
     $('.rating-labels').remove();
     var labels = $('<div class="rating-labels"></div>');
-    labels.append($('<div> Средняя Оценка:' + ((this.mTempAvgRate == null) ? Math.ceil(this.mAvgRate) : Math.ceil(this.mTempAvgRate)) + '</div>'));
-    labels.append($('<div> Ваша Оценка:' + ((this.mUserVoted) ? this.mUserRate : 'Не Голосовал') + '</div>'));
+    labels.append($('<div> Средняя Оценка:' + this.mAvgRate  + '</div>'));
+    labels.append($('<div> Ваша Оценка:' + this.mUserRate + '</div>'));
     labels.append($('<div> Всего Голосов:' + this.mVotes + '</div>'));
     wrap.append(labels);
-}
+};
 
-BetterRating.prototype.wasClicked = function (number) {
-    var wrap = $('.rating-inner');
-    wrap.empty();
-    this.mUserRate = number + 1;
-    if (!this.mUserVoted) {
-        this.mUserVoted = true;
-        this.mVotes += 1;
-    }
-    this.mTempAvgRate = (this.mVotes > 1) ? (this.mAvgRate + this.mUserRate) / 2 : this.mUserRate;
-    this.postRatingData();
-    this.initElements(wrap);
-    this.initLabels($('#' + this.mId));
+BetterRating.prototype.updateFields = function (data) {
+    this.mUserRate = data.responseJSON.rating;
+    this.mAvgRate = data.responseJSON.average;
+    this.mVotes = data.responseJSON.votes;
+    this.mElem.trigger('rating:clicked', [(this.mUserRate != "Не голосовал") ? this.mUserRate : Math.round(this.mAvgRate)]);
 }
 
 BetterRating.prototype.createWrapper = function () {
@@ -81,8 +96,9 @@ BetterRating.prototype.getId = function () {
     return this.mId;
 }
 
-BetterRating.prototype.postRatingData = function () {
-    var data = {rating: {rating: this.mUserRate, user_id: this.mUserId, portfolio_id: this.mPortfolioId}};
+BetterRating.prototype.postRatingData = function (index) {
+    var self = this;
+    var data = {rating: {rating: index, user_id: this.mUserId, portfolio_id: this.mPortfolioId}};
     $.ajax({
         type: "POST",
         url: "ratings/onPluginClick",
@@ -90,19 +106,38 @@ BetterRating.prototype.postRatingData = function () {
         dataType: "json",
         data: JSON.stringify(data),
         success: function (data) {
-            alert('success!');
+            alert('Ваша оценка учтена!');
+        },
+        complete: function (data) {
+            self.updateFields(data);
         }
-    });
+    })
 }
 
 var Element = function (orderNum, parent, active) {
     this.mOrderNum = orderNum;
     this.mParent = parent;
     this.mActive = active;
-}
+    this.mElem = $('<div class = "rating-element"></div>');
+    var self = this;
+    this.mElem.on('click', function () {
+        self.mParent.postRatingData(self.mOrderNum + 1);
+    });
+    this.mElem.on('mouseover',function () {
+        self.mParent.mElem.trigger('rating:hovered', [self.mOrderNum]);
+    });
+    this.mElem.on('mouseleave',function () {
+        self.mParent.mElem.trigger('rating:leaved', [self.mOrderNum]);
+    });
+};
 
-Element.prototype.handleClick = function () {
-    this.mActive = !this.mActive;
-    this.mParent.wasClicked(this.mOrderNum);
-}
+
+Element.prototype.setActive = function (state) {
+    this.mActive = state;
+    if(this.mActive) {
+        this.mElem.toggleClass('rating-element-active', true);
+    }else{
+        this.mElem.toggleClass('rating-element-active', false);
+    }
+};
 

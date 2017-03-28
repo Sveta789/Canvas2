@@ -4,23 +4,18 @@
 <% author_about_button_info = [@portfolio.user.profile.city] %>
 <% isOwner = (!current_user.nil? && @portfolio.user_id == current_user.id) %>
 <script>
-  var avg = <%= find_rating(@portfolio.ratings) %>;
-  var voted = <%= @hasVoted %>;
   <% if user_signed_in? %>
-  var us = <%= (@rating.rating) ? @rating.rating : 0 %>;
   var usId = <%= current_user.id %>;
   <% else %>
-  var us = 0;
   var usId = 0;
   <% end %>
-  var votes = <%= @portfolio.ratings.count %>;
   var pId = <%= @portfolio.id %>;
 
   var ready = function () {
     Dropzone.autoDiscover = false;
     if (rating == null) {
       $('#rating-wrapper').empty();
-      var rating = new BetterRating('rating-wrapper', avg, us, votes, voted, usId, pId);
+      var rating = new BetterRating('rating-wrapper', usId, pId);
     }
     $('.slider-container').each(function(index, element){
 
@@ -29,7 +24,10 @@
         infinite: false,
         speed: 300,
         slidesToShow: 1,
-        variableWidth: true
+        variableWidth: true,
+        touchMove: false
+//        swipe: false,
+//        swipeToSlide: false
     });
 
     });

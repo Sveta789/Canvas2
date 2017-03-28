@@ -1,11 +1,11 @@
 module ApplicationHelper
-  def find_rating(arrayOfRatings)
+  def find_rating arrayOfRatings
     avg = 0;
-    if(arrayOfRatings.nil? || arrayOfRatings.length == 0)
+    if arrayOfRatings.nil? || arrayOfRatings.length == 0
       return avg;
     end
     arrayOfRatings.each { |rating| avg += rating.rating  }
-    return avg/arrayOfRatings.length
+    return (avg/arrayOfRatings.length).round(1)
   end
 
   def self.get_video_categories

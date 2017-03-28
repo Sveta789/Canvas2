@@ -25,7 +25,9 @@
   width: 10%;
   height: 100%;
   min-width: 10%;
+  order: 1;
   @media only screen and (max-width: $header-critical-size){
+    order: 3;
     height: 50%;
     flex-grow: 1;
     min-width: 100px;
@@ -56,11 +58,13 @@
 #categories_container {
   width: 30%;
   height: 100%;
+  order: 2;
   @media only screen and (max-width: $header-critical-size){
     height: 50%;
     flex-grow: 8;
     min-width: 200px;
     width: 80%;
+    order: 4;
   }
 
   @media only screen and (max-width: 520px){
@@ -100,9 +104,12 @@
   width: 20%;
   height: 100%;
   min-width: 100px;
+  order: 3;
   @media only screen and (max-width: $header-critical-size){
+    background: lightgrey;
     height: 50%;
     width: 50%;
+    order: 1;
   }
 }
 
@@ -128,9 +135,12 @@
   justify-content: center;
   width: 40%;
   height: 100%;
+  order: 4;
   @media only screen and (max-width: $header-critical-size){
+    background: lightgrey;
     height: 50%;
     width: 50%;
+    order: 2;
   }
 }
 

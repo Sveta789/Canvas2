@@ -1,4 +1,6 @@
 class RatingsController < ApplicationController
+  include ApplicationHelper
+
   def new
     @rating = Rating.new
   end
@@ -22,23 +24,35 @@ class RatingsController < ApplicationController
 
   end
 
+  def get_rating_info
+    all_ratings = Portfolio.find(asked_rating_params[:portfolio_id]).ratings
+    @count_ratings = all_ratings.length
+    @average_rating = find_rating(all_ratings)
+    @user_rating = "Не голосовал"
+    if current_user
+      status = current_user.ratings.find_by("portfolio_id = #{asked_rating_params[:portfolio_id]}")
+      if !status.blank?
+          @user_rating = status.rating
+      end
+    end
+    render 'ratings/answer'
+  end
+
   def onPluginClick
     vote = current_user.ratings.find_by("portfolio_id = #{rating_params[:portfolio_id]}")
-    if (vote.blank?)
+    if vote.blank?
       @rating = current_user.ratings.build(rating_params)
-      if @rating.save
-        render 'ratings/create'
-      else
-      end
+      @rating.save
     else
       if vote.update_attributes(rating_params)
         @rating = vote
-        render 'ratings/create'
-      else
-        render 'ratings/create'
       end
     end
-
+    @user_rating = @rating.rating
+    all_ratings = Portfolio.find(rating_params[:portfolio_id]).ratings
+    @count_ratings = all_ratings.length
+    @average_rating = find_rating(all_ratings)
+    render 'ratings/answer'
   end
 
   def show
@@ -48,5 +62,9 @@ class RatingsController < ApplicationController
 
   def rating_params
     params.require(:rating).permit(:user_id, :rating, :portfolio_id)
+  end
+
+  def asked_rating_params
+    params.require(:rating).permit(:user_id, :portfolio_id)
   end
 end

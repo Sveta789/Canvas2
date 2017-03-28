@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations' }
   get 'ratings/new'
 
-  get 'ratings/create'
+  get 'ratings/answer'
 
   get 'ratings/edit'
 
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'comments/new'
 
-  get 'comments/create'
+  get 'comments/answer'
 
   get 'comments/edit'
 
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   get 'videographies/new'
 
-  get 'videographies/create'
+  get 'videographies/answer'
 
   get 'videographies/destroy'
 
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   get 'videos/new'
 
-  get 'videos/create'
+  get 'videos/answer'
 
   get 'shootings/index'
 
@@ -90,7 +90,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   # resources :users
-  # resources :sessions, only: [:new, :create, :destroy]
+  # resources :sessions, only: [:new, :answer, :destroy]
   resources :events, only: [:index, :show]
   resources :portfolios
   resources :photos, only: [:destroy, :new, :create]
@@ -112,6 +112,7 @@ Rails.application.routes.draw do
   match '/videofilter', to: 'static_pages#catalog', via: 'get'
   match '/new_shooting', to: 'portfolios#new_shooting', via: 'post'
   match 'portfolios/ratings/onPluginClick', to: 'ratings#onPluginClick', via: 'post'
+  match 'portfolios/ratings/get_rating_info', to: 'ratings#get_rating_info', via: 'post'
   match '/edit_avatar', to: 'profiles#edit_avatar',  via: 'get', as: :edit_avatar
   match '/update_avatar', to: 'profiles#update_avatar',  via: 'patch', as: :update_avatar
   match '/upload_image', to: 'photos#upload',  via: 'post', as: :upload_image

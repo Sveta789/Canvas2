@@ -1,3 +1,5 @@
+@import "z-consts";
+
 #rating-wrapper {
   max-width: 340px;
   min-width: 170px;
@@ -36,4 +38,57 @@
 .rating-element-hovered {
   cursor: pointer;
   background: image_url("heartsSprite.png") no-repeat 0px -28px;
+}
+
+@media only screen and (max-width: $screen-sm-min) {
+
+
+  #rating-wrapper {
+    width: 120px;
+    height: 120px;
+    margin-top: 60px;
+  }
+
+  .rating-inner {
+    position: relative;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 120px;
+    height: 106px;
+    background: white;
+  }
+
+  .rating-inner:after{
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: image_url("empty-heart.png") no-repeat 50% 50%;
+    background-size: 100%;
+  }
+
+  .rating-element {
+    display: block;
+    width: 100%;
+    height: 10%;
+    background-image: none;
+    background-color: white;
+    margin-right: 0px;
+    filter: none;
+  }
+  .rating-element-active {
+    background-image: none;
+    background-color: #ff3a99;
+  }
+
+  .rating-element-hovered {
+    background-image: none;
+    background-color: lightpink;
+  }
+
 }
