@@ -6,6 +6,15 @@
    end
 %>
 
+<script>
+  $(document).on('turbolinks:load', function () {
+    $('.catalog-item-card-rating').each(function (index, participant) {
+      var rate = $(participant).attr("rating-val");
+      generate_rating($(participant), rate);
+    })
+  });
+</script>
+
 <div class="catalog-section page-wrapper">
   <div class="spoiler-title"><h1> Фильтр </h1></div>
   <div class="spoiler-body">
@@ -50,7 +59,9 @@
     </div>
 
   <div class="catalog-finded-items">
-    <%= render 'shared/catalog' %>
+    <% @result.each  do |shooting| %>
+        <%= render partial: 'shared/catalog_item_card', locals: {item: shooting} %>
+    <% end %>
   </div>
 </div>
 
@@ -66,4 +77,6 @@
       }
       $("#filter-form-box").submit();
     };
+
+
 </script>

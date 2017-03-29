@@ -1,5 +1,18 @@
 @import 'custom.scss';
 
+
+.catalog-finded-items{
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  min-width: 320px;
+  //width: 95%;
+  flex-wrap: wrap;
+}
+
 .search-result-item
 {
   max-height: 150px;
@@ -31,12 +44,8 @@
 .avatar-link-in-item
 {
   display: block;
-  height:100px;
-  width:100px;
-  margin: 0 auto;
-  margin-bottom: 5px;
-  border-radius: 10%;
-
+  height:100%;
+  width:100%;
 }
 
 .avatar-photo-in-item:hover

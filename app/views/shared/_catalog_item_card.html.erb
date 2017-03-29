@@ -1,0 +1,16 @@
+<div class="catalog-item-card">
+  <div class="catalog-item-card-avatar">
+    <%= image_tag item.user.profile.avatar.thumb, class: 'card-item-avatar-img'  %>
+  </div>
+  <div class="catalog-item-card-name catalog-item-card-field">
+    <%= link_to item.user.profile.name + " " + item.user.profile.surname, item.user.portfolio, class: 'name-of-author' %>
+  </div>
+  <div class="catalog-item-card-price catalog-item-card-field"> <%= item.price %> </div>
+  <div class="catalog-item-card-rating catalog-item-card-field" rating-val=<%= find_rating(item.user.portfolio.ratings) %>></div>
+  <div class="catalog-item-card-skills catalog-item-card-field">
+    <%= item.user.created_at.strftime("%F") %>
+  </div>
+  <div class="catalog-item-card-more catalog-item-card-field">
+    <%= link_to "Подробнее...",item.user.portfolio %>
+  </div>
+</div>
