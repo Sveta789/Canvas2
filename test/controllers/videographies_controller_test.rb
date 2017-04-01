@@ -11,8 +11,8 @@ class VideographiesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get create" do
-    get :create
+  test "should get answer" do
+    get :answer
     assert_response :success
   end
 
