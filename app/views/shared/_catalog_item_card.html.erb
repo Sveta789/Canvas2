@@ -1,16 +1,37 @@
 <div class="catalog-item-card">
-  <div class="catalog-item-card-avatar">
-    <%= image_tag item.user.profile.avatar.thumb, class: 'card-item-avatar-img'  %>
+  <div class="catalog-item-card-front-side">
+    <div class="catalog-item-card-avatar">
+      <%= image_tag item.user.profile.avatar.thumb, class: 'card-item-avatar-img' %>
+    </div>
+    <div class="catalog-item-card-name catalog-item-card-field">
+      <%= link_to item.user.profile.name + " " + item.user.profile.surname, item.user.portfolio, class: 'name-of-author' %>
+    </div>
+    <div class="catalog-item-card-price catalog-item-card-field"> <%= item.price %> </div>
+    <div class="catalog-item-card-rating catalog-item-card-field" rating-val=<%= find_rating(item.user.portfolio.ratings) %>></div>
+    <div class="catalog-item-card-skills catalog-item-card-field">
+      <%= item.user.created_at.strftime("%F") %>
+    </div>
+    <div class="catalog-item-card-more catalog-item-card-field">
+      <%= link_to "Подробнее...", item.user.portfolio %>
+    </div>
   </div>
-  <div class="catalog-item-card-name catalog-item-card-field">
-    <%= link_to item.user.profile.name + " " + item.user.profile.surname, item.user.portfolio, class: 'name-of-author' %>
+  <div class="catalog-item-card-back-side">
+    <div>Примеры:</div>
+    <div class="catalog-item-card-examples">
+      <div class="slider-container">
+        <% item.user.photos.each do |photo| %>
+            <% if photo.category == item.category %>
+                <a class="showcase" href="<%= photo.image.url %>" data-rel="lightcase:myCollection:slideshow">
+                  <div class="image_plugin_container"><%= image_tag(photo.image.preview, class: "img-in-gallery") %>
+                  </div>
+                </a>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="catalog-item-card-description">Описание: <%= item.description %></div>
   </div>
-  <div class="catalog-item-card-price catalog-item-card-field"> <%= item.price %> </div>
-  <div class="catalog-item-card-rating catalog-item-card-field" rating-val=<%= find_rating(item.user.portfolio.ratings) %>></div>
-  <div class="catalog-item-card-skills catalog-item-card-field">
-    <%= item.user.created_at.strftime("%F") %>
-  </div>
-  <div class="catalog-item-card-more catalog-item-card-field">
-    <%= link_to "Подробнее...",item.user.portfolio %>
-  </div>
+  <div class="switch-control switch-control-front" onclick="$(this).parent().toggleClass('expanded', false)"></div>
+  <div class="switch-control switch-control-back" onclick="$(this).parent().toggleClass('expanded', true)"></div>
 </div>
+

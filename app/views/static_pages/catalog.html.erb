@@ -11,7 +11,20 @@
     $('.catalog-item-card-rating').each(function (index, participant) {
       var rate = $(participant).attr("rating-val");
       generate_rating($(participant), rate);
-    })
+    });
+
+    $('.slider-container').each(function(index, element){
+
+      $(element).slick({
+        dots: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 1,
+        variableWidth: true,
+        touchMove: false
+      });
+
+    });
   });
 </script>
 
