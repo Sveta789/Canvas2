@@ -5,7 +5,7 @@
     <%= render 'shared/error_messages', object: f.object %>
     <div class="profile-box-header">
       <div class="profile-box-header-title">
-        <%= f.text_field :name %><span>   </span><%= f.text_field :surname %>
+        <%= f.text_field :name,required: true, placeholder: 'Имя' %><span>   </span><%= f.text_field :surname,required: true, placeholder: 'Фамилия' %>
       </div>
     </div>
 
@@ -13,7 +13,7 @@
       <div class="profile-box-aside">
         <div class="profile-box-avatar">
           <%= image_tag(@profile.avatar) if @profile.avatar? %>
-          <%= f.file_field :avatar %>
+          <%= f.file_field :avatar, style: 'overflow: hidden;' %>
           <%= f.hidden_field :avatar_cache %>
         </div>
         <div class="profile-box-menu"></div>
@@ -29,7 +29,7 @@
         </div>
         <div class='profile-box-field'>
           <div class='profile-box-field-title'>Город:</div>
-          <div class='profile-box-field-content'><%= f.text_field :city %></div>
+          <div class='profile-box-field-content'><%= f.text_field :city, required: true %></div>
         </div>
         <div class='profile-box-field'>
           <div class='profile-box-field-title'>Телефон:</div>
@@ -47,7 +47,7 @@
           <div class='profile-box-field-title'>О себе:</div>
           <div class='profile-box-field-content'><%= f.text_field :hobby %></div>
         </div>
-        <%= f.submit "Сохранить изменения", class: "simple_button button_150_50", style: 'margin-top:10px;' %>
+        <%= f.submit "Сохранить", class: "simple_button button_150_50", style: 'margin-top:10px; margin-left:10px;' %>
 
       </div>
     </div>

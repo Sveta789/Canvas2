@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   get 'events/index'
 
   get 'events/show'
-
   devise_for :admins, :skip => [:registrations]
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations' }
+  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations', confirmations: 'users/confirmations' }
+
+  devise_scope :user do
+    get '/confirmation-getting-started' => 'registrations#getting_started', as: 'confirmation_getting_started'
+  end
+
   get 'ratings/new'
 
   get 'ratings/answer'

@@ -145,8 +145,6 @@ h1 {
   text-align: center;
   font-size: 3em;
   font-weight: 100;
-  margin-bottom: 10px;
-  transform: translateY(10px);
 }
 
 h2 {
@@ -443,6 +441,61 @@ h2 {
   justify-content: center;
 }
 
+.add-shooting, .add-videography{
+  box-sizing: border-box;
+  min-height: 380px;
+  max-height: 380px;
+
+  .registration-box{
+    min-height: 340px;
+    max-height: 340px;
+    height: 100%;
+
+    .category_and_price_field{
+      width:80%;
+      display: flex;
+      margin: 0 auto;
+    }
+
+
+    .register_field {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+
+      select{
+        width:100px;
+        height:30px;
+        border-radius: 10px;
+        padding: 5px;
+      }
+    }
+
+    .register_label {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 5px;
+      text-align: center;
+      color: whitesmoke;
+      min-height: 20px;
+      line-height: 20px;
+    }
+
+    .register_field_description{
+      width:80%;
+      border-radius: 10px;
+      height:90px;
+    }
+
+    .register_field_select{
+
+    }
+  }
+}
+
 .register_field {
   flex-direction: column;
   justify-content: center;
@@ -456,6 +509,12 @@ h2 {
   color: whitesmoke;
   line-height: 45px;
   max-height: 110px;
+  margin: 0 auto;
+}
+
+.registration-box .register_field_price{
+  width:100px;
+  height:30px;
 }
 
 .full-row-field {
@@ -631,43 +690,20 @@ h1 {
 .autosize-img{
   height: 100%;
   width: auto;
+  max-width: 100%;
 }
-
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
-
-//// eXTRA Small devices 480
-//@media (max-width: $screen-xsm-min) {
-//  .transparent-block300 {
-//    height: 150px;
-//  }
-//}
-//
-//// 480 - 768
-//@media (min-width: $screen-xsm-min) and (max-width: $screen-sm-min) {
-//  .transparent-block300 {
-//    height: 150px;
-//  }
-//}
-//
-//// 768 - 996
-//@media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
-//  .transparent-block300 {
-//    height: 200px;
-//  }
-//}
-//
-//// 996 - 1200
-//@media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
-//  .transparent-block300 {
-//    height: 250px;
-//  }
-//}
 
 #place-for-drop{
   min-height: 200px;
   outline: 2px gray dashed;
   outline-offset: -8px;
-  //width: 100%;
-  //height: 100px;
+}
+
+
+.slider-container {
+  flex-grow: 10;
+  min-width: 160px;
+  flex-basis: 160px;
+  position: relative;
+  height: 100%;
 }

@@ -7,27 +7,38 @@
 %>
 
 <div class="add-videography" id="add-videography">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for @videography, :html => {:multipart => true}, :method => 'post' do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
+  <%= form_for @videography, :html => {:multipart => true, :class => 'registration-box'}, :method => 'post' do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="category_and_price_field">
         <div class="register_field">
-          <%= f.label 'Категория' %>
-          <%= f.select :category, options_for_select(categories)%>
+          <div class="register_label">
+            <%= f.label 'Категория' %>
+          </div>
+          <div class="register_field">
+            <%= f.select :category, options_for_select(categories),:html =>{class: 'register_field_select'}  %>
+          </div>
+        </div>
+        <div class="register_field">
+          <div class="register_label">
+            <%= f.label 'Цена' %>
+          </div>
+          <div class="register_field">
+            <%= f.number_field :price, class: 'register_field_price' %>
+          </div>
         </div>
 
-        <div class="register_field">
-          <%= f.label 'Цена' %>
-          <%= f.text_field :price %>
-        </div>
-        <div class="register_field">
-          <%= f.label 'Авторское описание' %>
-          <%= f.text_area :description %>
-        </div>
-        <div class="register_field">
-          <%= f.submit "Добавить", class: "btn btn-primary" %>
-        </div>
+      </div>
 
-    <% end %>
-  </div>
+      <div class="register_label">
+        <%= f.label 'Авторское описание' %>
+      </div>
+      <div class="register_field">
+        <%= f.text_area :description, class: 'register_field_description' %>
+      </div>
+      <div class="register_field">
+        <%= f.submit "Добавить", class: "btn btn-primary" %>
+      </div>
+
+  <% end %>
 
 </div>

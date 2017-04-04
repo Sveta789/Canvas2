@@ -16,20 +16,30 @@
     </div>
   </div>
   <div class="catalog-item-card-back-side">
-    <div>Примеры:</div>
     <div class="catalog-item-card-examples">
-      <div class="slider-container">
+
+      <div class="freewall-container">
+        <% if item.instance_of? Shooting %>
         <% item.user.photos.each do |photo| %>
             <% if photo.category == item.category %>
-                <a class="showcase" href="<%= photo.image.url %>" data-rel="lightcase:myCollection:slideshow">
-                  <div class="image_plugin_container"><%= image_tag(photo.image.preview, class: "img-in-gallery") %>
-                  </div>
+                <a class="mosaicflow__item" href="<%= photo.image.url %>" data-rel="lightcase:myCollection:slideshow">
+                    <%= image_tag(photo.image.preview, class: "img-in-freewall") %>
                 </a>
             <% end %>
         <% end %>
+        <% else %>
+              <% item.user.videos.each do |video| %>
+                  <% if video.category == item.category %>
+                    <div class="video_plugin_container">
+                      <%= youtube_video video.path %>
+                    </div>
+                  <% end %>
+              <% end %>
+        <% end %>
       </div>
+
+
     </div>
-    <div class="catalog-item-card-description">Описание: <%= item.description %></div>
   </div>
   <div class="switch-control switch-control-front" onclick="$(this).parent().toggleClass('expanded', false)"></div>
   <div class="switch-control switch-control-back" onclick="$(this).parent().toggleClass('expanded', true)"></div>

@@ -16,6 +16,21 @@
   margin: 20px auto;
   box-sizing: border-box;
 
+  input{
+    max-width:100%;
+    border-radius: 5px;
+    padding: 3px;
+    &:required{
+      border: 1px blue solid;
+    }
+  }
+
+  select{
+    max-width:100%;
+    border-radius: 5px;
+    padding: 3px;
+  }
+
 }
 
 .profile-box-header{

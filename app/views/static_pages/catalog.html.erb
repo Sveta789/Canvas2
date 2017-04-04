@@ -23,14 +23,34 @@
         variableWidth: true,
         touchMove: false
       });
-
     });
+
+    if($(window).width() > 959) {
+      $(".freewall-container").each(function () {
+        $(this).mosaicflow({
+          itemSelector: '.mosaicflow__item',
+          minItemWidth: 200,
+          minColumns: 1
+        });
+      });
+    }else{
+      $('.freewall-container').each(function(index, element){
+
+        $(element).slick({
+          dots: false,
+          infinite: false,
+          speed: 300,
+          slidesToShow: 1,
+          variableWidth: true,
+          touchMove: false
+        });
+      });
+    }
   });
+
 </script>
 
 <div class="catalog-section page-wrapper">
-  <div class="spoiler-title"><h1> Фильтр </h1></div>
-  <div class="spoiler-body">
   <div class="top-filter-catalog-section">
     <%= form_tag("/catalog", method: "post", class: 'catalog-filter-form-box', id: 'filter-form-box', remote: true) do %>
         <div class="top-filter-catalog-block">
@@ -69,11 +89,10 @@
     <% end %>
 
   </div>
-    </div>
 
   <div class="catalog-finded-items">
-    <% @result.each  do |shooting| %>
-        <%= render partial: 'shared/catalog_item_card', locals: {item: shooting} %>
+    <% @result.each  do |founded| %>
+        <%= render partial: 'shared/catalog_item_card', locals: {item: founded} %>
     <% end %>
   </div>
 </div>
