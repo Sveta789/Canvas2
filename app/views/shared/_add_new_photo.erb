@@ -8,7 +8,6 @@
     });
 
     myDropzone.on('success', function(file, data){
-      alert('.shooting-block#<%= @category %> .slider-container');
       var obj = $(data + '');
       obj.lightcase();
       $('.shooting-block#<%= @category %> .slider-container').slick('slickAdd',obj);

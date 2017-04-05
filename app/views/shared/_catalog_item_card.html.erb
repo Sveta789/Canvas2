@@ -6,7 +6,7 @@
     <div class="catalog-item-card-name catalog-item-card-field">
       <%= link_to item.user.profile.name + " " + item.user.profile.surname, item.user.portfolio, class: 'name-of-author' %>
     </div>
-    <div class="catalog-item-card-price catalog-item-card-field"> <%= item.price %> </div>
+    <div class="catalog-item-card-price catalog-item-card-field"> <%= item.price.to_i %> </div>
     <div class="catalog-item-card-rating catalog-item-card-field" rating-val=<%= find_rating(item.user.portfolio.ratings) %>></div>
     <div class="catalog-item-card-skills catalog-item-card-field">
       <%= item.user.created_at.strftime("%F") %>
@@ -30,9 +30,9 @@
         <% else %>
               <% item.user.videos.each do |video| %>
                   <% if video.category == item.category %>
-                    <div class="video_plugin_container">
+                    <a class="mosaicflow__item">
                       <%= youtube_video video.path %>
-                    </div>
+                    </a>
                   <% end %>
               <% end %>
         <% end %>

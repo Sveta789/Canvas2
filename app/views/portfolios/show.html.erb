@@ -55,7 +55,7 @@
             <% result = @portfolio.user.shootings.where(category: kindOf)
                if result.exists? %>
                 <div class="horizontal_flex">
-                  <%= link_to kindOf, '#' +  kindOf, class: "link-to-category" %>
+                  <%= link_to kindOf, '#' +  kindOf.gsub(/\s+/, ""), class: "link-to-category" %>
                   <% if isOwner && @edit_mode %>
                       <%= link_to '', shootings_destroy_path(id: result.first.id), class: "delete_button" %>
                   <% end %>
@@ -73,7 +73,7 @@
             <% result = @portfolio.user.videographies.where(category: kindOf)
                if result.exists? %>
                 <div class="horizontal_flex">
-                  <%= link_to kindOf, '#' +  kindOf, class: "link-to-category" %>
+                  <%= link_to kindOf, '#' +  kindOf.gsub(/\s+/, ""), class: "link-to-category" %>
                   <% if isOwner && @edit_mode %>
                       <%= link_to '', videographies_destroy_path(id: result.first.id), class: "delete_button" %>
                   <% end %>

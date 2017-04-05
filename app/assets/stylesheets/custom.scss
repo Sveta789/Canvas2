@@ -73,7 +73,7 @@ section {
   max-width: 1920px;
   margin: 0;
   min-height: 400px;
-  height: 90%;
+  height: calc(100% - #{$header-height});
 }
 
 .page-wrapper{
@@ -105,15 +105,10 @@ section {
   align-content: center;
 }
 
-#photohome {
-  background: image-url('Blurred1.jpg') no-repeat;
+#photohome, #videohome  {
+  background: image-url('dark_dotted2.png') repeat;
   background-size: cover;
   overflow: hidden;
-}
-
-#videohome {
-  background: image-url('Blurred2.jpg') no-repeat;
-  background-size: cover;
 }
 
 .transparent-block300 {

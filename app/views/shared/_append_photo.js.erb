@@ -1,2 +1,1 @@
-alert("worked");
 $("<%= escape_javascript(render partial: 'photos/photo_preview') %>").appendTo('.shooting-block#<%= @photo.category.gsub(/\s+/, "") %>');

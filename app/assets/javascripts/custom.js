@@ -11,6 +11,22 @@ $(document).on('turbolinks:load', function() {
     });
 });
 
+window.onscroll = function() {detectScrolled()};
+
+function detectScrolled() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        document.getElementById("goToTopBtn").style.display = "block";
+    } else {
+        document.getElementById("goToTopBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function goToTop() {
+    document.body.scrollTop = 0; // For Chrome, Safari and Opera
+    document.documentElement.scrollTop = 0; // For IE and Firefox
+}
+
 function showMenu(buttonID, menuID) {
     var menu = $('#'+ menuID);
     var btn = $('#'+ buttonID);

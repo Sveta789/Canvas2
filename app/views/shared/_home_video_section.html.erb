@@ -63,7 +63,7 @@
           <input name = 'filter[price[max]' class = "slider-price-cell cell-max" type="number" min="0" max="100000" id="maxCost2" value=<%= prices[1] %>>
           <div id="slider2"></div>
           <%= hidden_field('filter', 'area', {id: 'video_area', value: 'Видеосъемка'}) %>
-          <%= hidden_field('filter', 'category', {id: 'video_category_field', value: 'Все'}) %>
+          <%= hidden_field('filter', 'category', {id: 'video_category_field', value: 'TFP'}) %>
           <%= submit_tag 'ИСКАТЬ', class:"btn-search", onclick: "showFilter(); return false;" %>
         </div>
     <% end %>
@@ -77,49 +77,49 @@
         </div>
       </div>
       <div class = "filter-section">
-        <a class="filter-section-item"  ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Свадьбы')">
+        <a class="filter-section-item"  ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'TFP')">
           <div class="filter-section-item-flipper">
             <div class="filter-section-item-flipper-front" id="filter-item-front-1"></div>
             <div class="filter-section-item-flipper-back">TFP</div>
           </div>
         </a>
-        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Праздники')">
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Творческие')">
           <div class="filter-section-item-flipper">
             <div class="filter-section-item-flipper-front" id="filter-item-front-2"></div>
             <div class="filter-section-item-flipper-back">Творческие</div>
           </div>
         </a>
-        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Love Story')">
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Свадьбы')">
           <div class="filter-section-item-flipper">
             <div class="filter-section-item-flipper-front" id="filter-item-front-3"></div>
             <div class="filter-section-item-flipper-back">Свадьбы</div>
           </div>
         </a>
-        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Персональные')">
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Праздники')">
           <div class="filter-section-item-flipper">
             <div class="filter-section-item-flipper-front" id="filter-item-front-4"></div>
             <div class="filter-section-item-flipper-back" >Праздники</div>
           </div>
         </a>
-        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Коммерческие')">
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Вечеринки')">
           <div class="filter-section-item-flipper">
             <div class="filter-section-item-flipper-front" id="filter-item-front-5"></div>
             <div class="filter-section-item-flipper-back" >Вечеринки</div>
           </div>
         </a>
-        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Вечеринки')">
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Love Story')">
           <div class="filter-section-item-flipper">
             <div class="filter-section-item-flipper-front" id="filter-item-front-6"></div>
             <div class="filter-section-item-flipper-back" >Love Story</div>
           </div>
         </a>
-        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Другие')">
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Коммерческие')">
           <div class="filter-section-item-flipper">
             <div class="filter-section-item-flipper-front" id="filter-item-front-7"></div>
             <div class="filter-section-item-flipper-back">Коммерческие</div>
           </div>
         </a>
-        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Фотопроекты')">
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Другие')">
           <div class="filter-section-item-flipper">
             <div class="filter-section-item-flipper-front" id="filter-item-front-8"></div>
             <div class="filter-section-item-flipper-back" >Другие</div>
@@ -127,11 +127,7 @@
         </a>
       </div>
       <div class="filter-section-next-step">
-        Пропустить
-        <div class="filter-section-next-step-button" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Все')">
-        </div>
       </div>
-      <!--<button id=btn-hidefilters>СКРЫТЬ РАЗДЕЛЫ</button>-->
     </div>
   </div>
 

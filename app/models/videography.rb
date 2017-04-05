@@ -18,11 +18,7 @@ class Videography < ActiveRecord::Base
     end
   }
   scope :category, -> (category) {
-    if category == 'Все'
-      all
-    else
       where category: category
-    end
   }
   scope :price, -> (price) { where("price >= ? and price <= ?", "#{price['min']}", "#{price['max']}") }
 
