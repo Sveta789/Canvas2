@@ -2,15 +2,44 @@
     data-no-turbolink="true" style="overflow:hidden"
 <% end %>
 
+<section class="scrollable-sections-container">
 <%= render partial: 'shared/home_photo_section', locals: {prices: @photo_prices} %>
 <%= render partial: 'shared/home_video_section', locals: {prices: @video_prices} %>
+</section>
+
 
 
 <!-------СКРИПТЫ----------->
 
 
 <script>
-    $('section').horizon();
+//    $('section').horizon();
+    $(".scrollable-sections-container").bind('mousewheel', function(event) {
+      if (event.originalEvent.wheelDelta >= 0) {
+        $(".scrollable-section").first().toggleClass("active-section", true);
+        $(".scrollable-section").last().toggleClass("active-section",false)
+      }
+      else {
+        $(".scrollable-section").first().toggleClass("active-section", false);
+        $(".scrollable-section").last().toggleClass("active-section",true)
+      }
+    });
+
+
+$(document).ready(function () {
+
+  $(".scrollable-sections-container").on('swipeleft', function (event) {
+    $(".scrollable-section").first().toggleClass("active-section", true);
+    $(".scrollable-section").last().toggleClass("active-section",false)
+  });
+
+  $(".scrollable-sections-container").on('swiperight', function (event) {
+    $(".scrollable-section").first().toggleClass("active-section", false);
+    $(".scrollable-section").last().toggleClass("active-section",true)
+  });
+});
+
+
 </script>
 
 <script>

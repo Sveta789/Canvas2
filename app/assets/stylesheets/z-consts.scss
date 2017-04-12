@@ -91,7 +91,7 @@ $size-of-stripe: 70%;
     height: 0%;
   }
   .whitestripe{
-    height: calc(100% - #{$header-mini-height});
+    height: 100%;
   }
 
   header{
@@ -124,10 +124,10 @@ $size-of-stripe: 70%;
 
 @media only screen and (min-height: 600px){
   .transparent-block300{
-    height: calc(30% - #{$header-height}/2);
+    height: 30%;
   }
   .whitestripe{
-    height: calc(70% - #{$header-height}/2);
+    height: 70%;
   }
 
   header{
