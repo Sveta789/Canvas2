@@ -12,7 +12,7 @@
       stop: function(event, ui) {
         minCost2.val(slider2.slider("values",0));
         maxCost2.val(slider2.slider("values",1));
-        $(document).swipe('enable');
+        $(".scrollable-sections-container").swipe('enable');
       },
       slide: function(event, ui){
         minCost2.val(slider2.slider("values",0));
@@ -20,7 +20,7 @@
       },
 
       start: function(event, ui){
-        $(document).swipe('disable');
+        $(".scrollable-sections-container").swipe('disable');
       }
     });
 
