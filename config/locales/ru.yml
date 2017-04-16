@@ -1,6 +1,16 @@
 ---
 ru:
   activerecord:
+    attributes:
+      user:
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        login: Логин
+        email: E-mail
+        sign_in_count: Посещений
+        last_sign_in_at: Последнее посещение
+        created_at: Дата регистрации
+        remember_me: Запомнить меня
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'

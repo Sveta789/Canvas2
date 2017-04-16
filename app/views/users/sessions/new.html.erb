@@ -6,12 +6,12 @@
           <%= content_tag :div, msg, :class => "flash_error", :id => "flash_#{name}" if msg.is_a?(String) %>
       <%- end -%>
       <div class="register_field">
-        <%= f.label :email, value: 'E-mail' %><br/>
+        <%= f.label :email, value: 'E-mail' %>
         <%= f.email_field :email, autofocus: true %>
       </div>
 
       <div class="register_field">
-        <%= f.label :password, value: 'Пароль'  %><br/>
+        <%= f.label :password, value: 'Пароль'  %>
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
