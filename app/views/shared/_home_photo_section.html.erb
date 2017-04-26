@@ -62,7 +62,7 @@
           <input name = 'filter[price[max]' class = "slider-price-cell cell-max" type="number" min="0" max="100000" id="maxCost" value=<%= prices[1] %>>
           <div id="slider"></div>
           <%= submit_tag 'ИСКАТЬ', class:"btn-search", onclick: "showFilter(); return false;" %>
-          <%= hidden_field('filter', 'category', {id: 'photo_category_field', value: 'Свадьбы'}) %>
+          <%= hidden_field('filter', 'category', {id: 'photo_category_field', value: 'TFP'}) %>
           <%= hidden_field('filter', 'area', {id: 'photo_area', value: 'Фотосъемка'}) %>
         </div>
     <% end %>
@@ -77,80 +77,80 @@
       </div>
     <div class = "filter-section">
 
-      <a class="filter-section-item"  ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Свадьбы')">
+      <a class="filter-section-item"  ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'TFP')">
         <div class="filter-section-item-flipper">
           <div class="filter-section-item-flipper-front" id="filter-item-front-1"></div>
-          <div class="filter-section-item-flipper-back">Свадьбы</div>
+          <div class="filter-section-item-flipper-back">TFP</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Fashion')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-2"></div>
+          <div class="filter-section-item-flipper-back">FASHION</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Свадебная')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-3"></div>
+          <div class="filter-section-item-flipper-back">СВАДЕБНАЯ</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Детская и семейная')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-4"></div>
+          <div class="filter-section-item-flipper-back" >ДЕТСКАЯ И СЕМЕЙНАЯ</div>
         </div>
       </a>
       <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Праздники')">
         <div class="filter-section-item-flipper">
-          <div class="filter-section-item-flipper-front" id="filter-item-front-2"></div>
-          <div class="filter-section-item-flipper-back">Праздники</div>
+          <div class="filter-section-item-flipper-front" id="filter-item-front-5"></div>
+          <div class="filter-section-item-flipper-back" >ПРАЗДНИКИ</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Концерты и вечеринки')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-6"></div>
+          <div class="filter-section-item-flipper-back" >КОНЦЕРТЫ И ВЕЧЕРИНКИ</div>
+        </div>
+      </a>
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Персональная')">
+        <div class="filter-section-item-flipper">
+          <div class="filter-section-item-flipper-front" id="filter-item-front-7"></div>
+          <div class="filter-section-item-flipper-back">ПЕРСОНАЛЬНАЯ</div>
         </div>
       </a>
       <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Love Story')">
         <div class="filter-section-item-flipper">
-          <div class="filter-section-item-flipper-front" id="filter-item-front-3"></div>
-          <div class="filter-section-item-flipper-back">Love Story</div>
-        </div>
-      </a>
-      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Персональные')">
-        <div class="filter-section-item-flipper">
-          <div class="filter-section-item-flipper-front" id="filter-item-front-4"></div>
-          <div class="filter-section-item-flipper-back" >Персональные</div>
-        </div>
-      </a>
-      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Коммерческие')">
-        <div class="filter-section-item-flipper">
-          <div class="filter-section-item-flipper-front" id="filter-item-front-5"></div>
-          <div class="filter-section-item-flipper-back" >Коммерческие</div>
-        </div>
-      </a>
-      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Вечеринки')">
-        <div class="filter-section-item-flipper">
-          <div class="filter-section-item-flipper-front" id="filter-item-front-6"></div>
-          <div class="filter-section-item-flipper-back" >Вечеринки</div>
-        </div>
-      </a>
-      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Другие')">
-        <div class="filter-section-item-flipper">
-          <div class="filter-section-item-flipper-front" id="filter-item-front-7"></div>
-          <div class="filter-section-item-flipper-back">Другие</div>
-        </div>
-      </a>
-      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Фотопроекты')">
-        <div class="filter-section-item-flipper">
           <div class="filter-section-item-flipper-front" id="filter-item-front-8"></div>
-          <div class="filter-section-item-flipper-back" >Фотопроекты</div>
+          <div class="filter-section-item-flipper-back" >LOVE STORY</div>
         </div>
       </a>
 
-      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Фотопроекты')">
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Коммерческая')">
         <div class="filter-section-item-flipper">
           <div class="filter-section-item-flipper-front" id="filter-item-front-9"></div>
-          <div class="filter-section-item-flipper-back" >Фотопроекты</div>
+          <div class="filter-section-item-flipper-back" >КОММЕРЧЕСКАЯ</div>
         </div>
       </a>
 
-      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Фотопроекты')">
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Интерьерная')">
         <div class="filter-section-item-flipper">
           <div class="filter-section-item-flipper-front" id="filter-item-front-10"></div>
-          <div class="filter-section-item-flipper-back" >Фотопроекты</div>
+          <div class="filter-section-item-flipper-back" >ИНТЕРЬЕРНАЯ</div>
         </div>
       </a>
 
-      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Фотопроекты')">
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Предметная')">
         <div class="filter-section-item-flipper">
           <div class="filter-section-item-flipper-front" id="filter-item-front-11"></div>
-          <div class="filter-section-item-flipper-back" >Фотопроекты</div>
+          <div class="filter-section-item-flipper-back" >ПРЕДМЕТНАЯ</div>
         </div>
       </a>
 
-      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Фотопроекты')">
+      <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#photo_filter_form', '#photo_category_field', 'Другие')">
         <div class="filter-section-item-flipper">
           <div class="filter-section-item-flipper-front" id="filter-item-front-12"></div>
-          <div class="filter-section-item-flipper-back" >Фотопроекты</div>
+          <div class="filter-section-item-flipper-back" >ДРУГИЕ</div>
         </div>
       </a>
     </div>

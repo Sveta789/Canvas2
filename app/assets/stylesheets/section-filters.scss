@@ -76,12 +76,8 @@
   perspective: 1000px;
 }
 
-.filter-section-item:hover{
-  z-index: 10;
-}
-
 .filter-section-item:hover .filter-section-item-flipper, .filter-section-item.hover .filter-section-item-flipper{
-  transform: rotateY(180deg) scale(1.5);
+  transform: rotateY(180deg);
 }
 
 .filter-section-item-flipper {
