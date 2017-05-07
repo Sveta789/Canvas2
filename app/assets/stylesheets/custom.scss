@@ -46,6 +46,12 @@ html.loading {
   transition: background-color 0s;
 }
 
+video{
+  width: auto;
+  height: auto;
+  max-height: 100%;
+}
+
 body {
   min-height: 100%;
   width: 100%;
@@ -106,9 +112,14 @@ section {
 }
 
 #photohome, #videohome  {
-  background: image-url('dark_dotted2.png') repeat;
+  background: image-url('fon1part.png') repeat;
   background-size: cover;
   overflow: hidden;
+}
+
+#videohome{
+  background: image-url('fon2part.png') repeat;
+  background-size: cover;
 }
 
 .transparent-block300 {
@@ -767,4 +778,16 @@ h1 {
     left:0;
     visibility: visible;
   }
+}
+
+
+.social-buttons-block{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  left: calc(50% - 100px);
+  bottom:100px;
+  width:200px;
+  height:100px;
 }

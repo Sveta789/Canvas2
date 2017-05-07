@@ -5,9 +5,15 @@
 
 .parallax {
   perspective: 1px;
-  height: 100vh;
+  height: calc(100vh - 80px);
   overflow-x: hidden;
   overflow-y: auto;
+  background: image-url('cute_bengal.jpg');
+  background-size: cover;
+}
+
+.parallax::-webkit-scrollbar{
+  display: none;
 }
 
 .parallax__layer {
@@ -19,7 +25,6 @@
 }
 
 .parallax__layer--base {
-  background-color: rgba(255,255,255,0.2);
   transform: translateZ(0);
 
 }
@@ -27,7 +32,50 @@
 .parallax__layer--back {
 
   transform: translateZ(-1px) scale(2);
+  width: 100vw;
 
+}
+
+.layer-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.canvas-red-logo{
+  background: darkred;
+  color: white;
+  font-weight: 800;
+  font-size: 8em;
+  margin-bottom: 20px;
+}
+
+.canvas-instruction-block{
+  height: 50%;
+  width: 100%;
+  background: image-url('about_photo.webp') no-repeat;
+  background-size: cover;
+}
+
+.canvas-second-instruction-block{
+  display: flex;
+  height: 60%;
+  width: 100%;
+}
+
+.video-block-stub{
+  height: 100%;
+  width: 40%;
+  overflow: hidden;
+}
+
+.detailed-instructions-block{
+  height: 100%;
+  width: 70%;
 }
 
 
@@ -45,12 +93,14 @@
 
 #first-about
 {
-  background: image-url('maxresdefault.jpg');
+  background: image-url('black-fon.jpg') no-repeat;
+  background-size: cover;
 }
 
 #second-about
 {
-  background: image-url('home.jpg');
+  background: image-url('flock-of-birds.jpg') no-repeat;
+  background-size: cover;
 }
 
 #first-group{
@@ -59,6 +109,10 @@
 
 #second-group{
   z-index: 4;
+}
+
+#third-group{
+  z-index: 3;
 }
 
 .title
