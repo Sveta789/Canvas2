@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def self.get_video_categories
-    ['TFP', 'Творческие', 'Свадьбы', 'Праздники', 'Вечеринки', 'Love story', 'Коммерческие', 'Другие']
+    ['Клипы', 'Творческие', 'Свадьбы', 'Праздники', 'Вечеринки', 'Love story', 'Коммерческие', 'Другие']
   end
 
   def self.get_photo_categories
