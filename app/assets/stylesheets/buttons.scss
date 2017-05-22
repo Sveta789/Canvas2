@@ -99,3 +99,61 @@
 #goToTopBtn:hover {
   background-color: #555; /* Add a dark-grey background on hover */
 }
+
+
+#skip-button-block{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  top: calc(50% - 100px);
+  right: 0;
+  position: absolute;
+  width:100px;
+  height:150px;
+  color: white;
+}
+
+#skip-button{
+   width: 100px;
+   height:100px;
+ }
+
+#skip-button:hover{
+  cursor: pointer;
+  filter: drop-shadow(1px 1px 3px darkgray);
+}
+
+
+
+.swap-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height:50px;
+  background:#b0c2d2;
+  border: 1px gray solid;
+  transition: 0.2s;
+}
+
+.swap-section-button{
+  content:"";
+  height:50px;
+  width:50px;
+  top:0;
+  left:0;
+  background: image_url("reload.png") no-repeat 50% 50%;
+  background-size: cover;
+  margin-right: 10px;
+  transition: 0.2s;
+}
+
+.swap-section:hover{
+  cursor: pointer;
+  border:1px black solid;
+
+  .swap-section-button{
+    transform: rotate(-180deg);
+  }
+}

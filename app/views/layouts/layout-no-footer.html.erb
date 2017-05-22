@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvas</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body  <% if content_for?(:body_attributes) %>
+       <%= yield(:body_attributes) %>
+       <% end %>>
+<script>
+    $(document).click(function(event) {
+        var text = $(event.target).text();
+    });
+</script>
+<%= render partial: 'shared/better_header', locals: {onmain: false} %>
+<% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+<button onclick="goToTop()" id="goToTopBtn" title="Back"></button>
+<%= yield %>
+<div id = tempObjects></div>
+</body>
+</html>

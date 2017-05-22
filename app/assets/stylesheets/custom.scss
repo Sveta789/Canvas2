@@ -302,15 +302,12 @@ h2 {
 }
 
 .btn-search {
-  position: absolute;
   display: block;
   border: 1px solid black;
   height: 50px;
-  width: 30%;
+  width: 50%;
   min-width: 88px;
   max-width: 300px;
-  bottom: calc(50% - 50px);
-  left: calc(50% - 15%);
 
   color: white;
   text-align: center;
@@ -320,6 +317,14 @@ h2 {
   transition: 0.5s ease;
   font-size: 1.5em;
   line-height: 50px;
+  margin-bottom: 10px;
+
+  @media only screen and (max-height: $screen-xsm-min) {
+    &{
+      margin-bottom: 0;
+    }
+
+  }
 }
 
 .btn-search div {
@@ -476,6 +481,11 @@ h2 {
   background-image: image-url('videosections/other.jpg');
   background-size: cover;
 }
+
+#videofilter-item-front-9 {
+  background-image: image-url('videosections/motiondesign.jpg');
+  background-size: cover;
+}
 .registration-box {
   background-color: rgb(62, 63, 66);
   border-radius: 5px;
@@ -522,6 +532,7 @@ h2 {
       width:80%;
       display: flex;
       margin: 0 auto;
+      margin-bottom: 10px;
     }
 
 
@@ -578,6 +589,10 @@ h2 {
   line-height: 45px;
   max-height: 110px;
   margin: 0 auto;
+}
+
+.small_mode{
+  min-width: 100px;
 }
 
 .registration-box .register_field_price{
@@ -821,7 +836,7 @@ h1 {
 
 
 .social-buttons-block{
-  display: flex;
+  display: none;
   justify-content: space-around;
   align-items: center;
   position: absolute;

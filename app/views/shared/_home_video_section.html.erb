@@ -64,7 +64,13 @@
           <div id="slider2"></div>
           <%= hidden_field('filter', 'area', {id: 'video_area', value: 'Видеосъемка'}) %>
           <%= hidden_field('filter', 'category', {id: 'video_category_field', value: 'TFP'}) %>
-          <%= submit_tag 'ИСКАТЬ', class:"btn-search", onclick: "showFilter(); return false;" %>
+          <div class="two-buttons-adaptive-pane">
+            <%= submit_tag 'ИСКАТЬ', class:"btn-search", onclick: "showFilter(); return false;" %>
+            <div class="swap-section" onclick="swipeToPhoto();">
+              <div class="swap-section-button"></div>
+              <div>К ФОТО</div>
+            </div>
+          </div>
         </div>
     <% end %>
   </div>
@@ -123,6 +129,13 @@
           <div class="filter-section-item-flipper">
             <div class="filter-section-item-flipper-front" id="videofilter-item-front-8"></div>
             <div class="filter-section-item-flipper-back" >Другие</div>
+          </div>
+        </a>
+
+        <a class="filter-section-item" ontouchstart="$(this).toggleClass('hover');" onclick="setAndSubmit('#video_filter_form', '#video_category_field', 'Motion Design')">
+          <div class="filter-section-item-flipper">
+            <div class="filter-section-item-flipper-front" id="videofilter-item-front-9"></div>
+            <div class="filter-section-item-flipper-back" >Motion Design</div>
           </div>
         </a>
       </div>

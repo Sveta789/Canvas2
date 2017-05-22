@@ -14,7 +14,7 @@
           <div class="register_label">
             <%= f.label 'Категория' %>
           </div>
-          <div class="register_field">
+          <div class="register_field small_mode">
             <%= f.select :category, options_for_select(categories),:html =>{class: 'register_field_select'}  %>
           </div>
         </div>
@@ -22,7 +22,7 @@
           <div class="register_label">
             <%= f.label 'Цена' %>
           </div>
-          <div class="register_field">
+          <div class="register_field small_mode">
             <%= f.number_field :price, class: 'register_field_price' %>
           </div>
         </div>

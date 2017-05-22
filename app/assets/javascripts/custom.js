@@ -72,7 +72,7 @@ function moveBlock(btnId,btn2Id,idOfBlock,infoArray)
     {
         block.hide('fast');
         btn.attr("clicked", "false");
-        btn.css({background:'rgb(255,255,255)'});
+        btn.css({background:'#BBFFBB'});
     }
 }
 

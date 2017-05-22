@@ -3,7 +3,11 @@
     <div id="first-about" class="parallax__layer parallax__layer--back">
     </div>
     <div class="parallax__layer parallax__layer--base">
-      <div class="layer-wrapper" style="width: 65%;   justify-content: center;">
+      <div class="layer-wrapper" style="width: 65%; position:relative;  justify-content: center;">
+        <div id="skip-button-block">
+          <div>Пропустить</div>
+          <%= link_to (image_tag "svg/skip.svg", class: "svg-in-img", id: "skip-button"), root_path %>
+        </div>
         <div class="canvas-red-logo">CANVAS</div>
         <div style="color:white; font-size: 2em; font-weight:600">ОТКРЫТЫЙ КАТАЛОГ ВСЕХ ФОТОГРАФОВ И ВИДЕОГРАФОВ ГОРОДА</div>
         <div class="social-buttons-block">
@@ -19,12 +23,60 @@
       <div class="layer-wrapper">
         <div class="canvas-instruction-block">CANVAS</div>
         <div class="canvas-second-instruction-block">
-          <div class="video-block-stub"><video autoplay loop>
-              <source src="http://video.wixstatic.com/video/11062b_64ae2a899006496dac01c2e81fac97f1/1080p/mp4/file.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+          <div class="detailed-instructions-block">
+            <div class="instructions-flex">
+              <div class="instructions-flex-element">
+                <div class="instructions-flex-picture">
+                  <%= image_tag "svg/guys.svg", class: "svg-in-img", id: "guys-instruction" %>
+                </div>
+                <div class="instructions-flex-description-lower">Возникла потребность в фото- или
+                  видеосъемке?</div>
+              </div>
+              <div class="instructions-flex-divider"></div>
+              <div class="instructions-flex-element">
+                <div class="instructions-flex-picture" id="comp-instruction">
+                  <%= image_tag "svg/comp.svg", class: "svg-in-img" %>
+                </div>
+                <div class="instructions-flex-description-higher">CANVAS может с этим помочь</div>
+              </div>
+              <div class="instructions-flex-divider"></div>
+              <div class="instructions-flex-element">
+                <div class="instructions-flex-picture">
+                  <%= image_tag "svg/coin.svg", class: "svg-in-img", id: "coin-instruction" %>
+                </div>
+                <div class="instructions-flex-description-lower">Выбери нужные границы цены
+                  (бесплатные съемки и правда существуют!)</div>
+              </div>
+              <div class="instructions-flex-divider"></div>
+              <div class="instructions-flex-element">
+                <div class="instructions-flex-picture">
+                  <%= image_tag "svg/trees.svg", class: "svg-in-img", id: "trees-instruction" %>
+                </div>
+                <div class="instructions-flex-description-above">
+                  Выбери один из раздделов,
+                  от семейной до коммерческой съемки
+                </div>
+              </div>
+              <div class="instructions-flex-divider"></div>
+              <div class="instructions-flex-element">
+                <div class="instructions-flex-picture">
+                  <%= image_tag "svg/paperplane.svg", class: "svg-in-img", id: "paperplane-instruction" %>
+                </div>
+                <div class="instructions-flex-description-lower">Свяжись с понравившимся автором
+                  и убедись, что сделал лучший выбор</div>
+              </div>
+            </div>
           </div>
-          <div class="detailed-instructions-block"><div class="title">Инструции здесь</div></div>
+          <div class="video-block-stub"><div class="title">
+            <div>Инструкция по</div>
+            <div>использованию</div>
+             <div>сайта</div>
+          </div></div>
+        </div>
+        <div class="in-parallax-footer">
+          <div>Мы всегда рады замечаниям и предложениям!</div>
+          <div>support@canvasrussia.com</div>
+          <div>Телефон</div>
         </div>
       </div>
     </div>

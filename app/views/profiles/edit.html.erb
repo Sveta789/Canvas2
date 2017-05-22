@@ -5,7 +5,7 @@
     <%= render 'shared/error_messages', object: f.object %>
     <div class="profile-box-header">
       <div class="profile-box-header-title">
-        <%= f.text_field :name,required: true, placeholder: 'Имя' %><span>   </span><%= f.text_field :surname,required: true, placeholder: 'Фамилия' %>
+        <%= f.text_field :name,required: true, placeholder: 'Имя/Организация' %><span>   </span><%= f.text_field :surname,required: true, placeholder: 'Фамилия' %>
       </div>
     </div>
 
@@ -38,10 +38,6 @@
         <div class='profile-box-field'>
           <div class='profile-box-field-title'>E-mail:</div>
           <div class='profile-box-field-content'><%= f.email_field :social_email %></div>
-        </div>
-        <div class='profile-box-field'>
-          <div class='profile-box-field-title'>Соц сети:</div>
-          <div class='profile-box-field-content'><%= f.text_field :social_network %></div>
         </div>
         <div class='profile-box-field'>
           <div class='profile-box-field-title'>О себе:</div>

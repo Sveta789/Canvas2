@@ -1,7 +1,8 @@
 class StaticPagesController < ApplicationController
 
-  layout "application", except: [:index]
+  layout "application", except: [:index, :about]
   layout "main_page", only: [:index]
+  layout "layout-no-footer", only: [:about]
   include ApplicationHelper
 
   def index

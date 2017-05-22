@@ -2,6 +2,68 @@
     data-no-turbolink="true" style="overflow:hidden"
 <% end %>
 
+
+<script>
+  var section;
+
+  var swipeToPhoto = function(){
+    console.log("swipe to video");
+    section.first().toggleClass("active-section", true);
+    section.last().toggleClass("active-section",false)
+  };
+
+  var swipeToVideo = function(){
+    console.log("swipe to photo");
+    section.first().toggleClass("active-section", false);
+    section.last().toggleClass("active-section",true)
+  };
+
+
+
+  $(document).ready(function () {
+
+    var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+
+    function displaywheel(e){
+      var evt=window.event || e //equalize event object
+      var delta=evt.detail? evt.detail*(-120) : evt.wheelDelta //check for detail first so Opera uses that instead of wheelDelta
+      return delta;
+    }
+
+    var holder = $(".scrollable-sections-container");
+    section = $(".scrollable-section");
+
+    holder.on(mousewheelevt, function(event) {
+      if (displaywheel(event) >= 0) {
+        swipeToPhoto();
+      }
+      else {
+        swipeToVideo();
+      }
+    });
+
+    holder.swipe({
+      // Generic swipe handler for all directions.
+      click: function (event, target) {
+        alert('clicked');
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+      },
+      swipe: function (event, direction, distance, duration, fingerCount) {
+        if (direction === "right") {
+          swipeToPhoto();
+        }else if(direction === "left"){
+          swipeToVideo();
+        }
+      },
+      threshold: 75
+    });
+  });
+
+
+</script>
+
 <section class="scrollable-sections-container">
 <%= render partial: 'shared/home_photo_section', locals: {prices: @photo_prices} %>
 <%= render partial: 'shared/home_video_section', locals: {prices: @video_prices} %>
@@ -10,47 +72,6 @@
 
 
 <!-------СКРИПТЫ----------->
-
-
-<script>
-//    $('section').horizon();
-    $(".scrollable-sections-container").bind('mousewheel', function(event) {
-      if (event.originalEvent.wheelDelta >= 0) {
-        $(".scrollable-section").first().toggleClass("active-section", true);
-        $(".scrollable-section").last().toggleClass("active-section",false)
-      }
-      else {
-        $(".scrollable-section").first().toggleClass("active-section", false);
-        $(".scrollable-section").last().toggleClass("active-section",true)
-      }
-    });
-
-
-$(document).ready(function () {
-
-  $(".scrollable-sections-container").swipe({
-    // Generic swipe handler for all directions.
-    click: function (event, target) {
-      alert('clicked');
-      event.preventDefault();
-      event.stopPropagation();
-      event.stopImmediatePropagation();
-    },
-    swipe: function (event, direction, distance, duration, fingerCount) {
-      if (direction === "right") {
-        $(".scrollable-section").first().toggleClass("active-section", true);
-        $(".scrollable-section").last().toggleClass("active-section",false)
-      }else if(direction === "left"){
-        $(".scrollable-section").first().toggleClass("active-section", false);
-        $(".scrollable-section").last().toggleClass("active-section",true)
-      }
-    },
-    threshold: 75
-  });
-});
-
-
-</script>
 
 <script>
   var setAndSubmit = function (formId,fieldId,category) {
