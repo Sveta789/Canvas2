@@ -82,8 +82,10 @@ function refreshBlock(idOfBlock, infoArray)
     block.empty();
     for(var i = 0; i < infoArray.length;i++)
     {
-        var row = $("<div class='one-information-row'></div>");
-        row.text(infoArray[i]);
-        block.append(row);
+        if(infoArray[i]) {
+            var row = $("<div class='one-information-row'></div>");
+            row.text(infoArray[i]);
+            block.append(row);
+        }
     }
 }
