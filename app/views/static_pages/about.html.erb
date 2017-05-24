@@ -1,3 +1,12 @@
+<script>
+  $(document).on('turbolinks:load', function() {
+    $('.parallax').on('scroll', function () {
+      if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+        $("#go-to-catalog-box").show(500);
+      }
+    })
+  });
+</script>
 <div class="parallax">
   <div id='zero-group' class="parallax__group">
     <div id="first-about" class="parallax__layer parallax__layer--back">
@@ -9,19 +18,71 @@
           <%= link_to (image_tag "svg/skip.svg", class: "svg-in-img", id: "skip-button"), root_path %>
         </div>
         <div class="canvas-red-logo">CANVAS</div>
-        <div style="color:white; font-size: 2em; font-weight:600">ОТКРЫТЫЙ КАТАЛОГ ВСЕХ ФОТОГРАФОВ И ВИДЕОГРАФОВ ГОРОДА</div>
+        <div style="color:white; font-size: 2em; font-weight:600">ОТКРЫТЫЙ КАТАЛОГ ВСЕХ ФОТОГРАФОВ И ВИДЕОГРАФОВ
+          ГОРОДА
+        </div>
         <div class="social-buttons-block">
-          <div class="social-button" id="vk"> </div>
-          <div class="social-button" id="facebook"> </div>
-          <div class="social-button" id="insta"> </div>
+          <div class="social-button" id="vk"></div>
+          <div class="social-button" id="facebook"></div>
+          <div class="social-button" id="insta"></div>
         </div>
       </div>
     </div>
   </div>
   <div id="first-group" class="parallax__group">
-    <div class="parallax__layer parallax__layer--base" style="height: 190vh" >
+    <div class="parallax__layer parallax__layer--base" style="height: 190vh">
       <div class="layer-wrapper">
-        <div class="canvas-instruction-block">CANVAS</div>
+        <div class="canvas-instruction-block">
+          <div class="center-80-wrapper">
+          <div class="flex33">
+            <div class="red-instruction">Люди, находящиеся в поиске фото- или видеосъемки</div>
+            <div id="customers_picture" class="rounded_white_picture"></div>
+            <div class="filled-ul-container">
+            <ul>
+              <li>
+                Большой выбор для&nbsp;любых&nbsp;видов съемки
+              </li>
+              <li>
+               Максимальный разброс цен, от бесплатных съемок до премиум
+              </li>
+              <li>
+              Постоянно пополняющийся каталог
+              </li>
+              <li>
+               Общая единица цены – руб\час съемки
+              </li>
+            </ul>
+            </div>
+          </div>
+          <div class="flex33" style="  justify-content: flex-end;">
+            <div class="red-instruction">Находят то, что ищут на</div>
+            <div class="sixangle-block">
+              <%= image_tag "svg/sixangle.svg", class: "svg-in-img", id: "sixangle-logo" %>
+              <div id="sixangle-logo-after"></div>
+            </div>
+          </div>
+          <div class="flex33">
+            <div class="red-instruction">Фотографы и видеографы города</div>
+            <div id="operators_picture" class="rounded_white_picture"></div>
+            <div class="filled-ul-container">
+              <ul>
+                <li>
+                  Бесплатное размещение на сайте
+                </li>
+                <li>
+                  Постоянный поток НОВЫХ пользователей создает дополнительный спрос
+                </li>
+                <li>
+                  Возможность размещения работ более чем в 20 разделах
+                </li>
+                <li>
+                  Партнерство и скидочки с фотостудиями
+                </li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </div>
         <div class="canvas-second-instruction-block">
           <div class="detailed-instructions-block">
             <div class="instructions-flex">
@@ -30,7 +91,8 @@
                   <%= image_tag "svg/guys.svg", class: "svg-in-img", id: "guys-instruction" %>
                 </div>
                 <div class="instructions-flex-description-lower">Возникла потребность в фото- или
-                  видеосъемке?</div>
+                  видеосъемке?
+                </div>
               </div>
               <div class="instructions-flex-divider"></div>
               <div class="instructions-flex-element">
@@ -45,7 +107,8 @@
                   <%= image_tag "svg/coin.svg", class: "svg-in-img", id: "coin-instruction" %>
                 </div>
                 <div class="instructions-flex-description-lower">Выбери нужные границы цены
-                  (бесплатные съемки и правда существуют!)</div>
+                  (бесплатные съемки и правда существуют!)
+                </div>
               </div>
               <div class="instructions-flex-divider"></div>
               <div class="instructions-flex-element">
@@ -63,28 +126,35 @@
                   <%= image_tag "svg/paperplane.svg", class: "svg-in-img", id: "paperplane-instruction" %>
                 </div>
                 <div class="instructions-flex-description-lower">Свяжись с понравившимся автором
-                  и убедись, что сделал лучший выбор</div>
+                  и убедись, что сделал лучший выбор
+                </div>
               </div>
             </div>
           </div>
-          <div class="video-block-stub"><div class="title">
-            <div>Инструкция по</div>
-            <div>использованию</div>
-             <div>сайта</div>
-          </div></div>
+          <div class="video-block-stub">
+            <div class="title">
+              <div>Инструкция по</div>
+              <div>использованию</div>
+              <div>сайта</div>
+            </div>
+          </div>
         </div>
         <div class="in-parallax-footer">
           <div>Мы всегда рады замечаниям и предложениям!</div>
           <div>support@canvasrussia.com</div>
           <div>Телефон</div>
+          <%= link_to "ПЕРЕЙТИ В КАТАЛОГ", root_path, id:"go-to-catalog-box" %>
+
         </div>
       </div>
     </div>
   </div>
   <!--<div id='third-group' class="parallax__group">-->
-    <!--<div id="second-about" class="parallax__layer parallax__layer&#45;&#45;back">-->
-    <!--</div>-->
-    <!--<div class="parallax__layer parallax__layer&#45;&#45;base">-->
-    <!--</div>-->
+  <!--<div id="second-about" class="parallax__layer parallax__layer&#45;&#45;back">-->
   <!--</div>-->
+  <!--<div class="parallax__layer parallax__layer&#45;&#45;base">-->
+  <!--</div>-->
+  <!--</div>-->
+
+
 </div>

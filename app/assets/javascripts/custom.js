@@ -11,6 +11,7 @@ $(document).on('turbolinks:load', function() {
     });
 });
 
+
 window.onscroll = function() {detectScrolled()};
 
 function detectScrolled() {
