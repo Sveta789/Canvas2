@@ -1,14 +1,17 @@
 class StaticPagesController < ApplicationController
+  include ApplicationHelper
 
+  layout :resolve_layout
   layout "application", except: [:index, :about]
   layout "main_page", only: [:index]
   layout "layout-no-footer", only: [:about]
-  include ApplicationHelper
+
+
 
   def index
     @photo_prices = get_min_and_max_price_of_model(Shooting.all)
     @video_prices = get_min_and_max_price_of_model(Videography.all)
-    render "static_pages/home"
+    render "static_pages/home", layout: "main_page"
   end
 
   def signup
@@ -22,7 +25,7 @@ class StaticPagesController < ApplicationController
   def catalog
 
 
-    if request.get?
+    if request.params.blank?
       @result = Shooting.all
       @categories = ApplicationHelper.get_photo_categories
       @hidden_area = "Фотосъемка"
@@ -78,6 +81,17 @@ class StaticPagesController < ApplicationController
         return :popularity
       else
         return :price
+    end
+  end
+
+  def resolve_layout
+    case action_name
+      when "about"
+        "layout-no-footer"
+      when "index"
+        "main_page"
+      else
+        "application"
     end
   end
 end

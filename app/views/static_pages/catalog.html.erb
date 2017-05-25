@@ -7,11 +7,14 @@
 %>
 
 <script>
-  $(document).on('turbolinks:load', function () {
+
+  var generateCatalogUI = function(){
+
     $('.catalog-item-card-rating').each(function (index, participant) {
       var rate = $(participant).attr("rating-val");
       generate_rating($(participant), rate);
     });
+
 
     $('.slider-container').each(function(index, element){
 
@@ -32,6 +35,9 @@
           minItemWidth: 200,
           minColumns: 1
         });
+        $(this).on("mosaicflow-layout", function () {
+          console.log("Mosaicflow ready");
+        })
       });
     }else{
       $('.freewall-container').each(function(index, element){
@@ -46,13 +52,35 @@
         });
       });
     }
+  };
+
+  $(document).on('turbolinks:load', function () {
+    generateCatalogUI();
   });
+
+
+    var refreshFormOnChange = function(){
+      var form = $("#filter-form-box");
+      var url = "/catalog?" + form.serialize()
+      $.ajax({
+        type: 'GET',
+        url: url,
+        beforeSend: function(request) {
+          request.setRequestHeader("Accept", "q=0.5, text/javascript, application/javascript, application/ecmascript, application/x-ecmascript");
+        },
+        contentType: "text/javascript"
+
+      }).done(function(response){
+        window.history.pushState("Search result", "Canvas", url);
+      })
+
+    }
 
 </script>
 
 <div class="catalog-section page-wrapper">
   <div class="top-filter-catalog-section">
-    <%= form_tag("/catalog", method: "post", class: 'catalog-filter-form-box', id: 'filter-form-box', remote: true) do %>
+    <%= form_tag("/catalog", method: "get", class: 'catalog-filter-form-box', id: 'filter-form-box', remote: true) do %>
         <div class="top-filter-catalog-block">
           <div class='form-cells-block'>
             <div class='form-element-with-title'>
@@ -65,16 +93,16 @@
             </div>
             <div class='form-element-with-title'>
               <%= label_tag('filter[sort_by]', "Сортировка") %>
-              <%= select_tag 'filter[sort_by]', options_for_select([['Цена'], ['Популярность'], ['Категория']],(@old_params != nil) ? @old_params[:sort_by] : 'Цена'), onchange: "this.form.submit()" %>
+              <%= select_tag 'filter[sort_by]', options_for_select([['Цена'], ['Популярность'], ['Категория']],(@old_params != nil) ? @old_params[:sort_by] : 'Цена'), onchange: "refreshFormOnChange();" %>
             </div>
           </div>
           <div class='center-button-block'>
-            <%= submit_tag('Искать') %>
+            <%= submit_tag('Искать', onclick: "refreshFormOnChange(); return false;") %>
           </div>
           <div class='form-cells-block'>
             <div class='form-element-with-title'>
             <%= label_tag('filter[category]', "Категория:") %>
-            <%= select_tag 'filter[category]', options_for_select(@categories, (@old_params != nil) ? @old_params[:category] : 'Все'), onchange: "this.form.submit()" %>
+            <%= select_tag 'filter[category]', options_for_select(@categories, (@old_params != nil) ? @old_params[:category] : 'Все'), onchange: "refreshFormOnChange();" %>
             </div>
             <div class='form-element-with-title'>
             <%= label_tag('filter[author_name]', "Поиск по имени") %>

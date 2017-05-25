@@ -1,3 +1,18 @@
-$('.catalog-finded-items').fadeOut(0).empty()
-$('.catalog-finded-items').fadeIn(500)
-$("<%= escape_javascript(render 'shared/catalog') %>").appendTo(".catalog-finded-items");
+var magic = function(){
+  <% @result.each  do |founded| %>
+  var item = $("<%= escape_javascript(render partial: 'shared/catalog_item_card', locals: {item: founded}) %>");
+  item.find("a").lightcase();
+  item.appendTo(".catalog-finded-items");
+  <% end %>
+  $('.catalog-finded-items').waitForImages().done(function() {
+    // All descendant images have loaded, now slide up.
+    console.log("images loaded");
+    $('.catalog-finded-items').fadeIn(500);
+    generateCatalogUI();
+    $(window).trigger('resize');
+  });
+};
+
+$('.catalog-finded-items').fadeOut(200).empty();
+  setTimeout(magic, 200);
+
