@@ -6,13 +6,18 @@ var magic = function(){
   <% end %>
   $('.catalog-finded-items').waitForImages().done(function() {
     // All descendant images have loaded, now slide up.
-    console.log("images loaded");
     $('.catalog-finded-items').fadeIn(500);
     generateCatalogUI();
     $(window).trigger('resize');
+    var newTitle = "<%= @metatitle %>";
+    if ($(document).prop('title') != newTitle) {
+      $(document).prop('title', newTitle);
+      document.title = newTitle;
+    }
   });
 };
 
 $('.catalog-finded-items').fadeOut(200).empty();
   setTimeout(magic, 200);
+
 

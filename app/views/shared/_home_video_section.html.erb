@@ -56,7 +56,7 @@
   <div class = transparent-block300></div>
   <div id="videoslide" class = "whitestripe active">
     <h1>- Видеосъемка -</h1>
-    <%= form_tag("/catalog", method: "post", id: 'video_filter_form') do %>
+    <%= form_tag("/catalog", method: "get", id: 'video_filter_form') do %>
         <div class = "slider-wrapper">
           <h2>средняя стоимость за час работы</h2>
           <input name="filter[price[min]" class = "slider-price-cell cell-min" type="number" min="0" max="100000" id="minCost2" value=<%= prices[0] %>>

@@ -33,6 +33,7 @@ gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 gem 'thor', '0.19.1'
+gem 'meta-tags'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'carrierwave'
 gem 'image_magick'

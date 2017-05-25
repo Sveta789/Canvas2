@@ -55,7 +55,7 @@
   </div>
   <div id="photoslide" class = "whitestripe active">
     <h1>- ФОТОСЪЕМКА -</h1>
-    <%= form_tag("/catalog", method: "post", id: 'photo_filter_form') do %>
+    <%= form_tag("/catalog", method: "get", id: 'photo_filter_form') do %>
         <div class = "slider-wrapper">
           <h2>средняя стоимость за час работы</h2>
           <input name = 'filter[price[min]' class = "slider-price-cell cell-min" type="number" min="0" max="100000" id="minCost" value=<%= prices[0] %>>

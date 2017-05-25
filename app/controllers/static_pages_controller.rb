@@ -15,15 +15,20 @@ class StaticPagesController < ApplicationController
   end
 
   def signup
+    set_meta_tags title: 'Регистрация',
+                  description: 'Страница для регистрации.',
+                  keywords: 'Site, Login, Members, Инструкции, Фото, Видео'
     render "static_pages/signup"
   end
 
   def about
+    set_meta_tags title: 'О нас',
+                  description: 'Стартовая страница с инструкциями.',
+                  keywords: 'Site, Login, Members, Инструкции, Фото, Видео'
     render "static_pages/about"
   end
 
   def catalog
-
 
     if request.params.blank?
       @result = Shooting.all
@@ -47,6 +52,12 @@ class StaticPagesController < ApplicationController
       @old_params = filter_params
     end
 
+    @metatitle = "Каталог/#{filter_params[:category]} - Canvas";
+
+    set_meta_tags title: 'Каталог/' + filter_params[:category],
+                  description: 'Каталог фото-видео работ',
+                  keywords: 'Site, Login, Members, Инструкции, Фото, Видео'
+
     respond_to do |format|
       format.html { render 'static_pages/catalog' }
       format.js { render 'catalog_refresh' }
@@ -55,6 +66,9 @@ class StaticPagesController < ApplicationController
   end
 
   def greetings
+    set_meta_tags title: 'Добро Пожаловать!',
+                  description: 'Ожидание подтверждения регистрации',
+                  keywords: 'Site, Login, Members, Инструкции, Фото, Видео'
     render "static_pages/greeting"
   end
 

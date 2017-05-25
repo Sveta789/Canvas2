@@ -20,4 +20,15 @@ module ApplicationHelper
     render :partial => 'shared/video', :locals => { :id => id }
   end
 
+  def default_meta_tags
+    {
+        reverse: true,
+        site: 'Canvas',
+        title:       'Home',
+        description: 'Site for customers and operators.',
+        keywords:    'Site, Login, Members, Video, Photo',
+        separator:   "&mdash;".html_safe,
+    }
+  end
+
 end
