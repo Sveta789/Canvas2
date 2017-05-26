@@ -34,6 +34,7 @@ gem 'jquery-turbolinks'
 gem 'jbuilder'
 gem 'thor', '0.19.1'
 gem 'meta-tags'
+gem 'will_paginate', '~> 3.1.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'carrierwave'
 gem 'image_magick'

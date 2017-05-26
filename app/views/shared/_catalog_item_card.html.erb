@@ -1,3 +1,4 @@
+<% if item.user.profile && item.user.profile.name && item.user.profile.surname &&  item.user.portfolio %>
 <div class="catalog-item-card">
   <div class="catalog-item-card-front-side">
     <div class="catalog-item-card-avatar">
@@ -44,4 +45,4 @@
   <div class="switch-control switch-control-front" onclick="$(this).parent().toggleClass('expanded', false)"></div>
   <div class="switch-control switch-control-back" onclick="$(this).parent().toggleClass('expanded', true)"></div>
 </div>
-
+<% end %>

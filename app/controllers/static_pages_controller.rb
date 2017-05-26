@@ -54,9 +54,12 @@ class StaticPagesController < ApplicationController
 
     @metatitle = "Каталог/#{filter_params[:category]} - Canvas";
 
+    @result = @result.paginate(:page => params[:page], :per_page => 10)
+
     set_meta_tags title: 'Каталог/' + filter_params[:category],
                   description: 'Каталог фото-видео работ',
                   keywords: 'Site, Login, Members, Инструкции, Фото, Видео'
+
 
     respond_to do |format|
       format.html { render 'static_pages/catalog' }

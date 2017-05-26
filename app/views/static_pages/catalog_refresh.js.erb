@@ -14,10 +14,14 @@ var magic = function(){
       $(document).prop('title', newTitle);
       document.title = newTitle;
     }
+    var pagination = $('<%= will_paginate @result %>');
+    $('.pagination-block').append(pagination);
+
   });
 };
 
 $('.catalog-finded-items').fadeOut(200).empty();
+$('.pagination-block').empty();
   setTimeout(magic, 200);
 
 

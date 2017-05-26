@@ -123,6 +123,12 @@
         <%= render partial: 'shared/catalog_item_card', locals: {item: founded} %>
     <% end %>
   </div>
+
+  <div class="pagination-block">
+  <%= will_paginate @result %>
+  </div>
+
+
 </div>
 
 <script>

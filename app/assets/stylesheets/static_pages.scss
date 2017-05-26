@@ -182,3 +182,19 @@
   cursor: pointer;
   border: black 2px solid;
 }
+
+.pagination-block{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  height:50px;
+}
+
+.pagination{
+  *{
+    margin: 0 2px;
+  }
+}
+
